@@ -1,0 +1,5 @@
+gpu_depthstruct | device=NVIDIA GeForce RTX 4060 Laptop GPU 9GB | n=5 L=8192 Tmax=30000 batch=4096 gens=100 seed=1
+  QUESTION: does a TM-appropriate structure term (head-track edge-of-chaos, the expEE gap closed)
+  change WHAT depth-evolution finds — deep+structured machines vs plain deep counters?
+
+  === condition: depth ===
