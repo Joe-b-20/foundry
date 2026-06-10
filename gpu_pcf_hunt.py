@@ -48,7 +48,7 @@ except Exception:
 # ----------------------------------------------------------------------------
 # STAGE 1 — GPU float64 PCF evaluation
 # ----------------------------------------------------------------------------
-def eval_pcf_batch(Acoef, Bcoef, terms, renorm_every=1, bmode="poly"):
+def eval_pcf_batch(Acoef, Bcoef, terms, renorm_every=1, bmode="poly", want_delta=False):
     """Acoef: (M,3) [c0,c1,c2] for A(n)=c0+c1 n+c2 n^2 — or (M,4) incl. c3 n^3 when
     bmode='n6'. Bcoef: (M,3) poly when bmode='poly'; IGNORED when bmode='n6'
     (B(n) = -n^6, the Apery / Ramanujan-Machine zeta(3)-class family).
@@ -63,6 +63,8 @@ def eval_pcf_batch(Acoef, Bcoef, terms, renorm_every=1, bmode="poly"):
     val_prev = torch.full((M,), float("nan"), dtype=torch.float64, device=DEV)
     converged = torch.zeros(M, dtype=torch.bool, device=DEV)
     diverged = torch.zeros(M, dtype=torch.bool, device=DEV)
+    logq_acc = torch.zeros(M, dtype=torch.float64, device=DEV)   # log|q_n| via renorm scales
+    last_err = torch.full((M,), float("nan"), dtype=torch.float64, device=DEV)
     for n in range(1, terms + 1):
         An = Acoef[:, 0] + Acoef[:, 1] * n + Acoef[:, 2] * n * n
         if Acoef.shape[1] > 3:
@@ -73,6 +75,13 @@ def eval_pcf_batch(Acoef, Bcoef, terms, renorm_every=1, bmode="poly"):
             Bn = torch.full_like(An, -float(n) ** 4)
         elif bmode == "p4":
             Bn = torch.full_like(An, float(n) ** 4)
+        elif bmode == "gen6":
+            # full deg-6 b polynomial: Bcoef is (M,7) [b0..b6]
+            Bn = Bcoef[:, 0]
+            nf = 1.0
+            for k in range(1, 7):
+                nf *= n
+                Bn = Bn + Bcoef[:, k] * nf
         else:
             Bn = Bcoef[:, 0] + Bcoef[:, 1] * n + Bcoef[:, 2] * n * n
         p_new = An * p_cur + Bn * p_prev
@@ -81,6 +90,7 @@ def eval_pcf_batch(Acoef, Bcoef, terms, renorm_every=1, bmode="poly"):
         p_cur, q_cur = p_new, q_new
         # renormalize by q magnitude to keep values bounded
         scale = q_cur.abs().clamp(min=1e-300)
+        logq_acc = logq_acc + torch.log(scale)
         p_cur = p_cur / scale; q_cur = q_cur / scale
         p_prev = p_prev / scale; q_prev = q_prev / scale
         if n % renorm_every == 0 and n > 8:
@@ -90,9 +100,17 @@ def eval_pcf_batch(Acoef, Bcoef, terms, renorm_every=1, bmode="poly"):
             newconv = (d < 1e-13) & torch.isfinite(val)
             converged = converged | newconv
             diverged = diverged | ~torch.isfinite(val)
+            last_err = torch.where(torch.isfinite(val), d, last_err)
             val_prev = val
     value = p_cur / torch.where(q_cur.abs() < 1e-300, torch.full_like(q_cur, 1e-300), q_cur)
     diverged = diverged | ~torch.isfinite(value)
+    if want_delta:
+        # RM-style irrationality-quality: |v - p/q| ~ q^-(1+delta)  =>
+        # delta = -1 - ln(err)/ln(q). Higher = better approximation dynamics.
+        lq = logq_acc.clamp(min=1.0)
+        delta = -1.0 - torch.log(last_err.clamp(min=1e-308)) / lq
+        delta = torch.where(torch.isfinite(delta), delta, torch.full_like(delta, float("nan")))
+        return value, converged & ~diverged, diverged, delta
     return value, converged & ~diverged, diverged
 
 
@@ -198,6 +216,118 @@ def stage1_n6(crange, terms, out_dir, batch=400000, family="n6"):
     return len(NA)
 
 
+def _mobius_table():
+    """The tail-constant Mobius transform table for the streaming prefilter."""
+    import os as _os
+    _os.environ["MPMATH_NOGMPY"] = "1"
+    import mpmath as mp
+    mp.mp.dps = 30
+    tails = dict(zeta3=float(mp.zeta(3)), catalan=float(mp.catalan), gamma=float(mp.euler),
+                 pi3=float(mp.pi ** 3), zeta5=float(mp.zeta(5)), pi2=float(mp.pi ** 2),
+                 pi=float(mp.pi), e=float(mp.e), log2=float(mp.log(2)))
+    R = 16
+    coefs = np.arange(-R, R + 1)
+    P, Q, Rr, S = (x.ravel().astype(np.float64) for x in
+                   np.meshgrid(coefs, coefs, coefs, coefs, indexing="ij"))
+    tv_all = []
+    for cname, C in tails.items():
+        den = Rr * C + S; ok = np.abs(den) > 1e-9
+        tv = (P[ok] * C + Q[ok]) / den[ok]
+        tv_all.append(np.unique(np.round(tv[np.isfinite(tv) & (np.abs(tv) < 1e6)], 12)))
+    return np.unique(np.concatenate(tv_all))
+
+
+def stage1_gen6(arange, brange, terms, out_dir, batch=400000, near_thresh=1e-10, topk_delta=20000):
+    """GENERAL sweep: A deg-3 grid (|a|<=arange) x B deg-6 grid (|b|<=brange) — covers
+    every named family shape at low height simultaneously. Streaming Mobius prefilter
+    (constant memory) + delta-scoring (irrationality-approximation quality) with a
+    running top-K of unnamed high-delta values. Controls in-grid: 4/pi (a=[1,2,0,0],
+    b=n^2) and the RM 8/(7 zeta3) (a=[1,5,9,6], b=-n^6)."""
+    os.makedirs(out_dir, exist_ok=True)
+    ar = np.arange(-arange, arange + 1, dtype=np.float64)
+    br = np.arange(-brange, brange + 1, dtype=np.float64)
+    acube = np.array(np.meshgrid(ar, ar, ar, ar, indexing="ij")).reshape(4, -1).T  # (nA,4) (c3,c2,c1,c0)
+    acube = acube[:, ::-1].copy()                                                  # -> (c0,c1,c2,c3)
+    bcube = np.array(np.meshgrid(*([br] * 7), indexing="ij")).reshape(7, -1).T     # (nB,7) (b6..b0)
+    bcube = bcube[:, ::-1].copy()                                                  # -> (b0..b6)
+    bcube = bcube[np.any(bcube != 0, axis=1)]                                      # drop all-zero B
+    nA, nB = len(acube), len(bcube)
+    total = nA * nB
+    print(f"  STAGE 1-gen6 (GPU float64): A {nA:,} (deg3,|c|<={arange}) x B {nB:,} (deg6,|c|<={brange}) "
+          f"= {total:,} PCFs, {terms} terms, near_thresh={near_thresh}")
+    t0 = time.time()
+    table = _mobius_table()
+    table_t = torch.tensor(table, dtype=torch.float64, device=DEV)
+    print(f"    Mobius table: {len(table):,} values (incl. pi/e/log2 + tails); streaming prefilter on")
+    A_t = torch.tensor(acube, dtype=torch.float64, device=DEV)
+    near_A, near_B, near_V = [], [], []
+    # running top-K delta (unnamed, non-near): keep (delta, A, B, V) tensors
+    topd_d = torch.full((0,), -1e9, dtype=torch.float64, device=DEV)
+    topd_A = torch.zeros((0, 4), dtype=torch.float64, device=DEV)
+    topd_B = torch.zeros((0, 7), dtype=torch.float64, device=DEV)
+    topd_V = torch.zeros((0,), dtype=torch.float64, device=DEV)
+    bs_per = max(1, batch // nA)                       # b-rows per batch (a-cube tiled whole)
+    done = 0; n_conv = 0
+    for bs in range(0, nB, bs_per):
+        bblk = bcube[bs:bs + bs_per]
+        k = len(bblk)
+        Ac = A_t.repeat(k, 1)
+        Bc = torch.tensor(np.repeat(bblk, nA, axis=0), dtype=torch.float64, device=DEV)
+        v, conv, div, delta = eval_pcf_batch(Ac, Bc, terms, bmode="gen6", want_delta=True)
+        finite = torch.isfinite(v) & (v.abs() < 1e6) & (v.abs() > 1e-6)
+        near_int = (v - v.round()).abs() < 1e-7
+        keep = conv & finite & ~near_int
+        done += len(Ac)
+        if keep.any():
+            ki = keep.nonzero(as_tuple=True)[0]
+            vk = v[ki]; n_conv += len(ki)
+            pos = torch.searchsorted(table_t, vk).clamp(0, len(table_t) - 1)
+            pos0 = (pos - 1).clamp(0, len(table_t) - 1)
+            dist = torch.minimum((vk - table_t[pos]).abs(), (vk - table_t[pos0]).abs())
+            nearm = dist < near_thresh
+            if nearm.any():
+                ni = nearm.nonzero(as_tuple=True)[0]
+                near_A.append(Ac[ki][ni].cpu().numpy()); near_B.append(Bc[ki][ni].cpu().numpy())
+                near_V.append(vk[ni].cpu().numpy())
+            # top-K delta among the NON-near (the blind irrationality hunt)
+            restm = ~nearm
+            if restm.any():
+                ri = restm.nonzero(as_tuple=True)[0]
+                dd = delta[ki][ri]
+                good = torch.isfinite(dd) & (dd > 0)
+                if good.any():
+                    gi = good.nonzero(as_tuple=True)[0]
+                    topd_d = torch.cat([topd_d, dd[gi]])
+                    topd_A = torch.cat([topd_A, Ac[ki][ri][gi]])
+                    topd_B = torch.cat([topd_B, Bc[ki][ri][gi]])
+                    topd_V = torch.cat([topd_V, vk[ri][gi]])
+                    if len(topd_d) > topk_delta * 2:
+                        o = torch.argsort(topd_d, descending=True)[:topk_delta]
+                        topd_d, topd_A, topd_B, topd_V = topd_d[o], topd_A[o], topd_B[o], topd_V[o]
+        if (bs // bs_per) % 200 == 0:
+            nn = sum(len(x) for x in near_V)
+            print(f"    b {bs:,}/{nB:,}  done {done:,}/{total:,}  conv {n_conv:,}  NEAR {nn:,}  "
+                  f"topdelta {float(topd_d.max()) if len(topd_d) else 0:.2f}  [{time.time()-t0:.0f}s]")
+    NA = np.concatenate(near_A) if near_A else np.zeros((0, 4))
+    NB = np.concatenate(near_B) if near_B else np.zeros((0, 7))
+    NV = np.concatenate(near_V) if near_V else np.zeros((0,))
+    if len(NV):
+        o = np.argsort(NV); NA, NB, NV = NA[o], NB[o], NV[o]
+        km = np.ones(len(NV), bool); km[1:] = np.abs(np.diff(NV)) >= 1e-10
+        NA, NB, NV = NA[km], NB[km], NV[km]
+    np.savez(os.path.join(out_dir, "stage1_survivors.npz"), A=NA, B=NB, V=NV,
+             meta=np.array([arange, terms]), family=np.array(["gen6"]))
+    if len(topd_d):
+        o = torch.argsort(topd_d, descending=True)[:topk_delta]
+        np.savez(os.path.join(out_dir, "stage1_topdelta.npz"),
+                 D=topd_d[o].cpu().numpy(), A=topd_A[o].cpu().numpy(),
+                 B=topd_B[o].cpu().numpy(), V=topd_V[o].cpu().numpy(),
+                 family=np.array(["gen6"]))
+    print(f"  STAGE 1-gen6 done: {n_conv:,} convergent; {len(NA):,} distinct NEAR; "
+          f"{min(topk_delta, len(topd_d)):,} top-delta saved [{time.time()-t0:.0f}s]")
+    return len(NA)
+
+
 def stage1(crange, terms, out_dir, batch=200000):
     """Evaluate the full A x B grid, keep convergent non-trivial survivors, save."""
     os.makedirs(out_dir, exist_ok=True)
@@ -279,6 +409,10 @@ def _eval_pcf_mp(A, B, mp, terms=400, family="poly"):
             Bn = -mp.mpf(n) ** 4
         elif family == "p4":
             Bn = mp.mpf(n) ** 4
+        elif family == "gen6":
+            Bn = mp.mpf(0)
+            for k in range(len(B)):
+                Bn += int(B[k]) * mp.mpf(n) ** k
         else:
             Bn = mp.mpf(int(B[0]) + int(B[1]) * n + int(B[2]) * n * n)
         p_new = An * p_cur + Bn * p_prev
@@ -364,6 +498,11 @@ def stage2(out_dir, procs, dps_verify=250, limit=0):
     elif family == "p4":
         ctrlA = np.array([[3, 11, 11, 0]], float)
         A = np.vstack([ctrlA, A]); B = np.vstack([np.zeros((1, 3)), B])
+    elif family == "gen6":
+        # TWO in-grid controls: 4/pi (a=[1,2,0,0], b=n^2) and RM 8/(7zeta3) (a=[1,5,9,6], b=-n^6)
+        ctrlA = np.array([[1, 2, 0, 0], [1, 5, 9, 6]], float)
+        ctrlB = np.array([[0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, -1]], float)
+        A = np.vstack([ctrlA, A]); B = np.vstack([ctrlB, B])
     else:
         A = np.vstack([np.array([[1, 2, 0]], float), A])
         B = np.vstack([np.array([[0, 0, 1]], float), B])
@@ -388,6 +527,10 @@ def stage2(out_dir, procs, dps_verify=250, limit=0):
     elif family == "p4":
         ctrl = [r for r in results if r["A"] == [3, 11, 11, 0]]
         ctrl_ok = bool(ctrl) and ctrl[0]["constant"] in ("pi^2", "pi")
+    elif family == "gen6":
+        c1 = [r for r in results if r["A"] == [1, 2, 0, 0] and r["constant"] == "pi"]
+        c2 = [r for r in results if r["A"] == [1, 5, 9, 6] and r["constant"] == "zeta3"]
+        ctrl_ok = bool(c1) and bool(c2)
     else:
         ctrl = [r for r in results if r["A"] == [1, 2, 0] and r["B"] == [0, 0, 1]]
         ctrl_ok = bool(ctrl) and ctrl[0]["constant"] == "pi"
@@ -398,7 +541,8 @@ def stage2(out_dir, procs, dps_verify=250, limit=0):
     tail = ["catalan", "zeta3", "gamma"]
     print(f"\n  STAGE 2 done: {len(results)} constant-specific Mobius identities "
           f"(rational trap filtered) [{time.time()-t0:.0f}s]")
-    ctrl_name = {"n6": "Apery 6/zeta(3)", "p4": "Apery 30/pi^2"}.get(family, "4/pi")
+    ctrl_name = {"n6": "Apery 6/zeta(3)", "p4": "Apery 30/pi^2",
+                 "gen6": "4/pi AND RM 8/(7zeta3)"}.get(family, "4/pi")
     print(f"  POSITIVE CONTROL ({ctrl_name} recovered): {'OK' if ctrl_ok else 'FAILED — null is uninterpretable!'}")
     print(f"  per-constant: " + "  ".join(f"{k}:{v}" for k, v in sorted(bycon.items(), key=lambda x: -x[1])))
     print(f"  TAIL constants (catalan/zeta3/gamma) hits: " +
@@ -460,9 +604,13 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--stage1", action="store_true"); ap.add_argument("--stage2", action="store_true")
-    ap.add_argument("--family", type=str, default="poly", choices=["poly", "n6", "n4", "p4"],
-                    help="poly: A,B deg<=2 grids. n6: A deg-3 grid x B=-n^6 (Apery/zeta3 class)")
+    ap.add_argument("--family", type=str, default="poly", choices=["poly", "n6", "n4", "p4", "gen6"],
+                    help="poly: A,B deg<=2 grids. n6/n4/p4: A deg-3 grid x fixed B family. "
+                         "gen6: A deg-3 grid x B deg-6 grid (general; covers all family shapes)")
     ap.add_argument("--crange", type=int, default=6); ap.add_argument("--terms", type=int, default=80)
+    ap.add_argument("--arange", type=int, default=9, help="gen6: |a-coef| bound")
+    ap.add_argument("--brange", type=int, default=2, help="gen6: |b-coef| bound")
+    ap.add_argument("--near-thresh", type=float, default=1e-8, dest="near_thresh")
     ap.add_argument("--procs", type=int, default=60); ap.add_argument("--dps", type=int, default=250)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--out", type=str, default="runs/pcf")
@@ -477,7 +625,9 @@ if __name__ == "__main__":
         stage2(out_dir=args.out, procs=4, dps_verify=120, limit=200)
         raise SystemExit(0)
     if args.stage1:
-        if args.family in ("n6", "n4", "p4"):
+        if args.family == "gen6":
+            stage1_gen6(args.arange, args.brange, args.terms, args.out, near_thresh=args.near_thresh)
+        elif args.family in ("n6", "n4", "p4"):
             stage1_n6(args.crange, args.terms, args.out, family=args.family)
         else:
             stage1(args.crange, args.terms, args.out)
