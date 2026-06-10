@@ -1,0 +1,18 @@
+=== rich VM self-test ===
+  a b add=1337     OK
+  a b xor          OK
+  a shl            OK
+  a b sub          OK
+  swap sub         OK
+  => VM CORRECT
+
+gpu_avida_oe | device=cuda | TARGET-FREE edge-of-chaos | N=2048 P=20 gens=200
+
+  WATCH: which functions evolve target-free (match=[...]). KNOWN (+,^,shift) = ceiling holds; an unidentified
+  structured map = evidenceable-but-unprovable novelty. Then INSPECT runs_pod/avida_oe top organisms.
+
+  gen     0: best=0.000 mean=0.000 edge=0.18 match=['0'] | first_match={'0': 0} [0s]
+  gen    50: best=4.116 mean=0.662 edge=1.00 match=['a^b', '(a|b)-(a&b)'] | first_match={'0': 0, 'a^b': 50, '(a|b)-(a&b)': 50, 'b-a': 50} [6s]
+  gen   100: best=4.126 mean=2.791 edge=0.99 match=[] nearest=~(a^b)@0.895 | first_match={'0': 0, 'a^b': 50, '(a|b)-(a&b)': 50, 'b-a': 50, '~(a^b)': 100} [12s]
+  gen   150: best=4.122 mean=3.021 edge=0.99 match=[] nearest=a^b@0.895 | first_match={'0': 0, 'a^b': 50, '(a|b)-(a&b)': 50, 'b-a': 50, '~(a^b)': 100} [19s]
+  gen   200: best=4.116 mean=3.020 edge=1.00 match=['~(a^b)'] | first_match={'0': 0, 'a^b': 50, '(a|b)-(a&b)': 50, 'b-a': 50, '~(a^b)': 100} [25s]

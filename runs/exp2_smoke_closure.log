@@ -1,0 +1,40 @@
+gpu_exp2_qd | device=NVIDIA GeForce RTX 4060 Laptop GPU 9GB | n=4 L=512 Tmax=2000 batch=512 gens=20 grid=12
+
+  SAMPLING (random TMs, matched budget):
+    deepest halter = 28 steps   [2s]
+
+  EVOLUTION (single-objective depth hill-climb = the expEE baseline):
+    deepest halter = 45 steps   [19s]
+
+  MAP-ELITES (quality-diversity over 'span_ones' niches):
+  ME gen     0: best depth       20 | coverage   25/144
+  ME gen     1: best depth       20 | coverage   30/144
+  ME gen     2: best depth       20 | coverage   32/144
+  ME gen     3: best depth       20 | coverage   33/144
+  ME gen     4: best depth       20 | coverage   33/144
+  ME gen     5: best depth       20 | coverage   33/144
+  ME gen     6: best depth       20 | coverage   33/144
+  ME gen     7: best depth       20 | coverage   33/144
+  ME gen     8: best depth       20 | coverage   34/144
+  ME gen     9: best depth       23 | coverage   34/144
+  ME gen    10: best depth       23 | coverage   34/144
+  ME gen    11: best depth       27 | coverage   35/144
+  ME gen    12: best depth       27 | coverage   36/144
+  ME gen    13: best depth       27 | coverage   36/144
+  ME gen    14: best depth       27 | coverage   37/144
+  ME gen    15: best depth       27 | coverage   37/144
+  ME gen    16: best depth       27 | coverage   38/144
+  ME gen    17: best depth       27 | coverage   39/144
+  ME gen    18: best depth       27 | coverage   40/144
+  ME gen    19: best depth       27 | coverage   40/144
+    deepest halter = 27 steps | archive coverage 40/144   [38s]
+
+  === RESULT ===
+    sampling 28   evolution 45   MAP-Elites 27   (deepest halter, steps)
+    archive integrity: stored best re-runs to runtime=27 halted=True => OK (matches archived 27)
+    VERDICT: MAP-Elites did NOT beat evolution — the landscape wall holds even for QD
+    deepest machine: runtime=27 ones=5 span=6
+
+  READ: a large MAP-Elites>>evolution gap = QD's stepping-stones cross the rugged BB needle-landscape where
+  hill-climbing stalls (a movable wall). A small gap = the landscape wall is fundamental to the discovery
+  PROCESS, not just to naive search. Either is a clean, honest result on the one wall marked 'FIX: unknown'.

@@ -3686,3 +3686,44 @@ step is discussing these findings and direction with Joe.
 Status: WORKS (audit complete: 2 evidence-contradicted headline claims, 1 unsupported discovery claim, 3 wall-scope holes,
 + minor errata — none fatal to the two contributions; full detail + verification ledger in consolidation/09_fable5_audit.md).
 Files: consolidation/09_fable5_audit.md, runs/audit_exp1_s1_grid.png, runs/audit_exp1_s2_grid.png, runs/audit_exp1_s3_grid.png
+
+## 2026-06-09 — POST-AUDIT REPAIRS + expFF_search: doc corrections applied, rules amended, repo under git, wall #5 MEASURED
+What I tried (Joe approved the audit's recommendations): (1) apply the doc repairs in place across consolidation/01-08 +
+README + ARCHITECTURE.md, marked "↻ audit"; (2) add the 5 dated [ERRATUM] brackets to this tracker (exp3-mul "fits", QD
+40x, avida_oe a+b waypoints, expEE random-driver "2", lprog 680->2776) — append-only ethos preserved, originals untouched;
+(3) append the approved amendments section to .claude/RULES.md (claims-need-artifacts, comparative-claims-need-seeds-or-
+n=1-tag, render-before-verdict, stratify-mixed-condition-losses, no-duplicate-index-scatter + re-execute-archived-winners,
+git, scope-quantifiers-at-upgrade); (4) git init — initial commit 942c8ba snapshots the pre-fix state (47MB incl. all
+artifacts), so the session-10 buggy code is preserved in history; (5) prep the three closure runs: FIXED gpu_exp2_qd.py
+(dedup-safe per-cell-argmax insert replacing the undefined duplicate-index CUDA scatter; stationary log-binning for the
+ones axis [was batch-max-normalized = non-stationary cells]; --desc span_ones|rt_span for the descriptor-confound test;
+mandatory re-execution of the archived winner with archive_ok persisted in qd_result.json), UPGRADED gpu_avida_oe.py
+(named suite 10 -> ~60 functions exact-matched on 64 probe pairs [8 structured + 56 random — match is essentially proof],
+snapshots every 10 gens [was 200] describing the top-5 [was top-1], nearest-named bit-similarity for non-matches, and a
+persisted FIRST-MATCH table = the waypoint evidence the original claim lacked), and NEW expFF_search.py (the program-search
+addendum to the learnability wall). Smoked exp2-fixed and oe-upgraded on the 4060 (both pass; exp2 integrity check reads
+"stored best re-runs to runtime=27 => OK"; oe smoke already logs first_match={a^b: 50, b-a: 50, ~(a^b): 100} with the suite
+correctly identifying (a|b)-(a&b) as the same behavior as a^b). Wrote run_closures.sh (detached .DONE-marker pattern) for
+the two GPU closures; Joe is renting an RTX 4090.
+What happened (expFF_search, run to completion locally on CPU — the third closure, runs/expFF_search.log + .json):
+  PART 1: depth<=2 exhaustive search over {XSR(k), XSL(k), MUL(odd c)} against N=4000 outcome pairs of the expFF R=1 mixer:
+    the 16-probe filter leaves exactly ONE candidate = the TRUE program "x^=x>>7 ; x*=0x9E37", exact on all 4000 train +
+    4000 held-out (1.000). <1s. The function expFF's statistical learners sat at chance on IS discovered from outcome by
+    the project's own paradigm (exact-filtered program search).
+  PART 2 (control): the same search against a random permutation's examples -> 0 probe-survivors, 0 verified. No
+    hallucination — exact verification does its job.
+  PART 3 (the real wall): secret = depth-4 program (two independent (k,c) rounds; key space ~2^39.8). Budgeted random
+    depth-4 search, 20,000,000 candidates (~2^24.3): 0 probe-survivors. Discovery dies at the ENUMERATION BOUNDARY.
+What I learned: Wall #5 is now MEASURED rather than mislabeled: an efficiently-computable mixer is (a) unlearnable by
+statistical learners (expFF, stands), (b) discoverable from outcome by exact-filtered short-program search while its
+description is short, and (c) un-discoverable again once the secret exceeds enumeration reach — for outcome-driven program
+search the cryptographic wall is a DESCRIPTION-LENGTH wall, not an op-count wall. (Honest caveat, in the log: Part 3 is a
+budget statement, not an impossibility proof — a cleverer-than-enumeration search could in principle exploit the mixer's
+algebraic structure; the boundary measured is for generic enumeration.) The taxonomy (03 #5) updated with the demonstrated
+statement. Remaining closures (pod, pending): exp2fix 3 seeds + rt_span descriptor + Tmax-30000 cap test; oe_fix 3 seeds
+with waypoint logging. Estimated ~2 pod-hours (~$1.5).
+Status: WORKS (doc repairs + rules amendments + git landed; expFF_search closure complete and clean — wall #5 restated
+with measurement; exp2/oe closures prepped, smoked, and queued for the pod).
+Files: consolidation/01-09 (edits), .claude/RULES.md (amendments), .gitignore, expFF_search.py, runs/expFF_search.log,
+runs/expFF_search.json, gpu_exp2_qd.py (fixed), gpu_avida_oe.py (upgraded), run_closures.sh, runs/oe_smoke_closure.log,
+runs/exp2_smoke_closure.log

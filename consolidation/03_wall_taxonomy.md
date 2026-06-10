@@ -129,7 +129,11 @@ impossible by cryptographic hardness.
   (a wrong short program passes 4,000 16-bit exact checks with probability ~0).
   For this project the cryptographic wall is properly a **description-length
   wall**: it binds when the function's secret/description exceeds what the search
-  can enumerate (real keyed crypto), not at "2 ops."
+  can enumerate (real keyed crypto), not at "2 ops." **Demonstrated** the same day
+  (`expFF_search.py`, `runs/expFF_search.log`): depth-2 exhaustive search recovers
+  the exact mixer program from examples (held-out 1.000; zero false positives on a
+  random-permutation control), and dies at a depth-4 secret (~2^39.8 key space vs
+  ~2^24.3 budget) — the wall is at the enumeration boundary.
 - This remains the wall most specific to outcome-driven *statistical* learning.
 - **FIX:** none for statistical learners; for exact-filtered program search the
   wall begins at description lengths beyond enumeration reach.

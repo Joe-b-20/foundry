@@ -20,6 +20,15 @@ that is deep AND has low-complexity structured space-time would be moonshot-adja
 
 Run small (4060):  python gpu_exp2_qd.py --smoke
 Run scale (4090):  python gpu_exp2_qd.py --n 5 --batch 8192 --gens 4000 --Tmax 100000 --grid 28 --out runs/exp2_n5
+
+2026-06-09 (post-audit closure version): the original MAP-Elites insert() used a
+duplicate-index CUDA scatter (undefined write order — fitness/genome could pair from
+different machines; observed corrupted in the session-10 run, 09_fable5_audit.md
+§1.2). This version uses a dedup-safe per-cell argmax insert, fixes the
+batch-dependent 'ones' binning (now stationary), adds --desc {span_ones,rt_span}
+for the descriptor-confound test, and re-executes the archived winner before
+reporting (archive_ok in qd_result.json). The session-10 buggy version is preserved
+in git (initial commit).
 """
 from __future__ import annotations
 import argparse, time, os, json, zlib
@@ -122,14 +131,24 @@ def unflatten(flat, n):
 
 
 # ---------------------------------------------------------------------------
-# Descriptors -> archive cell. 2D behavior: (log2 span, ones), each binned into `grid`.
+# Descriptors -> archive cell, binned into `grid` per axis.
+#   span_ones: (log2 span, log2 ones)   [audit fix: ones axis was normalized by the
+#              BATCH max -> non-stationary cells across generations; now log/L-fixed]
+#   rt_span:   (log2 runtime, log2 span) [a depth-aligned descriptor, for the
+#              descriptor-confound test]
 # ---------------------------------------------------------------------------
-def cell_ids(out, grid, L):
+def cell_ids(out, grid, L, desc="span_ones", Tmax=1):
     span = out["span"].float().clamp(min=1)
-    ones = out["ones"].float()
-    b1 = (torch.log2(span) / np.log2(L) * grid).long().clamp(0, grid - 1)
-    omax = max(1.0, float(ones.max()))
-    b2 = (ones / (omax + 1e-9) * grid).long().clamp(0, grid - 1)
+    ones = out["ones"].float().clamp(min=0)
+    rt = out["runtime"].float().clamp(min=1)
+    if desc == "span_ones":
+        b1 = (torch.log2(span) / np.log2(L) * grid).long().clamp(0, grid - 1)
+        b2 = (torch.log2(ones + 1) / np.log2(L + 1) * grid).long().clamp(0, grid - 1)
+    elif desc == "rt_span":
+        b1 = (torch.log2(rt) / np.log2(max(2, Tmax)) * grid).long().clamp(0, grid - 1)
+        b2 = (torch.log2(span) / np.log2(L) * grid).long().clamp(0, grid - 1)
+    else:
+        raise ValueError(desc)
     return b1 * grid + b2
 
 
@@ -141,27 +160,36 @@ def fitness(out):
 # ---------------------------------------------------------------------------
 # MAP-Elites.
 # ---------------------------------------------------------------------------
-def map_elites(n, L, Tmax, batch, gens, grid, seed, out=None):
+def map_elites(n, L, Tmax, batch, gens, grid, seed, out=None, desc="span_ones"):
     gsize = 6 * n; ncells = grid * grid
     g = torch.Generator(device=DEV).manual_seed(seed)
     arch_fit = torch.full((ncells,), -1.0, device=DEV)
     arch_gen = torch.zeros((ncells, gsize), dtype=torch.long, device=DEV)
 
     def insert(flat, fit, cells):
-        order = torch.argsort(fit)               # ascending -> last scatter (highest fit) wins per cell
-        cand_fit = torch.full((ncells,), -1.0, device=DEV)
-        cand_gen = torch.zeros((ncells, gsize), dtype=torch.long, device=DEV)
-        cand_fit[cells[order]] = fit[order]
-        cand_gen[cells[order]] = flat[order]
-        better = cand_fit > arch_fit
-        arch_fit[better] = cand_fit[better]
-        arch_gen[better] = cand_gen[better]
+        # AUDIT FIX (09_fable5_audit.md §1.2): the original duplicate-index scatter
+        # (cand_fit[cells[order]] = ...) has UNDEFINED write order on CUDA, so the
+        # fitness and genome scatters could resolve to DIFFERENT machines for the
+        # same cell (observed corrupted in the session-10 run). Dedup-safe version:
+        # group candidates by cell with fitness ascending inside each group; the
+        # last member of each group is that cell's argmax — unique cells only.
+        order = torch.argsort(fit)                       # fit ascending
+        o2 = torch.argsort(cells[order], stable=True)    # group by cell, keep fit order
+        idx = order[o2]
+        cs = cells[idx]
+        last = torch.ones_like(cs, dtype=torch.bool)
+        last[:-1] = cs[:-1] != cs[1:]                    # last index of each cell group
+        win = idx[last]                                  # one winner per distinct cell
+        wc = cells[win]
+        better = fit[win] > arch_fit[wc]
+        arch_fit[wc[better]] = fit[win[better]]
+        arch_gen[wc[better]] = flat[win[better]]
         return int(better.sum())
 
     # seed the archive with random machines
     tabs = random_tms(batch, n, g)
     o = run_tms(tabs, n, L, Tmax)
-    insert(flatten(tabs, n), fitness(o), cell_ids(o, grid, L))
+    insert(flatten(tabs, n), fitness(o), cell_ids(o, grid, L, desc, Tmax))
     best_trace = [float(arch_fit.max())]
     for gen in range(gens):
         filled = (arch_fit > -1).nonzero(as_tuple=True)[0]
@@ -171,7 +199,7 @@ def map_elites(n, L, Tmax, batch, gens, grid, seed, out=None):
             pick = filled[torch.randint(0, len(filled), (batch,), generator=g, device=DEV)]
             tabs = mutate_tms(unflatten(arch_gen[pick], n), g, n)
         o = run_tms(tabs, n, L, Tmax)
-        insert(flatten(tabs, n), fitness(o), cell_ids(o, grid, L))
+        insert(flatten(tabs, n), fitness(o), cell_ids(o, grid, L, desc, Tmax))
         best_trace.append(float(arch_fit.max()))
         if gen % max(1, gens // 12) == 0 or gen == gens - 1:
             print(f"  ME gen {gen:5d}: best depth {int(arch_fit.max()):8d} | coverage {int((arch_fit>-1).sum()):4d}/{ncells}")
@@ -225,6 +253,8 @@ if __name__ == "__main__":
     ap.add_argument("--gens", type=int, default=800)
     ap.add_argument("--grid", type=int, default=24, help="MAP-Elites bins per behavior axis")
     ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--desc", type=str, default="span_ones", choices=["span_ones", "rt_span"],
+                    help="MAP-Elites behavior descriptor (descriptor-confound test)")
     ap.add_argument("--out", type=str, default=None)
     args = ap.parse_args()
     if args.smoke:
@@ -244,25 +274,34 @@ if __name__ == "__main__":
     e_best, e_trace = evolution(args.n, args.L, args.Tmax, args.batch, args.gens, args.seed)
     print(f"    deepest halter = {int(e_best)} steps   [{time.time()-t0:.0f}s]\n")
 
-    print("  MAP-ELITES (quality-diversity over (span, ones) niches):")
-    arch_fit, arch_gen, m_trace = map_elites(args.n, args.L, args.Tmax, args.batch, args.gens, args.grid, args.seed, args.out)
+    print(f"  MAP-ELITES (quality-diversity over '{args.desc}' niches):")
+    arch_fit, arch_gen, m_trace = map_elites(args.n, args.L, args.Tmax, args.batch, args.gens, args.grid, args.seed,
+                                             args.out, desc=args.desc)
     m_best = int(arch_fit.max()); coverage = int((arch_fit > -1).sum())
     print(f"    deepest halter = {m_best} steps | archive coverage {coverage}/{args.grid**2}   [{time.time()-t0:.0f}s]\n")
 
-    # inspect the deepest machine: structure (compressibility) of its space-time
+    # AUDIT RULE: re-execute the archived winner before reporting it. The stored
+    # genome must reproduce the archived fitness exactly (deterministic sim).
     best_cell = int(arch_fit.argmax())
     best_tab = unflatten(arch_gen[best_cell:best_cell + 1], args.n)
     o = run_tms(best_tab, args.n, args.L, max(args.Tmax, m_best + 1))
+    rerun_rt = int(o["runtime"][0]); rerun_halt = bool(o["halted"][0])
+    archive_ok = rerun_halt and (rerun_rt == m_best)
     print("  === RESULT ===")
     print(f"    sampling {s_best}   evolution {int(e_best)}   MAP-Elites {m_best}   (deepest halter, steps)")
+    print(f"    archive integrity: stored best re-runs to runtime={rerun_rt} halted={rerun_halt} "
+          f"=> {'OK (matches archived ' + str(m_best) + ')' if archive_ok else 'CORRUPTED — DO NOT REPORT THE ME NUMBER'}")
     verdict = ("MAP-Elites CROSSED the landscape wall (deeper than evolution)" if m_best > 1.3 * max(1, e_best)
                else "MAP-Elites did NOT beat evolution — the landscape wall holds even for QD")
-    print(f"    VERDICT: {verdict}")
-    print(f"    deepest machine: runtime={int(o['runtime'][0])} ones={int(o['ones'][0])} span={int(o['span'][0])}")
+    print(f"    VERDICT: {verdict}" + ("" if archive_ok else "  [VOID — archive corrupted]"))
+    print(f"    deepest machine: runtime={rerun_rt} ones={int(o['ones'][0])} span={int(o['span'][0])}")
     if args.out:
         os.makedirs(args.out, exist_ok=True)
         with open(os.path.join(args.out, "qd_result.json"), "w") as fh:
-            json.dump(dict(n=args.n, sampling=s_best, evolution=int(e_best), map_elites=m_best, coverage=coverage,
+            json.dump(dict(n=args.n, Tmax=args.Tmax, batch=args.batch, gens=args.gens, grid=args.grid,
+                           seed=args.seed, desc=args.desc,
+                           sampling=s_best, evolution=int(e_best), map_elites=m_best, coverage=coverage,
+                           archive_rerun_runtime=rerun_rt, archive_rerun_halted=rerun_halt, archive_ok=archive_ok,
                            m_trace=m_trace[::max(1, len(m_trace)//200)], e_trace=e_trace[::max(1, len(e_trace)//200)]), fh, indent=2)
         np.save(os.path.join(args.out, "archive_fitness.npy"), arch_fit.cpu().numpy().reshape(args.grid, args.grid))
         np.save(os.path.join(args.out, "deepest_tape.npy"), o["tape"][0].cpu().numpy())

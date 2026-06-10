@@ -118,36 +118,108 @@ def decode(row):
     return " ".join(OPN[int(o)] for o in row)
 
 
+# 2026-06-09 closure version (audit §1.3): the original named suite had 10 entries —
+# the expX "5-entry label list" artifact recurring at the load-bearing position. This
+# suite has ~60 functions, evaluated as EXACT match on 64 probe pairs (8 structured +
+# 56 pseudo-random), so a match is essentially a proof and a non-match is meaningful.
+def _named_suite(aa, bb):
+    M = MASK
+    f = {}
+    f["0"] = torch.zeros_like(aa); f["0xFFFF"] = torch.full_like(aa, M)
+    f["a"] = aa; f["b"] = bb; f["~a"] = (~aa) & M; f["~b"] = (~bb) & M
+    f["a<<1"] = (aa << 1) & M; f["a>>1"] = aa >> 1; f["b<<1"] = (bb << 1) & M; f["b>>1"] = bb >> 1
+    f["a+1"] = (aa + 1) & M; f["a-1"] = (aa - 1) & M; f["b+1"] = (bb + 1) & M; f["b-1"] = (bb - 1) & M
+    f["a&b"] = aa & bb; f["a|b"] = aa | bb; f["a^b"] = aa ^ bb
+    f["~(a&b)"] = (~(aa & bb)) & M; f["~(a|b)"] = (~(aa | bb)) & M; f["~(a^b)"] = (~(aa ^ bb)) & M
+    f["a&~b"] = aa & (~bb) & M; f["~a&b"] = (~aa) & bb & M; f["a|~b"] = (aa | ((~bb) & M)) & M; f["~a|b"] = (((~aa) & M) | bb) & M
+    f["a+b"] = (aa + bb) & M; f["a-b"] = (aa - bb) & M; f["b-a"] = (bb - aa) & M
+    f["a+b+1"] = (aa + bb + 1) & M; f["a-b-1"] = (aa - bb - 1) & M
+    f["2a"] = (2 * aa) & M; f["2b"] = (2 * bb) & M; f["3a"] = (3 * aa) & M; f["3b"] = (3 * bb) & M
+    f["2a+b"] = (2 * aa + bb) & M; f["a+2b"] = (aa + 2 * bb) & M; f["2a+2b"] = (2 * (aa + bb)) & M
+    f["2a-b"] = (2 * aa - bb) & M; f["2b-a"] = (2 * bb - aa) & M
+    f["(a+b)>>1"] = ((aa + bb) & M) >> 1; f["(a^b)>>1"] = (aa ^ bb) >> 1
+    f["(a&b)<<1"] = ((aa & bb) << 1) & M                       # the carry vector
+    f["(a+b)^a"] = ((aa + bb) & M) ^ aa; f["(a+b)^b"] = ((aa + bb) & M) ^ bb
+    f["(a+b)^a^b"] = ((aa + bb) & M) ^ aa ^ bb                 # carry-propagation pattern
+    f["a+(a&b)"] = (aa + (aa & bb)) & M; f["a+(a|b)"] = (aa + (aa | bb)) & M
+    f["a+(a^b)"] = (aa + (aa ^ bb)) & M; f["(a|b)+(a&b)"] = ((aa | bb) + (aa & bb)) & M   # = a+b identity
+    f["(a|b)-(a&b)"] = ((aa | bb) - (aa & bb)) & M             # = a^b identity
+    f["a-(a&b)"] = (aa - (aa & bb)) & M                        # = a&~b identity
+    f["max"] = torch.maximum(aa, bb); f["min"] = torch.minimum(aa, bb)
+    f["|a-b|"] = (torch.maximum(aa, bb) - torch.minimum(aa, bb)) & M
+    f["a*b"] = (aa * bb) & M; f["a*a"] = (aa * aa) & M; f["b*b"] = (bb * bb) & M
+    f["~(a+b)"] = (~(aa + bb)) & M; f["-(a+b)"] = (-(aa + bb)) & M; f["-a"] = (-aa) & M; f["-b"] = (-bb) & M
+    f["a^(b<<1)"] = aa ^ ((bb << 1) & M); f["a^(b>>1)"] = aa ^ (bb >> 1)
+    f["(a^b)<<1"] = ((aa ^ bb) << 1) & M
+    return f
+
+
+_PROBE_CACHE = None
+
+def _probes():
+    global _PROBE_CACHE
+    if _PROBE_CACHE is None:
+        rng = np.random.default_rng(12345)
+        ra = rng.integers(0, MASK + 1, 56); rb = rng.integers(0, MASK + 1, 56)
+        aa = torch.tensor([3, 100, 255, 1000, 40000, 12345, 7, 65535] + list(ra), device=DEV)
+        bb = torch.tensor([5, 7, 200, 999, 25000, 11111, 3, 1] + list(rb), device=DEV)
+        _PROBE_CACHE = (aa, bb)
+    return _PROBE_CACHE
+
+
 def describe(prog_row, S):
-    """Characterize what one organism computes: its output on sample (a,b), and which KNOWN function (if any) it matches."""
+    """Characterize what one organism computes: exact-match against the ~60-entry named
+    suite on 64 probe pairs, plus the nearest-named bit-similarity for non-matches."""
     p = torch.tensor(prog_row[None], device=DEV)
-    aa = torch.tensor([3, 100, 255, 1000, 40000, 12345, 7, 65535], device=DEV)
-    bb = torch.tensor([5, 7, 200, 999, 25000, 11111, 3, 1], device=DEV)
+    aa, bb = _probes()
     out = run_vm(p.expand(len(aa), -1), aa, bb, S)[:, S - 1]
-    known = {"a+b": (aa + bb) & MASK, "a-b": (aa - bb) & MASK, "a^b": aa ^ bb, "a&b": aa & bb, "a|b": aa | bb,
-             "~(a&b)": (~(aa & bb)) & MASK, "a": aa, "b": bb, "a<<1": (aa << 1) & MASK, "(a+b)^a": ((aa + bb) & MASK) ^ aa}
+    known = _named_suite(aa, bb)
     match = [k for k, v in known.items() if bool((out == v).all())]
+    # graded view for the unmatched: nearest named function by per-bit agreement
+    best_nm, best_sim = "", 0.0
+    if not match:
+        ob = ((out[:, None] >> torch.arange(16, device=DEV)[None, :]) & 1)
+        for k, v in known.items():
+            vb = ((v[:, None] >> torch.arange(16, device=DEV)[None, :]) & 1)
+            sim = float((ob == vb).float().mean())
+            if sim > best_sim:
+                best_sim, best_nm = sim, k
     pairs = " ".join(f"{int(x)},{int(y)}->{int(o)}" for x, y, o in list(zip(aa, bb, out))[:5])
-    return match, pairs
+    return match, pairs, best_nm, round(best_sim, 3)
 
 
-def evolve(N, P, S, gens, seed, out_dir, snap=200):
+def evolve(N, P, S, gens, seed, out_dir, snap=10, topk=5):
+    """2026-06-09 closure version (audit §1.3): snapshot every `snap` gens (default 10,
+    was 200), describe the top-`topk` organisms (not just the best), persist every
+    snapshot, and maintain a FIRST-MATCH table (named function -> first gen at which
+    any top-k organism exactly matched it on 64 probes) — the waypoint evidence the
+    original run lacked."""
     os.makedirs(out_dir, exist_ok=True)
     g = torch.Generator(device=DEV).manual_seed(seed)
     prog = torch.randint(0, NUM_OPS, (N, P), generator=g, device=DEV)
-    log = []; t0 = time.time(); sigs = None
+    log = []; first_match = {}; t0 = time.time(); sigs = None
     for gen in range(gens + 1):
         merit, edge, nontriv, sig = merit_oe(prog, S, sigs)
         sigs = sig[torch.randperm(N, device=DEV)[:256]]                # archive a sample of behaviors for novelty
         if gen % snap == 0 or gen == gens:
-            bi = int(merit.argmax())
-            match, pairs = describe(prog[bi].cpu().numpy(), S)
+            top = torch.argsort(merit, descending=True)[:topk].cpu().numpy()
+            tops = []
+            for r, bi in enumerate(top):
+                match, pairs, near, sim = describe(prog[bi].cpu().numpy(), S)
+                for k in match:
+                    first_match.setdefault(k, gen)
+                tops.append(dict(rank=r, merit=round(float(merit[bi]), 3), edge=round(float(edge[bi]), 3),
+                                 match=match, nearest=near, near_sim=sim, pairs=pairs,
+                                 prog=decode(prog[bi].cpu().numpy())))
             m = dict(gen=gen, best=round(float(merit.max()), 3), mean=round(float(merit.mean()), 3),
-                     best_edge=round(float(edge[bi]), 3), match=match, pairs=pairs, best_prog=decode(prog[bi].cpu().numpy()))
-            log.append(m); json.dump(log, open(os.path.join(out_dir, "oe_log.json"), "w"), indent=1)
+                     best_edge=tops[0]["edge"], match=tops[0]["match"], pairs=tops[0]["pairs"],
+                     top=tops, first_match=dict(first_match))
+            log.append(m)
+            json.dump(log, open(os.path.join(out_dir, "oe_log.json"), "w"), indent=1)
             np.save(os.path.join(out_dir, "prog.npy"), prog.cpu().numpy())
+            neartxt = "" if tops[0]["match"] else f" nearest={tops[0]['nearest']}@{tops[0]['near_sim']}"
             print(f"  gen {gen:5d}: best={m['best']:.3f} mean={m['mean']:.3f} edge={m['best_edge']:.2f} "
-                  f"match={match} | {pairs[:50]} [{time.time()-t0:.0f}s]")
+                  f"match={tops[0]['match']}{neartxt} | first_match={dict(first_match)} [{time.time()-t0:.0f}s]")
         if gen == gens:
             break
         w = (0.02 + merit).clamp(min=1e-3)
@@ -164,7 +236,8 @@ if __name__ == "__main__":
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--N", type=int, default=8192); ap.add_argument("--P", type=int, default=24)
     ap.add_argument("--S", type=int, default=12); ap.add_argument("--gens", type=int, default=3000)
-    ap.add_argument("--snap", type=int, default=200); ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--snap", type=int, default=10); ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--topk", type=int, default=5)
     ap.add_argument("--out", type=str, default="runs/avida_oe")
     args = ap.parse_args()
     if args.selftest or args.smoke:
@@ -177,4 +250,4 @@ if __name__ == "__main__":
     print(f"\ngpu_avida_oe | device={DEV} | TARGET-FREE edge-of-chaos | N={args.N} P={args.P} gens={args.gens}\n")
     print("  WATCH: which functions evolve target-free (match=[...]). KNOWN (+,^,shift) = ceiling holds; an unidentified")
     print("  structured map = evidenceable-but-unprovable novelty. Then INSPECT runs_pod/avida_oe top organisms.\n")
-    evolve(args.N, args.P, args.S, args.gens, args.seed, args.out, args.snap)
+    evolve(args.N, args.P, args.S, args.gens, args.seed, args.out, args.snap, args.topk)

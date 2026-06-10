@@ -1,0 +1,28 @@
+THE LEARNABILITY WALL, REVISITED WITH THE PROJECT'S OWN PARADIGM (exact-filtered program search).
+Same setup as expFF: w=16, N=4000 train pairs, 4000 held-out. Search primitives:
+  XSR(k) x^=x>>k (15) | XSL(k) x^=x<<k (15) | MUL(c) x*=c mod 2^16, c odd (32768)
+
+PART 1 — R=1 mixer (true program: x^=x>>7; x*=0x9E37). Depth<=2 exhaustive search,
+  16-probe filter -> 1 candidate(s); exact-verifying on 4000 train + 4000 held-out:
+    FOUND (exact on all 8000): x^=x>>7 ; x*=0x9E37
+  => DISCOVERED from outcome. The function expFF's learners sat at chance on is recovered exactly,
+     held-out 1.000, by short-program enumeration + exact verification. [0s]
+
+PART 2 — CONTROL: random permutation's examples. Depth<=2 search: 0 probe-survivor(s),
+  0 after full verification (expected 0 — the search does not hallucinate). [0s]
+
+PART 3 — THE REAL WALL: secret = depth-4 program (two independent rounds, key space ~2^39.8).
+  Budgeted random depth-4 search, budget 20,000,000 programs (~2^24.3):
+  tried 20,000,000 -> 0 probe-survivors (expected 0 at this budget).
+  => discovery dies at the ENUMERATION BOUNDARY: ~2^39.8 key space vs ~2^24.3 budget.
+     [24s]
+
+READ: wall #5 restated. An efficiently-computable mixer is (a) unlearnable by statistical
+learners (expFF), yet (b) DISCOVERABLE from outcome by exact-filtered short-program search
+when its description is short (Part 1, with a clean no-hallucination control, Part 2), and
+(c) un-discoverable again once the secret/description exceeds the search's enumeration reach
+(Part 3). For outcome-driven PROGRAM SEARCH the cryptographic wall is a DESCRIPTION-LENGTH
+wall, not an op-count wall. (Caveat: Part 3 is a budget statement, not an impossibility proof;
+a cleverer-than-enumeration search could in principle exploit the mixer's algebraic structure.)
+
+wrote runs/expFF_search.json

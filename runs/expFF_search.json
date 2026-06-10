@@ -1,0 +1,9 @@
+{
+ "R1_found": [
+  "x^=x>>7 ; x*=0x9E37"
+ ],
+ "control_false_positives": 0,
+ "R2_keyspace_bits": 39.8,
+ "R2_budget": 20000000,
+ "R2_hits": 0
+}
