@@ -3985,3 +3985,4 @@ Status: WORKS (honest null + re-validation): |c|<=120 zeta(3)-class (3.37B PCFs)
 at billion-scale. The instrument reaches the tail; finding a NEW tail identity needs a different family / larger constants.
 Files: gpu_pcf_hunt.py (streaming stage1_n6), runs_pod/phase2/pcf_n6big/{stage2_hits.json,stage2_summary.json},
 runs_pod/phase2/pcf_p4/, run_n6big.sh
+[ADDENDUM 2026-06-10, blind-null arm completed: control_ok=True; the ONLY hit is the injected Apery control — the 50,000-sample blind arm of non-NEAR survivors is EMPTY as predicted, confirming the Mobius prefilter loses nothing the blind sample would have caught. Files: runs_pod/phase2/pcf_n6big_blind/.]
