@@ -1,0 +1,436 @@
+[
+ {
+  "A": [
+   -1,
+   -5,
+   -9,
+   -6
+  ],
+  "B": [
+   0,
+   0,
+   0
+  ],
+  "family": "n6",
+  "value": "-0.950751282949379964209287175796",
+  "constant": "zeta3",
+  "kind": "mobius",
+  "relation": [
+   -8,
+   0,
+   0,
+   -7
+  ],
+  "height": 8,
+  "verified": true,
+  "known": "mirror RM"
+ },
+ {
+  "A": [
+   1,
+   5,
+   9,
+   6
+  ],
+  "B": [
+   0,
+   0,
+   0
+  ],
+  "family": "n6",
+  "value": "0.950751282949379964209287175796",
+  "constant": "zeta3",
+  "kind": "mobius",
+  "relation": [
+   -8,
+   0,
+   0,
+   7
+  ],
+  "height": 8,
+  "verified": true,
+  "known": "8/(7zeta3) [RM 2021]"
+ },
+ {
+  "A": [
+   -1,
+   -5,
+   -9,
+   -6
+  ],
+  "B": [
+   0,
+   0,
+   0
+  ],
+  "family": "n6",
+  "value": "-0.950751282949379964209287175796",
+  "constant": "zeta3",
+  "kind": "mobius",
+  "relation": [
+   -8,
+   0,
+   0,
+   -7
+  ],
+  "height": 8,
+  "verified": true,
+  "known": "mirror RM"
+ },
+ {
+  "A": [
+   -6,
+   1,
+   2
+  ],
+  "B": [
+   2,
+   3,
+   1
+  ],
+  "family": "poly",
+  "value": "-14.3890560989306502272304274606",
+  "constant": "e",
+  "kind": "quad",
+  "relation": [
+   -7,
+   0,
+   -1,
+   -1,
+   0,
+   0
+  ],
+  "height": 7,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   -5,
+   -1,
+   0
+  ],
+  "B": [
+   3,
+   1,
+   0
+  ],
+  "family": "poly",
+  "value": "-5.60147231696388039012993131825",
+  "constant": "e",
+  "kind": "mobius",
+  "relation": [
+   57,
+   -21,
+   -87,
+   32
+  ],
+  "height": 87,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   -6,
+   -3,
+   0
+  ],
+  "B": [
+   0,
+   -2,
+   -2
+  ],
+  "family": "poly",
+  "value": "-5.48745522166518438124452054174",
+  "constant": "log2",
+  "kind": "mobius",
+  "relation": [
+   2,
+   0,
+   17,
+   -24
+  ],
+  "height": 24,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   -4,
+   -2,
+   0
+  ],
+  "B": [
+   0,
+   3,
+   1
+  ],
+  "family": "poly",
+  "value": "-4.5672232497824486550886092415",
+  "constant": "sqrt2",
+  "kind": "mobius",
+  "relation": [
+   3,
+   3,
+   3,
+   -1
+  ],
+  "height": 3,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   -4,
+   -1,
+   0
+  ],
+  "B": [
+   0,
+   -2,
+   0
+  ],
+  "family": "poly",
+  "value": "-3.52318831191152977623891656521",
+  "constant": "e",
+  "kind": "quad",
+  "relation": [
+   0,
+   0,
+   4,
+   1,
+   0,
+   1
+  ],
+  "height": 4,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   -2,
+   -3,
+   0
+  ],
+  "B": [
+   3,
+   1,
+   -2
+  ],
+  "family": "poly",
+  "value": "-2.43990084648844262408952137451",
+  "constant": "pi",
+  "kind": "mobius",
+  "relation": [
+   -8,
+   -3,
+   -4,
+   -1
+  ],
+  "height": 8,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   -2,
+   -1,
+   0
+  ],
+  "B": [
+   1,
+   1,
+   0
+  ],
+  "family": "poly",
+  "value": "-2.5496467783038448822263926848",
+  "constant": "e",
+  "kind": "mobius",
+  "relation": [
+   2,
+   -1,
+   -3,
+   1
+  ],
+  "height": 3,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   -2,
+   3,
+   2
+  ],
+  "B": [
+   2,
+   3,
+   1
+  ],
+  "family": "poly",
+  "value": "-0.47681168808847022376108343479",
+  "constant": "e",
+  "kind": "quad",
+  "relation": [
+   4,
+   0,
+   0,
+   1,
+   0,
+   1
+  ],
+  "height": 4,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   3,
+   3,
+   0
+  ],
+  "B": [
+   0,
+   -1,
+   -1
+  ],
+  "family": "poly",
+  "value": "2.61803398874989484820458683437",
+  "constant": "phi",
+  "kind": "mobius",
+  "relation": [
+   0,
+   1,
+   1,
+   -1
+  ],
+  "height": 1,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   5,
+   3,
+   0
+  ],
+  "B": [
+   0,
+   -3,
+   -2
+  ],
+  "family": "poly",
+  "value": "4.21118248962806921485739504089",
+  "constant": "pi",
+  "kind": "mobius",
+  "relation": [
+   -6,
+   0,
+   -8,
+   3
+  ],
+  "height": 8,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   5,
+   1,
+   0
+  ],
+  "B": [
+   -1,
+   -1,
+   0
+  ],
+  "family": "poly",
+  "value": "4.63870048719615978356697498414",
+  "constant": "e",
+  "kind": "mobius",
+  "relation": [
+   -2,
+   1,
+   8,
+   -3
+  ],
+  "height": 8,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   6,
+   3,
+   0
+  ],
+  "B": [
+   0,
+   0,
+   -2
+  ],
+  "family": "poly",
+  "value": "5.75744277188920827719100913762",
+  "constant": "log2",
+  "kind": "mobius",
+  "relation": [
+   -12,
+   0,
+   -131,
+   192
+  ],
+  "height": 192,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   6,
+   4,
+   0
+  ],
+  "B": [
+   -1,
+   -2,
+   -1
+  ],
+  "family": "poly",
+  "value": "5.5703619878735803900990516854",
+  "constant": "log3",
+  "kind": "mobius",
+  "relation": [
+   0,
+   -1,
+   -2,
+   2
+  ],
+  "height": 2,
+  "verified": true,
+  "known": ""
+ },
+ {
+  "A": [
+   6,
+   3,
+   0
+  ],
+  "B": [
+   6,
+   -1,
+   -2
+  ],
+  "family": "poly",
+  "value": "6.3475733587784756986985611779",
+  "constant": "pi",
+  "kind": "mobius",
+  "relation": [
+   -96,
+   0,
+   -32,
+   15
+  ],
+  "height": 96,
+  "verified": true,
+  "known": ""
+ }
+]

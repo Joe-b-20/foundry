@@ -467,7 +467,11 @@ def _verify_chunk(args):
             cname, rel, height = hits[0]
             # verify at high precision
             mp.mp.dps = dps_verify
-            v2 = _eval_pcf_mp(A, B, mp, family=family)
+            # terms must scale with precision: these PCFs converge ~0.15 digits/term,
+            # so 250-digit verification needs ~1700+ terms (the gen6 Catalan/pi^2 hits
+            # mis-flagged verified=False at the old fixed 1400 — a verifier-depth artifact).
+            vterms = max(1400, int(dps_verify * 9))
+            v2 = _eval_pcf_mp(A, B, mp, family=family, terms=vterms)
             C2 = _constants(mp)[cname]
             resid = rel[0] + rel[1] * C2 + rel[2] * v2 + rel[3] * v2 * C2
             mp.mp.dps = 60

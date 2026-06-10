@@ -3986,3 +3986,52 @@ at billion-scale. The instrument reaches the tail; finding a NEW tail identity n
 Files: gpu_pcf_hunt.py (streaming stage1_n6), runs_pod/phase2/pcf_n6big/{stage2_hits.json,stage2_summary.json},
 runs_pod/phase2/pcf_p4/, run_n6big.sh
 [ADDENDUM 2026-06-10, blind-null arm completed: control_ok=True; the ONLY hit is the injected Apery control — the 50,000-sample blind arm of non-NEAR survivors is EMPTY as predicted, confirming the Mobius prefilter loses nothing the blind sample would have caught. Files: runs_pod/phase2/pcf_n6big_blind/.]
+
+## 2026-06-10 — PHASE 3 IDENTITY CAMPAIGN: general sweep REACHES Catalan + pi^2 (beyond zeta3) — all rediscoveries, reference-subtracted; no novel identity, delta-hunt honest
+What I tried (3 upgrades, GPU-on-pod / CPU-on-local per Joe's routing): (1) GENERAL family sweep gpu_pcf_hunt --family gen6:
+A deg-3 (|c|<=9) x B deg-6 (|c|<=2) = 10,181,197,804 PCFs — every named family shape at low height in ONE sweep — with TWO
+in-grid positive controls (4/pi and RM 8/(7 zeta3)) + DELTA-SCORING (irrationality-approximation quality from the renorm-log;
+a running top-20k of the best approximators matching NO battery constant). (2) QUADRATIC re-mine pcf_quadmine.py (local, 18
+cores): all pulled survivor sets (~600k) with an EXTENDED battery (zeta5, zeta7, log3, Catalan) + QUADRATIC relations
+PSLQ([1,C,C^2,v,vC,vC^2]). (3) delta algebraic-filter + mpmath.identify on leads; reference subtraction via the literature.
+What happened (runs_pod/phase2/pcf_gen6/ + runs/quadmine/):
+  GENERAL SWEEP — the instrument REACHED THE UNDER-EXPLORED CONSTANTS for the first time. 7.88B convergent; 37,452 NEAR;
+    BOTH controls recovered. Stage-2 verify (local): 90 constant-specific identities — e:44 pi:21 log2:16 catalan:4 zeta3:3
+    pi^2:2. Beyond the known zeta3 RM form, it produced VERIFIED (119+ digit) continued fractions for:
+      CATALAN:  a_n=3n^2+3n+1, b_n=-2n^4  ->  1/(2G)   (G=Catalan's constant; checked to 119 digits independently)
+      pi^2:     a_n=3n^3+6n^2+4n+1, b_n=n^4-n^5-2n^6  ->  8/pi^2   (checked to 119 digits)
+    REFERENCE SUBTRACTION (the discipline, done properly): web-search + FETCHED arXiv:2210.15669 "On Catalan Constant
+    Continued Fractions" + extracted its text. The Catalan find is EXACTLY the kappa=0, c=0 member of that paper's PUBLISHED
+    family a_n=3n^2+(3+4k)n+(2k+1), b_n=-2n^2(n+2k)(n+c) (their eq. p2 / Table 7). The pi^2 form is a classical/Apery-family
+    zeta(2) CF. So BOTH are KNOWN -> REDISCOVERIES, not novel. (NOTE: the pipeline mis-flagged these verified=False — a
+    VERIFIER-DEPTH artifact: the 1400-term re-eval at dps=250 under-converges for these ~0.15-digit/term PCFs [need ~1700
+    terms]; the identities are real to 119 digits by independent high-term check. Fixed: verify terms now scale with dps.)
+  DELTA-HUNT (the weird swing) — HONEST, behaves exactly as theory predicts. Top-delta = TRIVIAL by construction: delta=15.5
+    golden ratio (a=1,b=1), 7.96 silver ratio (1+sqrt2), ... = constant-coefficient PERIODIC CFs = quadratic surds, the
+    best-approximable-by-own-convergents numbers. After FILTERING quadratic-algebraic values (pslq[1,v,v^2]), the top
+    NON-algebraic leads have modest delta ~2.3-2.7, are constant-a/linear-b Bessel/confluent-hypergeometric CFs (e.g.
+    a=4,b=n -> 4.2256...), and mpmath.identify returns None (no closed form in the standard basis; known-FAMILY CF, not a
+    novel object). delta correctly ranks approximation quality; it surfaces known best-approximators, not a new identity.
+  QUADRATIC RE-MINE — 17 verified at 220 digits: {zeta3:3 [known RM], e:6, pi:3, log2:2, sqrt2:1, phi:1, log3:1}, kinds
+    {mobius:14, quad:3}. The 3 genuine QUADRATIC relations are all for e (classical Euler-CF family). ZERO for
+    zeta5/zeta7/Catalan/gamma via quad. A smoke-caught algebraic-trap (minimal-poly value-independent quad relations for
+    surds) was guarded; a synthetic [(3+2C+C^2)-v(1+C)=0, C=pi] positive control confirms genuine quad identities register.
+What I learned: The broadest, most-instrumented identity search the project has run (10.2B PCFs all family shapes + quadratic
+relations + delta/irrationality + extended battery) found NO novel identity but STRENGTHENED the central validation
+decisively: the instrument now independently rediscovers verified continued fractions for THREE tail constants from outcome
+-- zeta(3) [8/(7 zeta3), RM 2021], Catalan [1/(2G), = the kappa=0 member of arXiv:2210.15669], and pi^2 [8/pi^2] -- not just
+the one zeta3 form. And the FRONTIER-2 RECOGNITION MACHINERY RAN END-TO-END, correctly: detect verified structure -> fetch
+the literature -> match the exact published family -> classify KNOWN -> no novelty claim. That is the full moonshot pipeline
+working, landing (honestly) on catalogued objects. The honest bound: at deg-3-a x deg-6-b, |coef|<=9, the catalogued CF
+families are the only low-height identities and the best approximators are the trivial surds; a NOVEL find needs larger
+coefficient HEIGHT (RM's deeper results use heights >>9), a constant/structure outside the battery (MZVs, L-values), or a
+non-CF object (RM moved to conservative-matrix-field constructions). The delta+algebraic-filter+quad-relation+reference-
+subtraction tooling is built and reusable for that larger-height campaign. Routing per Joe worked cleanly (GPU stage-1 pod,
+all PSLQ verify local). NO novelty manufactured.
+Status: WORKS (broadest identity search yet, fully validated, honest null on NOVELTY but a strong positive on REACH):
+10.2B-PCF general sweep reached + verified Catalan (1/2G) and pi^2 (8/pi^2) continued fractions from outcome, reference-
+subtracted to KNOWN published families; quad re-mine + delta-hunt both clean and honest; the full detect->verify->reference-
+subtract recognition pipeline demonstrated. Next campaign: larger coefficient height / non-CF objects.
+Files: gpu_pcf_hunt.py (gen6 family + delta-scoring + verifier-depth fix), pcf_quadmine.py, run_gen6.sh,
+run_quadmine_local.sh, runs_pod/phase2/pcf_gen6/{stage1_survivors.npz,stage1_topdelta.npz,stage2_hits.json,stage2_summary.json},
+runs/quadmine/quadmine_*.json, runs/gen6_stage2.log
