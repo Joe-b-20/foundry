@@ -3808,3 +3808,36 @@ Status: WORKS (closure complete, 3 seeds, fine logging). DISCONFIRMS the session
 occur); establishes the truer result -- target-free search converges to STRUCTURED UNNAMED functions, relocating the
 ceiling from vocabulary (wall #6, retracted) to recognition (Frontier 2). consolidation/04 III.B + 07 to be updated.
 Files: runs_pod/closures/oe_fix_{s1,s7,s3}/oe_log.json, gpu_avida_oe.py (upgraded suite + first_match logging)
+
+## 2026-06-10 — PHASE-2c PCF IDENTITY HUNT (GPU, deg<=2 grid): rediscovery at scale, zero tail hits — and the null is GRID-SCOPE, not absence
+What I tried (the audit-promoted direction with a historical base rate of human-unknown finds): scaled expV's continued-
+fraction hunt ~1000x on the 4090. gpu_pcf_hunt.py, two stages. STAGE 1 (GPU float64): all PCFs a_n=A(n), b_n=B(n) with
+A,B integer polys deg<=2, |coef|<=6 — 4,822,416 PCFs evaluated by the renormalized convergent recurrence (90 terms) in
+98s; kept convergent, finite, non-near-integer limits -> 4,317,754 distinct values. STAGE 2 (60 CPU procs, mpmath dps=60):
+400,000 survivors sampled across the value range + an INJECTED POSITIVE CONTROL (the classical 4/pi PCF) -> per-constant
+PSLQ on [1,C,v,vC] (battery: pi, e, catalan, zeta3, gamma, log2, pi^2, sqrt2, sqrt3, phi), DIRECT reject-rational filter
+(pslq([v,1]) — the expV trap), >=3-constant triviality filter, then 250-digit re-verification of each hit. ~55 min.
+What happened (runs_pod/phase2/pcf_main/stage2_summary.json + stage2_hits.json):
+  CONTROL RECOVERED: the 4/pi PCF -> rel [-4,0,0,1] verified. The pipeline finds what it should find; nulls are
+  interpretable. 37 constant-specific Mobius identities total: pi:16, e:14, sqrt3:4, sqrt2:1, log2:1, phi:1.
+  TAIL CONSTANTS: catalan 0, zeta3 0, gamma 0.
+  Of the 37: 20 re-verified at 250 digits; 17 "ver=False" — at least some of those are FALSE NEGATIVES of the verifier,
+  not false hits: e.g. A=[2,2,0] B=[0,2,2] -> v=2.7320508... with rel [-1,-1,1,0] = "v = 1+sqrt3", which is plainly TRUE
+  but failed the 250-digit residual because the fixed 400-term mpmath evaluation doesn't reach 250-digit accuracy for
+  slower PCFs (a verifier-depth artifact, flagged, not fixed this session). Spot-read of the verified hits: classical
+  families re-skinned (sign-mirrored Euler e-CFs, Brouncker pi forms, quadratic-surd CFs) — REDISCOVERY, as the
+  rediscovery-engine framing predicts for the catalogued region.
+What I learned: (1) The method scales cleanly (10^3x expV's grid in ~2.5 min of GPU + 55 min of CPU) and stays honest
+(control + rational-trap + verification gates all fired correctly). (2) The ZERO on catalan/zeta3/gamma is NOT evidence
+those constants lack nearby PCFs — it is GRID SCOPE: the KNOWN zeta3 PCFs (Apery / Ramanujan-Machine class) need
+a_n of DEGREE 3 with b_n = -n^6 (e.g. a_n = n^3+(n+1)^3, b_n=-n^6 gives 6/zeta(3)); deg<=2 x deg<=2 structurally cannot
+express them. The honest statement of this run: the deg<=2 region at |coef|<=6 contains (at our sampling) only the
+classical pi/e/surd families — the tail constants' identities live in HIGHER-DEGREE structure, exactly where the
+Ramanujan Machine found them. (3) Actionable next sweep (queued): the TARGETED deg-3 family a_n = c3 n^3+c2 n^2+c1 n+c0,
+b_n = -n^6, |c|<=~60 (~2x10^8 PCFs, GPU-feasible) with the Apery coefficients as the injected positive control — a
+genuine Ramanujan-Machine-adjacent hunt where zeta3-class identities are EXPRESSIBLE. No novelty claim from this run:
+everything found is classical-family; verified-to-250-digits where stated; references not exhaustively checked.
+Status: WORKS (clean scaled negative-plus-rediscovery; control recovered; tail null explained as grid scope; deg-3
+targeted hunt is the queued follow-up). n=1 run (sampling 400k of 4.3M survivors).
+Files: gpu_pcf_hunt.py, runs_pod/phase2/pcf_main/{stage1_survivors.npz,stage2_hits.json,stage2_summary.json},
+runs_pod/phase2/{pcf_stage1.log,pcf_stage2.log}
