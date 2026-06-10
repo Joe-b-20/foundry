@@ -1,0 +1,13 @@
+THE EXTRACTION WALL: fundamental or tooling? Single-digit mult — geometry stalled at ~0.94; try BEHAVIORAL merge.
+
+  NET length-gen (the algorithm is real): w3:1.000  w6:1.000  w12:1.000  w20:1.000
+
+  GEOMETRIC extraction (k-means on the continuous state, session-1 method):
+    best k-means FSM: k=None  length-gen w3:0.680  w6:0.620  w12:0.503  w20:0.557
+
+  BEHAVIORAL extraction (carry-read classing + majority vote over the net's REAL on-distribution transitions):
+    recovered 8 behavioral states (table coverage 0.55); FSM length-gen w1:0.943  w3:0.874  w6:0.834  w12:0.789  w20:0.748  w30:0.715
+
+  === DIAGNOSIS ===
+    geometric (k-means) bit-exact? False   |   behavioral (Myhill-Nerode) bit-exact? False  (8 states)
+    => behavioral extraction ALSO failed — evidence the mechanism resists finite-state extraction (investigate).

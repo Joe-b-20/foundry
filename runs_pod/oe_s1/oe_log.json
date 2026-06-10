@@ -1,0 +1,29 @@
+[
+ {
+  "gen": 0,
+  "best": 0.0,
+  "mean": 0.0,
+  "best_edge": 0.179,
+  "match": [],
+  "pairs": "3,5->0 100,7->0 255,200->0 1000,999->0 40000,25000->0",
+  "best_prog": "nop b drop drop nop swap shl a nand a nop sub dup 1 and sub swap a or 0 sub shr or shr swap swap shl 1"
+ },
+ {
+  "gen": 250,
+  "best": 4.798,
+  "mean": 3.139,
+  "best_edge": 1.0,
+  "match": [],
+  "pairs": "3,5->12 100,7->192 255,200->510 1000,999->16 40000,25000->64384",
+  "best_prog": "0 swap b dup shr 0 a shl swap a 0 0 0 b shr b swap shr a b a xor a add b dup xor dup"
+ },
+ {
+  "gen": 500,
+  "best": 4.922,
+  "mean": 3.521,
+  "best_edge": 0.991,
+  "match": [],
+  "pairs": "3,5->65520 100,7->65342 255,200->65024 1000,999->65518 40000,25000->1136",
+  "best_prog": "a 0 nop a a nand a dup dup a b 0 b shl 0 b 0 b sub b a xor a sub b dup xor dup"
+ }
+]

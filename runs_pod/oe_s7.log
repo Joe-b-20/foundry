@@ -1,0 +1,9 @@
+
+gpu_avida_oe | device=cuda | TARGET-FREE edge-of-chaos | N=12288 P=28 gens=4000
+
+  WATCH: which functions evolve target-free (match=[...]). KNOWN (+,^,shift) = ceiling holds; an unidentified
+  structured map = evidenceable-but-unprovable novelty. Then INSPECT runs_pod/avida_oe top organisms.
+
+  gen     0: best=0.000 mean=0.000 edge=0.18 match=[] | 3,5->0 100,7->0 255,200->0 1000,999->0 40000,25000 [1s]
+  gen   250: best=5.200 mean=3.741 edge=1.00 match=[] | 3,5->65535 100,7->65405 255,200->65263 1000,999->6 [143s]
+  gen   500: best=5.200 mean=3.887 edge=1.00 match=[] | 3,5->3 100,7->127 255,200->495 1000,999->15 40000, [288s]

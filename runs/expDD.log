@@ -1,0 +1,21 @@
+IS THE BRIDGE SIGNAL OPTIMIZABLE? Intrinsic-multi-signal-DRIVEN evolution over UNCATALOGUED radius-2 CAs.
+
+  references (what scores look like):
+    all-0 (dead)                 comp=0.019 damage=0.000 dens=0.00 NL=0
+    affine XOR-ish 0x33333333    comp=0.211 damage=0.008 dens=0.50 NL=0
+    random 0x9E3779B9            comp=0.883 damage=0.406 dens=0.60 NL=8
+
+  DRIVER comparison (3 seeds each; report mean structural quality of the evolved winners):
+    DRIVER=multi   mean(comp=0.509 damage=0.221 NL=9.3)  | top rule 0x5E69B88C comp=0.505 damage=0.227 NL=10
+    DRIVER=s1      mean(comp=0.499 damage=0.109 NL=9.3)  | top rule 0xAB8DB5C7 comp=0.500 damage=0.188 NL=9
+    DRIVER=random  mean(comp=0.764 damage=0.365 NL=10.0)  | top rule 0x9F330FBB comp=0.286 damage=0.000 NL=10
+
+  === INSPECT the MULTI-signal winner (characterize dynamics; NOT a novelty claim) ===
+    rule 0x5E69B88C: comp=0.505 damage=0.227 NL=10
+    cycle: transient 33, period 128 (within 200 steps, W=128)
+    perturbation spread after 200 steps: 0.188  (->0 heals, ->0.5 chaos, intermediate = localized/glider-ish)
+
+  READ: compare DRIVER rows. If MULTI converges to high-NL intermediate-comp intermediate-damage rules while
+  RANDOM does not, the bridge signal is OPTIMIZABLE (drives a search to structure), not merely selective —
+  the generative counterpart to expW's distinctness-driven DIVERGENCE to noise. Ceiling unchanged: uncatalogued
+  != provably-unknown; the winner is characterized, not claimed novel.

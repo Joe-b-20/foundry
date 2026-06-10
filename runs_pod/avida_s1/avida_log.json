@@ -1,0 +1,106 @@
+[
+ {
+  "gen": 0,
+  "best_merit": 8.83,
+  "mean": 1.514,
+  "bestfn": "OR",
+  "ladder": "NOTa:5499 NOTb:5521 NAND:2663 AND:324 a&~b:70 ~a&b:61 OR:72 ~a|b:615 a|~b:626 NOR:7",
+  "best_prog": "nand nand a a 0 drop 1 drop b a nand dup nand dup b dup nand a nand dup a 1 drop dup nand b a drop 0 nop b nand nand nand nop 0 dup a dup 1"
+ },
+ {
+  "gen": 250,
+  "best_merit": 25.75,
+  "mean": 17.865,
+  "bestfn": "XOR",
+  "ladder": "NOTa:7128 NOTb:14673 NAND:8519 AND:3289 a&~b:987 ~a&b:4290 OR:10198 ~a|b:14820 a|~b:9809 NOR:4014 XOR:12811 EQU:11947",
+  "best_prog": "b 1 0 b a 1 nand nand dup dup 0 drop nand 1 drop b 1 dup a dup nand 0 1 nand b a b nand nand 1 drop a b 1 nand nand nand nand nand nand"
+ },
+ {
+  "gen": 500,
+  "best_merit": 26.42,
+  "mean": 18.209,
+  "bestfn": "XOR",
+  "ladder": "NOTa:5959 NOTb:13720 NAND:6563 AND:2003 a&~b:848 ~a&b:4802 OR:11106 ~a|b:14547 a|~b:10236 NOR:7737 XOR:12532 EQU:11689",
+  "best_prog": "1 a nand b a 1 nand nand dup 1 a drop nand 0 nop a 1 nop a dup nand 0 dup nand b a b nand nand 0 drop a b b nand nand nand nand nand nand"
+ },
+ {
+  "gen": 750,
+  "best_merit": 28.08,
+  "mean": 18.843,
+  "bestfn": "XOR",
+  "ladder": "NOTa:7320 NOTb:11167 NAND:10622 AND:1427 a&~b:970 ~a&b:6444 OR:11163 ~a|b:14637 a|~b:11082 NOR:8504 XOR:12600 EQU:11645",
+  "best_prog": "nop 0 0 b a a nand nand dup dup nand a b nand dup 1 nand 1 dup b nand 0 a nand b a 1 nand nand dup drop a b 1 nand nand nand nand nand nand"
+ },
+ {
+  "gen": 1000,
+  "best_merit": 27.5,
+  "mean": 18.911,
+  "bestfn": "XOR",
+  "ladder": "NOTa:8456 NOTb:13931 NAND:8211 AND:1608 a&~b:919 ~a&b:6790 OR:10937 ~a|b:14685 a|~b:11049 NOR:8246 XOR:12613 EQU:11655",
+  "best_prog": "b dup nand b a a nand nand dup dup nand a 1 0 a a nand 1 a 1 nand 0 dup nand b a 1 nand nand a drop a b a nand nand nand nand nand nand"
+ },
+ {
+  "gen": 1250,
+  "best_merit": 28.12,
+  "mean": 18.87,
+  "bestfn": "XOR",
+  "ladder": "NOTa:7303 NOTb:13258 NAND:8362 AND:2468 a&~b:955 ~a&b:6629 OR:10940 ~a|b:14578 a|~b:10858 NOR:8426 XOR:12601 EQU:11629",
+  "best_prog": "1 a nand b a a nand nand dup 1 nand 1 a b nand nand b 1 1 b nand 0 a nand b a a nand nand a drop a b a nand nand nand nand nand nand"
+ },
+ {
+  "gen": 1500,
+  "best_merit": 28.38,
+  "mean": 19.466,
+  "bestfn": "XOR",
+  "ladder": "NOTa:7864 NOTb:10862 NAND:11585 AND:4396 a&~b:869 ~a&b:7493 OR:10976 ~a|b:14814 a|~b:11321 NOR:8545 XOR:12686 EQU:11666",
+  "best_prog": "a dup nand b a dup nand nand dup 1 nand 1 a b nand nand a 1 1 b nand 0 a nand b a b nand nand 1 drop a b b nand nand nand nand nand nand"
+ },
+ {
+  "gen": 1750,
+  "best_merit": 28.25,
+  "mean": 19.091,
+  "bestfn": "XOR",
+  "ladder": "NOTa:5837 NOTb:11005 NAND:10329 AND:5027 a&~b:942 ~a&b:6837 OR:10897 ~a|b:14688 a|~b:10964 NOR:8565 XOR:12514 EQU:11523",
+  "best_prog": "a a nand b a b nand nand dup 1 nand 1 a b nand nand b 1 a b nand 0 b nand b a b nand nand dup drop a b a nand nand nand nand nand nand"
+ },
+ {
+  "gen": 2000,
+  "best_merit": 28.25,
+  "mean": 19.215,
+  "bestfn": "XOR",
+  "ladder": "NOTa:7270 NOTb:13322 NAND:8777 AND:4399 a&~b:951 ~a&b:7331 OR:10882 ~a|b:14591 a|~b:11120 NOR:8206 XOR:12559 EQU:11673",
+  "best_prog": "b 1 nand b a a nand nand dup 1 nand 1 a b nand nand 1 1 a a nand 0 dup nand b a a nand nand dup drop a b a nand nand nand nand nand nand"
+ },
+ {
+  "gen": 2250,
+  "best_merit": 28.38,
+  "mean": 19.261,
+  "bestfn": "XOR",
+  "ladder": "NOTa:6223 NOTb:10820 NAND:10874 AND:4814 a&~b:935 ~a&b:7394 OR:11010 ~a|b:14640 a|~b:11131 NOR:8449 XOR:12609 EQU:11662",
+  "best_prog": "a nand dup b a b nand nand dup 1 nand 1 a b nand nand b 1 dup a nand 0 a nand b a b nand nand 1 drop a 1 b nand nand nand nand nand nand"
+ },
+ {
+  "gen": 2500,
+  "best_merit": 28.12,
+  "mean": 19.256,
+  "bestfn": "XOR",
+  "ladder": "NOTa:5964 NOTb:13469 NAND:7840 AND:4831 a&~b:865 ~a&b:7148 OR:11147 ~a|b:14645 a|~b:10969 NOR:8547 XOR:12691 EQU:11735",
+  "best_prog": "b a nand b a dup nand nand dup dup nand 1 a b nand nand 1 dup a nop nand 1 0 drop b a b nand nand a drop a b dup nand nand nand nand nand nand"
+ },
+ {
+  "gen": 2750,
+  "best_merit": 28.38,
+  "mean": 19.516,
+  "bestfn": "XOR",
+  "ladder": "NOTa:6904 NOTb:13462 NAND:8983 AND:5495 a&~b:844 ~a&b:7368 OR:10826 ~a|b:14709 a|~b:11241 NOR:8377 XOR:12821 EQU:11796",
+  "best_prog": "a 1 nand b 1 a nand nand dup 1 nand 1 a b nand nand 1 nop b 1 nand 0 1 nand b a a nand nand 0 drop a b b nand nand nand nand nand nand"
+ },
+ {
+  "gen": 3000,
+  "best_merit": 28.25,
+  "mean": 19.118,
+  "bestfn": "XOR",
+  "ladder": "NOTa:7279 NOTb:11451 NAND:10077 AND:3943 a&~b:893 ~a&b:6612 OR:11094 ~a|b:14672 a|~b:10925 NOR:8366 XOR:12674 EQU:11714",
+  "best_prog": "1 a nand b 1 a nand nand dup dup nand 1 a b nand nand a 1 1 a nand 1 0 nand b dup a nand nand 0 drop a b a nand nand nand nand nand nand"
+ }
+]

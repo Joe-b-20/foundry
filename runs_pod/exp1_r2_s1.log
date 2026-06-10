@@ -1,0 +1,129 @@
+gpu_exp1_novelty | device=NVIDIA GeForce RTX 4090 25GB sm_89 | radius=2 k=5 (rule space 2^32) W=256 T=256 batch=32768 pop=8192 gens=100 neural=True
+
+  training shared neural general-compressor (800 steps)...
+    done [40s]
+
+  gen   0: best interest 1.524 | mean(top20) 1.450 | complex-survivors 8332/16384
+  gen   1: best interest 1.501 | mean(top20) 1.424 | complex-survivors 8923/16384
+  gen   2: best interest 1.562 | mean(top20) 1.438 | complex-survivors 9241/16384
+  gen   3: best interest 1.495 | mean(top20) 1.422 | complex-survivors 9631/16384
+  gen   4: best interest 1.579 | mean(top20) 1.461 | complex-survivors 9717/16384
+  gen   5: best interest 1.649 | mean(top20) 1.457 | complex-survivors 9889/16384
+  gen   6: best interest 1.640 | mean(top20) 1.491 | complex-survivors 10098/16384
+  gen   7: best interest 1.601 | mean(top20) 1.486 | complex-survivors 10253/16384
+  gen   8: best interest 1.614 | mean(top20) 1.474 | complex-survivors 10259/16384
+  gen   9: best interest 1.613 | mean(top20) 1.498 | complex-survivors 10460/16384
+  gen  10: best interest 1.651 | mean(top20) 1.508 | complex-survivors 10639/16384
+  gen  11: best interest 1.600 | mean(top20) 1.487 | complex-survivors 10791/16384
+  gen  12: best interest 1.633 | mean(top20) 1.538 | complex-survivors 10930/16384
+  gen  13: best interest 1.632 | mean(top20) 1.531 | complex-survivors 10999/16384
+  gen  14: best interest 1.551 | mean(top20) 1.494 | complex-survivors 11237/16384
+  gen  15: best interest 1.630 | mean(top20) 1.529 | complex-survivors 11428/16384
+  gen  16: best interest 1.632 | mean(top20) 1.525 | complex-survivors 11655/16384
+  gen  17: best interest 1.608 | mean(top20) 1.505 | complex-survivors 11862/16384
+  gen  18: best interest 1.653 | mean(top20) 1.533 | complex-survivors 12028/16384
+  gen  19: best interest 1.665 | mean(top20) 1.484 | complex-survivors 12340/16384
+  gen  20: best interest 1.676 | mean(top20) 1.462 | complex-survivors 12324/16384
+  gen  21: best interest 1.655 | mean(top20) 1.475 | complex-survivors 12457/16384
+  gen  22: best interest 1.653 | mean(top20) 1.472 | complex-survivors 12567/16384
+  gen  23: best interest 1.563 | mean(top20) 1.424 | complex-survivors 12498/16384
+  gen  24: best interest 1.643 | mean(top20) 1.420 | complex-survivors 12576/16384
+  gen  25: best interest 1.549 | mean(top20) 1.415 | complex-survivors 12621/16384
+  gen  26: best interest 1.578 | mean(top20) 1.449 | complex-survivors 12547/16384
+  gen  27: best interest 1.518 | mean(top20) 1.436 | complex-survivors 12694/16384
+  gen  28: best interest 1.508 | mean(top20) 1.424 | complex-survivors 12648/16384
+  gen  29: best interest 1.566 | mean(top20) 1.419 | complex-survivors 12599/16384
+  gen  30: best interest 1.614 | mean(top20) 1.415 | complex-survivors 12663/16384
+  gen  31: best interest 1.537 | mean(top20) 1.405 | complex-survivors 12602/16384
+  gen  32: best interest 1.507 | mean(top20) 1.386 | complex-survivors 12706/16384
+  gen  33: best interest 1.507 | mean(top20) 1.390 | complex-survivors 12661/16384
+  gen  34: best interest 1.513 | mean(top20) 1.395 | complex-survivors 12745/16384
+  gen  35: best interest 1.508 | mean(top20) 1.407 | complex-survivors 12641/16384
+  gen  36: best interest 1.507 | mean(top20) 1.397 | complex-survivors 12643/16384
+  gen  37: best interest 1.563 | mean(top20) 1.408 | complex-survivors 12691/16384
+  gen  38: best interest 1.576 | mean(top20) 1.409 | complex-survivors 12670/16384
+  gen  39: best interest 1.584 | mean(top20) 1.391 | complex-survivors 12641/16384
+  gen  40: best interest 1.503 | mean(top20) 1.385 | complex-survivors 12620/16384
+  gen  41: best interest 1.507 | mean(top20) 1.391 | complex-survivors 12723/16384
+  gen  42: best interest 1.507 | mean(top20) 1.405 | complex-survivors 12707/16384
+  gen  43: best interest 1.694 | mean(top20) 1.395 | complex-survivors 12633/16384
+  gen  44: best interest 1.512 | mean(top20) 1.387 | complex-survivors 12664/16384
+  gen  45: best interest 1.682 | mean(top20) 1.395 | complex-survivors 12746/16384
+  gen  46: best interest 1.555 | mean(top20) 1.388 | complex-survivors 12626/16384
+  gen  47: best interest 1.535 | mean(top20) 1.387 | complex-survivors 12658/16384
+  gen  48: best interest 1.650 | mean(top20) 1.397 | complex-survivors 12599/16384
+  gen  49: best interest 1.503 | mean(top20) 1.382 | complex-survivors 12768/16384
+  gen  50: best interest 1.507 | mean(top20) 1.382 | complex-survivors 12700/16384
+  gen  51: best interest 1.507 | mean(top20) 1.374 | complex-survivors 12578/16384
+  gen  52: best interest 1.507 | mean(top20) 1.370 | complex-survivors 12715/16384
+  gen  53: best interest 1.507 | mean(top20) 1.380 | complex-survivors 12625/16384
+  gen  54: best interest 1.507 | mean(top20) 1.374 | complex-survivors 12666/16384
+  gen  55: best interest 1.507 | mean(top20) 1.394 | complex-survivors 12700/16384
+  gen  56: best interest 1.510 | mean(top20) 1.384 | complex-survivors 12617/16384
+  gen  57: best interest 1.503 | mean(top20) 1.384 | complex-survivors 12782/16384
+  gen  58: best interest 1.507 | mean(top20) 1.388 | complex-survivors 12671/16384
+  gen  59: best interest 1.507 | mean(top20) 1.378 | complex-survivors 12706/16384
+  gen  60: best interest 1.507 | mean(top20) 1.379 | complex-survivors 12632/16384
+  gen  61: best interest 1.507 | mean(top20) 1.375 | complex-survivors 12631/16384
+  gen  62: best interest 1.507 | mean(top20) 1.371 | complex-survivors 12647/16384
+  gen  63: best interest 1.507 | mean(top20) 1.376 | complex-survivors 12631/16384
+  gen  64: best interest 1.538 | mean(top20) 1.381 | complex-survivors 12589/16384
+  gen  65: best interest 1.539 | mean(top20) 1.388 | complex-survivors 12559/16384
+  gen  66: best interest 1.568 | mean(top20) 1.399 | complex-survivors 12610/16384
+  gen  67: best interest 1.537 | mean(top20) 1.384 | complex-survivors 12689/16384
+  gen  68: best interest 1.507 | mean(top20) 1.381 | complex-survivors 12622/16384
+  gen  69: best interest 1.507 | mean(top20) 1.382 | complex-survivors 12693/16384
+  gen  70: best interest 1.519 | mean(top20) 1.383 | complex-survivors 12643/16384
+  gen  71: best interest 1.531 | mean(top20) 1.390 | complex-survivors 12628/16384
+  gen  72: best interest 1.503 | mean(top20) 1.397 | complex-survivors 12669/16384
+  gen  73: best interest 1.507 | mean(top20) 1.373 | complex-survivors 12614/16384
+  gen  74: best interest 1.507 | mean(top20) 1.372 | complex-survivors 12718/16384
+  gen  75: best interest 1.507 | mean(top20) 1.383 | complex-survivors 12640/16384
+  gen  76: best interest 1.507 | mean(top20) 1.379 | complex-survivors 12676/16384
+  gen  77: best interest 1.507 | mean(top20) 1.391 | complex-survivors 12702/16384
+  gen  78: best interest 1.507 | mean(top20) 1.378 | complex-survivors 12729/16384
+  gen  79: best interest 1.507 | mean(top20) 1.376 | complex-survivors 12606/16384
+  gen  80: best interest 1.507 | mean(top20) 1.376 | complex-survivors 12737/16384
+  gen  81: best interest 1.507 | mean(top20) 1.378 | complex-survivors 12653/16384
+  gen  82: best interest 1.540 | mean(top20) 1.387 | complex-survivors 12642/16384
+  gen  83: best interest 1.504 | mean(top20) 1.383 | complex-survivors 12640/16384
+  gen  84: best interest 1.503 | mean(top20) 1.376 | complex-survivors 12650/16384
+  gen  85: best interest 1.507 | mean(top20) 1.376 | complex-survivors 12699/16384
+  gen  86: best interest 1.507 | mean(top20) 1.371 | complex-survivors 12646/16384
+  gen  87: best interest 1.544 | mean(top20) 1.394 | complex-survivors 12675/16384
+  gen  88: best interest 1.503 | mean(top20) 1.381 | complex-survivors 12633/16384
+  gen  89: best interest 1.507 | mean(top20) 1.375 | complex-survivors 12537/16384
+  gen  90: best interest 1.556 | mean(top20) 1.388 | complex-survivors 12604/16384
+  gen  91: best interest 1.503 | mean(top20) 1.378 | complex-survivors 12632/16384
+  gen  92: best interest 1.507 | mean(top20) 1.383 | complex-survivors 12655/16384
+  gen  93: best interest 1.508 | mean(top20) 1.386 | complex-survivors 12669/16384
+  gen  94: best interest 1.503 | mean(top20) 1.379 | complex-survivors 12668/16384
+  gen  95: best interest 1.507 | mean(top20) 1.377 | complex-survivors 12684/16384
+  gen  96: best interest 1.507 | mean(top20) 1.384 | complex-survivors 12694/16384
+  gen  97: best interest 1.507 | mean(top20) 1.372 | complex-survivors 12635/16384
+  gen  98: best interest 1.507 | mean(top20) 1.371 | complex-survivors 12759/16384
+  gen  99: best interest 1.507 | mean(top20) 1.384 | complex-survivors 12585/16384
+
+  === TOP COMPLEX SURVIVORS (edge-of-chaos + glider-band damage, not-named, neural-tilted) [1050s] ===
+    rule             novelty  gen_bpc  named_bpc  NL  per  dens   damage
+    0x59DABC24       1.370   0.357    0.587     8    0  0.14   0.156
+    0x12C10402       1.358   0.545    0.571     7    0  0.13   0.188
+    0x180900C2       1.351   0.531    0.569     7    0  0.13   0.180
+    0x0CE18402       1.349   0.535    0.571     9    0  0.14   0.180
+    0x88A10402       1.347   0.529    0.570     7    0  0.13   0.176
+    0xDC212482       1.346   0.538    0.573    11    0  0.14   0.180
+    0xE4019802       1.344   0.517    0.572     9    0  0.14   0.180
+    0x34819082       1.344   0.545    0.580     9    0  0.14   0.180
+    0x1C413882       1.343   0.521    0.571     6    0  0.13   0.180
+    0xFA614042       1.343   0.540    0.578    10    0  0.14   0.188
+    0x04899882       1.342   0.538    0.576     9    0  0.14   0.188
+    0xBEEE7C97       1.341   0.518    0.569    10    0  0.87   0.172
+    0xBEDA788C       1.341   0.537    0.581    10    0  0.86   0.180
+    0x62C90402       1.341   0.523    0.569     9    0  0.13   0.180
+    0x66694482       1.341   0.542    0.578    10    0  0.14   0.188
+    0xC429C482       1.341   0.527    0.570     9    0  0.13   0.172
+
+  READ: survivors are CANDIDATES the GPU filtered out of a vast uncatalogued space — compressible by a general
+  compressor yet matching NO named-structure model. Next session: INSPECT top_spacetime.npy (period? gliders?
+  particle types?). Honest ceiling: characterize, do not claim novel. A survivor whose dynamics look genuinely
+  unfamiliar = evidenceable-but-unprovable novelty; a survivor that's 'just class-4' = the ceiling holding.

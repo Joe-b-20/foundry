@@ -1,0 +1,14 @@
+DEPTH-DRIVEN evolution of 5-state TMs (evolutionary Busy-Beaver / logical-depth hunt). T_max=8000.
+
+  SAMPLING baseline (4200 random machines, same budget as one ev run): deepest HALTER = 26 steps
+
+  DRIVER=depth : best HALTER runtime=   43  (halted=True, nz=7)
+            depth-trace (best halter runtime by gen): [6, 14, 18, 28, 29, 29, 29, 43, 43, 43]
+            the evolved DEEP halter: runtime=43 steps, 7 cells written, space-time comp=0.040
+            final tape block: [111101011]
+  DRIVER=random: best HALTER runtime=    2  (halted=True, nz=1)
+
+  READ: if DEPTH-driven evolution finds halters running ORDERS OF MAGNITUDE longer than sampling (and longer than
+  the RANDOM-fitness control), the intrinsic depth signal DRIVES discovery of deep computation that sampling can't
+  reach — the program-space analog of expDD (sample fails -> drive works). Honest: evolutionary Busy-Beaver search
+  is known to work; the point here is the SAMPLE-vs-DRIVE gap on the iterative-program space, not a novel machine.

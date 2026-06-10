@@ -1,0 +1,105 @@
+===== SEED 0 =====
+device=cuda  SELF-DISCOVERY (expert iteration, exact filter, NO traces) ops=['mul', 'div']
+  params: 14025
+  it    1  wmax 1  hits   32 (loop   0)  body[mul:-,div:-]  loss 2.0651  eps 0.25  greedy[mul] w1:0.00  w2:0.00
+      *** DISCOVERED mul loop body: [GETDIGIT MULDIGIT SHL ADD_ACC INC_J]  (it 2) ***
+      *** DISCOVERED div loop body: [GETDIGIT COMBINE SUB_D* STOREQ INC_J]  (it 7) ***
+  it   10  wmax 1  hits   99 (loop   0)  body[mul:Y,div:Y]  loss 1.3621  eps 0.06  greedy[mul] w1:0.23  w2:0.03
+  it   20  wmax 1  hits  360 (loop   0)  body[mul:Y,div:Y]  loss 0.2062  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   30  wmax 1  hits 1274 (loop   0)  body[mul:Y,div:Y]  loss 0.0193  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   40  wmax 1  hits 1451 (loop   0)  body[mul:Y,div:Y]  loss 0.0082  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   50  wmax 1  hits 1502 (loop   0)  body[mul:Y,div:Y]  loss 0.0048  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   60  wmax 1  hits 1569 (loop   0)  body[mul:Y,div:Y]  loss 0.0030  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   70  wmax 1  hits 1611 (loop   0)  body[mul:Y,div:Y]  loss 0.0021  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   80  wmax 1  hits 1594 (loop   0)  body[mul:Y,div:Y]  loss 0.0016  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   90  wmax 1  hits 1577 (loop   0)  body[mul:Y,div:Y]  loss 0.0013  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  100  wmax 1  hits 1609 (loop   0)  body[mul:Y,div:Y]  loss 0.0010  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  110  wmax 1  hits 1603 (loop   0)  body[mul:Y,div:Y]  loss 0.0008  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  120  wmax 1  hits 1612 (loop   0)  body[mul:Y,div:Y]  loss 0.0007  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  130  wmax 1  hits 1587 (loop   0)  body[mul:Y,div:Y]  loss 0.0006  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  140  wmax 1  hits 1626 (loop   0)  body[mul:Y,div:Y]  loss 0.0005  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  150  wmax 1  hits 1635 (loop   0)  body[mul:Y,div:Y]  loss 0.0004  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  160  wmax 1  hits 1620 (loop   0)  body[mul:Y,div:Y]  loss 0.0004  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+
+  first exact-correct self-sample per op (iteration): {'first_hit': {'mul': 1, 'div': 1}, 'first_loop_hit': {'mul': None, 'div': None}, 'body': {'mul': ((1, False), (2, False), (3, False), (4, False), (5, False)), 'div': ((1, False), (6, False), (7, True), (8, False), (5, False))}}
+
+  LENGTH-GEN (greedy; model emits AND runs the discovered program, no traces shown):
+    mul: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+    div: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+
+  example emitted programs (the discovered composition):
+    47*83 (=3901, got 3901): GETDIGIT MULDIGIT SHL ADD_ACC INC_J GETDIGIT MULDIGIT SHL ADD_ACC INC_J HALT
+    1234/7 (=176, got 176): GETDIGIT COMBINE STOREQ INC_J GETDIGIT COMBINE SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J HALT
+    9999/3 (=3333, got 3333): GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J HALT
+
+saved runs/expJ_both_s0.pt
+===== SEED 1 =====
+device=cuda  SELF-DISCOVERY (expert iteration, exact filter, NO traces) ops=['mul', 'div']
+  params: 14025
+  it    1  wmax 1  hits   37 (loop   0)  body[mul:-,div:-]  loss 2.0871  eps 0.25  greedy[mul] w1:0.00  w2:0.00
+      *** DISCOVERED mul loop body: [GETDIGIT MULDIGIT SHL ADD_ACC INC_J]  (it 7) ***
+      *** DISCOVERED div loop body: [GETDIGIT COMBINE SUB_D* STOREQ INC_J]  (it 10) ***
+  it   10  wmax 1  hits  117 (loop   0)  body[mul:Y,div:Y]  loss 1.4466  eps 0.25  greedy[mul] w1:0.00  w2:0.00
+  it   20  wmax 1  hits  922 (loop   0)  body[mul:Y,div:Y]  loss 0.1052  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   30  wmax 1  hits 1394 (loop   0)  body[mul:Y,div:Y]  loss 0.0158  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   40  wmax 1  hits 1509 (loop   0)  body[mul:Y,div:Y]  loss 0.0069  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   50  wmax 1  hits 1566 (loop   0)  body[mul:Y,div:Y]  loss 0.0041  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   60  wmax 1  hits 1580 (loop   0)  body[mul:Y,div:Y]  loss 0.0027  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   70  wmax 1  hits 1582 (loop   0)  body[mul:Y,div:Y]  loss 0.0020  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   80  wmax 1  hits 1577 (loop   0)  body[mul:Y,div:Y]  loss 0.0015  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   90  wmax 1  hits 1573 (loop   0)  body[mul:Y,div:Y]  loss 0.0012  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  100  wmax 1  hits 1620 (loop   0)  body[mul:Y,div:Y]  loss 0.0010  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  110  wmax 1  hits 1598 (loop   0)  body[mul:Y,div:Y]  loss 0.0008  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  120  wmax 1  hits 1583 (loop   0)  body[mul:Y,div:Y]  loss 0.0006  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  130  wmax 1  hits 1579 (loop   0)  body[mul:Y,div:Y]  loss 0.0006  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  140  wmax 1  hits 1613 (loop   0)  body[mul:Y,div:Y]  loss 0.0005  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  150  wmax 1  hits 1597 (loop   0)  body[mul:Y,div:Y]  loss 0.0004  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  160  wmax 1  hits 1622 (loop   0)  body[mul:Y,div:Y]  loss 0.0004  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+
+  first exact-correct self-sample per op (iteration): {'first_hit': {'mul': 1, 'div': 1}, 'first_loop_hit': {'mul': None, 'div': None}, 'body': {'mul': ((1, False), (2, False), (3, False), (4, False), (5, False)), 'div': ((1, False), (6, False), (7, True), (8, False), (5, False))}}
+
+  LENGTH-GEN (greedy; model emits AND runs the discovered program, no traces shown):
+    mul: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+    div: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+
+  example emitted programs (the discovered composition):
+    47*83 (=3901, got 3901): GETDIGIT MULDIGIT SHL ADD_ACC INC_J GETDIGIT MULDIGIT SHL ADD_ACC INC_J HALT
+    1234/7 (=176, got 176): GETDIGIT COMBINE STOREQ INC_J GETDIGIT COMBINE SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J HALT
+    9999/3 (=3333, got 3333): GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J HALT
+
+saved runs/expJ_both_s1.pt
+===== SEED 2 =====
+device=cuda  SELF-DISCOVERY (expert iteration, exact filter, NO traces) ops=['mul', 'div']
+  params: 14025
+  it    1  wmax 1  hits   33 (loop   0)  body[mul:-,div:-]  loss 2.0572  eps 0.25  greedy[mul] w1:0.00  w2:0.00
+      *** DISCOVERED mul loop body: [GETDIGIT MULDIGIT SHL ADD_ACC INC_J]  (it 3) ***
+      *** DISCOVERED div loop body: [GETDIGIT COMBINE SUB_D* STOREQ INC_J]  (it 10) ***
+  it   10  wmax 1  hits  127 (loop   0)  body[mul:Y,div:Y]  loss 1.4708  eps 0.25  greedy[mul] w1:0.23  w2:0.03
+  it   20  wmax 1  hits  260 (loop   0)  body[mul:Y,div:Y]  loss 0.4173  eps 0.06  greedy[mul] w1:0.23  w2:0.13
+  it   30  wmax 1  hits 1151 (loop   0)  body[mul:Y,div:Y]  loss 0.0229  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   40  wmax 1  hits 1425 (loop   0)  body[mul:Y,div:Y]  loss 0.0091  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   50  wmax 1  hits 1525 (loop   0)  body[mul:Y,div:Y]  loss 0.0051  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   60  wmax 1  hits 1544 (loop   0)  body[mul:Y,div:Y]  loss 0.0032  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   70  wmax 1  hits 1608 (loop   0)  body[mul:Y,div:Y]  loss 0.0022  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   80  wmax 1  hits 1585 (loop   0)  body[mul:Y,div:Y]  loss 0.0017  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it   90  wmax 1  hits 1572 (loop   0)  body[mul:Y,div:Y]  loss 0.0013  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  100  wmax 1  hits 1590 (loop   0)  body[mul:Y,div:Y]  loss 0.0011  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  110  wmax 1  hits 1586 (loop   0)  body[mul:Y,div:Y]  loss 0.0008  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  120  wmax 1  hits 1607 (loop   0)  body[mul:Y,div:Y]  loss 0.0007  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  130  wmax 1  hits 1533 (loop   0)  body[mul:Y,div:Y]  loss 0.0006  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  140  wmax 1  hits 1571 (loop   0)  body[mul:Y,div:Y]  loss 0.0005  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  150  wmax 1  hits 1589 (loop   0)  body[mul:Y,div:Y]  loss 0.0004  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+  it  160  wmax 1  hits 1633 (loop   0)  body[mul:Y,div:Y]  loss 0.0004  eps 0.06  greedy[mul] w1:1.00  w2:1.00
+
+  first exact-correct self-sample per op (iteration): {'first_hit': {'mul': 1, 'div': 1}, 'first_loop_hit': {'mul': None, 'div': None}, 'body': {'mul': ((1, False), (2, False), (3, False), (4, False), (5, False)), 'div': ((1, False), (6, False), (7, True), (8, False), (5, False))}}
+
+  LENGTH-GEN (greedy; model emits AND runs the discovered program, no traces shown):
+    mul: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+    div: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+
+  example emitted programs (the discovered composition):
+    47*83 (=3901, got 3901): GETDIGIT MULDIGIT SHL ADD_ACC INC_J GETDIGIT MULDIGIT SHL ADD_ACC INC_J HALT
+    1234/7 (=176, got 176): GETDIGIT COMBINE STOREQ INC_J GETDIGIT COMBINE SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J HALT
+    9999/3 (=3333, got 3333): GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J HALT
+
+saved runs/expJ_both_s2.pt

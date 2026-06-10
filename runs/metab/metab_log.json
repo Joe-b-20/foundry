@@ -1,0 +1,26 @@
+[
+ {
+  "gen": 0,
+  "best_merit": 1.001,
+  "mean_merit": 0.099,
+  "best_func": "NOR",
+  "ladder": "",
+  "best_code": "[.>}+-+..<.+..<]..].{.....,.].><"
+ },
+ {
+  "gen": 50,
+  "best_merit": 2.5,
+  "mean_merit": 0.47,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "+>+,}.>.<.]>{....+]>.{<[-.-]}.[."
+ },
+ {
+  "gen": 100,
+  "best_merit": 2.5,
+  "mean_merit": 0.484,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "..,...}[}.[}..++}->>]}-..,.+..[."
+ }
+]

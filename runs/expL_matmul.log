@@ -1,0 +1,30 @@
+device=cpu  2x2 matmul tensor: shape (4, 4, 4), naive #mults = 8
+Discovering low-rank (= few-multiplication) algorithms from the OUTCOME (compute A*B) alone.
+
+  R=6 (#mults=6): best tensor-fit residual 1.00e+00   -> no exact integer decomposition
+  R=7 (#mults=7): best tensor-fit residual 1.37e-04   -> EXACT integer decomposition FOUND
+      exact on 2000/2000 random integer matrices (entries up to 1e6); coeff set [-1, 0, 1]
+  R=8 (#mults=8): best tensor-fit residual 1.35e-04   -> EXACT integer decomposition FOUND
+      exact on 2000/2000 random integer matrices (entries up to 1e6); coeff set [-1, 0, 1]
+
+  === WHICH ALGORITHM ===
+  Fewest multiplications with an EXACT algorithm: R = 7  (naive = 8).
+  => discovered a SUB-NAIVE algorithm: 7 multiplications (Strassen's bound for 2x2 is 7).
+    7 products:
+      m1 = (-a21-a22) * (-b21+b22)
+      m2 = (a21) * (b11-b12-b21+b22)
+      m3 = (-a12) * (b11-b21)
+      m4 = (a11+a21) * (-b12)
+      m5 = (a12-a21) * (b11-b21+b22)
+      m6 = (-a11-a12) * (-b11)
+      m7 = (a12+a22) * (-b22)
+    recombination:
+      c11 = m3+m6
+      c12 = m2+m3-m4+m5
+      c21 = m1-m3-m5-m7
+      c22 = -m2-m3-m5-m7
+
+  rank boundary (best residual per R; exact = an integer decomposition was verified):
+    R=6: residual 1.00e+00  (NOT achievable -> this few mults is IMPOSSIBLE)
+    R=7: residual 0 (exact integer)  (ACHIEVABLE)
+    R=8: residual 0 (exact integer)  (ACHIEVABLE)

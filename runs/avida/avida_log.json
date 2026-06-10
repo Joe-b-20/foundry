@@ -1,0 +1,74 @@
+[
+ {
+  "gen": 0,
+  "best_merit": 7.0,
+  "mean": 1.067,
+  "bestfn": "~a|b",
+  "ladder": "NOTa:901 NOTb:933 NAND:415 AND:50 a&~b:9 ~a&b:8 OR:10 ~a|b:75 a|~b:85 NOR:2",
+  "best_prog": "1 0 a nop dup b nand nand a dup nand a a 1 drop b nop nand nop 1 nand b drop nand"
+ },
+ {
+  "gen": 50,
+  "best_merit": 16.62,
+  "mean": 9.634,
+  "bestfn": "XOR",
+  "ladder": "NOTa:1669 NOTb:1311 NAND:2396 AND:158 a&~b:196 ~a&b:302 OR:679 ~a|b:1970 a|~b:3233 NOR:63 XOR:1719 EQU:968",
+  "best_prog": "nop 1 dup b nand a 0 drop nand nop a 1 nand drop nop b 1 nop a nand nand nand nop nand"
+ },
+ {
+  "gen": 100,
+  "best_merit": 17.81,
+  "mean": 10.1,
+  "bestfn": "XOR",
+  "ladder": "NOTa:1931 NOTb:1296 NAND:2334 AND:108 a&~b:227 ~a&b:279 OR:327 ~a|b:1930 a|~b:3300 NOR:81 XOR:2170 EQU:1055",
+  "best_prog": "b 1 b b drop a a drop nand nop a 1 nand nop nop b a nop a nand nand nand nand nand"
+ },
+ {
+  "gen": 150,
+  "best_merit": 17.88,
+  "mean": 10.457,
+  "bestfn": "XOR",
+  "ladder": "NOTa:2692 NOTb:1850 NAND:1755 AND:164 a&~b:255 ~a&b:200 OR:737 ~a|b:2652 a|~b:3183 NOR:59 XOR:2216 EQU:548",
+  "best_prog": "b nand dup dup dup a a nand nand b a nand dup b nand nop dup dup 1 b nand a nand nand"
+ },
+ {
+  "gen": 200,
+  "best_merit": 18.81,
+  "mean": 11.064,
+  "bestfn": "XOR",
+  "ladder": "NOTa:2621 NOTb:2488 NAND:1751 AND:114 a&~b:290 ~a&b:150 OR:1508 ~a|b:3336 a|~b:3148 NOR:22 XOR:2261 EQU:90",
+  "best_prog": "b nand dup dup dup a a nand nand a a nand dup b nand nop dup nop 1 b nand a nand nand"
+ },
+ {
+  "gen": 250,
+  "best_merit": 21.12,
+  "mean": 11.812,
+  "bestfn": "XOR",
+  "ladder": "NOTa:3100 NOTb:1228 NAND:1431 AND:139 a&~b:201 ~a&b:193 OR:2260 ~a|b:1685 a|~b:3329 NOR:100 XOR:2089 EQU:1504",
+  "best_prog": "a 1 a b nand 1 drop a a nop a 1 drop drop nand b a dup nand nand nand nand nand nand"
+ },
+ {
+  "gen": 300,
+  "best_merit": 21.5,
+  "mean": 13.855,
+  "bestfn": "XOR",
+  "ladder": "NOTa:3267 NOTb:474 NAND:1078 AND:357 a&~b:203 ~a&b:229 OR:2895 ~a|b:2047 a|~b:3487 NOR:214 XOR:2198 EQU:2413",
+  "best_prog": "a 1 a b nand dup drop a a nop 0 0 nand drop nand b a dup nand nand nand nand nand nand"
+ },
+ {
+  "gen": 350,
+  "best_merit": 21.31,
+  "mean": 13.76,
+  "bestfn": "XOR",
+  "ladder": "NOTa:2941 NOTb:486 NAND:1393 AND:375 a&~b:203 ~a&b:223 OR:2874 ~a|b:2032 a|~b:3457 NOR:239 XOR:2165 EQU:2397",
+  "best_prog": "a 1 a b nand 1 drop a 1 1 1 nop drop drop nand b a dup nand nand nand nand nand nand"
+ },
+ {
+  "gen": 400,
+  "best_merit": 21.69,
+  "mean": 13.799,
+  "bestfn": "XOR",
+  "ladder": "NOTa:2902 NOTb:537 NAND:1435 AND:390 a&~b:206 ~a&b:255 OR:2877 ~a|b:2127 a|~b:3424 NOR:204 XOR:2164 EQU:2379",
+  "best_prog": "a 1 a b nand 1 nop a dup nop nop b drop drop nand b dup a nand nand nand nand nand nand"
+ }
+]

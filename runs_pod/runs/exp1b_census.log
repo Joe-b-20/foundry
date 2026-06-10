@@ -1,0 +1,34 @@
+gpu_exp1b_ca2d CENSUS | device=NVIDIA GeForce RTX 4090 25GB sm_89 | ALL 2^18 outer-totalistic Life-like rules | H=48 W=48 T=96 batch=1024
+
+  census      0/262144 | structured-so-far 108
+  census  20480/262144 | structured-so-far 2058
+  census  40960/262144 | structured-so-far 3680
+  census  61440/262144 | structured-so-far 5229
+  census  81920/262144 | structured-so-far 6955
+  census 102400/262144 | structured-so-far 8342
+  census 122880/262144 | structured-so-far 9372
+  census 143360/262144 | structured-so-far 11170
+  census 163840/262144 | structured-so-far 12758
+  census 184320/262144 | structured-so-far 14045
+  census 204800/262144 | structured-so-far 15540
+  census 225280/262144 | structured-so-far 16454
+  census 245760/262144 | structured-so-far 17655
+
+  CENSUS DONE: 18213/262144 Life-like rules are 'structured-but-not-named' (novelty>0).
+    rank  Birth/Survive          novelty gen_bpc per damage
+      0   B4678/S2347          1.000  0.499    0  0.120
+      1   B02456/S01678         1.000  0.497    0  0.120
+      2   B1234568/S1278          1.000  0.503    0  0.122
+      3   B01678/S13            1.000  0.491    0  0.121
+      4   B07/S3467          1.000  0.495    0  0.122
+      5   B067/S048           1.000  0.492    0  0.119
+      6   B01236/S025           1.000  0.502    0  0.122
+      7   B01257/S01234         0.999  0.504    0  0.118
+      8   B123456/S01278         0.999  0.493    0  0.122
+      9   B013678/S01234567      0.999  0.512    0  0.121
+     10   B14567/S156           0.999  0.497    0  0.122
+     11   B1345/S4568          0.999  0.504    0  0.118
+     12   B3578/S01234567      0.999  0.514    0  0.120
+     13   B02678/S234568        0.999  0.505    0  0.122
+     14   B01678/S02347         0.999  0.512    0  0.122
+     15   B012357/S04            0.999  0.513    0  0.121

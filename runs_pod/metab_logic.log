@@ -1,0 +1,26 @@
+gpu_metabolism | device=cuda | merit=logic N=8192 CL=29 K=120 B=12 gens=5000
+
+  WATCH (logic): the LADDER climbing NOT->AND/OR->XOR/EQU = computation-coupling DRIVES complexity growth (what
+  pure survival lacked). Plateau at trivial = it doesn't bootstrap. Then INSPECT best_code for the evolved procedure.
+
+  gen     0: best_merit=1.07 mean=0.094 bestfn=OR   | ladder[] [1s]
+  gen   200: best_merit=3.00 mean=0.444 bestfn=NOR  | ladder[] [94s]
+  gen   400: best_merit=1.69 mean=0.449 bestfn=NAND | ladder[] [187s]
+  gen   600: best_merit=2.00 mean=0.440 bestfn=NAND | ladder[] [281s]
+  gen   800: best_merit=2.45 mean=0.438 bestfn=NAND | ladder[] [374s]
+  gen  1000: best_merit=2.00 mean=0.447 bestfn=NAND | ladder[] [467s]
+  gen  1200: best_merit=2.00 mean=0.449 bestfn=NAND | ladder[] [561s]
+  gen  1400: best_merit=2.03 mean=0.445 bestfn=NAND | ladder[] [654s]
+  gen  1600: best_merit=2.33 mean=0.446 bestfn=NAND | ladder[] [747s]
+  gen  1800: best_merit=2.00 mean=0.450 bestfn=NAND | ladder[] [840s]
+  gen  2000: best_merit=2.00 mean=0.453 bestfn=NAND | ladder[] [934s]
+  gen  2200: best_merit=2.08 mean=0.452 bestfn=NAND | ladder[] [1027s]
+  gen  2400: best_merit=2.33 mean=0.447 bestfn=NAND | ladder[] [1120s]
+  gen  2600: best_merit=2.33 mean=0.445 bestfn=NAND | ladder[] [1214s]
+  gen  2800: best_merit=2.00 mean=0.449 bestfn=NAND | ladder[] [1307s]
+  gen  3000: best_merit=1.75 mean=0.445 bestfn=NOR  | ladder[] [1400s]
+  gen  3200: best_merit=2.05 mean=0.448 bestfn=NAND | ladder[] [1493s]
+  gen  3400: best_merit=2.33 mean=0.450 bestfn=NAND | ladder[] [1587s]
+  gen  3600: best_merit=2.33 mean=0.449 bestfn=NOR  | ladder[] [1680s]
+  gen  3800: best_merit=2.33 mean=0.448 bestfn=NAND | ladder[] [1773s]
+  gen  4000: best_merit=2.04 mean=0.443 bestfn=NAND | ladder[] [1866s]

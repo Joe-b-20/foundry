@@ -1,0 +1,29 @@
+gpu_exp1_novelty | device=NVIDIA GeForce RTX 4090 25GB sm_89 | radius=2 k=5 (rule space 2^32) W=48 T=48 batch=256 pop=64 gens=3 neural=False
+
+  gen   0: best interest 0.950 | mean(top20) 0.806 | complex-survivors 61/128
+  gen   1: best interest 0.996 | mean(top20) 0.830 | complex-survivors 72/128
+  gen   2: best interest 0.996 | mean(top20) 0.802 | complex-survivors 85/128
+
+  === TOP COMPLEX SURVIVORS (edge-of-chaos + glider-band damage, not-named, neural-tilted) [0s] ===
+    rule             novelty  gen_bpc  named_bpc  NL  per  dens   damage
+    0x1F47493F       0.969   0.569    0.999     8    0  0.52   0.167
+    0xB26C5062       0.946   0.503    0.927    11    0  0.34   0.208
+    0x832C8C82       0.938   0.455    0.585     7    0  0.14   0.208
+    0xA81A70F3       0.907   0.399    0.976    11    0  0.41   0.208
+    0xDA2F7829       0.901   0.424    0.905     9    0  0.32   0.146
+    0xEC8BDB4F       0.861   0.351    0.412    10    0  0.92   0.208
+    0x12E28272       0.859   0.319    0.968    12    0  0.40   0.167
+    0xCC540959       0.803   0.549    0.992    11    0  0.45   0.125
+    0x725E1D10       0.768   0.615    0.650    10    0  0.17   0.125
+    0x003D5F2F       0.754   0.632    0.999    10    0  0.48   0.125
+    0xE99E9AB1       0.676   0.611    0.770     8    0  0.77   0.250
+    0x6246449C       0.632   0.788    0.777    10    0  0.23   0.208
+    0x7436481A       0.569   0.306    0.694    11    0  0.19   0.104
+    0x5B43493F       0.541   0.788    0.995    11    0  0.54   0.125
+    0x5B53493F       0.534   0.615    0.994    10    0  0.54   0.271
+    0x6ED8AA58       0.526   0.267    0.633    10    0  0.16   0.104
+
+  READ: survivors are CANDIDATES the GPU filtered out of a vast uncatalogued space — compressible by a general
+  compressor yet matching NO named-structure model. Next session: INSPECT top_spacetime.npy (period? gliders?
+  particle types?). Honest ceiling: characterize, do not claim novel. A survivor whose dynamics look genuinely
+  unfamiliar = evidenceable-but-unprovable novelty; a survivor that's 'just class-4' = the ceiling holding.

@@ -1,0 +1,18 @@
+THE LEARNABILITY WALL: can outcome-driven discovery learn an efficiently-computable PSEUDORANDOM function?
+w=16-bit reversible mixer, train N=4000 examples, test on HELD-OUT inputs. Per-bit held-out acc (chance=0.5).
+
+   R(rounds)   linear   kNN-Hamming   MLP(test)   MLP(train)   <- the project's own neural learner
+      0       1.000     0.989        1.000      1.000
+      1       0.497     0.565        0.532      0.602
+      2       0.503     0.506        0.509      0.579  <- WALL (all learners ~chance: memorizable only)
+      3       0.505     0.502        0.501      0.572  <- WALL (all learners ~chance: memorizable only)
+      4       0.499     0.501        0.500      0.574  <- WALL (all learners ~chance: memorizable only)
+      6       0.500     0.500        0.501      0.576  <- WALL (all learners ~chance: memorizable only)
+      8       0.501     0.505        0.499      0.571  <- WALL (all learners ~chance: memorizable only)
+
+  CONTROL — ADDITION (predict bits of a+b from bits of a,b; the project's flagship learnable op):
+     addition   linear 0.529   kNN 0.634   MLP(test) 0.756  -> learnable & generalizes (structure exists)
+
+  READ: if held-out accuracy collapses to ~0.5 for ALL learners past some R* (while addition stays high), then an
+  EFFICIENTLY-COMPUTABLE function is UN-DISCOVERABLE from outcome — a LEARNABILITY/CRYPTOGRAPHIC wall, distinct from
+  the representational/complexity/landscape walls and specific to outcome-driven discovery (one-way-function hardness).

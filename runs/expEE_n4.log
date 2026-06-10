@@ -1,0 +1,40 @@
+LOGICAL-DEPTH BRIDGE on 4-state 2-symbol TURING MACHINES (blank tape) — target-free depth x structure.
+
+  noise baseline: comp_ratio=1.001 -> structure 4c(1-c)=-0.006 (incompressible -> ~0 -> rejected)
+
+  sampled 25000 machines; 9772 passed the non-trivial gate; 61 halted within T_max=1500.
+  empirical longest-running (halter or clipped): 1500 steps.
+
+  === TOP 12 by DEPTH x STRUCTURE (target-free) ===
+   rank  score  runtime halt   comp   struct   nz   what it builds (final non-blank block; period)
+     0   2.35    1500  .   0.088  0.321    27  [1100101010101010101010101001010101010101010101010101] period 1
+     1   2.32    1500  .   0.087  0.317    42  [101101011111001110011100111001110011100111001110011100111001] period 1
+     2   2.29    1500  .   0.086  0.313    30  [11101010101010101010101010101010010101010101010101010101] period 1
+     3   2.22    1193  .   0.086  0.313    75  [101100110011001100110011001100110011001100110011001100110011] period 1
+     4   2.22    1500  .   0.083  0.303    21  [100000000000000000111111111111111111111] period 1
+     5   2.22    1500  .   0.083  0.303    95  [111100011111111111111111111111111111111111111111111111111111] period 1
+     6   2.20    1500  .   0.082  0.301    65  [101010101010101010101010101010101010101010101010101010101010] period 1
+     7   2.17    1500  .   0.081  0.297    33  [101010101010101010101010101010101010101010111111111111] period 1
+     8   2.14    1500  .   0.080  0.293    27  [1010101010101010101010101010101010101010010101010101] period 1
+     9   2.13    1500  .   0.079  0.291    32  [10101010101010101010101011111111111111111111] period 1
+    10   2.10    1201  .   0.081  0.297   150  [111111111111111111111111111111111111111111111111111111111111] period 1
+    11   2.09    1333  .   0.079  0.290   148  [111111111111111111111111111111111111111111111111111111111111] period 1
+
+  === DEEPEST HALTERS (Busy-Beaver-like: long finite computation from a blank tape) ===
+   runtime  comp   struct   nz   final non-blank block (what it computed)
+       34   0.103  0.370     5  [1100111]
+       21   0.098  0.353     5  [11111]
+       18   0.102  0.367     4  [11101]
+       16   0.103  0.370     2  [11]
+       15   0.095  0.343     4  [1111]
+       15   0.106  0.380     4  [1111]
+       14   0.078  0.287     2  [11]
+       14   0.103  0.368     3  [11001]
+
+  the LONGEST-RUNNING machine (1500 steps): structure=0.022 comp=0.005
+  -> depth alone != top score: the signal prefers deep-AND-structured over max-runtime (which may be chaotic).
+
+  READ: if the top machines run long AND build structured tapes (counters/periodic engines/nested patterns) while
+  noise is rejected and the mere longest-runner isn't the winner, the DEPTH x STRUCTURE signal surfaces 'deep
+  computation' un-targeted — a THIRD bridge-signal family, on the iterative-program space the moonshot needs.
+  Ceiling honest: small TMs, surfaces KNOWN computational motifs, novelty not claimed.

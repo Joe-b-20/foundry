@@ -1,0 +1,30 @@
+reference EUCLIDEAN table computes gcd exactly (sanity).
+subtractive on gcd(10^6,1) within cap=150: halted=False (expect False -- it explodes).
+
+device=cuda  SELF-DISCOVERY of GCD from OUTCOME ALONE (no traces)  wmax=5 cap=150
+  params: 7684
+  it    1        ok    88/1536  buf   235  greedy_acc(w5) 0.000  [(0, 0)->SUB (0, 1)->SUB (1, 1)->SUB]
+  it   10        ok   152/1536  buf  3216  greedy_acc(w5) 0.197  [(0, 0)->HALT (0, 1)->MOD (1, 1)->HALT]
+      *** DISCOVERED & LOCKED policy (it 19): (0, 0)->SWAP ; (0, 1)->MOD ; (1, 1)->HALT ***
+  it   20 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it   30 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it   40 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it   50 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it   60 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it   70 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it   80 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it   90 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it  100 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it  110 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+  it  120 LOCKED ok    -1/1536  buf  6000  greedy_acc(w5) 1.000  [(0, 0)->SWAP (0, 1)->MOD (1, 1)->HALT]
+
+  first exact-correct self-sample at iter: 1
+  DISCOVERED greedy policy table: (0, 0)->SWAP ; (0, 1)->MOD ; (1, 1)->HALT
+  => for state (not-done, A>=B) it chose MOD  =>  EUCLIDEAN (gcd(a,b)=gcd(b, a mod b))
+
+  LENGTH-GEN of the discovered policy (exact gcd across sizes, step cap=300):
+    w1:1.000  w2:1.000  w4:1.000  w8:1.000  w12:1.000  w20:1.000  w30:1.000
+  LENGTH-GEN of the NEURAL model run greedily (emits+runs):
+    w1: 1.000    w4: 1.000    w12: 1.000    w20: 1.000
+
+saved runs/expK_gcd.pt

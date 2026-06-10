@@ -1,0 +1,29 @@
+device=cuda  SELF-DISCOVERY (expert iteration, exact filter, NO traces) ops=['div']
+  params: 14025
+  it    1  wmax 1  hits   11 (loop   0)  body[div:-]  loss 2.0000  eps 0.25  greedy[div] w1:0.00  w2:0.00
+      *** DISCOVERED div loop body: [GETDIGIT COMBINE SUB_D* STOREQ INC_J]  (it 6) ***
+  it   10  wmax 4  hits    0 (loop   0)  body[div:Y]  loss 0.9532  eps 0.06  greedy[div] w1:0.00  w2:0.00  w3:0.00  w4:0.00
+  it   20  wmax 4  hits  158 (loop 158)  body[div:Y]  loss 0.0574  eps 0.06  greedy[div] w1:0.11  w2:0.12  w3:0.90  w4:0.98
+  it   30  wmax 4  hits  449 (loop 449)  body[div:Y]  loss 0.0143  eps 0.06  greedy[div] w1:0.11  w2:0.91  w3:1.00  w4:1.00
+  it   40  wmax 4  hits  607 (loop 607)  body[div:Y]  loss 0.0063  eps 0.06  greedy[div] w1:0.63  w2:0.98  w3:1.00  w4:1.00
+  it   50  wmax 4  hits  615 (loop 615)  body[div:Y]  loss 0.0033  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   60  wmax 4  hits  609 (loop 609)  body[div:Y]  loss 0.0023  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   70  wmax 4  hits  649 (loop 649)  body[div:Y]  loss 0.0017  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   80  wmax 4  hits  689 (loop 689)  body[div:Y]  loss 0.0012  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   90  wmax 4  hits  658 (loop 658)  body[div:Y]  loss 0.0010  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  100  wmax 4  hits  718 (loop 718)  body[div:Y]  loss 0.0007  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  110  wmax 4  hits  640 (loop 640)  body[div:Y]  loss 0.0007  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  120  wmax 4  hits  694 (loop 694)  body[div:Y]  loss 0.0005  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  130  wmax 4  hits  727 (loop 727)  body[div:Y]  loss 0.0004  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  140  wmax 4  hits  694 (loop 694)  body[div:Y]  loss 0.0003  eps 0.06  greedy[div] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+
+  first exact-correct self-sample per op (iteration): {'first_hit': {'div': 1}, 'first_loop_hit': {'div': 9}, 'body': {'div': ((1, False), (6, False), (7, True), (8, False), (5, False))}}
+
+  LENGTH-GEN (greedy; model emits AND runs the discovered program, no traces shown):
+    div: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+
+  example emitted programs (the discovered composition):
+    1234/7 (=176, got 176): GETDIGIT COMBINE STOREQ INC_J GETDIGIT COMBINE SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D SUB_D SUB_D SUB_D STOREQ INC_J HALT
+    9999/3 (=3333, got 3333): GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J GETDIGIT COMBINE SUB_D SUB_D SUB_D STOREQ INC_J HALT
+
+saved runs/expJ_div.pt

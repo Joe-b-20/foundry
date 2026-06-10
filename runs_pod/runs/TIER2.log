@@ -1,0 +1,11 @@
+16:56:43 TIER2 queued — waiting for TIER1.ALLDONE...
+17:05:59 TIER2 START on d793fa9a9354
+17:05:59 >>> START exp1_r2_s1
+17:23:38 TIER2b waiting for orphaned exp1_r2_s1 to finish...
+17:23:38 TIER2b START on d793fa9a9354
+17:23:38 >>> START exp1_r2_s2
+17:40:49 TIER2c waiting for orphaned exp1_r2_s2 to finish...
+17:43:49 TIER2c START on d793fa9a9354
+17:43:49 >>> START exp1_r2_s3
+17:58:05 >>> END exp1_r2_s3 rc=0
+17:58:05 >>> START exp3_mul

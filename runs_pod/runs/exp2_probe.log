@@ -1,0 +1,10 @@
+gpu_exp2_qd | device=NVIDIA GeForce RTX 4090 25GB | n=5 L=8192 Tmax=30000 batch=2048 gens=150 grid=24
+
+  SAMPLING (random TMs, matched budget):
+    deepest halter = 110 steps   [150s]
+
+  EVOLUTION (single-objective depth hill-climb = the expEE baseline):
+    deepest halter = 1864 steps   [745s]
+
+  MAP-ELITES (quality-diversity over (span, ones) niches):
+  ME gen     0: best depth       10 | coverage   38/576

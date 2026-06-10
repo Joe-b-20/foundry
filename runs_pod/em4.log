@@ -1,0 +1,57 @@
+gpu_weird_soup | device=cuda | primordial BFF soup
+
+
+  soup: N=8192 L=32 K=160 epochs=2200 mut=0.002 alphabet=256
+  WATCH: zlib drops + top-genotype rises = self-replicators emerged from random code (life from noise).
+
+  ep     0: zlib=0.993 top-genotype=    1/8192 distinct=  8192  [1s]
+  ep    50: zlib=0.903 top-genotype=    3/8192 distinct=  8189  [57s]
+  ep   100: zlib=0.897 top-genotype=    3/8192 distinct=  8189  [104s]
+  ep   150: zlib=0.894 top-genotype=    1/8192 distinct=  8192  [151s]
+  ep   200: zlib=0.894 top-genotype=    2/8192 distinct=  8191  [198s]
+  ep   250: zlib=0.901 top-genotype=    1/8192 distinct=  8192  [245s]
+  ep   300: zlib=0.895 top-genotype=    3/8192 distinct=  8189  [292s]
+  ep   350: zlib=0.895 top-genotype=    3/8192 distinct=  8189  [339s]
+  ep   400: zlib=0.906 top-genotype=    4/8192 distinct=  8188  [386s]
+  ep   450: zlib=0.911 top-genotype=    1/8192 distinct=  8192  [433s]
+  ep   500: zlib=0.904 top-genotype=    3/8192 distinct=  8189  [480s]
+  ep   550: zlib=0.894 top-genotype=    3/8192 distinct=  8190  [527s]
+  ep   600: zlib=0.892 top-genotype=    2/8192 distinct=  8188  [574s]
+  ep   650: zlib=0.902 top-genotype=    1/8192 distinct=  8192  [621s]
+  ep   700: zlib=0.906 top-genotype=    1/8192 distinct=  8192  [668s]
+  ep   750: zlib=0.902 top-genotype=    3/8192 distinct=  8189  [715s]
+  ep   800: zlib=0.906 top-genotype=    3/8192 distinct=  8188  [762s]
+  ep   850: zlib=0.907 top-genotype=    3/8192 distinct=  8186  [809s]
+  ep   900: zlib=0.902 top-genotype=    3/8192 distinct=  8189  [856s]
+  ep   950: zlib=0.899 top-genotype=    4/8192 distinct=  8188  [903s]
+  ep  1000: zlib=0.904 top-genotype=    3/8192 distinct=  8190  [950s]
+  ep  1050: zlib=0.899 top-genotype=    2/8192 distinct=  8190  [997s]
+  ep  1100: zlib=0.898 top-genotype=    4/8192 distinct=  8188  [1044s]
+  ep  1150: zlib=0.898 top-genotype=    3/8192 distinct=  8188  [1091s]
+  ep  1200: zlib=0.901 top-genotype=    2/8192 distinct=  8191  [1138s]
+  ep  1250: zlib=0.904 top-genotype=    1/8192 distinct=  8192  [1185s]
+  ep  1300: zlib=0.907 top-genotype=    2/8192 distinct=  8191  [1232s]
+  ep  1350: zlib=0.907 top-genotype=    2/8192 distinct=  8190  [1279s]
+  ep  1400: zlib=0.907 top-genotype=    2/8192 distinct=  8190  [1326s]
+  ep  1450: zlib=0.905 top-genotype=    2/8192 distinct=  8191  [1373s]
+  ep  1500: zlib=0.903 top-genotype=    2/8192 distinct=  8191  [1420s]
+  ep  1550: zlib=0.345 top-genotype=   39/8192 distinct=  7618  [1467s]
+  ep  1600: zlib=0.300 top-genotype=   36/8192 distinct=  6682  [1514s]
+  ep  1650: zlib=0.299 top-genotype=   30/8192 distinct=  6501  [1561s]
+  ep  1700: zlib=0.297 top-genotype=   19/8192 distinct=  6614  [1607s]
+  ep  1750: zlib=0.298 top-genotype=   33/8192 distinct=  6769  [1654s]
+  ep  1800: zlib=0.306 top-genotype=   33/8192 distinct=  6906  [1701s]
+  ep  1850: zlib=0.305 top-genotype=   22/8192 distinct=  7115  [1748s]
+  ep  1900: zlib=0.309 top-genotype=   24/8192 distinct=  7126  [1794s]
+  ep  1950: zlib=0.304 top-genotype=   26/8192 distinct=  6943  [1841s]
+  ep  2000: zlib=0.315 top-genotype=   26/8192 distinct=  7247  [1888s]
+  ep  2050: zlib=0.314 top-genotype=   21/8192 distinct=  7226  [1935s]
+  ep  2100: zlib=0.315 top-genotype=   17/8192 distinct=  7262  [1981s]
+  ep  2150: zlib=0.308 top-genotype=   23/8192 distinct=  7102  [2028s]
+  ep  2199: zlib=0.319 top-genotype=   18/8192 distinct=  7361  [2059s]
+
+  dominant genotype x18/8192: ...........[..{.....{..[........
+  contains a copy-op inside a loop (replicator signature)? True
+
+  READ: a sharp zlib drop + a dominant genotype carrying a copy-loop = SURVIVAL-selection produced functional
+  MEANING from NO target (the bridge expW lacked). Flat zlib ~1.0 = no emergence (soup stayed random).

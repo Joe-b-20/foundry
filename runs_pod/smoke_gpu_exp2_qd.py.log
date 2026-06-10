@@ -1,0 +1,39 @@
+gpu_exp2_qd | device=NVIDIA GeForce RTX 4090 25GB | n=4 L=512 Tmax=2000 batch=512 gens=20 grid=12
+
+  SAMPLING (random TMs, matched budget):
+    deepest halter = 28 steps   [1s]
+
+  EVOLUTION (single-objective depth hill-climb = the expEE baseline):
+    deepest halter = 45 steps   [6s]
+
+  MAP-ELITES (quality-diversity over (span, ones) niches):
+  ME gen     0: best depth        6 | coverage   21/144
+  ME gen     1: best depth        6 | coverage   23/144
+  ME gen     2: best depth        6 | coverage   25/144
+  ME gen     3: best depth        6 | coverage   26/144
+  ME gen     4: best depth        6 | coverage   27/144
+  ME gen     5: best depth       47 | coverage   28/144
+  ME gen     6: best depth       47 | coverage   29/144
+  ME gen     7: best depth       47 | coverage   29/144
+  ME gen     8: best depth       47 | coverage   29/144
+  ME gen     9: best depth       47 | coverage   29/144
+  ME gen    10: best depth       47 | coverage   29/144
+  ME gen    11: best depth       47 | coverage   29/144
+  ME gen    12: best depth       47 | coverage   29/144
+  ME gen    13: best depth       47 | coverage   29/144
+  ME gen    14: best depth       47 | coverage   30/144
+  ME gen    15: best depth       47 | coverage   30/144
+  ME gen    16: best depth       47 | coverage   30/144
+  ME gen    17: best depth       47 | coverage   30/144
+  ME gen    18: best depth       47 | coverage   30/144
+  ME gen    19: best depth       47 | coverage   30/144
+    deepest halter = 47 steps | archive coverage 30/144   [11s]
+
+  === RESULT ===
+    sampling 28   evolution 45   MAP-Elites 47   (deepest halter, steps)
+    VERDICT: MAP-Elites did NOT beat evolution — the landscape wall holds even for QD
+    deepest machine: runtime=2000 ones=3 span=11
+
+  READ: a large MAP-Elites>>evolution gap = QD's stepping-stones cross the rugged BB needle-landscape where
+  hill-climbing stalls (a movable wall). A small gap = the landscape wall is fundamental to the discovery
+  PROCESS, not just to naive search. Either is a clean, honest result on the one wall marked 'FIX: unknown'.

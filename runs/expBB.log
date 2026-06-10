@@ -1,0 +1,7 @@
+device=cuda  maxd=18  (digit alphabet 0..18)
+
+=== 1 const10  (CONTROL, radix fed) ===
+    params 11291
+    step     1  loss 2.9465
+    step  1500  loss 0.0061
+    step  3000  loss 0.0013

@@ -1,0 +1,162 @@
+[
+ {
+  "gen": 0,
+  "best_merit": 1.074,
+  "mean_merit": 0.094,
+  "best_func": "OR",
+  "ladder": "",
+  "best_code": ">.}}{.<.+<..}.<}{<.>..>.],<{.}]."
+ },
+ {
+  "gen": 200,
+  "best_merit": 3.0,
+  "mean_merit": 0.444,
+  "best_func": "NOR",
+  "ladder": "",
+  "best_code": ".[...}+}{....>.....{.}>->..]+,.<"
+ },
+ {
+  "gen": 400,
+  "best_merit": 1.694,
+  "mean_merit": 0.449,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "<>[..>.--..]->-]<].--{-..>>.+{+."
+ },
+ {
+  "gen": 600,
+  "best_merit": 2.0,
+  "mean_merit": 0.44,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "}.[>}}.[..[....[].......,[+[,{+."
+ },
+ {
+  "gen": 800,
+  "best_merit": 2.45,
+  "mean_merit": 0.438,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "..].+.{..,--.<.+.....-...[+.>.]."
+ },
+ {
+  "gen": 1000,
+  "best_merit": 2.0,
+  "mean_merit": 0.447,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "[].[,+..,...]+<}>+-.>,>}].[.<{+."
+ },
+ {
+  "gen": 1200,
+  "best_merit": 2.0,
+  "mean_merit": 0.449,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "[]..,.-<.{-]..},.<...-..<.}].{+."
+ },
+ {
+  "gen": 1400,
+  "best_merit": 2.031,
+  "mean_merit": 0.445,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": ".,..]->}.<.<..<+{..>[....}{+,{{."
+ },
+ {
+  "gen": 1600,
+  "best_merit": 2.333,
+  "mean_merit": 0.446,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": ".+].>[.{.].}-{..,].{-..>+.+<}[.."
+ },
+ {
+  "gen": 1800,
+  "best_merit": 2.0,
+  "mean_merit": 0.45,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "....>.,....]>..>.]+.]]..].....]."
+ },
+ {
+  "gen": 2000,
+  "best_merit": 2.0,
+  "mean_merit": 0.453,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "<}...>[<...]-]{..>...].++{++>{{."
+ },
+ {
+  "gen": 2200,
+  "best_merit": 2.081,
+  "mean_merit": 0.452,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "..>>.....-.],-+..]...}..{..[>{+."
+ },
+ {
+  "gen": 2400,
+  "best_merit": 2.333,
+  "mean_merit": 0.447,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": ".>>+][<..--..-.,.<>.[-[..>}<+[.."
+ },
+ {
+  "gen": 2600,
+  "best_merit": 2.333,
+  "mean_merit": 0.445,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": ".{..{.++++>]]...<,+}.-.-.+,..[.."
+ },
+ {
+  "gen": 2800,
+  "best_merit": 2.0,
+  "mean_merit": 0.449,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": ".-}...><..-....[[..+.]+>><...{+."
+ },
+ {
+  "gen": 3000,
+  "best_merit": 1.753,
+  "mean_merit": 0.445,
+  "best_func": "NOR",
+  "ladder": "",
+  "best_code": ".<]{.....[<.}.{,+....{><<>[-]-<."
+ },
+ {
+  "gen": 3200,
+  "best_merit": 2.05,
+  "mean_merit": 0.448,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "..+{.++],-]+{.-....]}....}{>[-<."
+ },
+ {
+  "gen": 3400,
+  "best_merit": 2.333,
+  "mean_merit": 0.45,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": "...+...,>..]+.>+>[,.[+..[,..+{+."
+ },
+ {
+  "gen": 3600,
+  "best_merit": 2.333,
+  "mean_merit": 0.449,
+  "best_func": "NOR",
+  "ladder": "",
+  "best_code": ">+{,-+-,<[.-.<.[+...].<.{{...{+."
+ },
+ {
+  "gen": 3800,
+  "best_merit": 2.334,
+  "mean_merit": 0.448,
+  "best_func": "NAND",
+  "ladder": "",
+  "best_code": ".-+,.-+-..}....,.{<-..+......[.."
+ }
+]

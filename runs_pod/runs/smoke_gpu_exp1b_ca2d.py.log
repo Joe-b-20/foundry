@@ -1,0 +1,22 @@
+gpu_exp1b_ca2d CENSUS | device=NVIDIA GeForce RTX 4090 25GB sm_89 | ALL 2^18 outer-totalistic Life-like rules | H=16 W=16 T=32 batch=128
+
+  census      0/1024 | structured-so-far 5
+
+  CENSUS DONE: 296/1024 Life-like rules are 'structured-but-not-named' (novelty>0).
+    rank  Birth/Survive          novelty gen_bpc per damage
+      0   B0/S13678         1.000  0.504    0  0.121
+      1   B0/S1347          0.997  0.502    0  0.125
+      2   B0/S13467         0.992  0.478    0  0.113
+      3   B0/S135678        0.974  0.489    0  0.105
+      4   B0/S0347          0.954  0.399    0  0.113
+      5   B0/S134578        0.952  0.394    0  0.125
+      6   B0/S13478         0.949  0.502    0  0.141
+      7   B0/S23568         0.946  0.529    0  0.141
+      8   B0/S02457         0.945  0.389    0  0.113
+      9   B0/S02456         0.944  0.404    0  0.133
+     10   B0/S138           0.931  0.551    0  0.098
+     11   B0/S148           0.928  0.487    0  0.145
+     12   B0/S134           0.925  0.364    0  0.117
+     13   B0/S1348          0.925  0.364    0  0.117
+     14   B0/S03568         0.925  0.382    0  0.133
+     15   B0/S0457          0.913  0.631    0  0.133

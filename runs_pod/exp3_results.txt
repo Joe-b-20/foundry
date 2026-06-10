@@ -1,0 +1,1 @@
+op=mul smoke=True hidden=32 steps=400 seeds=1 train_w=[1, 2, 3] | baseline w2:0.023 w3:0.000 w4:0.000 w6:0.000 || memory w2:0.023 w3:0.000 w4:0.000 w6:0.000

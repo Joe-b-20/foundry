@@ -1,0 +1,33 @@
+gpu_exp2_qd | device=NVIDIA GeForce RTX 4090 25GB | n=5 L=8192 Tmax=8000 batch=4096 gens=200 grid=26
+
+  SAMPLING (random TMs, matched budget):
+    deepest halter = 49 steps   [107s]
+
+  EVOLUTION (single-objective depth hill-climb = the expEE baseline):
+    deepest halter = 6238 steps   [320s]
+
+  MAP-ELITES (quality-diversity over (span, ones) niches):
+  ME gen     0: best depth       11 | coverage   88/676
+  ME gen    16: best depth       45 | coverage  108/676
+  ME gen    32: best depth       48 | coverage  108/676
+  ME gen    48: best depth       48 | coverage  110/676
+  ME gen    64: best depth       73 | coverage  111/676
+  ME gen    80: best depth       73 | coverage  111/676
+  ME gen    96: best depth       73 | coverage  111/676
+  ME gen   112: best depth       73 | coverage  111/676
+  ME gen   128: best depth       73 | coverage  111/676
+  ME gen   144: best depth       73 | coverage  111/676
+  ME gen   160: best depth       73 | coverage  111/676
+  ME gen   176: best depth       73 | coverage  111/676
+  ME gen   192: best depth      154 | coverage  111/676
+  ME gen   199: best depth      154 | coverage  111/676
+    deepest halter = 154 steps | archive coverage 111/676   [536s]
+
+  === RESULT ===
+    sampling 49   evolution 6238   MAP-Elites 154   (deepest halter, steps)
+    VERDICT: MAP-Elites did NOT beat evolution — the landscape wall holds even for QD
+    deepest machine: runtime=8000 ones=17 span=20
+
+  READ: a large MAP-Elites>>evolution gap = QD's stepping-stones cross the rugged BB needle-landscape where
+  hill-climbing stalls (a movable wall). A small gap = the landscape wall is fundamental to the discovery
+  PROCESS, not just to naive search. Either is a clean, honest result on the one wall marked 'FIX: unknown'.

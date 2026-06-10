@@ -1,0 +1,27 @@
+device=cuda  arch=both  op=mul  smoke=True
+hidden=32 mem=16x6 steps=400 seeds=1 train_w=[1, 2, 3] test_w=[2, 3, 4, 6]
+
+  [baseline] seed 0  params=5642
+    step      1  loss 2.3374  (0s)
+  [baseline] seed 0 len-gen: w2:0.023  w3:0.000  w4:0.000  w6:0.000
+
+  [memory] seed 0  params=6773
+    step      1  loss 2.2797  (0s)
+  [memory] seed 0 len-gen: w2:0.023  w3:0.000  w4:0.000  w6:0.000
+
+================================================================
+LENGTH-GEN exact-match accuracy  (op=mul, train_widths=(1, 2, 3))
+----------------------------------------------------------------
+  width |   baseline |     memory |
+  ---------------------------------
+     2* |      0.023 |      0.023 |
+     3* |      0.000 |      0.000 |
+     4  |      0.000 |      0.000 |
+     6  |      0.000 |      0.000 |
+  (* = within train width range; beyond = true length generalization)
+================================================================
+
+wrote runs/exp3_results.txt:
+  op=mul smoke=True hidden=32 steps=400 seeds=1 train_w=[1, 2, 3] | baseline w2:0.023 w3:0.000 w4:0.000 w6:0.000 || memory w2:0.023 w3:0.000 w4:0.000 w6:0.000
+
+CONTRAST (mean exact-acc beyond train width 3): baseline=0.000  memory=0.000  gap=+0.000

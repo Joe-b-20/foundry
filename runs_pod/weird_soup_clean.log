@@ -1,0 +1,14 @@
+gpu_weird_soup | device=cuda | primordial BFF soup
+
+
+  soup: N=8192 L=32 K=160 epochs=900 mut=0.001 alphabet=256
+  WATCH: zlib drops + top-genotype rises = self-replicators emerged from random code (life from noise).
+
+  ep     0: zlib=0.994 top-genotype=    1/8192 distinct=  8192  [1s]
+  ep    50: zlib=0.897 top-genotype=    2/8192 distinct=  8191  [48s]
+  ep   100: zlib=0.880 top-genotype=    1/8192 distinct=  8192  [94s]
+  ep   150: zlib=0.873 top-genotype=    3/8192 distinct=  8190  [140s]
+  ep   200: zlib=0.867 top-genotype=    3/8192 distinct=  8190  [187s]
+  ep   250: zlib=0.864 top-genotype=    4/8192 distinct=  8187  [219s]
+  ep   300: zlib=0.868 top-genotype=    3/8192 distinct=  8188  [251s]
+  ep   350: zlib=0.875 top-genotype=    1/8192 distinct=  8192  [282s]

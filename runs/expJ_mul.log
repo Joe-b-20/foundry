@@ -1,0 +1,29 @@
+device=cuda  SELF-DISCOVERY (expert iteration, exact filter, NO traces) ops=['mul']
+  params: 14025
+  it    1  wmax 1  hits   39 (loop   0)  body[mul:-]  loss 2.0446  eps 0.25  greedy[mul] w1:0.00  w2:0.00
+  it   10  wmax 1  hits  278 (loop   0)  body[mul:-]  loss 1.3961  eps 0.25  greedy[mul] w1:1.00  w2:0.11
+      -> width-1 body ignited (greedy 1.00); begin width-2 loop search
+  it   20  wmax 2  hits    2 (loop   2)  body[mul:-]  loss 1.3738  eps 0.25  greedy[mul] w1:1.00  w2:0.11
+      *** DISCOVERED mul loop body: [GETDIGIT MULDIGIT SHL ADD_ACC INC_J]  (it 27) ***
+  it   30  wmax 4  hits    0 (loop   0)  body[mul:Y]  loss 1.3371  eps 0.06  greedy[mul] w1:0.00  w2:0.00  w3:0.00  w4:0.00
+  it   40  wmax 4  hits  749 (loop 749)  body[mul:Y]  loss 0.0135  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   50  wmax 4  hits  824 (loop 824)  body[mul:Y]  loss 0.0052  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   60  wmax 4  hits  838 (loop 838)  body[mul:Y]  loss 0.0031  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   70  wmax 4  hits  858 (loop 858)  body[mul:Y]  loss 0.0021  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   80  wmax 4  hits  867 (loop 867)  body[mul:Y]  loss 0.0016  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it   90  wmax 4  hits  866 (loop 866)  body[mul:Y]  loss 0.0012  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  100  wmax 4  hits  896 (loop 896)  body[mul:Y]  loss 0.0009  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  110  wmax 4  hits  905 (loop 905)  body[mul:Y]  loss 0.0008  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  120  wmax 4  hits  879 (loop 879)  body[mul:Y]  loss 0.0006  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  130  wmax 4  hits  866 (loop 866)  body[mul:Y]  loss 0.0005  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+  it  140  wmax 4  hits  886 (loop 886)  body[mul:Y]  loss 0.0005  eps 0.06  greedy[mul] w1:1.00  w2:1.00  w3:1.00  w4:1.00
+
+  first exact-correct self-sample per op (iteration): {'first_hit': {'mul': 1}, 'first_loop_hit': {'mul': 11}, 'body': {'mul': (1, 2, 3, 4, 5)}}
+
+  LENGTH-GEN (greedy; model emits AND runs the discovered program, no traces shown):
+    mul: w1:1.000  w2:1.000  w3:1.000  w4:1.000  w6:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+
+  example emitted programs (the discovered composition):
+    47*83 (=3901, got 3901): GETDIGIT MULDIGIT SHL ADD_ACC INC_J GETDIGIT MULDIGIT SHL ADD_ACC INC_J HALT
+
+saved runs/expJ_mul.pt

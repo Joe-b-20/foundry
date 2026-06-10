@@ -1,0 +1,6 @@
+16:49:17 TIER1 START on d793fa9a9354 — GPU NVIDIA GeForce RTX 4090
+16:49:17 >>> START exp1b_census
+16:50:20 >>> END exp1b_census rc=0
+16:50:20 >>> START exp1_r2_s1
+16:51:04 >>> END exp1_r2_s1 rc=1
+16:51:04 >>> START exp3_rev

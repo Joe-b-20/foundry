@@ -1,0 +1,24 @@
+gpu_weird_soup | device=cuda | primordial BFF soup
+
+
+  soup: N=8192 L=32 K=160 epochs=4000 mut=0.001 alphabet=256
+  WATCH: zlib drops + top-genotype rises = self-replicators emerged from random code (life from noise).
+
+  ep     0: zlib=0.994 top-genotype=    1/8192 distinct=  8192  [1s]
+  ep    50: zlib=0.897 top-genotype=    2/8192 distinct=  8191  [30s]
+  ep   100: zlib=0.880 top-genotype=    1/8192 distinct=  8192  [60s]
+  ep   150: zlib=0.873 top-genotype=    3/8192 distinct=  8190  [89s]
+  ep   200: zlib=0.867 top-genotype=    3/8192 distinct=  8190  [118s]
+  ep   250: zlib=0.864 top-genotype=    4/8192 distinct=  8187  [148s]
+  ep   300: zlib=0.868 top-genotype=    3/8192 distinct=  8188  [177s]
+  ep   350: zlib=0.874 top-genotype=    1/8192 distinct=  8192  [207s]
+  ep   400: zlib=0.884 top-genotype=    1/8192 distinct=  8192  [246s]
+  ep   450: zlib=0.384 top-genotype=   81/8192 distinct=  7305  [290s]
+  ep   500: zlib=0.180 top-genotype=  169/8192 distinct=  4628  [334s]
+  ep   550: zlib=0.182 top-genotype=   48/8192 distinct=  4652  [377s]
+  ep   600: zlib=0.195 top-genotype=   36/8192 distinct=  4876  [422s]
+  ep   650: zlib=0.198 top-genotype=   35/8192 distinct=  4862  [455s]
+  ep   700: zlib=0.199 top-genotype=   35/8192 distinct=  5177  [501s]
+  ep   750: zlib=0.202 top-genotype=   36/8192 distinct=  5153  [547s]
+  ep   800: zlib=0.213 top-genotype=   27/8192 distinct=  5425  [593s]
+  ep   850: zlib=0.211 top-genotype=   35/8192 distinct=  5794  [639s]

@@ -1,0 +1,189 @@
+device=cuda  arch=both  op=rev  smoke=False
+hidden=64 mem=24x8 steps=12000 seeds=3 train_w=[1, 2, 3, 4, 5] test_w=[3, 5, 8, 12, 16, 20]
+
+  [baseline] seed 0  params=17418
+    step      1  loss 2.3068  (0s)
+    step    500  loss 0.0005  (5s)
+    step   1000  loss 0.0016  (11s)
+    step   1500  loss 0.0014  (16s)
+    step   2000  loss 0.0204  (21s)
+    step   2500  loss 0.0004  (26s)
+    step   3000  loss 0.0005  (31s)
+    step   3500  loss 0.0000  (36s)
+    step   4000  loss 0.0000  (41s)
+    step   4500  loss 0.0003  (46s)
+    step   5000  loss 0.0009  (51s)
+    step   5500  loss 0.0000  (56s)
+    step   6000  loss 0.0001  (61s)
+    step   6500  loss 0.0000  (66s)
+    step   7000  loss 0.0002  (71s)
+    step   7500  loss 0.0001  (76s)
+    step   8000  loss 0.0000  (82s)
+    step   8500  loss 0.0000  (87s)
+    step   9000  loss 0.0000  (92s)
+    step   9500  loss 0.0000  (97s)
+    step  10000  loss 0.0000  (103s)
+    step  10500  loss 0.0001  (108s)
+    step  11000  loss 0.0000  (113s)
+    step  11500  loss 0.0000  (118s)
+    step  12000  loss 0.0000  (124s)
+  [baseline] seed 0 len-gen: w3:1.000  w5:1.000  w8:0.004  w12:0.000  w16:0.000  w20:0.000
+
+  [baseline] seed 1  params=17418
+    step      1  loss 2.3054  (0s)
+    step    500  loss 0.0008  (5s)
+    step   1000  loss 0.0014  (10s)
+    step   1500  loss 0.0015  (15s)
+    step   2000  loss 0.0253  (20s)
+    step   2500  loss 0.0003  (25s)
+    step   3000  loss 0.0008  (30s)
+    step   3500  loss 0.0000  (35s)
+    step   4000  loss 0.0001  (41s)
+    step   4500  loss 0.0005  (45s)
+    step   5000  loss 0.0026  (51s)
+    step   5500  loss 0.0000  (56s)
+    step   6000  loss 0.0001  (61s)
+    step   6500  loss 0.0000  (66s)
+    step   7000  loss 0.0000  (71s)
+    step   7500  loss 0.0000  (76s)
+    step   8000  loss 0.0000  (81s)
+    step   8500  loss 0.0000  (87s)
+    step   9000  loss 0.0000  (92s)
+    step   9500  loss 0.0000  (97s)
+    step  10000  loss 0.0000  (102s)
+    step  10500  loss 0.0000  (107s)
+    step  11000  loss 0.0000  (112s)
+    step  11500  loss 0.0000  (117s)
+    step  12000  loss 0.0000  (122s)
+  [baseline] seed 1 len-gen: w3:1.000  w5:1.000  w8:0.004  w12:0.000  w16:0.000  w20:0.000
+
+  [baseline] seed 2  params=17418
+    step      1  loss 2.3095  (0s)
+    step    500  loss 0.0004  (5s)
+    step   1000  loss 0.0012  (10s)
+    step   1500  loss 0.0026  (15s)
+    step   2000  loss 0.0507  (20s)
+    step   2500  loss 0.0004  (25s)
+    step   3000  loss 0.0009  (30s)
+    step   3500  loss 0.0000  (35s)
+    step   4000  loss 0.0003  (40s)
+    step   4500  loss 0.0002  (45s)
+    step   5000  loss 0.0021  (50s)
+    step   5500  loss 0.0000  (56s)
+    step   6000  loss 0.1456  (61s)
+    step   6500  loss 0.0000  (66s)
+    step   7000  loss 0.0000  (71s)
+    step   7500  loss 0.0001  (76s)
+    step   8000  loss 0.0000  (81s)
+    step   8500  loss 0.0000  (86s)
+    step   9000  loss 0.0000  (91s)
+    step   9500  loss 0.0000  (97s)
+    step  10000  loss 0.0000  (102s)
+    step  10500  loss 0.0024  (107s)
+    step  11000  loss 0.0001  (112s)
+    step  11500  loss 0.0000  (117s)
+    step  12000  loss 0.0000  (123s)
+  [baseline] seed 2 len-gen: w3:1.000  w5:1.000  w8:0.005  w12:0.000  w16:0.000  w20:0.000
+
+  [memory] seed 0  params=20269
+    step      1  loss 2.3085  (0s)
+    step    500  loss 0.0005  (7s)
+    step   1000  loss 0.0002  (14s)
+    step   1500  loss 0.0003  (21s)
+    step   2000  loss 0.0021  (28s)
+    step   2500  loss 0.0001  (35s)
+    step   3000  loss 0.0001  (42s)
+    step   3500  loss 0.0000  (49s)
+    step   4000  loss 0.0000  (56s)
+    step   4500  loss 0.0001  (62s)
+    step   5000  loss 0.0001  (69s)
+    step   5500  loss 0.0000  (76s)
+    step   6000  loss 0.0000  (83s)
+    step   6500  loss 0.0000  (90s)
+    step   7000  loss 0.0000  (98s)
+    step   7500  loss 0.0016  (104s)
+    step   8000  loss 0.0000  (111s)
+    step   8500  loss 0.0000  (118s)
+    step   9000  loss 0.0000  (126s)
+    step   9500  loss 0.0000  (133s)
+    step  10000  loss 0.0000  (139s)
+    step  10500  loss 0.0000  (146s)
+    step  11000  loss 0.0000  (153s)
+    step  11500  loss 0.0000  (160s)
+    step  12000  loss 0.0000  (167s)
+  [memory] seed 0 len-gen: w3:1.000  w5:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+
+  [memory] seed 1  params=20269
+    step      1  loss 2.3096  (0s)
+    step    500  loss 0.0006  (7s)
+    step   1000  loss 0.0015  (15s)
+    step   1500  loss 0.0014  (21s)
+    step   2000  loss 0.0240  (28s)
+    step   2500  loss 0.0005  (35s)
+    step   3000  loss 0.0004  (42s)
+    step   3500  loss 0.0000  (48s)
+    step   4000  loss 0.0004  (55s)
+    step   4500  loss 0.0002  (62s)
+    step   5000  loss 0.0009  (69s)
+    step   5500  loss 0.0000  (76s)
+    step   6000  loss 0.0000  (83s)
+    step   6500  loss 0.0000  (90s)
+    step   7000  loss 0.0000  (98s)
+    step   7500  loss 0.0001  (105s)
+    step   8000  loss 0.0000  (112s)
+    step   8500  loss 0.0000  (119s)
+    step   9000  loss 0.0000  (126s)
+    step   9500  loss 0.0000  (133s)
+    step  10000  loss 0.0001  (140s)
+    step  10500  loss 0.0001  (147s)
+    step  11000  loss 0.0000  (155s)
+    step  11500  loss 0.0000  (162s)
+    step  12000  loss 0.0000  (169s)
+  [memory] seed 1 len-gen: w3:0.961  w5:0.382  w8:0.000  w12:0.000  w16:0.000  w20:0.000
+
+  [memory] seed 2  params=20269
+    step      1  loss 2.3086  (0s)
+    step    500  loss 0.0005  (7s)
+    step   1000  loss 0.0003  (14s)
+    step   1500  loss 0.0003  (20s)
+    step   2000  loss 0.0015  (27s)
+    step   2500  loss 0.0001  (34s)
+    step   3000  loss 0.0003  (41s)
+    step   3500  loss 0.0000  (48s)
+    step   4000  loss 0.0000  (56s)
+    step   4500  loss 0.0001  (62s)
+    step   5000  loss 0.0001  (69s)
+    step   5500  loss 0.0000  (76s)
+    step   6000  loss 0.0014  (83s)
+    step   6500  loss 0.0000  (90s)
+    step   7000  loss 0.0000  (98s)
+    step   7500  loss 0.0000  (105s)
+    step   8000  loss 0.0000  (114s)
+    step   8500  loss 0.0000  (122s)
+    step   9000  loss 0.0000  (131s)
+    step   9500  loss 0.0000  (140s)
+    step  10000  loss 0.0000  (149s)
+    step  10500  loss 0.0000  (157s)
+    step  11000  loss 0.0000  (166s)
+    step  11500  loss 0.0000  (174s)
+    step  12000  loss 0.0000  (181s)
+  [memory] seed 2 len-gen: w3:1.000  w5:1.000  w8:1.000  w12:1.000  w16:1.000  w20:1.000
+
+================================================================
+LENGTH-GEN exact-match accuracy  (op=rev, train_widths=(1, 2, 3, 4, 5))
+----------------------------------------------------------------
+  width |   baseline |     memory |
+  ---------------------------------
+     3* |      1.000 |      0.987 |
+     5* |      1.000 |      0.794 |
+     8  |      0.004 |      0.667 |
+    12  |      0.000 |      0.667 |
+    16  |      0.000 |      0.667 |
+    20  |      0.000 |      0.667 |
+  (* = within train width range; beyond = true length generalization)
+================================================================
+
+wrote runs/exp3_results.txt:
+  op=rev smoke=False hidden=64 steps=12000 seeds=3 train_w=[1, 2, 3, 4, 5] | baseline w3:1.000 w5:1.000 w8:0.004 w12:0.000 w16:0.000 w20:0.000 || memory w3:0.987 w5:0.794 w8:0.667 w12:0.667 w16:0.667 w20:0.667
+
+CONTRAST (mean exact-acc beyond train width 5): baseline=0.001  memory=0.667  gap=+0.666

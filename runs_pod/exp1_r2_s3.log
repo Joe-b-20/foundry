@@ -1,0 +1,5 @@
+gpu_exp1_novelty | device=NVIDIA GeForce RTX 4090 25GB sm_89 | radius=2 k=5 (rule space 2^32) W=256 T=256 batch=32768 pop=8192 gens=100 neural=True
+
+  training shared neural general-compressor (800 steps)...
+    done [40s]
+

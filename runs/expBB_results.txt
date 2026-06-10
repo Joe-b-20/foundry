@@ -1,0 +1,4 @@
+cfg0 | 1 const10  (CONTROL, radix fed) | w1:1.000  w2:1.000  w3:1.000  w5:1.000  w8:1.000  w12:1.000
+cfg2 | 3 factoradic +radix scalar | w1:1.000  w2:1.000  w3:1.000  w5:1.000  w8:0.037  w12:0.002
+cfg3 | 4 randmix[2..7] +radix scalar | w1:1.000  w2:1.000  w3:1.000  w5:1.000  w8:1.000  w12:1.000  ||EXTRAP(radix8-16) w1:0.180  w2:0.023  w3:0.008  w5:0.000  w8:0.000  w12:0.000
+cfg1 | 2 factoradic NO radix fed | w1:1.000  w2:1.000  w3:1.000  w5:1.000  w8:0.037  w12:0.002

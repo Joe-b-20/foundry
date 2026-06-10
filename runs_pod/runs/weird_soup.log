@@ -1,0 +1,36 @@
+gpu_weird_soup | device=cuda | primordial BFF soup
+
+
+  soup: N=8192 L=32 K=160 epochs=8000 mut=0.01 alphabet=256
+  WATCH: zlib drops + top-genotype rises = self-replicators emerged from random code (life from noise).
+
+  ep     0: zlib=0.994 top-genotype=    1/8192 distinct=  8192  [1s]
+  ep    50: zlib=0.940 top-genotype=    2/8192 distinct=  8191  [31s]
+  ep   100: zlib=0.942 top-genotype=    3/8192 distinct=  8188  [61s]
+  ep   150: zlib=0.947 top-genotype=    1/8192 distinct=  8192  [91s]
+  ep   200: zlib=0.943 top-genotype=    2/8192 distinct=  8191  [121s]
+  ep   250: zlib=0.947 top-genotype=    1/8192 distinct=  8192  [151s]
+  ep   300: zlib=0.947 top-genotype=    2/8192 distinct=  8191  [181s]
+  ep   350: zlib=0.938 top-genotype=    3/8192 distinct=  8190  [210s]
+  ep   400: zlib=0.945 top-genotype=    2/8192 distinct=  8191  [240s]
+  ep   450: zlib=0.941 top-genotype=    1/8192 distinct=  8192  [270s]
+  ep   500: zlib=0.939 top-genotype=    1/8192 distinct=  8192  [300s]
+  ep   550: zlib=0.937 top-genotype=    1/8192 distinct=  8192  [335s]
+  ep   600: zlib=0.599 top-genotype=    4/8192 distinct=  8185  [378s]
+  ep   650: zlib=0.620 top-genotype=    5/8192 distinct=  8177  [408s]
+  ep   700: zlib=0.618 top-genotype=    5/8192 distinct=  8160  [437s]
+  ep   750: zlib=0.631 top-genotype=    9/8192 distinct=  8154  [467s]
+  ep   800: zlib=0.632 top-genotype=    9/8192 distinct=  8148  [497s]
+  ep   850: zlib=0.631 top-genotype=    4/8192 distinct=  8154  [527s]
+  ep   900: zlib=0.627 top-genotype=    6/8192 distinct=  8144  [557s]
+  ep   950: zlib=0.632 top-genotype=    8/8192 distinct=  8123  [587s]
+  ep  1000: zlib=0.639 top-genotype=    5/8192 distinct=  8130  [617s]
+  ep  1050: zlib=0.645 top-genotype=    5/8192 distinct=  8133  [647s]
+  ep  1100: zlib=0.635 top-genotype=    3/8192 distinct=  8163  [677s]
+  ep  1150: zlib=0.645 top-genotype=    3/8192 distinct=  8157  [706s]
+  ep  1200: zlib=0.641 top-genotype=    4/8192 distinct=  8154  [736s]
+  ep  1250: zlib=0.637 top-genotype=    5/8192 distinct=  8165  [774s]
+  ep  1300: zlib=0.637 top-genotype=    4/8192 distinct=  8147  [819s]
+  ep  1350: zlib=0.642 top-genotype=    4/8192 distinct=  8153  [863s]
+  ep  1400: zlib=0.640 top-genotype=    3/8192 distinct=  8169  [907s]
+  ep  1450: zlib=0.650 top-genotype=    4/8192 distinct=  8154  [953s]

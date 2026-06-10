@@ -1,0 +1,108 @@
+gpu_weird_lprog | device=NVIDIA GeForce RTX 4090 25GB sm_89 | LEARNING-PROGRESS signal (structure-agnostic interestingness)
+  radius=2 W=64 T=64 | per-object train_steps=32 warmup@6 L=4 hid=12
+  validation_batch=256 (elementary) | hunt_batch=65536 keep=8192 seed=1
+
+====================================================================================================
+VALIDATION on the 256 ELEMENTARY CAs (radius=1) — does LEARNING PROGRESS rank class-4 high, reject chaos+trivial?
+====================================================================================================
+  trained 256 per-object predictors for 32 steps, warmup baseline @ step 6  [1s]
+  per-object held-out bpc seeds: train=10000+1, eval=20000+1 (held-out init)
+
+  TOP 24 by learning-progress (lp = bpc_post-warmup - bpc_best; high = learnable-with-effort):
+    rule  class    lp     bpcW   bpc_end
+      84   2    0.9795  1.141  0.162
+     250   1    0.8204  0.994  0.174
+     202   2    0.7948  0.823  0.028
+     161   2    0.7939  0.895  0.101
+     126   3    0.7851  0.927  0.142   (chaos)
+     223   2    0.6808  0.727  0.046
+     190   2    0.6090  0.709  0.100
+     169   2    0.6049  0.778  0.173
+     137   4*   0.6047  0.880  0.275  <<< CLASS 4 (complex!)
+      89   2    0.5994  0.882  0.283
+      22   3    0.5861  0.897  0.311   (chaos)
+     193   4*   0.5858  0.648  0.062  <<< CLASS 4 (complex!)
+     195   3    0.5849  0.952  0.367   (chaos)
+     101   2    0.5824  0.808  0.226
+     106   4*   0.5722  0.824  0.252  <<< CLASS 4 (complex!)
+      75   3    0.5550  0.856  0.301   (chaos)
+     135   3    0.5548  0.826  0.271   (chaos)
+     246   2    0.5237  0.583  0.060
+      30   3    0.5202  0.878  0.358   (chaos)
+      73   2    0.5077  0.590  0.082
+      54   4*   0.5075  0.644  0.137  <<< CLASS 4 (complex!)
+     153   2    0.4987  0.966  0.468
+      14   2    0.4982  0.547  0.049
+     171   2    0.4925  0.635  0.142
+
+  where do the 7 famous CLASS-4 (complex) rules land? (out of 256, rank 0 = highest lp)
+     rule  54  class 4 :  rank  20/256   lp 0.5075  bpcW 0.644 -> 0.137
+     rule 106  class 4 :  rank  14/256   lp 0.5722  bpcW 0.824 -> 0.252
+     rule 110  class 4 :  rank  24/256   lp 0.4830  bpcW 0.880 -> 0.397
+     rule 124  class 4 :  rank  28/256   lp 0.4694  bpcW 0.922 -> 0.453
+     rule 137  class 4 :  rank   8/256   lp 0.6047  bpcW 0.880 -> 0.275
+     rule 147  class 4 :  rank  70/256   lp 0.2838  bpcW 0.374 -> 0.090
+     rule 193  class 4 :  rank  11/256   lp 0.5858  bpcW 0.648 -> 0.062
+  CLASS-3 chaos (should rank LOW — nothing learnable, loss stays high):
+     rule  18  class 3 :  rank  77/256   lp 0.2570  bpcW 0.649 -> 0.392
+     rule  22  class 3 :  rank  10/256   lp 0.5861  bpcW 0.897 -> 0.311
+     rule  30  class 3 :  rank  18/256   lp 0.5202  bpcW 0.878 -> 0.358
+     rule  45  class 3 :  rank  25/256   lp 0.4805  bpcW 0.897 -> 0.416
+     rule  90  class 3 :  rank 120/256   lp 0.1503  bpcW 0.650 -> 0.499
+     rule 126  class 3 :  rank   4/256   lp 0.7851  bpcW 0.927 -> 0.142
+     rule 150  class 3 :  rank 192/256   lp 0.0641  bpcW 1.012 -> 0.947
+  TRIVIAL class-1/2 samples (should rank LOW — already predictable, nothing to learn):
+     rule   0  class 1 :  rank 209/256   lp 0.0338  bpcW 0.034 -> 0.000
+     rule   4  class 2 :  rank 178/256   lp 0.0776  bpcW 0.080 -> 0.002
+     rule   8  class 1 :  rank 223/256   lp 0.0137  bpcW 0.014 -> 0.000
+     rule  51  class 2 :  rank 219/256   lp 0.0162  bpcW 0.016 -> 0.000
+     rule 170  class 2 :  rank 196/256   lp 0.0599  bpcW 0.198 -> 0.139
+     rule 204  class 2 :  rank  90/256   lp 0.2288  bpcW 0.232 -> 0.003
+     rule 240  class 2 :  rank  63/256   lp 0.3089  bpcW 0.612 -> 0.303
+     rule 255  class 1 :  rank 252/256   lp 0.0000  bpcW 0.000 -> 0.000
+
+  COHORT MEDIAN RANKS (0=best):  class-4 20   |   chaos 25   |   trivial 202   (of 256)
+  class-4 rules in TOP 24: 4/7.  Mean lp:  class-4 0.5009  chaos 0.4062  trivial 0.0923
+  VERDICT: class-4 ranks ABOVE both chaos and trivial => signal SEPARATES (positive).
+
+====================================================================================================
+PAYOFF: hunt the uncatalogued radius-2 space (2^32 rules) for HIGH learning-progress NOT named.
+====================================================================================================
+  scored 65536 random rules, 32 train steps (per-object), warmup @ 6  [54s].
+  of the top 8192 by learning-progress, 2776 are NOT flagged by ANY named signal (not affine / periodic / chaotic / dead / frozen).
+  (named breakdown among top 8192:  affine 0  periodic 175  chaotic 4138  dead 33  frozen 1193)
+
+  TOP residual-novel candidates (high learning-progress, invisible to the named battery):
+    rule              lp      bpcW   bpc_end  NL  period  dens   damage
+    0xF010CA48        5.6874  6.497  0.810   11     0   0.10   0.031
+    0x66F0300A        5.5768  6.613  1.036    8     0   0.12   0.109
+    0xC652EC84        5.1279  5.835  0.707   10     0   0.24   0.203
+    0x9140B408        3.8933  4.647  0.754    9     0   0.14   0.031
+    0xD746880C        3.1147  4.216  1.102   11     0   0.56   0.281
+    0xE4F4AE5E        2.3933  2.796  0.402    9     0   0.76   0.375
+    0xD6F8A182        2.3767  3.454  1.077    9     0   0.74   0.109
+    0xF118C48C        2.3380  3.354  1.017    9     0   0.12   0.047
+    0x63A8D200        2.3234  3.032  0.708   11     0   0.07   0.031
+    0xF71ED0A7        2.2959  2.739  0.443    9     0   0.92   0.031
+    0xC68083DA        2.2604  3.319  1.058    9     0   0.62   0.312
+    0xEBE0FB61        1.6668  1.868  0.201    9     0   0.67   0.047
+    0xCD80A36B        1.6580  2.049  0.391    9     0   0.38   0.391
+    0xE2BBA09D        1.6297  2.180  0.550    9     0   0.60   0.172
+    0x5C0EFA84        1.5403  2.336  0.796   11     0   0.51   0.031
+    0xEB9994EA        1.5395  2.144  0.605   10     0   0.86   0.031
+    0xCEEF46D2        1.5036  1.567  0.063   11     0   0.62   0.047
+    0xFF3D754C        1.4157  1.735  0.319   11     0   0.67   0.188
+    0x2FF8C044        1.3813  2.404  1.023    8     0   0.17   0.094
+    0x84022006        1.3621  1.836  0.474    6     0   0.13   0.047
+    0x76432601        1.3157  1.785  0.469   10     0   0.26   0.109
+    0x2C88087E        1.3112  1.663  0.352   10     0   0.37   0.219
+    0xC3490088        1.2743  1.633  0.359    9     0   0.16   0.062
+    0x4ECE28E2        1.2664  1.787  0.520   11     0   0.61   0.047
+
+  saved top-8 residual survivors' LUTs + space-time to runs/weird_lprog/ for inspection.
+
+  READ: these are compressible-by-LEARNING (a per-object predictor improves a lot on them PAST a warmup) yet
+  match NO named signal. Honest ceiling: characterize, do not claim novel. A survivor whose dynamics look unfamiliar
+  on inspection = evidenceable-but-unprovable novelty; one that is 'just class-4' = the rediscovery ceiling.
+
+[done 55s total]

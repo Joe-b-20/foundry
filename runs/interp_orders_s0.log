@@ -1,0 +1,288 @@
+
+================================================================================
+MODEL [addfirst]  (runs/expH_order_addfirst.pt)
+================================================================================
+  ACCURACY (exact, per width):
+    add    : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    sub    : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    mul    : w1:0.848  w4:0.677  w12:0.487  w20:0.458
+    div125 : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    divcop : w1:0.242  w4:0.000  w12:0.000  w20:0.000
+
+  SCRATCHPAD (top-3 dims by summed probe importance) = [5, 6, 7]  complement=[0, 1, 2, 3, 4]
+    per-op per-dim probe importance (normalized):
+       dim:   d0  d1  d2  d3  d4  d5  d6  d7
+     add   : 0.00  0.00  0.00  0.00  0.00  0.50  0.00  0.50
+     sub   : 0.01  0.01  0.01  0.01  0.01  0.01  0.01  0.96
+     mul   : 0.02  0.02  0.02  0.02  0.02  0.17  0.35  0.36
+     div2  : 0.01  0.01  0.01  0.01  0.01  0.01  0.01  0.96
+     div5  : 0.04  0.04  0.04  0.04  0.04  0.14  0.04  0.61
+     TOTAL : 0.08  0.08  0.08  0.08  0.08  0.82  0.41  3.39
+
+  GEOMETRY (carry/borrow: single-dim vs linear-probe):
+    add (carry ): best-single-dim d5=0.992  linear-probe=1.000  -> AXIS-ALIGNED
+    sub (borrow): best-single-dim d7=0.997  linear-probe=1.000  -> AXIS-ALIGNED
+
+  CARRY vs BORROW direction overlap |cos|: full 0.707 | scratchpad 0.707
+     (low => orthogonal/spatial-partition; high => superimposed on a shared direction)
+
+  SHARED-SCRATCHPAD test (decode from scratch[5, 6, 7] vs complement[0, 1, 2, 3, 4]):
+    add   : full 1.000 | scratch 1.000 | complement 0.516 | chance 0.516
+    sub   : full 1.000 | scratch 1.000 | complement 0.647 | chance 0.647
+    mul   : full 0.692 | scratch 0.692 | complement 0.372 | chance 0.372
+    div2  : full 1.000 | scratch 1.000 | complement 0.536 | chance 0.536
+    div5  : full 1.000 | scratch 1.000 | complement 0.221 | chance 0.221
+
+  CAUSAL CARRY injection (output should flip (a+b)->(a+b+1)):
+    baseline 1.000 | inject FULL 1.000 | inject HOST[5, 6, 7] 1.000 | inject COMP 0.000
+  CAUSAL BORROW injection (output should flip (a-b)->(a-b-1)):
+    baseline 1.000 | inject FULL 1.000 | inject HOST[5, 6, 7] 1.000 | inject COMP 0.000
+
+  MULT-CARRY b-entanglement: matched-b 0.720 | mismatched-b 0.296  (matched>>mismatched => entangled)
+  OP-CODE selector (step-0 output == selected function): add:1.00  sub:1.00  mul:1.00  div:1.00
+
+SUMMARY {'tag': 'addfirst', 'carry_single': np.float64(0.992), 'carry_probe': 1.0, 'carry_label': 'AXIS-ALIGNED', 'carry_dim': 5, 'borrow_single': np.float64(0.997), 'borrow_probe': 1.0, 'borrow_label': 'AXIS-ALIGNED', 'borrow_dim': 7, 'scratch': [5, 6, 7], 'carry_causal_full': 1.0, 'carry_causal_host': 1.0, 'carry_causal_comp': 0.0, 'borrow_causal_full': 1.0, 'borrow_causal_host': 1.0, 'mult_matched': 0.72, 'mult_mismatched': 0.296, 'div125_w20': 1.0, 'divcop_w20': 0.0, 'mul_w20': 0.458, 'cb_cos_full': 0.707, 'cb_cos_scratch': 0.707, 'add_w20': 1.0, 'sub_w20': 1.0}
+
+================================================================================
+MODEL [subfirst]  (runs/expH_order_subfirst.pt)
+================================================================================
+  ACCURACY (exact, per width):
+    add    : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    sub    : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    mul    : w1:0.920  w4:0.743  w12:0.530  w20:0.487
+    div125 : w1:1.000  w4:0.730  w12:0.677  w20:0.635
+    divcop : w1:0.318  w4:0.000  w12:0.000  w20:0.000
+
+  SCRATCHPAD (top-3 dims by summed probe importance) = [0, 1, 6]  complement=[2, 3, 4, 5, 7]
+    per-op per-dim probe importance (normalized):
+       dim:   d0  d1  d2  d3  d4  d5  d6  d7
+     add   : 0.53  0.17  0.01  0.01  0.26  0.01  0.01  0.01
+     sub   : 0.01  0.96  0.01  0.01  0.01  0.01  0.01  0.01
+     mul   : 0.17  0.21  0.04  0.04  0.18  0.04  0.30  0.04
+     div2  : 0.17  0.32  0.00  0.00  0.17  0.00  0.32  0.00
+     div5  : 0.08  0.22  0.05  0.05  0.08  0.05  0.41  0.05
+     TOTAL : 0.96  1.88  0.10  0.10  0.70  0.10  1.05  0.10
+
+  GEOMETRY (carry/borrow: single-dim vs linear-probe):
+    add (carry ): best-single-dim d0=0.992  linear-probe=1.000  -> AXIS-ALIGNED
+    sub (borrow): best-single-dim d1=0.995  linear-probe=1.000  -> AXIS-ALIGNED
+
+  CARRY vs BORROW direction overlap |cos|: full 0.172 | scratchpad 0.233
+     (low => orthogonal/spatial-partition; high => superimposed on a shared direction)
+
+  SHARED-SCRATCHPAD test (decode from scratch[0, 1, 6] vs complement[2, 3, 4, 5, 7]):
+    add   : full 1.000 | scratch 1.000 | complement 0.969 | chance 0.516
+    sub   : full 1.000 | scratch 1.000 | complement 0.647 | chance 0.647
+    mul   : full 0.616 | scratch 0.572 | complement 0.473 | chance 0.372
+    div2  : full 1.000 | scratch 1.000 | complement 0.641 | chance 0.536
+    div5  : full 0.542 | scratch 0.542 | complement 0.230 | chance 0.221
+
+  CAUSAL CARRY injection (output should flip (a+b)->(a+b+1)):
+    baseline 1.000 | inject FULL 1.000 | inject HOST[0, 1, 4] 1.000 | inject COMP 0.000
+  CAUSAL BORROW injection (output should flip (a-b)->(a-b-1)):
+    baseline 1.000 | inject FULL 1.000 | inject HOST[1, 2, 6] 1.000 | inject COMP 0.000
+
+  MULT-CARRY b-entanglement: matched-b 0.904 | mismatched-b 0.201  (matched>>mismatched => entangled)
+  OP-CODE selector (step-0 output == selected function): add:1.00  sub:1.00  mul:1.00  div:1.00
+
+SUMMARY {'tag': 'subfirst', 'carry_single': np.float64(0.992), 'carry_probe': 1.0, 'carry_label': 'AXIS-ALIGNED', 'carry_dim': 0, 'borrow_single': np.float64(0.995), 'borrow_probe': 1.0, 'borrow_label': 'AXIS-ALIGNED', 'borrow_dim': 1, 'scratch': [0, 1, 6], 'carry_causal_full': 1.0, 'carry_causal_host': 1.0, 'carry_causal_comp': 0.0, 'borrow_causal_full': 1.0, 'borrow_causal_host': 1.0, 'mult_matched': 0.904, 'mult_mismatched': 0.201, 'div125_w20': 0.635, 'divcop_w20': 0.0, 'mul_w20': 0.487, 'cb_cos_full': 0.172, 'cb_cos_scratch': 0.233, 'add_w20': 1.0, 'sub_w20': 1.0}
+
+================================================================================
+MODEL [mulfirst]  (runs/expH_order_mulfirst.pt)
+================================================================================
+  ACCURACY (exact, per width):
+    add    : w1:1.000  w4:1.000  w12:0.998  w20:0.983
+    sub    : w1:1.000  w4:0.990  w12:0.965  w20:0.890
+    mul    : w1:0.988  w4:0.960  w12:0.917  w20:0.910
+    div125 : w1:1.000  w4:0.740  w12:0.385  w20:0.343
+    divcop : w1:0.273  w4:0.000  w12:0.000  w20:0.000
+
+  SCRATCHPAD (top-3 dims by summed probe importance) = [0, 1, 6]  complement=[2, 3, 4, 5, 7]
+    per-op per-dim probe importance (normalized):
+       dim:   d0  d1  d2  d3  d4  d5  d6  d7
+     add   : 0.04  0.42  0.06  0.07  0.07  0.11  0.07  0.16
+     sub   : 0.16  0.26  0.04  0.05  0.00  0.14  0.29  0.06
+     mul   : 0.19  0.10  0.13  0.14  0.08  0.08  0.18  0.10
+     div2  : 0.26  0.28  0.04  0.04  0.04  0.25  0.04  0.04
+     div5  : 0.13  0.11  0.20  0.07  0.05  0.07  0.16  0.20
+     TOTAL : 0.78  1.17  0.47  0.38  0.24  0.65  0.74  0.56
+
+  GEOMETRY (carry/borrow: single-dim vs linear-probe):
+    add (carry ): best-single-dim d1=0.991  linear-probe=1.000  -> AXIS-ALIGNED
+    sub (borrow): best-single-dim d1=0.744  linear-probe=0.996  -> DISTRIBUTED
+
+  CARRY vs BORROW direction overlap |cos|: full 0.355 | scratchpad 0.608
+     (low => orthogonal/spatial-partition; high => superimposed on a shared direction)
+
+  SHARED-SCRATCHPAD test (decode from scratch[0, 1, 6] vs complement[2, 3, 4, 5, 7]):
+    add   : full 1.000 | scratch 1.000 | complement 0.938 | chance 0.516
+    sub   : full 0.996 | scratch 0.996 | complement 0.859 | chance 0.647
+    mul   : full 0.828 | scratch 0.647 | complement 0.714 | chance 0.372
+    div2  : full 0.895 | scratch 0.895 | complement 0.545 | chance 0.536
+    div5  : full 0.798 | scratch 0.497 | complement 0.531 | chance 0.221
+
+  CAUSAL CARRY injection (output should flip (a+b)->(a+b+1)):
+    baseline 1.000 | inject FULL 0.927 | inject HOST[1, 5, 7] 0.982 | inject COMP 0.018
+  CAUSAL BORROW injection (output should flip (a-b)->(a-b-1)):
+    baseline 0.836 | inject FULL 1.000 | inject HOST[1, 5, 7] 0.927 | inject COMP 0.218
+
+  MULT-CARRY b-entanglement: matched-b 0.959 | mismatched-b 0.278  (matched>>mismatched => entangled)
+  OP-CODE selector (step-0 output == selected function): add:1.00  sub:1.00  mul:1.00  div:1.00
+
+SUMMARY {'tag': 'mulfirst', 'carry_single': np.float64(0.991), 'carry_probe': 1.0, 'carry_label': 'AXIS-ALIGNED', 'carry_dim': 1, 'borrow_single': np.float64(0.744), 'borrow_probe': 0.996, 'borrow_label': 'DISTRIBUTED', 'borrow_dim': 1, 'scratch': [0, 1, 6], 'carry_causal_full': 0.927, 'carry_causal_host': 0.982, 'carry_causal_comp': 0.018, 'borrow_causal_full': 1.0, 'borrow_causal_host': 0.927, 'mult_matched': 0.959, 'mult_mismatched': 0.278, 'div125_w20': 0.343, 'divcop_w20': 0.0, 'mul_w20': 0.91, 'cb_cos_full': 0.355, 'cb_cos_scratch': 0.608, 'add_w20': 0.983, 'sub_w20': 0.89}
+
+================================================================================
+MODEL [reverse]  (runs/expH_order_reverse.pt)
+================================================================================
+  ACCURACY (exact, per width):
+    add    : w1:1.000  w4:0.990  w12:0.973  w20:0.973
+    sub    : w1:1.000  w4:0.955  w12:0.855  w20:0.652
+    mul    : w1:1.000  w4:0.970  w12:0.877  w20:0.900
+    div125 : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    divcop : w1:0.233  w4:0.003  w12:0.000  w20:0.000
+
+  SCRATCHPAD (top-3 dims by summed probe importance) = [2, 4, 7]  complement=[0, 1, 3, 5, 6]
+    per-op per-dim probe importance (normalized):
+       dim:   d0  d1  d2  d3  d4  d5  d6  d7
+     add   : 0.16  0.05  0.24  0.05  0.24  0.13  0.05  0.05
+     sub   : 0.02  0.08  0.21  0.08  0.26  0.20  0.08  0.08
+     mul   : 0.08  0.11  0.11  0.11  0.20  0.11  0.09  0.19
+     div2  : 0.16  0.15  0.11  0.06  0.19  0.06  0.11  0.17
+     div5  : 0.14  0.16  0.04  0.04  0.11  0.16  0.15  0.20
+     TOTAL : 0.55  0.57  0.71  0.34  0.99  0.67  0.48  0.69
+
+  GEOMETRY (carry/borrow: single-dim vs linear-probe):
+    add (carry ): best-single-dim d4=0.937  linear-probe=0.998  -> DISTRIBUTED
+    sub (borrow): best-single-dim d4=0.752  linear-probe=0.986  -> DISTRIBUTED
+
+  CARRY vs BORROW direction overlap |cos|: full 0.481 | scratchpad 0.977
+     (low => orthogonal/spatial-partition; high => superimposed on a shared direction)
+
+  SHARED-SCRATCHPAD test (decode from scratch[2, 4, 7] vs complement[0, 1, 3, 5, 6]):
+    add   : full 0.998 | scratch 0.992 | complement 0.800 | chance 0.516
+    sub   : full 0.986 | scratch 0.770 | complement 0.763 | chance 0.647
+    mul   : full 0.665 | scratch 0.527 | complement 0.518 | chance 0.372
+    div2  : full 1.000 | scratch 1.000 | complement 1.000 | chance 0.536
+    div5  : full 1.000 | scratch 0.533 | complement 0.894 | chance 0.221
+
+  CAUSAL CARRY injection (output should flip (a+b)->(a+b+1)):
+    baseline 0.745 | inject FULL 1.000 | inject HOST[0, 4, 5] 1.000 | inject COMP 0.218
+  CAUSAL BORROW injection (output should flip (a-b)->(a-b-1)):
+    baseline 0.364 | inject FULL 0.964 | inject HOST[2, 4, 5] 0.964 | inject COMP 0.327
+
+  MULT-CARRY b-entanglement: matched-b 0.984 | mismatched-b 0.240  (matched>>mismatched => entangled)
+  OP-CODE selector (step-0 output == selected function): add:1.00  sub:1.00  mul:1.00  div:1.00
+
+SUMMARY {'tag': 'reverse', 'carry_single': np.float64(0.937), 'carry_probe': 0.998, 'carry_label': 'DISTRIBUTED', 'carry_dim': 4, 'borrow_single': np.float64(0.752), 'borrow_probe': 0.986, 'borrow_label': 'DISTRIBUTED', 'borrow_dim': 4, 'scratch': [2, 4, 7], 'carry_causal_full': 1.0, 'carry_causal_host': 1.0, 'carry_causal_comp': 0.218, 'borrow_causal_full': 0.964, 'borrow_causal_host': 0.964, 'mult_matched': 0.984, 'mult_mismatched': 0.24, 'div125_w20': 1.0, 'divcop_w20': 0.0, 'mul_w20': 0.9, 'cb_cos_full': 0.481, 'cb_cos_scratch': 0.977, 'add_w20': 0.973, 'sub_w20': 0.652}
+
+================================================================================
+MODEL [EXIST-dynamic(addfirst)]  (runs/expF_unified_dynamic.pt)
+================================================================================
+  ACCURACY (exact, per width):
+    add    : w1:1.000  w4:1.000  w12:1.000  w20:0.993
+    sub    : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    mul    : w1:1.000  w4:1.000  w12:1.000  w20:0.998
+    div125 : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    divcop : w1:0.292  w4:0.003  w12:0.000  w20:0.000
+
+  SCRATCHPAD (top-3 dims by summed probe importance) = [1, 5, 6]  complement=[0, 2, 3, 4, 7]
+    per-op per-dim probe importance (normalized):
+       dim:   d0  d1  d2  d3  d4  d5  d6  d7
+     add   : 0.03  0.38  0.03  0.03  0.03  0.31  0.17  0.03
+     sub   : 0.06  0.33  0.06  0.06  0.06  0.18  0.18  0.06
+     mul   : 0.05  0.28  0.05  0.05  0.05  0.33  0.12  0.05
+     div2  : 0.06  0.00  0.06  0.06  0.06  0.35  0.36  0.06
+     div5  : 0.05  0.41  0.05  0.05  0.05  0.15  0.19  0.05
+     TOTAL : 0.25  1.40  0.25  0.25  0.25  1.32  1.02  0.25
+
+  GEOMETRY (carry/borrow: single-dim vs linear-probe):
+    add (carry ): best-single-dim d1=0.992  linear-probe=1.000  -> AXIS-ALIGNED
+    sub (borrow): best-single-dim d1=0.753  linear-probe=1.000  -> DISTRIBUTED
+
+  CARRY vs BORROW direction overlap |cos|: full 0.029 | scratchpad 0.029
+     (low => orthogonal/spatial-partition; high => superimposed on a shared direction)
+
+  SHARED-SCRATCHPAD test (decode from scratch[1, 5, 6] vs complement[0, 2, 3, 4, 7]):
+    add   : full 1.000 | scratch 1.000 | complement 0.516 | chance 0.516
+    sub   : full 1.000 | scratch 1.000 | complement 0.647 | chance 0.647
+    mul   : full 0.545 | scratch 0.545 | complement 0.372 | chance 0.372
+    div2  : full 1.000 | scratch 1.000 | complement 0.536 | chance 0.536
+    div5  : full 0.990 | scratch 0.990 | complement 0.221 | chance 0.221
+
+  CAUSAL CARRY injection (output should flip (a+b)->(a+b+1)):
+    baseline 1.000 | inject FULL 1.000 | inject HOST[1, 5, 6] 1.000 | inject COMP 0.000
+  CAUSAL BORROW injection (output should flip (a-b)->(a-b-1)):
+    baseline 0.891 | inject FULL 1.000 | inject HOST[1, 5, 6] 1.000 | inject COMP 0.036
+
+  MULT-CARRY b-entanglement: matched-b 1.000 | mismatched-b 0.191  (matched>>mismatched => entangled)
+  OP-CODE selector (step-0 output == selected function): add:1.00  sub:1.00  mul:1.00  div:1.00
+
+SUMMARY {'tag': 'EXIST-dynamic(addfirst)', 'carry_single': np.float64(0.992), 'carry_probe': 1.0, 'carry_label': 'AXIS-ALIGNED', 'carry_dim': 1, 'borrow_single': np.float64(0.753), 'borrow_probe': 1.0, 'borrow_label': 'DISTRIBUTED', 'borrow_dim': 1, 'scratch': [1, 5, 6], 'carry_causal_full': 1.0, 'carry_causal_host': 1.0, 'carry_causal_comp': 0.0, 'borrow_causal_full': 1.0, 'borrow_causal_host': 1.0, 'mult_matched': 1.0, 'mult_mismatched': 0.191, 'div125_w20': 1.0, 'divcop_w20': 0.0, 'mul_w20': 0.998, 'cb_cos_full': 0.029, 'cb_cos_scratch': 0.029, 'add_w20': 0.993, 'sub_w20': 1.0}
+
+================================================================================
+MODEL [EXIST-cotrain(noorder)]  (runs/expF_unified_cotrain.pt)
+================================================================================
+  ACCURACY (exact, per width):
+    add    : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    sub    : w1:1.000  w4:1.000  w12:1.000  w20:1.000
+    mul    : w1:1.000  w4:0.980  w12:0.912  w20:0.915
+    div125 : w1:1.000  w4:0.743  w12:0.685  w20:0.635
+    divcop : w1:1.000  w4:0.125  w12:0.000  w20:0.000
+
+  SCRATCHPAD (top-3 dims by summed probe importance) = [0, 3, 7]  complement=[1, 2, 4, 5, 6]
+    per-op per-dim probe importance (normalized):
+       dim:   d0  d1  d2  d3  d4  d5  d6  d7
+     add   : 0.33  0.33  0.00  0.00  0.00  0.00  0.33  0.00
+     sub   : 0.01  0.01  0.01  0.01  0.01  0.01  0.01  0.96
+     mul   : 0.20  0.09  0.09  0.11  0.17  0.13  0.13  0.08
+     div2  : 0.13  0.02  0.02  0.52  0.12  0.02  0.14  0.02
+     div5  : 0.06  0.05  0.22  0.25  0.06  0.05  0.06  0.26
+     TOTAL : 0.73  0.49  0.33  0.89  0.36  0.21  0.67  1.32
+
+  GEOMETRY (carry/borrow: single-dim vs linear-probe):
+    add (carry ): best-single-dim d1=0.992  linear-probe=1.000  -> AXIS-ALIGNED
+    sub (borrow): best-single-dim d7=0.996  linear-probe=1.000  -> AXIS-ALIGNED
+
+  CARRY vs BORROW direction overlap |cos|: full 0.000 | scratchpad 0.000
+     (low => orthogonal/spatial-partition; high => superimposed on a shared direction)
+
+  SHARED-SCRATCHPAD test (decode from scratch[0, 3, 7] vs complement[1, 2, 4, 5, 6]):
+    add   : full 1.000 | scratch 1.000 | complement 1.000 | chance 0.516
+    sub   : full 1.000 | scratch 1.000 | complement 0.647 | chance 0.647
+    mul   : full 0.805 | scratch 0.586 | complement 0.657 | chance 0.372
+    div2  : full 1.000 | scratch 1.000 | complement 0.739 | chance 0.536
+    div5  : full 0.680 | scratch 0.576 | complement 0.379 | chance 0.221
+
+  CAUSAL CARRY injection (output should flip (a+b)->(a+b+1)):
+    baseline 1.000 | inject FULL 1.000 | inject HOST[0, 1, 6] 1.000 | inject COMP 0.000
+  CAUSAL BORROW injection (output should flip (a-b)->(a-b-1)):
+    baseline 1.000 | inject FULL 1.000 | inject HOST[1, 2, 7] 1.000 | inject COMP 0.000
+
+  MULT-CARRY b-entanglement: matched-b 0.990 | mismatched-b 0.244  (matched>>mismatched => entangled)
+  OP-CODE selector (step-0 output == selected function): add:1.00  sub:1.00  mul:1.00  div:1.00
+
+SUMMARY {'tag': 'EXIST-cotrain(noorder)', 'carry_single': np.float64(0.992), 'carry_probe': 1.0, 'carry_label': 'AXIS-ALIGNED', 'carry_dim': 1, 'borrow_single': np.float64(0.996), 'borrow_probe': 1.0, 'borrow_label': 'AXIS-ALIGNED', 'borrow_dim': 7, 'scratch': [0, 3, 7], 'carry_causal_full': 1.0, 'carry_causal_host': 1.0, 'carry_causal_comp': 0.0, 'borrow_causal_full': 1.0, 'borrow_causal_host': 1.0, 'mult_matched': 0.99, 'mult_mismatched': 0.244, 'div125_w20': 0.635, 'divcop_w20': 0.0, 'mul_w20': 0.915, 'cb_cos_full': 0.0, 'cb_cos_scratch': 0.0, 'add_w20': 1.0, 'sub_w20': 1.0}
+
+================================================================================
+CROSS-MODEL SUMMARY — does ORDER change geometry/mechanism/accuracy?
+================================================================================
+  model                      first | carry sgl/prb label        | borrow sgl/prb label       | cb|cos|
+  addfirst                   add   | 0.99/1.00 AXIS-ALIGNED | 1.00/1.00 AXIS-ALIGNED | 0.71
+  subfirst                   sub   | 0.99/1.00 AXIS-ALIGNED | 0.99/1.00 AXIS-ALIGNED | 0.17
+  mulfirst                   mul   | 0.99/1.00 AXIS-ALIGNED | 0.74/1.00 DISTRIBUTED  | 0.35
+  reverse                    div   | 0.94/1.00 DISTRIBUTED  | 0.75/0.99 DISTRIBUTED  | 0.48
+  EXIST-dynamic(addfirst)    ?     | 0.99/1.00 AXIS-ALIGNED | 0.75/1.00 DISTRIBUTED  | 0.03
+  EXIST-cotrain(noorder)     ?     | 0.99/1.00 AXIS-ALIGNED | 1.00/1.00 AXIS-ALIGNED | 0.00
+
+  H1 (first of add/sub gets the axis): predict carry-axis for addfirst/mulfirst,
+     borrow-axis for subfirst/reverse. Read the labels above.
+
+  model                      | mult matched/mismatch | scratch | div125_w20 | divcop_w20
+  addfirst                   | 0.72/0.30            | [5, 6, 7]   | 1.000      | 0.000
+  subfirst                   | 0.90/0.20            | [0, 1, 6]   | 0.635      | 0.000
+  mulfirst                   | 0.96/0.28            | [0, 1, 6]   | 0.343      | 0.000
+  reverse                    | 0.98/0.24            | [2, 4, 7]   | 1.000      | 0.000
+  EXIST-dynamic(addfirst)    | 1.00/0.19            | [1, 5, 6]   | 1.000      | 0.000
+  EXIST-cotrain(noorder)     | 0.99/0.24            | [0, 3, 7]   | 0.635      | 0.000
+
+INTERP_ORDERS DONE

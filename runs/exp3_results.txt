@@ -1,0 +1,7 @@
+op=mul smoke=True hidden=32 steps=400 seeds=1 train_w=[1, 2, 3] | baseline w2:0.039 w3:0.008 w4:0.000 w6:0.000 || memory w2:0.023 w3:0.000 w4:0.000 w6:0.000
+op=mul smoke=False hidden=64 steps=4000 seeds=1 train_w=[1, 2, 3, 4] | baseline w2:0.141 w4:0.000 w6:0.000 w8:0.000 w12:0.000 || memory w2:0.109 w4:0.000 w6:0.000 w8:0.000 w12:0.000
+op=rev smoke=False hidden=64 steps=3000 seeds=1 train_w=[1, 2, 3, 4] | baseline w2:0.098 w4:0.004 w6:0.000 w8:0.000 w12:0.000 || memory w2:0.098 w4:0.000 w6:0.000 w8:0.000 w12:0.000
+op=mul smoke=True hidden=32 steps=400 seeds=1 train_w=[1, 2, 3] | baseline w2:0.023 w3:0.000 w4:0.000 w6:0.000 || memory w2:0.023 w3:0.000 w4:0.000 w6:0.000
+op=rev smoke=False hidden=64 steps=6000 seeds=1 train_w=[1, 2, 3, 4, 5] | baseline w3:1.000 w5:1.000 w8:0.004 w10:0.000 w14:0.000 w18:0.000 || memory w3:1.000 w5:1.000 w8:1.000 w10:1.000 w14:1.000 w18:0.988
+op=mul smoke=True hidden=32 steps=400 seeds=1 train_w=[1, 2, 3] | baseline w2:0.023 w3:0.000 w4:0.000 w6:0.000 || memory w2:0.023 w3:0.000 w4:0.000 w6:0.000
+op=mul smoke=True hidden=32 steps=400 seeds=1 train_w=[1, 2, 3] | baseline w2:0.023 w3:0.000 w4:0.000 w6:0.000 || memory w2:0.023 w3:0.000 w4:0.000 w6:0.000

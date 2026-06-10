@@ -1,0 +1,170 @@
+[
+ {
+  "gen": 0,
+  "best_merit": 0.453,
+  "mean_merit": 0.026,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "]..}.,].->.]..->.[....{<-[.+]<.."
+ },
+ {
+  "gen": 200,
+  "best_merit": 0.503,
+  "mean_merit": 0.328,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "].><...[{.[.}...>...<{-.[}-.<.[,"
+ },
+ {
+  "gen": 400,
+  "best_merit": 0.504,
+  "mean_merit": 0.328,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "..-}+.{.-.{.-.].<]..{.][..{[..[,"
+ },
+ {
+  "gen": 600,
+  "best_merit": 0.504,
+  "mean_merit": 0.329,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": ".,].]..[{...+-.}[].-{-],}..[<.[,"
+ },
+ {
+  "gen": 800,
+  "best_merit": 0.505,
+  "mean_merit": 0.326,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "].>]+]+..<}<},{].-,.<].].<[.<.[,"
+ },
+ {
+  "gen": 1000,
+  "best_merit": 0.508,
+  "mean_merit": 0.328,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "..}.-.,-.]{,>.....>,-<<.}--[<.[,"
+ },
+ {
+  "gen": 1200,
+  "best_merit": 0.498,
+  "mean_merit": 0.336,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "]<.<+].]..-..,<,>...,....><[<.[,"
+ },
+ {
+  "gen": 1400,
+  "best_merit": 0.497,
+  "mean_merit": 0.347,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": ".]>.}]+<.]-+{[.[][..,.,.]}+-[.[,"
+ },
+ {
+  "gen": 1600,
+  "best_merit": 0.499,
+  "mean_merit": 0.349,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": ".]>]>}..,.]..-.,{.-,{<<+.+.-[.[,"
+ },
+ {
+  "gen": 1800,
+  "best_merit": 0.493,
+  "mean_merit": 0.349,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<]>{.-<.}[{{.]...>].+....+.[}.[,"
+ },
+ {
+  "gen": 2000,
+  "best_merit": 0.503,
+  "mean_merit": 0.349,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "..<]..{.{{.<..>.{.+]{.<.....[.[,"
+ },
+ {
+  "gen": 2200,
+  "best_merit": 0.502,
+  "mean_merit": 0.346,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<]][-....]..-[.]..,..>-.<+..[.[,"
+ },
+ {
+  "gen": 2400,
+  "best_merit": 0.499,
+  "mean_merit": 0.349,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<....}..],>...].}++][+.[].}.[.[,"
+ },
+ {
+  "gen": 2600,
+  "best_merit": 0.494,
+  "mean_merit": 0.351,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<].>+..{......].->..{[[<.},.>.[,"
+ },
+ {
+  "gen": 2800,
+  "best_merit": 0.496,
+  "mean_merit": 0.352,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": ".]}...-]-.}<.,-.>..><}].-[}.<.[,"
+ },
+ {
+  "gen": 3000,
+  "best_merit": 0.502,
+  "mean_merit": 0.35,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<].+..}]>..]..}[--.->..,...{..[,"
+ },
+ {
+  "gen": 3200,
+  "best_merit": 0.501,
+  "mean_merit": 0.348,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<]..<+}[+].>.>.++<,.....].,.-.[,"
+ },
+ {
+  "gen": 3400,
+  "best_merit": 0.499,
+  "mean_merit": 0.346,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": ".<]..>+<}[.<}..>-...,.-.}>-[[.[,"
+ },
+ {
+  "gen": 3600,
+  "best_merit": 0.496,
+  "mean_merit": 0.347,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<].]]-..].>....>..[>+-}.]+[}..[,"
+ },
+ {
+  "gen": 3800,
+  "best_merit": 0.496,
+  "mean_merit": 0.349,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<][}.{}{.{...-,..}]--...+.}.[.[,"
+ },
+ {
+  "gen": 4000,
+  "best_merit": 0.495,
+  "mean_merit": 0.353,
+  "best_func": "-",
+  "ladder": "",
+  "best_code": "<]-.]-}+-,.}.[>-..+..]-....}[.[,"
+ }
+]
