@@ -117,45 +117,10 @@ def stage1_n6(crange, terms, out_dir, batch=400000, family="n6"):
     bdesc = {"n6": "-n^6", "n4": "-n^4", "p4": "+n^4"}[family]
     print(f"  STAGE 1-{family} (GPU float64): A deg-3 grid {n1}^4 = {total:,} PCFs, B={bdesc}, {terms} terms, |c|<={crange}")
     t0 = time.time()
-    surv_A, surv_v = [], []
-    # outer over c3; inner = the full (c2,c1,c0) cube flattened (n1^3 per c3), chunked
-    cube = np.array(np.meshgrid(rng1, rng1, rng1, indexing="ij")).reshape(3, -1).T  # (n1^3, 3) = (c2,c1,c0)
-    cube_t = torch.tensor(cube, dtype=torch.float64, device=DEV)
-    Mfull = cube_t.shape[0]
-    done = 0
-    for c3 in rng1:
-        for s in range(0, Mfull, batch):
-            blk = cube_t[s:s + batch]
-            M = blk.shape[0]
-            Ac = torch.empty((M, 4), dtype=torch.float64, device=DEV)
-            Ac[:, 0] = blk[:, 2]   # c0
-            Ac[:, 1] = blk[:, 1]   # c1
-            Ac[:, 2] = blk[:, 0]   # c2
-            Ac[:, 3] = float(c3)
-            v, conv, div = eval_pcf_batch(Ac, None, terms, bmode=family)
-            finite = torch.isfinite(v) & (v.abs() < 1e6) & (v.abs() > 1e-6)
-            near_int = (v - v.round()).abs() < 1e-7
-            keep = conv & finite & ~near_int
-            if keep.any():
-                ki = keep.nonzero(as_tuple=True)[0]
-                surv_A.append(Ac[ki].cpu().numpy())
-                surv_v.append(v[ki].cpu().numpy())
-            done += M
-        if int(c3) % max(1, (2 * crange + 1) // 15) == 0:
-            print(f"    c3={int(c3):4d}  done {done:,}/{total:,}  survivors {sum(len(x) for x in surv_v):,}  [{time.time()-t0:.0f}s]")
-    SA = np.concatenate(surv_A) if surv_A else np.zeros((0, 4))
-    SV = np.concatenate(surv_v) if surv_v else np.zeros((0,))
-    order = np.argsort(SV)
-    SA, SV = SA[order], SV[order]
-    keepmask = np.ones(len(SV), dtype=bool)
-    keepmask[1:] = np.abs(np.diff(SV)) >= 1e-10
-    SA, SV = SA[keepmask], SV[keepmask]
-    print(f"  STAGE 1-n6 sweep done: {len(SV):,} distinct convergent values of {total:,} "
-          f"[{time.time()-t0:.0f}s]; running the Mobius-proximity prefilter...")
-    # --- MOBIUS-PROXIMITY PREFILTER (the targeted-hunt upgrade) ---
-    # Precompute (p*C+q)/(r*C+s) for TAIL constants, |p,q,r,s|<=16, and keep every
-    # survivor within 1e-8 of a table value. Those go to stage 2 as priority
-    # candidates ('near'); plus a uniform random sample as the blind-null arm.
+    # --- build the Mobius-proximity table FIRST so we can STREAM the prefilter ---
+    # (constant host memory regardless of grid size: only NEAR candidates + a bounded
+    #  reservoir of the rest are kept, not the billions of raw survivors). The
+    #  OOM-bug fix: previously the full raw survivor set was accumulated then filtered.
     import os as _os
     _os.environ["MPMATH_NOGMPY"] = "1"
     import mpmath as mp
@@ -164,36 +129,73 @@ def stage1_n6(crange, terms, out_dir, batch=400000, family="n6"):
                  pi3=float(mp.pi ** 3), zeta5=float(mp.zeta(5)), pi2=float(mp.pi ** 2))
     R = 16
     coefs = np.arange(-R, R + 1)
-    P, Q, Rr, S = np.meshgrid(coefs, coefs, coefs, coefs, indexing="ij")
-    P, Q, Rr, S = (x.ravel().astype(np.float64) for x in (P, Q, Rr, S))
-    table_vals = []
+    P, Q, Rr, S = (x.ravel().astype(np.float64) for x in
+                   np.meshgrid(coefs, coefs, coefs, coefs, indexing="ij"))
+    tv_all = []
     for cname, C in tails.items():
-        den = Rr * C + S
-        ok = np.abs(den) > 1e-9
+        den = Rr * C + S; ok = np.abs(den) > 1e-9
         tv = (P[ok] * C + Q[ok]) / den[ok]
-        tv = tv[np.isfinite(tv) & (np.abs(tv) < 1e6)]
-        table_vals.append(np.unique(np.round(tv, 12)))
-    table = np.unique(np.concatenate(table_vals))
-    print(f"    Mobius table: {len(table):,} distinct tail-constant transform values (|coef|<={R})")
-    idx = np.searchsorted(table, SV)
-    idx0 = np.clip(idx - 1, 0, len(table) - 1); idx1 = np.clip(idx, 0, len(table) - 1)
-    dist = np.minimum(np.abs(SV - table[idx0]), np.abs(SV - table[idx1]))
-    near = dist < 1e-8
-    n_near = int(near.sum())
-    print(f"    NEAR candidates (within 1e-8 of a tail Mobius value): {n_near:,}")
+        tv_all.append(np.unique(np.round(tv[np.isfinite(tv) & (np.abs(tv) < 1e6)], 12)))
+    table = np.unique(np.concatenate(tv_all))
+    table_t = torch.tensor(table, dtype=torch.float64, device=DEV)
+    print(f"    Mobius table: {len(table):,} tail-constant transform values (|coef|<={R}); streaming prefilter on")
+    near_A, near_V = [], []          # NEAR candidates (small set, exactly verified later)
+    res_A, res_V = [], []            # bounded reservoir of NON-near survivors (blind arm)
+    RES_CAP = 50000; res_seen = 0
+    cube = np.array(np.meshgrid(rng1, rng1, rng1, indexing="ij")).reshape(3, -1).T  # (n1^3,3)=(c2,c1,c0)
+    cube_t = torch.tensor(cube, dtype=torch.float64, device=DEV)
+    Mfull = cube_t.shape[0]; done = 0; n_conv = 0
+    for c3 in rng1:
+        for s in range(0, Mfull, batch):
+            blk = cube_t[s:s + batch]; M = blk.shape[0]
+            Ac = torch.empty((M, 4), dtype=torch.float64, device=DEV)
+            Ac[:, 0] = blk[:, 2]; Ac[:, 1] = blk[:, 1]; Ac[:, 2] = blk[:, 0]; Ac[:, 3] = float(c3)
+            v, conv, div = eval_pcf_batch(Ac, None, terms, bmode=family)
+            finite = torch.isfinite(v) & (v.abs() < 1e6) & (v.abs() > 1e-6)
+            near_int = (v - v.round()).abs() < 1e-7
+            keep = conv & finite & ~near_int
+            done += M
+            if not keep.any():
+                continue
+            ki = keep.nonzero(as_tuple=True)[0]
+            vk = v[ki]; Ak = Ac[ki]
+            n_conv += len(ki)
+            # STREAMING Mobius proximity (on GPU): nearest table value per survivor
+            pos = torch.searchsorted(table_t, vk).clamp(0, len(table_t) - 1)
+            pos0 = (pos - 1).clamp(0, len(table_t) - 1)
+            dist = torch.minimum((vk - table_t[pos]).abs(), (vk - table_t[pos0]).abs())
+            nearm = dist < 1e-8
+            if nearm.any():
+                ni = nearm.nonzero(as_tuple=True)[0]
+                near_A.append(Ak[ni].cpu().numpy()); near_V.append(vk[ni].cpu().numpy())
+            # reservoir of the rest (cap host memory): keep a strided sample
+            restm = ~nearm
+            if restm.any() and res_seen < RES_CAP * 20:
+                ri = restm.nonzero(as_tuple=True)[0]
+                take = ri[::max(1, len(ri) // 64 + 1)]   # thin each batch
+                res_A.append(Ak[take].cpu().numpy()); res_V.append(vk[take].cpu().numpy())
+                res_seen += len(take)
+        if int(c3) % max(1, (2 * crange + 1) // 15) == 0:
+            nn = sum(len(x) for x in near_V)
+            print(f"    c3={int(c3):4d}  done {done:,}/{total:,}  conv {n_conv:,}  NEAR {nn:,}  [{time.time()-t0:.0f}s]")
+    NA = np.concatenate(near_A) if near_A else np.zeros((0, 4))
+    NV = np.concatenate(near_V) if near_V else np.zeros((0,))
+    # dedup NEAR by value
+    if len(NV):
+        o = np.argsort(NV); NA, NV = NA[o], NV[o]
+        km = np.ones(len(NV), bool); km[1:] = np.abs(np.diff(NV)) >= 1e-10
+        NA, NV = NA[km], NV[km]
     np.savez(os.path.join(out_dir, "stage1_survivors.npz"),
-             A=SA[near], B=np.zeros((n_near, 3)), V=SV[near],
-             meta=np.array([crange, terms]), family=np.array([family]))
-    # blind-null arm: a uniform sample of the NON-near survivors
-    rest = np.where(~near)[0]
-    nsamp = min(50000, len(rest))
-    samp = rest[np.linspace(0, len(rest) - 1, nsamp).astype(int)] if nsamp else rest
+             A=NA, B=np.zeros((len(NA), 3)), V=NV, meta=np.array([crange, terms]), family=np.array([family]))
+    RA = np.concatenate(res_A) if res_A else np.zeros((0, 4))
+    RV = np.concatenate(res_V) if res_V else np.zeros((0,))
+    if len(RV) > RES_CAP:
+        idx = np.linspace(0, len(RV) - 1, RES_CAP).astype(int); RA, RV = RA[idx], RV[idx]
     np.savez(os.path.join(out_dir, "stage1_blindsample.npz"),
-             A=SA[samp], B=np.zeros((len(samp), 3)), V=SV[samp],
-             meta=np.array([crange, terms]), family=np.array([family]))
-    print(f"  STAGE 1-n6 done: {n_near:,} NEAR candidates -> stage1_survivors.npz; "
-          f"{len(samp):,} blind sample -> stage1_blindsample.npz [{time.time()-t0:.0f}s]")
-    return n_near
+             A=RA, B=np.zeros((len(RA), 3)), V=RV, meta=np.array([crange, terms]), family=np.array([family]))
+    print(f"  STAGE 1-{family} done: {n_conv:,} convergent; {len(NA):,} distinct NEAR -> stage1_survivors.npz; "
+          f"{len(RA):,} blind sample -> stage1_blindsample.npz [{time.time()-t0:.0f}s]")
+    return len(NA)
 
 
 def stage1(crange, terms, out_dir, batch=200000):
