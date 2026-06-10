@@ -118,9 +118,16 @@ small/narrow constraints). None has been attempted:
   Machine conjecture from outcome alone**: aₙ=(2n+1)(3n²+3n+1), bₙ=−n⁶ → **8/(7·ζ(3))**,
   verified to 250 digits, coefficients matching the 2021 RM paper (a *recent,
   non-classical, still-unproven* result). So the instrument provably operates in the
-  exact regime where the only historical human-unknown finds live. The remaining work
-  is **scale past the published coefficient region** + the recognition/reference-
-  subtraction discipline (Frontier 2). Identity space (continued fractions, integer
+  exact regime where the only historical human-unknown finds live. `↻ EXTENDED
+  (2026-06-10, gen6 sweep):` the instrument now rediscovers verified CFs for **three**
+  tail constants from outcome — ζ(3) (8/(7ζ3)), **Catalan** (1/2G, = the κ=0 member of
+  arXiv:2210.15669, literature-matched), and **π²** (8/π²) — and the full
+  detect→verify→reference-subtract recognition pipeline has been demonstrated working
+  end-to-end (it correctly classified all three as KNOWN). The remaining work
+  is **larger coefficient height** (RM's deeper results exceed the |c|≤9 swept; the
+  low-height region is now mapped as catalogued) + constants/objects beyond polynomial
+  CFs (MZVs, L-values, conservative-matrix-field constructions) + the recognition/
+  reference-subtraction discipline (Frontier 2, whose machinery now exists). Identity space (continued fractions, integer
   relations) is the one regime where modest-hardware search has historically produced
   genuinely human-unknown mathematics (BBP, the Ramanujan Machine); the new identities
   live in the tail (higher-degree PCFs, larger coefficients, under-explored constants:

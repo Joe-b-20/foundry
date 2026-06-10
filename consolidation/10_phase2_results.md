@@ -108,12 +108,23 @@ GPU float64 prefilter → mpmath/PSLQ verify, positive controls + reject-rationa
   human-unknown finds live.
 - **Past the published region** (|c|≤120, **3.37B PCFs**, 20× past the RM coefficients):
   an **honest null** — only the known forms reappear (Apéry 6/ζ(3), the RM 8/(7ζ(3))
-  conjecture + mirror; the ζ(2) family gives only 30/π²). No novel identity. In this
-  family the catalogued low-height forms are the only ones; a novel identity would need
-  a different b(n)-family, a constant outside the battery, or heights/precision beyond
-  this grid. The method **reaches** the tail; it has not (yet) found one not already
-  there — which is the recognition/scale frontier (Frontier 2), not a wall in the
-  method. *(Validated the streaming OOM fix at billion-scale; bounded host memory.)*
+  conjecture + mirror; the ζ(2) family gives only 30/π²). No novel identity.
+- **Phase 3 — the general sweep** (`--family gen6`, **10.2B PCFs**, A deg-3 × B deg-6,
+  every family shape at once + δ/irrationality-scoring + a quadratic-relation re-mine):
+  the instrument **reached two more tail constants from outcome** — verified (119-digit)
+  CFs for **Catalan (1/2G**, a_n=3n²+3n+1, b_n=−2n⁴) and **8/π²** — bringing the tally to
+  **three rediscovered tail constants (ζ(3), Catalan, π²)**. Both reference-subtracted to
+  **known** families (the Catalan form is exactly the κ=0 member of
+  [arXiv:2210.15669](https://arxiv.org/abs/2210.15669), fetched and matched; π² is
+  classical). **No novel identity** — but the *full Frontier-2 recognition pipeline ran
+  end-to-end and correctly* (detect verified structure → fetch literature → match
+  published family → classify KNOWN → no claim). The δ-hunt honestly surfaced only the
+  trivial periodic surds (best approximators by construction); the quad re-mine found
+  only classical *e*-family quadratic relations. A novel find needs **larger coefficient
+  height** (RM's deeper results exceed |c|=9), a constant outside the battery (MZVs,
+  L-values), or a non-CF object. The detect/verify/reference-subtract tooling is built
+  and reusable. *(Routing per Joe: GPU stage-1 on pod, all PSLQ verification on local
+  cores; streaming OOM fix validated at billion-scale.)*
 
 ---
 
