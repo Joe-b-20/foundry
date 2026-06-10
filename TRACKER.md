@@ -3951,3 +3951,37 @@ Status: WORKS (clean negative, n=2, expEE gap closed, render-verified): on blank
 are in tension — depth-evolution finds regular deep halters (structure term inert), structure-evolution finds structured
 non-halters; "deep+structured+halting" is landscape-inaccessible. Sharpens wall #4 with an uncontaminated signal.
 Files: gpu_depthstruct.py, runs/dstruct_s{1,2}/ (dstruct_results.json + *_render.png head-position traces), analyze_phase2.py
+
+## 2026-06-10 — PHASE-2c BIG SWEEP (zeta(3)-class |c|<=120, PAST the published RM region): no novel identity — honest null, instrument re-validated
+What I tried: push the zeta(3)-class identity hunt PAST the Ramanujan-Machine published coefficient region. The 8/(7 zeta3)
+RM conjecture lives at |c|<=6 (a_n=(2n+1)(3n^2+3n+1)); this sweep covered the deg-3 x b=-n^6 family at |c|<=120 =
+241^4 = 3,373,402,561 PCFs — 22x the prior |c|<=55 grid, and ~20x past the published coefficients — to look for a verified
+zeta(3)/tail-constant identity NOT in the references. Required fixing an OOM bug first (caught from the live log, no harm):
+the original stage1_n6 accumulated ALL raw survivors (~3.4B rows) before applying the Mobius prefilter -> would exhaust host
+RAM. Rewrote it to STREAM the Mobius-proximity prefilter INSIDE the GPU eval loop (keep only NEAR candidates + a bounded
+reservoir), constant host memory. Re-verified the Apery control survives the streaming path, relaunched. Also ran the
+zeta(2)/+n^4 family (|c|<=55, control 30/pi^2).
+What happened (runs_pod/phase2/pcf_n6big/, control_ok=True):
+  STAGE 1: 3.37B PCFs streamed in 326s (~10M/s), 3.36B convergent, 462,128 distinct NEAR candidates (within 1e-8 of a
+    tail-constant Mobius transform |coef|<=16) — host memory FLAT at 16GB the whole run (the streaming fix works).
+  STAGE 2 (250-digit PSLQ verify, 60 cores, ~70 min): exactly 3 verified zeta(3) hits, ALL KNOWN:
+    A=[5,27,51,34] = 6/zeta(3) [Apery, the injected control]
+    A=[1,5,9,6]   = (2n+1)(3n^2+3n+1)/-n^6 = 8/(7 zeta(3)) [the RM 2021 conjecture, re-found again]
+    A=[-1,-5,-9,-6] = -8/(7 zeta(3)) [its sign mirror]
+  NO new tail-constant identity. p4/zeta(2) family: only the 30/pi^2 control. (Blind-null arm on a 50k uniform sample of
+  NON-near survivors: a running CPU control, expected empty by construction; result appended below when done.)
+What I learned: An HONEST NULL that sharpens, not weakens, the headline. Scaling the zeta(3)-class coefficient range 20x
+PAST the published RM region surfaced NO identity beyond the already-known Apery + 8/(7 zeta3) forms: in THIS family the
+known low-height identities are the only ones, and the tail is genuinely sparse (or lives in a different b-family / higher
+degree / a constant not in the battery). This is exactly the expV-at-scale prediction holding: a larger sweep of one
+family re-collects that family's catalogued forms; a NOVEL identity would need a different family (other b(n), Catalan/MZV
+structure) or coefficient heights/precision beyond this grid. The DURABLE result of the whole PCF line is unchanged and
+strong: the scaled instrument provably REACHES the RM tail (it independently re-derives a recent unproven RM conjecture
+from outcome) — what it has not done is find one NOT already there, which is the recognition/scale frontier (Frontier 2),
+not a wall in the method. Methodological win logged: the stream-don't-accumulate OOM fix (PLAYBOOK trap added). No novelty
+claim — everything found is in the references.
+Status: WORKS (honest null + re-validation): |c|<=120 zeta(3)-class (3.37B PCFs) + zeta(2) family found only KNOWN forms
+(Apery, RM 8/(7 zeta3), 30/pi^2 controls); no novel identity past the published region. Streaming prefilter fix validated
+at billion-scale. The instrument reaches the tail; finding a NEW tail identity needs a different family / larger constants.
+Files: gpu_pcf_hunt.py (streaming stage1_n6), runs_pod/phase2/pcf_n6big/{stage2_hits.json,stage2_summary.json},
+runs_pod/phase2/pcf_p4/, run_n6big.sh
