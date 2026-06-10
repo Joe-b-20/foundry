@@ -4078,3 +4078,10 @@ Status: WORKS (telescope built, control-gated, run on all banked attractors): un
 mixers; ANF degree tracks reachable depth (2-4 -> 8 -> 16) while namedness stays flat — recognition was blind to real
 depth growth. Frontier-2's function-space instrument now exists.
 Files: fn_telescope.py, runs/telescope/reports.json, runs/telescope_run.log
+
+## 2026-06-10 — PHASE 4b WRITE-UP: master draft written (writeup/mathlab_writeup.md)
+What I tried: consolidate the project into a publishable long-form draft per Joe (parallel with the telescope). Structure: SA the science (rediscovery engine + wall taxonomy + bridge + recognition ceiling + identity instrument), SB the meta-result (the model-audits-model arc with the three reversals and the rules that made it work), SC the identity pipeline as a methods note, + coda. Built to split into 3 standalone pieces (research note / essay / methods note) — see writeup/README.md for the split map and open editorial decisions.
+What happened: writeup/mathlab_writeup.md v1 (~2400 words) + writeup/README.md. Every number traces to TRACKER entries + runs/ artifacts; no novelty claimed anywhere; the SB section uses only re-run-confirmed reversals.
+What I learned: the three-way split is natural — SB is the most distinctive piece, SA the most substantive, SC the most reproducible. Pending Joe: venue, which piece leads, title, human tone pass, and a final re-run of the 09 verification ledger before anything ships.
+Status: WORKS (draft v1 complete; editorial decisions pending Joe).
+Files: writeup/mathlab_writeup.md, writeup/README.md
