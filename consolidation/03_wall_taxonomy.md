@@ -82,21 +82,33 @@ enough to **evolve** toward. The generative bridge that works on the smooth CA b
 (expDD) barely moves here (expEE: depth-driven evolution stalls at 43 steps).
 
 Session 9 marked this wall **"FIX: unknown."** Session 10 changed that on two axes:
-- **Scale moves it; the QD comparison is void** `↻ CORRECTED (2026-06-09 audit
-  §1.2)`. On n=5 Turing machines at batch 4096 (single seed, Tmax 8000): sampling
-  reached depth **49**, plain single-objective evolution **6238** — so expEE's
-  "evolution stalls at 43" was a **low-budget artifact** (227× the evals bought
-  145× the depth, roughly linear returns). Two caveats: 6238 sits at **78% of the
-  Tmax-8000 detection cap** (deeper halters were invisible to the search by
-  construction, and the planned high-Tmax verify pass never ran), so "≥140×" is a
-  **lower bound** with the stall point unmeasured; and it is still astronomically
-  below BB(5)=47,176,870 — the true champion remains a needle. The MAP-Elites
-  number (**154**) is **invalid**: `insert()` scatters with duplicate cell indices
-  (non-deterministic on CUDA — fitness and genome can pair from *different*
-  machines), and the run's own log shows the corruption fired (archived best 154;
-  the stored genome re-runs to runtime=8000, non-halting). "QD is the wrong tool"
-  is therefore **not established** (bug + n=1 + untested descriptor/archive-capacity
-  confounds); a fixed re-run is the queued closure experiment.
+- **Scale moves it (heavy-tailed); QD is competitive, not "the wrong tool"**
+  `↻ MEASURED (2026-06-10 closure, exp2fix — supersedes the audit §1.2 "void" note)`.
+  The closure re-ran with a dedup-safe archive (per-cell argmax, no duplicate-index
+  scatter) + mandatory re-execution of every archived winner (all `archive_ok=True`).
+  Five runs, n=5, batch 4096, deepest halter:
+  | seed/cfg | sampling | evolution | MAP-Elites |
+  |---|---|---|---|
+  | s1 (span_ones, Tmax 8000) | 51 | 675 | 410 |
+  | s2 | 45 | 596 | 201 |
+  | s3 | 50 | 1887 | 713 |
+  | rt_span descriptor | 51 | 675 | **2139** |
+  | Tmax 30000 | 81 | 675 | 258 |
+  Two corrections to the session-10 story: **(a)** the buggy "ME 154" was archive
+  corruption; with a valid archive MAP-Elites is the **same order** as evolution, and
+  with a **depth-aligned descriptor (rt_span) it BEATS evolution 2139 vs 675** — the
+  crossing the experiment was built to detect. QD's depth is **descriptor-dependent**
+  (the known QD fact), not "the wrong tool." **(b)** Evolution depth is
+  **heavy-tailed and seed-dominated**: 596 / 675 / 1887 across seeds at identical
+  config, and the original session-10 **6238 was an upper-tail draw** (≈3–10× the new
+  median). So "scale moves the wall 140×" → **"~1–2 orders of magnitude, heavy-tailed
+  — report the median of ≥3 seeds, never one number."** (Tmax 30000 did not raise
+  evolution's best above 675, so at this budget the cap is not binding — the
+  detection-cap caveat applies specifically to the old 6238 run.) BB(5)=47,176,870
+  remains astronomically out of reach; scale moves the *floor* of reachable depth,
+  not the ceiling. The deepest machine across all runs (rt_span ME, 2139) was
+  re-verified by re-execution. *Both* audit flags on this experiment (the scatter bug
+  and the n=1) were real and each distorted the headline.
 - **Substrate-dependence for incremental-complexity evolution.** Coupling
   reproduction to computation **plateaus** on the BFF self-modifying byte-tape
   (gpu_metabolism: bootstraps partial NAND ~54% but the reliable-computation ladder
@@ -237,7 +249,7 @@ wall. A find can only ever be "structured + not in the references I know," never
 | Wall | Session-9 state | Session-10 refinement |
 |------|-----------------|-----------------------|
 | #1 Representational | FIX: richer substrate | External memory crosses *reversal* (2/3 seeds). `↻ audit §1.1:` the "fits mul but doesn't len-gen" reading was **wrong** — neither arch learns mul past width ~2; no demonstrated memory benefit on mul. |
-| #4 Landscape | one hard wall marked **"FIX: unknown"** | Scale moves it **≥140×** (evo 6238, at 78% of the Tmax cap, n=1 — stall unmeasured); `↻ audit §1.2:` the **QD comparison is void** (archive-corruption bug); composable substrate climbs where byte-tape plateaus. |
+| #4 Landscape | one hard wall marked **"FIX: unknown"** | `↻ closure 2026-06-10:` scale moves it **~1–2 orders, heavy-tailed** (evo median ~675 over 3 seeds; old "6238/140×" was an upper-tail draw). QD is **competitive & descriptor-dependent** (rt_span ME 2139 > evo 675), not "the wrong tool" (the "void" verdict was the archive bug). Composable substrate climbs where byte-tape plateaus. |
 | #6 Primitive-vocabulary gate | a movable gate among others | `↻ audit §2.3:` **restated** — the closure argument was unsound; the gate is *reachable depth × naming-density*, largely collapsing into #4 + #11. |
 | #9 The two walls / bridge | bridge real, multi-dim, generative, landscape-gated | **Survival bridge** produces meaning from no target (vs expW divergence) but **settles**; sustained novelty needs computation-coupled selection on a composable substrate. |
 | #11 Novelty-unprovability | flagged | Unchanged, now named as **half of the moonshot ceiling** (with #6). |

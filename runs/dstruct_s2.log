@@ -39,3 +39,4 @@ gpu_depthstruct | device=NVIDIA GeForce RTX 4060 Laptop GPU 9GB | n=5 L=8192 Tma
     [trackonly] gen   50: fit=1.0 rt=30000 track=1.000 tape=0.000 [731s]
     [trackonly] gen   60: fit=1.0 rt=30000 track=1.000 tape=0.000 [902s]
     [trackonly] gen   70: fit=1.0 rt=30000 track=1.000 tape=0.000 [1080s]
+    [trackonly] gen   80: fit=1.0 rt=30000 track=1.000 tape=0.000 [1251s]

@@ -108,14 +108,24 @@ small/narrow constraints). None has been attempted:
 - **Higher-type primitives** — primitives that take/return functions (combinators), so
   the composition space is over *programs* rather than over *values*, where the named
   region may be a smaller fraction.
-- **The expV identity-space direction at scale.** Identity space (continued fractions,
-  integer relations) is the one regime where modest-hardware search has historically
-  produced genuinely human-unknown mathematics (BBP, the Ramanujan Machine). expV
-  validated the method (rediscovered classical π/e CFs to 210+ digits) but a *small*
-  sweep only re-collects catalogued formulas; the new identities live in the tail
-  (higher-degree PCFs, larger coefficients, under-explored constants: Catalan, ζ(3),
-  γ, MZVs) reachable only with **much larger search**. This is the most concrete
-  "where novelty has actually been found before" lead — but it needs scale and it
+- **The expV identity-space direction at scale.** `↻ ADVANCED (2026-06-10,
+  gpu_pcf_hunt):` this is no longer just a lead — it is **demonstrated to reach the
+  tail**. The GPU hunt (millions–billions of polynomial continued fractions, float64
+  prefilter → mpmath/PSLQ verify, with positive controls and a reject-rational filter)
+  did two things: (a) at deg-2 it reproduced only the **classical π/e/surd families**
+  (rediscovery, as predicted — the tail null there is *grid scope*, not absence); and
+  (b) at the **deg-3 × b=−n⁶ family** it **independently rediscovered a Ramanujan-
+  Machine conjecture from outcome alone**: aₙ=(2n+1)(3n²+3n+1), bₙ=−n⁶ → **8/(7·ζ(3))**,
+  verified to 250 digits, coefficients matching the 2021 RM paper (a *recent,
+  non-classical, still-unproven* result). So the instrument provably operates in the
+  exact regime where the only historical human-unknown finds live. The remaining work
+  is **scale past the published coefficient region** + the recognition/reference-
+  subtraction discipline (Frontier 2). Identity space (continued fractions, integer
+  relations) is the one regime where modest-hardware search has historically produced
+  genuinely human-unknown mathematics (BBP, the Ramanujan Machine); the new identities
+  live in the tail (higher-degree PCFs, larger coefficients, under-explored constants:
+  Catalan, ζ(3), γ, MZVs). This is the most concrete "where novelty has actually been
+  found before" lead — now with a working scaled instrument — but it needs scale and it
   hits Frontier 2 (you can verify an identity to N digits but not prove it's unknown).
 
 ### The honest open question (revised 2026-06-09)
@@ -138,6 +148,26 @@ constraint.
 **The goal:** operationally distinguish **"genuinely unfamiliar structure"** from
 **"known but unrecognized."** This is the second half of the moonshot ceiling, and
 part of it is provably impossible.
+
+> ### Frontier 2 is now the BINDING constraint — triangulated three ways (2026-06-10)
+> Three independent phase-2 experiments converged on the same conclusion: **surfacing
+> structure is easy and target-free; certifying novelty is the wall.**
+> - **oe_fix** (target-free edge-of-chaos on the cross-bit VM, 3 seeds, gen-10
+>   logging): the search converges to **structured functions that match no name** in
+>   an 85-entry suite — and the session-10 "discovered a+b/a^b" claim **never
+>   reproduces**. The attractor is unnamed-structured, not named ops.
+> - **loop sweep** (reachable depth 24→96→384, pre-registered rule): nearest-named
+>   similarity is **depth-invariant** (flat ~0.58–0.60, `named_in_top5=0` at every
+>   depth). Making the substrate reach 16× deeper compositions did **not** move the
+>   discovered functions relative to the named region — so depth/vocabulary is **not**
+>   the gate.
+> - **PCF hunt**: structure (verified identities) is found readily; the question
+>   "is this verified identity *new*" is answerable only as reference-subtraction
+>   (the 8/(7ζ(3)) hit was structured, verified, and — by literature check — **known**).
+> Across CA-function space, program space, and identity space the bottleneck is the
+> same: a **recognizer** that flags "structured AND not in the references," with the
+> permanent caveat that the final step is evidenceable, not provable. The
+> primitive-vocabulary framing (old wall #6) is retired; **recognition is the wall.**
 
 ### The standing position (wall #11)
 

@@ -47,21 +47,23 @@ not rediscovered on paid time or paid context.
 - **Instead:** **compose** division from repeated subtraction (expD_div_compose) or use
   an **exact integer remainder register** (expJ/expG) — both cross the wall.
 
-### QD (MAP-Elites) for raw Busy-Beaver depth — verdict VOID, do not cite (↻ audit §1.2)
+### QD (MAP-Elites) for raw Busy-Beaver depth — RESOLVED by closure (↻ 2026-06-10)
 - **What:** use quality-diversity to cross the landscape wall (`gpu_exp2_qd.py`).
-- **What actually happened:** the run's MAP-Elites arm is **invalid** — `insert()`
-  scatters with duplicate cell indices (non-deterministic on CUDA), so a cell's
-  archived fitness and genome can come from *different* machines; the run's own log
-  shows the corruption fired (archived best 154; the stored genome re-runs to
-  runtime=8000, non-halting). Single seed; descriptor and archive-capacity
-  confounds untested. The previous "QD is ~40× worse / the wrong tool" conclusion
-  is **withdrawn**.
-- **What still stands:** plain evolution 6238 vs sampling 49 at matched budget —
-  scale moves the wall **≥140×** (lower bound: 6238 is at 78% of the Tmax-8000
-  detection cap and the planned high-Tmax verify pass never ran).
-- **Do not redo:** the *buggy insert pattern* (duplicate-index scatter for
-  archives/elites) — and never report an archived winner without re-executing its
-  stored genome. A fixed 3-seed re-run is the queued closure experiment.
+- **The session-10 bug (do NOT reintroduce):** the original `insert()` scattered with
+  duplicate cell indices (non-deterministic on CUDA), so a cell's archived fitness and
+  genome could come from *different* machines (the log showed it: archived 154, stored
+  genome ran to non-halting 8000). This produced the false "ME 154 / QD is 40× worse /
+  wrong tool" verdict, which is **withdrawn**.
+- **The closure result (use this):** fixed insert (per-cell argmax) + re-execute every
+  archived winner. 5 runs. MAP-Elites is **competitive with evolution and
+  descriptor-dependent** — under a depth-aligned descriptor (rt_span) **ME 2139 >
+  evolution 675**. Evolution depth is **heavy-tailed** (596/675/1887 across 3 seeds;
+  the old 6238 was an upper-tail draw). Corrected law: scale moves the wall
+  **~1–2 orders, report the median of ≥3 seeds**; QD is a legitimate tool whose depth
+  depends on descriptor–objective alignment.
+- **Do not redo:** duplicate-index scatter for archives/elites (use sort+segment or
+  `scatter_reduce`); reporting a single-seed extreme-value statistic as a headline;
+  reporting an archived winner without re-executing its stored genome.
 
 ### Memory-augmented net for multiplication length-gen
 - **What:** crack full multiplication's length-gen with an NTM-lite tape
