@@ -152,4 +152,10 @@ Run these regardless of who executed:
 - A mixed-width loss tail is not convergence (the exp3 lesson).
 - runs_pod top level vs runs_pod/runs: prefer the directory with `.DONE` markers.
 - mpmath: set `MPMATH_NOGMPY=1` (gmpy2 segfaults on pathological PCFs).
+- **Stream, don't accumulate** at billion-scale: a per-batch GPU sweep that appends all
+  raw survivors to host lists then filters will OOM (the n6big |c|≤120 bug — 3.4B rows).
+  Apply the keep-filter INSIDE the loop; keep only the small surviving set + a bounded
+  reservoir. (gpu_pcf_hunt.stage1_n6 streams the Mobius prefilter for exactly this.)
+- After killing a detached pod job, `pkill -f <name>` may miss the python CHILD — find
+  the PID (`pgrep -fa`) and `kill -9` it; verify with `free -g`.
 ```
