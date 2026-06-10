@@ -4092,3 +4092,51 @@ What happened: main commit 42f4194 (reorg) + public branch 19cd273 (release snap
 What I learned: orphan-branch release is the right pattern when history contains oversized blobs you do not want to rewrite away; flat src/ is the no-breakage move for a sibling-import codebase; pointer files at original artifact locations keep the evidence chain navigable.
 Status: WORKS (repo publication-ready; Joe pushes the public branch; name suggestion: rediscovery-engine).
 Files: README.md, LICENSE, .gitignore, src/, scripts/, _private/ (gitignored), PLAYBOOK.md (scrubbed), consolidation/06 (path note)
+
+## 2026-06-10 — PHASE 5 CONJECTURE FOUNDRY (Joe's spec): the closed loop WORKS — hit-driven mutation walks a published family; zeta3 control failed (flagged); prime-indexed PCFs = honest null
+What I tried (Joe's "mathematical lifeform" spec, implemented with corrections): src/foundry.py — SEARCH UNIVERSES as
+organisms. Genome = {A_form: dense-grid | factored (alpha n+beta)(quadratic); B_form: mult*n^k | mult*(n+c)^k |
+mult*n^k1(n+c)^k2; index_map: id | PRIMES (A,B evaluated at the n-th prime — the crazy axis); terms; near-thresh}.
+Fitness = 2*novel + 0.5*verified + 3*pocket(>=2 same-constant novel) + delta-quality + liftability(delta>0 + factored-B +
+logq-regularity) - rational-trap - duplicate-vs-reference penalties. THE KEY MOVE per spec: selected universes spawn
+mutants (B exponent-splits/shifts/multiplier-tweaks, A-factorization constraint, budget lifts, index-map flips); verified
+novel hits join the foundry's OWN reference DB (no re-celebration); every 3rd gen an UNKNOWN-CONSTANT pass cross-PSLQs
+top-delta unnamed values and christens latent K constants into the battery (self-modifying basis). Reference DB hardened
+with PROGRAMMATIC family generators (16 members of the published arXiv:2210.15669 Catalan kappa/c family — the gen6
+lesson). Seeds: zeta3/catalan/zeta2 home universes + 2 prime-indexed. 14 generations, pop 6, on the pod (fast: each
+universe is SMALL by design — 0.3k-130k PCFs; whole run ~3 min GPU+CPU). Two pre-launch bugs caught in smoke (B needed
+INTEGER MULTIPLIERS — b=-2n^4 was inexpressible with sign-only forms, which would have silently excluded the known Catalan
+pocket; and a fitness KeyError on dedup-skipped hits).
+What happened (runs_pod/phase2/foundry_run/foundry_log.json, 14 gens):
+  THE LOOP CLOSED ON REAL MATHEMATICS: catalan-home (B=-2n^4) scored pocket=2 at g0 (sign-pair of the kappa=0 member,
+  matched vs own refs at later gens — self-dedup works). Its B-SPLIT MUTANTS then produced VERIFIED Catalan identities in
+  ADJACENT B-families the seed could not express:
+    g5  B=-2n^3(n+2), a=3n^2+7n+3 -> v=2/(2G-1)  [250-digit-class verify True]
+    g6  B=-2n(n+1)^3, a=3n^2+9n+7 -> v involving G, verified True
+  POST-HOC LITERATURE CHECK (the discipline): the g5 hit is EXACTLY the (i=1, j=1, mu=0) member of the published Table-7
+  family of arXiv:2210.15669 (a=j(2i-j+2)+(4i+3)n+3n^2, b=-2n(n+j-1)(n+2i-j+1)(n+mu)) — i.e. the foundry's mutation
+  operator WALKED FROM kappa=0 INTO A DIFFERENT PUBLISHED MEMBER of the same family ON ITS OWN. Not novel (the paper's
+  generator covers it; my reference DB held only the kappa/c sub-family — family-generators must cover the FULL published
+  parameterization). The g6 hit's a-poly implies a NON-INTEGER i=1.5 in that parameterization — the paper gestures at
+  "increments of i by rational steps," so this is flagged PLAUSIBLY-COVERED, pending a careful read; it is at minimum a
+  boundary member the integer table does not list. NO claim beyond that.
+  HONEST FAILURES, flagged: (1) CONTROL FAILURE — zeta3-home at g0 produced ver=0: the in-grid RM 8/(7zeta3) form was NOT
+  recovered (root cause undiagnosed this session — near-threshold/terms interaction suspected; the same form WAS recovered
+  by gpu_pcf_hunt at 1e-11). Per the control discipline: all zeta3-family NULLS in this run are UNINTERPRETABLE; the
+  catalan arm (whose implicit control DID fire at g0) carried the run. Fix is the first task of any foundry continuation.
+  (2) PRIME-INDEXED PCFs (both seeds + 2 index-map mutants, up to 96k convergent values, battery incl. primezeta(2),(3)):
+  ZERO verified relations — an honest first null for an object class nobody sweeps (and the null is alive: no control
+  exists for this family, so it is null-uninterpretable by our own standard — building a prime-indexed control identity is
+  itself an open mini-problem). (3) UNKNOWN-CONSTANT clustering christened NO latent constants (no small PSLQ relations
+  among top-delta unnamed values — honest; the mode is wired and waiting).
+What I learned: The foundry ARCHITECTURE is validated end-to-end on real mathematics: hit -> B-family mutation -> verified
+adjacent family member -> pocket scoring -> self-deduplication, all autonomous, all exactly verified, with the reference-
+subtraction catching what it knew and the literature check catching what it did not. What it found tonight is rediscovery
+(published-family members) — the expected outcome at small budgets, and the mechanism Joe specced ("what family around
+this hit is alive?") demonstrably answers that question without enumeration. The moonshot-grade gaps are now precise:
+(a) fix the zeta3 control; (b) reference DBs must implement FULL published generators, not sub-families; (c) pockets need
+a cross-universe definition (same family ACROSS B-mutants — tonight's catalan g0+g5+g6 chain IS such a pocket, found by
+3 universes, not scored as one); (d) the prime-indexed class needs its own control before its nulls mean anything.
+Status: WORKS (architecture validated; catalan-family walk = autonomous rediscovery of adjacent published members; zeta3
+control FAILED [flagged, run's zeta3 nulls void]; prime-indexed + latent-K = honest wired nulls). n=1 foundry run, 14 gens.
+Files: src/foundry.py, runs_pod/phase2/foundry_run/foundry_log.json, runs_pod/phase2/FOUNDRY.out

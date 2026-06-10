@@ -1,0 +1,335 @@
+[
+ {
+  "gen": 0,
+  "reports": [
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "n_total": 6561,
+    "n_conv": 3004,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.3,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "n_total": 729,
+    "n_conv": 318,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 2,
+    "pocket": 2,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 9.0,
+    "secs": 0.2,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": null
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": null
+     }
+    ],
+    "novel_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": null
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": null
+     }
+    ],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home",
+    "B": "+1n^4",
+    "index_map": "id",
+    "n_total": 729,
+    "n_conv": 648,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial",
+    "B": "-1n^2",
+    "index_map": "primes",
+    "n_total": 729,
+    "n_conv": 682,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-cubic",
+    "B": "-1n^6",
+    "index_map": "primes",
+    "n_total": 6561,
+    "n_conv": 2916,
+    "n_near": 2,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 1,
+  "reports": [
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "n_total": 729,
+    "n_conv": 318,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.2,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "own_5"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "own_5"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "n_total": 6561,
+    "n_conv": 3004,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home",
+    "B": "+1n^4",
+    "index_map": "id",
+    "n_total": 729,
+    "n_conv": 648,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g1:B-shift",
+    "B": "-2(n-1)^4",
+    "index_map": "id",
+    "n_total": 729,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g1:B-shift",
+    "B": "-1(n-2)^6",
+    "index_map": "id",
+    "n_total": 6561,
+    "n_conv": 5112,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 1.8,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home>g1:B-split",
+    "B": "+1n^3(n-2)^1",
+    "index_map": "id",
+    "n_total": 729,
+    "n_conv": 548,
+    "n_near": 368,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 368,
+    "best_delta": 0.0,
+    "fitness": -6.36,
+    "secs": 1.7,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ }
+]
