@@ -14,7 +14,7 @@ say "TIER2c waiting for orphaned exp1_r2_s2 to finish..."
 while pgrep -f exp1_r2_s2 >/dev/null; do sleep 10; done
 touch runs/exp1_r2_s2.DONE
 say "TIER2c START on $(hostname)"
-run exp1_r2_s3 $PY -u gpu_exp1_novelty.py --radius 2 --W 256 --T 256 --batch 32768 --pop 8192 --gens 100 --neural --neural-steps 800 --seed 3 --out runs/exp1_r2_s3
-run exp3_mul   $PY -u gpu_exp3_memory.py --arch both --op mul --steps 40000 --hidden 96 --mem_slots 40 --mem_width 12 --seeds 3 --train-width 1 2 3 4 5 6 --test-widths 4 6 8 10 12 16 20 --eval-n 1024
+run exp1_r2_s3 $PY -u src/gpu_exp1_novelty.py --radius 2 --W 256 --T 256 --batch 32768 --pop 8192 --gens 100 --neural --neural-steps 800 --seed 3 --out runs/exp1_r2_s3
+run exp3_mul   $PY -u src/gpu_exp3_memory.py --arch both --op mul --steps 40000 --hidden 96 --mem_slots 40 --mem_width 12 --seeds 3 --train-width 1 2 3 4 5 6 --test-widths 4 6 8 10 12 16 20 --eval-n 1024
 say "CAMPAIGN ALL-DONE — safe to terminate the pod"
 touch runs/CAMPAIGN.ALLDONE

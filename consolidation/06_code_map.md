@@ -1,5 +1,9 @@
 # Code Map & Reproduction
 
+> **↻ repo reorg (2026-06-10):** all `.py` now live in `src/` (flat, sibling imports)
+> and orchestration `.sh` in `scripts/` — prepend those to any path named below.
+> Invocation from repo root: `bash run.sh src/<file>.py [args]`.
+
 How the code is organized, what each file does, the dependencies, how to run, the
 configs that matter, and where results live. Distilled from a full read of every
 file. All paths are relative to the project root

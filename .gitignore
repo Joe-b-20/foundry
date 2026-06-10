@@ -1,3 +1,5 @@
+_private/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+# oversized binaries (>50MB) live in _private/bigdata — pointer files mark their original locations

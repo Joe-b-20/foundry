@@ -31,7 +31,7 @@ re-derive strategy — execute the queue in §3, gate by gate.
 
 ## 2. Current state (as of 2026-06-10 ~14:45 UTC)
 
-- **Pod (RunPod 4090, root@213.181.111.2:42706, key ~/.ssh/id_ed25519):**
+- **Pod (RunPod 4090, <POD-SSH: see _private/infra/pod.md>):**
   closures DONE + pulled + analyzed (TRACKER entries "CLOSURE A/B", commit e1cb715).
   Phase-2 running detached (`runs/PHASE2.out`): pcf_stage1 DONE
   (4.82M PCFs → 4.32M survivors), pcf_stage2 IN PROGRESS (~56 min, 10 hits @ chunk
@@ -48,12 +48,12 @@ re-derive strategy — execute the queue in §3, gate by gate.
 
 ### T1. Collect phase-2 pod results (when `runs/PHASE2.ALLDONE` exists on pod)
 ```
-ssh -p 42706 -i ~/.ssh/id_ed25519 root@213.181.111.2 'ls /workspace/math_lab/runs/PHASE2.ALLDONE'
+ssh $POD  # creds: _private/infra/pod.md 'ls /workspace/math_lab/runs/PHASE2.ALLDONE'
 mkdir -p ~/math_lab/runs_pod/phase2 && cd ~/math_lab/runs_pod/phase2
-scp -P 42706 -i ~/.ssh/id_ed25519 -r 'root@213.181.111.2:/workspace/math_lab/runs/pcf_main' \
-    'root@213.181.111.2:/workspace/math_lab/runs/loop_m*' \
-    'root@213.181.111.2:/workspace/math_lab/runs/*.log' \
-    'root@213.181.111.2:/workspace/math_lab/runs/PHASE2.out' .
+scp -r $POD:/workspace/math_lab/runs/pcf_main' \
+    ':/workspace/math_lab/runs/loop_m*' \
+    ':/workspace/math_lab/runs/*.log' \
+    ':/workspace/math_lab/runs/PHASE2.out' .
 ```
 - **Artifact:** `runs_pod/phase2/pcf_main/stage2_summary.json`, 6 `loop_m*_s*/loop_log.json`.
 - **Gate:** `stage2_summary.json` has `"control_ok": true` (the injected 4/π control

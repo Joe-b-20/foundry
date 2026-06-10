@@ -5,5 +5,5 @@ conda activate mathlab
 cd /home/joebachir20/math_lab
 for s in 0 1 2; do
   echo "===== SEED $s ====="
-  python -u expJ_selfdiscover.py --ops mul,div --iters 160 --seed "$s" --save "runs/expJ_both_s$s.pt"
+  python -u src/expJ_selfdiscover.py --ops mul,div --iters 160 --seed "$s" --save "runs/expJ_both_s$s.pt"
 done

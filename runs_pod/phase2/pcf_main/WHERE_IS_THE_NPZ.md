@@ -1,0 +1,1 @@
+stage1_survivors.npz (231MB, exceeds GitHub limits) moved to _private/bigdata/pcf_main_stage1_survivors.npz — regenerate with: bash run.sh src/gpu_pcf_hunt.py --stage1 --crange 6 --terms 90 --out runs/pcf_main
