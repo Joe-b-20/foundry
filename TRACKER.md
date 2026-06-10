@@ -3914,3 +3914,40 @@ provably reaches the tail. deg-2 null explained as grid scope. Bigger past-the-p
 grid (|c|<=55).
 Files: gpu_pcf_hunt.py (n6/n4/p4 families + Mobius prefilter), runs_pod/phase2/pcf_n6/{stage2_hits.json,stage2_summary.json},
 runs_pod/phase2/pcf_n6_blind/, runs/n6_*.log
+
+## 2026-06-10 — PHASE-2a DEPTH-WHILE-STRUCTURED (TM, expEE signal-gap closed): depth and structure are in TENSION — deep halters are regular, structured trajectories don't halt
+What I tried (closing the expEE signal-craft gap the audit and sessions 9-10 flagged but never fixed: edge-of-chaos on the
+TM SPACE-TIME diagram is contaminated by sparsity — head touches 1 cell/step, everything compresses to c~0.09). gpu_depthstruct.py
+uses a TM-APPROPRIATE structure signal instead: 4c(1-c) on the head's MOVE-BIT sequence (bit-packed 8/byte per the expX lesson)
+and on the final written tape block. Three matched-budget conditions, same evolution loop, only fitness differs: depth (runtime
+if halts = the exp2 baseline), depthXtrack (runtime x (0.1+track) = deep AND structured halters), trackonly (track on every
+machine that ran >=256 steps, halting or not = structure without depth). n=5 TMs, Tmax 30000, batch 4096, 100 gens, 2 seeds on
+the LOCAL 4060 (parallelized to free pod budget). Every reported winner re-executed from its stored genome (rerun_ok) and the
+top head-position traces RENDERED and inspected (render-before-verdict).
+What happened (runs/dstruct_s{1,2}/dstruct_results.json; rerun_ok=True on all 6):
+  cond          seed1 rt/track    seed2 rt/track
+  depth          307 / 0.000       596 / 0.053
+  depthXtrack    307 / 0.000       596 / 0.053     <- IDENTICAL winner to depth, both seeds
+  trackonly    30000 / 1.000     30000 / 1.000     <- non-halting, maximal head-track structure
+  Two clean facts, n=2: (1) depthXtrack converges to the EXACT SAME machine as depth (same rt, same track) in both seeds —
+  the structure term is INERT among halters, because the deep-halter subspace has ~zero track structure (0.00-0.05), so
+  multiplying depth by (0.1+track) just rescales depth uniformly with no structure gradient to climb. (2) trackonly finds a
+  track=1.000 machine that runs the FULL Tmax without halting (both seeds). RENDERED + inspected (runs/dstruct_s1/*_render.png):
+  the depth-winner is a near-STATIONARY jagged wiggle (head stays in a narrow column ~307 steps then halts — temporally deep,
+  spatially trivial, no structure); the trackonly-winner is a STRUCTURED sawtooth/triangular walker drifting with nested
+  self-similar excursions over all 30000 steps (genuinely edge-of-chaos head trajectory) — but it never halts.
+What I learned: With the signal-contamination removed (the expEE gap CLOSED — head-track edge-of-chaos is uncontaminated,
+trackonly reaches the intermediate-c regime contaminated TM space-time never could), the result is a clean NEGATIVE that
+sharpens wall #4: on the TM object space DEPTH and STRUCTURE are in TENSION. Deep halters are near-REGULAR (counter-like,
+track~0); genuinely STRUCTURED head-trajectories are NON-HALTING. So "deep AND structured AND halting computation" — the
+moonshot-relevant object (a short machine that computes a long time and builds structure before halting, Bennett logical
+depth) — is not reachable by depth-driven OR structure-driven evolution here: the two objectives pull to disjoint regions of
+the landscape. This is the program-space analog of the bridge being landscape-gated (expEE/expDD): the smooth basin holds
+structured NON-halters; the deep HALTERS are isolated regular needles; nothing the search reaches is BOTH. Honest scope:
+n=2 seeds, n=5 TMs, Tmax 30000, single object space (blank-tape TMs); the head-track signal is one TM-appropriate choice
+(output-tape or stack-trace measures are alternatives); "deep AND structured" not existing in REACH is not "not existing"
+(BB-class deep halters surely have rich structure — they are just landscape-inaccessible, the standing wall-#4 statement).
+Status: WORKS (clean negative, n=2, expEE gap closed, render-verified): on blank-tape TMs depth and edge-of-chaos structure
+are in tension — depth-evolution finds regular deep halters (structure term inert), structure-evolution finds structured
+non-halters; "deep+structured+halting" is landscape-inaccessible. Sharpens wall #4 with an uncontaminated signal.
+Files: gpu_depthstruct.py, runs/dstruct_s{1,2}/ (dstruct_results.json + *_render.png head-position traces), analyze_phase2.py
