@@ -1,0 +1,58 @@
+gpu_depthstruct | device=NVIDIA GeForce RTX 4060 Laptop GPU 9GB | n=4 L=512 Tmax=2000 batch=512 gens=12 seed=1
+  QUESTION: does a TM-appropriate structure term (head-track edge-of-chaos, the expEE gap closed)
+  change WHAT depth-evolution finds — deep+structured machines vs plain deep counters?
+
+  === condition: depth ===
+    [depth] gen    0: fit=12.0 rt=12 track=0.000 tape=0.000 [1s]
+    [depth] gen    1: fit=20.0 rt=20 track=0.000 tape=0.000 [3s]
+    [depth] gen    2: fit=20.0 rt=20 track=0.000 tape=0.000 [4s]
+    [depth] gen    3: fit=20.0 rt=20 track=0.000 tape=0.000 [5s]
+    [depth] gen    4: fit=20.0 rt=20 track=0.000 tape=0.000 [7s]
+    [depth] gen    5: fit=20.0 rt=20 track=0.000 tape=0.000 [8s]
+    [depth] gen    6: fit=20.0 rt=20 track=0.000 tape=0.000 [9s]
+    [depth] gen    7: fit=20.0 rt=20 track=0.000 tape=0.000 [10s]
+    [depth] gen    8: fit=20.0 rt=20 track=0.000 tape=0.000 [11s]
+    [depth] gen    9: fit=20.0 rt=20 track=0.000 tape=0.000 [13s]
+    [depth] gen   10: fit=25.0 rt=25 track=0.000 tape=0.000 [14s]
+    [depth] gen   11: fit=25.0 rt=25 track=0.000 tape=0.000 [15s]
+    BEST: rt=25 track=0.0 tape=0.0 rerun_ok=True
+
+  === condition: depthXtrack ===
+    [depthXtrack] gen    0: fit=1.2 rt=12 track=0.000 tape=0.000 [1s]
+    [depthXtrack] gen    1: fit=2.0 rt=20 track=0.000 tape=0.000 [2s]
+    [depthXtrack] gen    2: fit=2.0 rt=20 track=0.000 tape=0.000 [3s]
+    [depthXtrack] gen    3: fit=2.0 rt=20 track=0.000 tape=0.000 [2s]
+    [depthXtrack] gen    4: fit=2.0 rt=20 track=0.000 tape=0.000 [3s]
+    [depthXtrack] gen    5: fit=2.0 rt=20 track=0.000 tape=0.000 [4s]
+    [depthXtrack] gen    6: fit=2.0 rt=20 track=0.000 tape=0.000 [5s]
+    [depthXtrack] gen    7: fit=2.0 rt=20 track=0.000 tape=0.000 [6s]
+    [depthXtrack] gen    8: fit=2.0 rt=20 track=0.000 tape=0.000 [7s]
+    [depthXtrack] gen    9: fit=2.0 rt=20 track=0.000 tape=0.000 [8s]
+    [depthXtrack] gen   10: fit=2.5 rt=25 track=0.000 tape=0.000 [8s]
+    [depthXtrack] gen   11: fit=2.5 rt=25 track=0.000 tape=0.000 [10s]
+    BEST: rt=25 track=0.0 tape=0.0 rerun_ok=True
+
+  === condition: trackonly ===
+    [trackonly] gen    0: fit=0.0 rt=12 track=0.000 tape=0.000 [1s]
+    [trackonly] gen    1: fit=0.0 rt=20 track=0.000 tape=0.000 [2s]
+    [trackonly] gen    2: fit=0.0 rt=20 track=0.000 tape=0.000 [3s]
+    [trackonly] gen    3: fit=0.0 rt=20 track=0.000 tape=0.000 [4s]
+    [trackonly] gen    4: fit=0.0 rt=20 track=0.000 tape=0.000 [5s]
+    [trackonly] gen    5: fit=0.0 rt=20 track=0.000 tape=0.000 [5s]
+    [trackonly] gen    6: fit=0.0 rt=20 track=0.000 tape=0.000 [6s]
+    [trackonly] gen    7: fit=0.0 rt=20 track=0.000 tape=0.000 [7s]
+    [trackonly] gen    8: fit=0.0 rt=20 track=0.000 tape=0.000 [8s]
+    [trackonly] gen    9: fit=0.0 rt=20 track=0.000 tape=0.000 [9s]
+    [trackonly] gen   10: fit=0.0 rt=25 track=0.000 tape=0.000 [10s]
+    [trackonly] gen   11: fit=0.0 rt=25 track=0.000 tape=0.000 [11s]
+    BEST: rt=25 track=0.0 tape=0.0 rerun_ok=True
+
+  === SUMMARY (best per condition) ===
+    depth        rt=     25  track=0.000  tape=0.000  rerun_ok=True
+    depthXtrack  rt=     25  track=0.000  tape=0.000  rerun_ok=True
+    trackonly    rt=     25  track=0.000  tape=0.000  rerun_ok=True
+
+  READ: depth-only finding high-rt/low-track machines while depthXtrack finds high-rt/
+  mid-track machines = the structure term steers WHAT is found (then RENDER the position
+  traces before any verdict). depthXtrack collapsing to shallow runtimes = structure taxes
+  depth (the expEE landscape gate, now measured with an uncontaminated signal).

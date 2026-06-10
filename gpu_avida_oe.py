@@ -151,6 +151,16 @@ def _named_suite(aa, bb):
     f["~(a+b)"] = (~(aa + bb)) & M; f["-(a+b)"] = (-(aa + bb)) & M; f["-a"] = (-aa) & M; f["-b"] = (-bb) & M
     f["a^(b<<1)"] = aa ^ ((bb << 1) & M); f["a^(b>>1)"] = aa ^ (bb >> 1)
     f["(a^b)<<1"] = ((aa ^ bb) << 1) & M
+    # loop-reachable extensions (added for gpu_avida_loop — repeated shl/add composites,
+    # so the loop arm's obvious discoveries still count as "named")
+    f["a<<2"] = (aa << 2) & M; f["a<<3"] = (aa << 3) & M; f["a<<4"] = (aa << 4) & M
+    f["b<<2"] = (bb << 2) & M; f["b<<3"] = (bb << 3) & M
+    f["a>>2"] = aa >> 2; f["a>>3"] = aa >> 3; f["b>>2"] = bb >> 2
+    f["4a"] = (4 * aa) & M; f["5a"] = (5 * aa) & M; f["6a"] = (6 * aa) & M
+    f["8a"] = (8 * aa) & M; f["4b"] = (4 * bb) & M; f["8b"] = (8 * bb) & M
+    f["4a+b"] = (4 * aa + bb) & M; f["a+4b"] = (aa + 4 * bb) & M
+    f["3a+b"] = (3 * aa + bb) & M; f["a+3b"] = (aa + 3 * bb) & M; f["3a+3b"] = (3 * (aa + bb)) & M
+    f["(a+b)<<2"] = ((aa + bb) << 2) & M; f["(a^b)<<2"] = ((aa ^ bb) << 2) & M
     return f
 
 
