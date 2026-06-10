@@ -1,0 +1,10158 @@
+[
+ {
+  "gen": 0,
+  "reports": [
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 130321,
+    "n_conv": 100034,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.7,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 4910,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.4,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home",
+    "B": "+1n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 11818,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial",
+    "B": "-1n^2",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 2197,
+    "n_conv": 2130,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-cubic",
+    "B": "-1n^6",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 6561,
+    "n_conv": 2916,
+    "n_near": 2,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.2,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 1,
+  "reports": [
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 130321,
+    "n_conv": 100034,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 4910,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.4,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home",
+    "B": "+1n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 11818,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial",
+    "B": "-1n^2",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 2197,
+    "n_conv": 2130,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g1:B-shift",
+    "B": "-1(n-1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 130321,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g1:B-shift",
+    "B": "-2(n-2)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 5514,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.6,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home>g1:B-split",
+    "B": "+1n^3(n-2)^1",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 10978,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.6,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial>g1:B-shift",
+    "B": "-1(n-2)^2",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 2197,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 2,
+  "reports": [
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 130321,
+    "n_conv": 100034,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 4910,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.4,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home",
+    "B": "+1n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 11818,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial",
+    "B": "-1n^2",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 2197,
+    "n_conv": 2130,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g2:index-map",
+    "B": "-1n^6",
+    "index_map": "primes",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 130321,
+    "n_conv": 96026,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g2:B-split",
+    "B": "-2n^1(n+2)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 4554,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home>g2:B-shift",
+    "B": "+1(n-1)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial>g2:B-split",
+    "B": "-1n^1(n-2)^1",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 2197,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 3,
+  "reports": [
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 130321,
+    "n_conv": 100034,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 4910,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.4,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home",
+    "B": "+1n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 11818,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial",
+    "B": "-1n^2",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 2197,
+    "n_conv": 2130,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 279841,
+    "n_conv": 227008,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g3:index-map",
+    "B": "-2n^4",
+    "index_map": "primes",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 5054,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home>g3:A-factored",
+    "B": "+1n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 26704,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "prime-monomial>g3:A-factored",
+    "B": "-1n^2",
+    "index_map": "primes",
+    "ctrl_ok": null,
+    "n_unverified": 0,
+    "n_multi": 12,
+    "n_total": 27360,
+    "n_conv": 27120,
+    "n_near": 12,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.7,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 4,
+  "reports": [
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 130321,
+    "n_conv": 100034,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 4910,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.4,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 279841,
+    "n_conv": 227008,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home",
+    "B": "+1n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 11818,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g4:B-split",
+    "B": "-1n^5(n+2)^1",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 4,
+    "n_total": 130321,
+    "n_conv": 98490,
+    "n_near": 4,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.3,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g4:B-split",
+    "B": "-2n^1(n-2)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 5514,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.7,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta2-home>g4:B-split",
+    "B": "+1n^2(n-1)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 12167,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 5,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 130321,
+    "n_conv": 100034,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 6859,
+    "n_conv": 4910,
+    "n_near": 2,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.4,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 279841,
+    "n_conv": 227008,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g5:B-shift",
+    "B": "-1(n+1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15912,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g5:B-split",
+    "B": "-1n^5(n-1)^1",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 279841,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 6,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 2,
+    "n_total": 130321,
+    "n_conv": 100034,
+    "n_near": 4,
+    "n_verified": 2,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g6:B-shift",
+    "B": "-1(n-2)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 20880,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.6,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g6:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g6:B-shift",
+    "B": "-1(n+2)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 130321,
+    "n_conv": 96026,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 7,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g7:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g7:B-shift",
+    "B": "-1(n+2)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15876,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g7:B-shift",
+    "B": "-2(n-1)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 4,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g7:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 8,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g8:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g8:B-split",
+    "B": "-1n^5(n+1)^1",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16544,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g8:B-shift",
+    "B": "-2(n+1)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24704,
+    "n_near": 4,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 4,
+    "best_delta": 0.0,
+    "fitness": 0.92,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g8:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 9,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g9:B-split",
+    "B": "-1n^1(n-2)^5",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 20880,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.6,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g9:B-shift",
+    "B": "-1(n-1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g9:A-budget",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g9:B-split",
+    "B": "-1n^4(n+2)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16096,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 10,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g10:B-split",
+    "B": "-1n^1(n+1)^5",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15980,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g10:B-shift",
+    "B": "-1(n+1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15912,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g10:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g10:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 11,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g11:B-shift",
+    "B": "-1(n-2)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 20880,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.6,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g11:index-map",
+    "B": "-1n^6",
+    "index_map": "primes",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15876,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g11:B-shift",
+    "B": "-2(n-2)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 18816,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.7,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g11:B-split",
+    "B": "-1n^3(n+2)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15928,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 12,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g12:B-split",
+    "B": "-1n^4(n+1)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16360,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       3,
+       12,
+       15,
+       6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       -2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "2.885390081777926814719849362",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -3,
+       -12,
+       -15,
+       -6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-2.885390081777926814719849362",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -3,
+       -12,
+       -15,
+       -6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-2.885390081777926814719849362"
+     },
+     {
+      "A": [
+       3,
+       12,
+       15,
+       6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       -2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "2.885390081777926814719849362"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g12:B-split",
+    "B": "-1n^4(n+1)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16360,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       3,
+       12,
+       15,
+       6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       -2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "2.885390081777926814719849362",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -3,
+       -12,
+       -15,
+       -6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-2.885390081777926814719849362",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -3,
+       -12,
+       -15,
+       -6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-2.885390081777926814719849362"
+     },
+     {
+      "A": [
+       3,
+       12,
+       15,
+       6
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       -2,
+       0,
+       0,
+       1
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "2.885390081777926814719849362"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g12:B-split",
+    "B": "-2n^1(n+2)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 4,
+    "n_total": 27360,
+    "n_conv": 24524,
+    "n_near": 4,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.3,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g12:B-split",
+    "B": "-1n^3(n-1)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 13,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g13:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g13:B-shift",
+    "B": "-1(n+2)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15876,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g13:B-split",
+    "B": "-2n^2(n+2)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24700,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g13:B-shift",
+    "B": "-1(n-1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 14,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g14:A-budget",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g14:index-map",
+    "B": "-1n^6",
+    "index_map": "primes",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15876,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g14:B-split",
+    "B": "-2n^2(n+1)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24768,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       4,
+       7,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       -1,
+       0,
+       1,
+       -1
+      ],
+      "height": 1,
+      "verified": true,
+      "value": "3.25889135327092945459791735692",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -4,
+       -7,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       1,
+       0,
+       1,
+       -1
+      ],
+      "height": 1,
+      "verified": true,
+      "value": "-3.25889135327092945459791735692",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -4,
+       -7,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       1,
+       0,
+       1,
+       -1
+      ],
+      "height": 1,
+      "verified": true,
+      "value": "-3.25889135327092945459791735692"
+     },
+     {
+      "A": [
+       4,
+       7,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "log2",
+      "relation": [
+       -1,
+       0,
+       1,
+       -1
+      ],
+      "height": 1,
+      "verified": true,
+      "value": "3.25889135327092945459791735692"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g14:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 15,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g15:B-shift",
+    "B": "-1(n-1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g15:B-split",
+    "B": "-1n^2(n-1)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g15:B-split",
+    "B": "-2n^1(n-2)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 18816,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.7,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g15:B-shift",
+    "B": "-1(n-1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 16,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g16:B-split",
+    "B": "-1n^1(n-1)^5",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g16:B-shift",
+    "B": "-1(n+1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15912,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g16:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g16:B-shift",
+    "B": "-1(n-1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 17,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g17:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g17:B-shift",
+    "B": "-1(n-2)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 20880,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.6,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g17:B-shift",
+    "B": "-2(n+2)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24436,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g17:B-shift",
+    "B": "-1(n+2)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15876,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 18,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g18:B-split",
+    "B": "-1n^4(n-2)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 20880,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.7,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g18:B-split",
+    "B": "-1n^2(n+2)^4",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15876,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g18:B-split",
+    "B": "-2n^2(n-2)^2",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 18816,
+    "n_near": 400,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 400,
+    "best_delta": 0.0,
+    "fitness": -7.0,
+    "secs": 3.7,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g18:B-split",
+    "B": "-1n^5(n-1)^1",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 0,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.0,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ },
+ {
+  "gen": 19,
+  "reports": [
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored",
+    "B": "-2n^4",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 24996,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -3,
+       -3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "-0.545872031851953050727079736667"
+     },
+     {
+      "A": [
+       1,
+       3,
+       3,
+       0
+      ],
+      "status": "hit",
+      "constant": "catalan",
+      "relation": [
+       1,
+       0,
+       0,
+       -2
+      ],
+      "height": 2,
+      "verified": true,
+      "value": "0.545872031851953050727079736667"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g3:A-budget>g4:A-factored>g19:B-shift",
+    "B": "-1(n+1)^6",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 15912,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g19:A-factored",
+    "B": "-1n^6",
+    "index_map": "id",
+    "ctrl_ok": true,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16752,
+    "n_near": 4,
+    "n_verified": 4,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 2.6,
+    "secs": 0.6,
+    "verified_hits": [
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796",
+      "matches_reference": "t7_i2j2m1"
+     },
+     {
+      "A": [
+       -1,
+       -5,
+       -9,
+       -6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       -7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "-0.950751282949379964209287175796"
+     },
+     {
+      "A": [
+       1,
+       5,
+       9,
+       6
+      ],
+      "status": "hit",
+      "constant": "zeta3",
+      "relation": [
+       -8,
+       0,
+       0,
+       7
+      ],
+      "height": 8,
+      "verified": true,
+      "value": "0.950751282949379964209287175796"
+     }
+    ],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "catalan-home>g5:A-factored>g19:B-split",
+    "B": "-2n^1(n+2)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 4,
+    "n_total": 27360,
+    "n_conv": 24524,
+    "n_near": 4,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.3,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   },
+   {
+    "name": "zeta3-home>g5:A-factored>g6:A-factored>g19:B-split",
+    "B": "-1n^3(n+1)^3",
+    "index_map": "id",
+    "ctrl_ok": false,
+    "n_unverified": 0,
+    "n_multi": 0,
+    "n_total": 27360,
+    "n_conv": 16212,
+    "n_near": 0,
+    "n_verified": 0,
+    "n_novel": 0,
+    "pocket": 0,
+    "rational": 0,
+    "best_delta": 0.0,
+    "fitness": 1.0,
+    "secs": 0.1,
+    "verified_hits": [],
+    "novel_hits": [],
+    "top_delta": []
+   }
+  ],
+  "latent": {}
+ }
+]

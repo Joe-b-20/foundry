@@ -132,13 +132,15 @@ def b_fun(genome):
 # ---------------------------------------------------------------- constants / table
 def make_battery(latent):
     import mpmath as mp
-    mp.mp.dps = 40
+    _dps = mp.mp.dps
+    mp.mp.dps = max(40, _dps)
     bat = {"pi": mp.pi, "e": mp.e, "catalan": mp.catalan, "zeta3": mp.zeta(3),
            "gamma": mp.euler, "log2": mp.log(2), "zeta5": mp.zeta(5),
            "pi^2": mp.pi ** 2, "pi^3": mp.pi ** 3,
            "primezeta2": mp.primezeta(2), "primezeta3": mp.primezeta(3)}
     for k, v in latent.items():
         bat[k] = mp.mpf(v)
+    mp.mp.dps = _dps
     return bat
 
 
@@ -183,14 +185,24 @@ def verify_hits(cands, genome, battery, dps=150):
         cname, rel, height = hits[0]
         mp.mp.dps = dps
         v2 = _eval_mp(A, Bf, genome, mp, terms=min(2800, max(1200, dps * 9)))
-        C2 = make_battery({k: battery[k] for k in [] })  # rebuild fresh high-prec battery below
-        C2 = make_battery({})[cname] if cname in make_battery({}) else mp.mpf(float(battery[cname]))
+        C2 = _hp_const(cname, battery, mp)          # at CURRENT dps
         resid = rel[0] + rel[1] * C2 + rel[2] * v2 + rel[3] * v2 * C2
-        ok = abs(resid) < mp.mpf(10) ** (-(dps - 12))
+        thr = mp.mpf(10) ** (-(min(dps, 55 if cname.startswith("K") else dps) - 12))
+        ok = abs(resid) < thr
         mp.mp.dps = 60
         out.append(dict(A=[int(x) for x in A], status="hit", constant=cname, relation=rel,
                         height=int(height), verified=bool(ok), value=mp.nstr(v, 30)))
     return out
+
+
+def _hp_const(cname, battery, mp):
+    table = {"pi": lambda: mp.pi, "e": lambda: mp.e, "catalan": lambda: mp.catalan,
+             "zeta3": lambda: mp.zeta(3), "gamma": lambda: mp.euler, "log2": lambda: mp.log(2),
+             "zeta5": lambda: mp.zeta(5), "pi^2": lambda: mp.pi ** 2, "pi^3": lambda: mp.pi ** 3,
+             "primezeta2": lambda: mp.primezeta(2), "primezeta3": lambda: mp.primezeta(3)}
+    if cname in table:
+        return table[cname]()
+    return mp.mpf(float(battery[cname]))            # latent K: 50-digit class only
 
 
 def _eval_mp(A, Bf, genome, mp, terms=900):
@@ -213,6 +225,8 @@ def reference_subtract(hit, ref_values, mp):
     [1, v_ref, v, v*v_ref] for any reference value (catches sign/scale/shift/reparam)."""
     v = mp.mpf(hit["value"])
     for rname, rv in ref_values.items():
+        if not mp.isfinite(rv) or abs(rv) < mp.mpf(10) ** -8 or not mp.isfinite(v) or abs(v) < mp.mpf(10) ** -8:
+            continue
         rel = mp.pslq([mp.mpf(1), rv, v, v * rv], maxcoeff=10**4, maxsteps=6000)
         if rel and any(rel) and (rel[2] != 0 or rel[3] != 0):
             if max(abs(x) for x in rel) <= 5000:
@@ -233,11 +247,11 @@ def liftability(delta, genome, logq_r2):
 # ---------------------------------------------------------------- the foundry loop
 SEED_UNIVERSES = [
     dict(name="zeta3-home", A_form=("dense", 3, 9), B_form=("monomial", -1, 6),
-         index_map="id", terms=90, near=1e-10),
+         index_map="id", terms=90, near=1e-10, control_A=[1, 5, 9, 6], control_const="zeta3"),
     dict(name="catalan-home", A_form=("dense", 2, 9), B_form=("monomial", -2, 4),
-         index_map="id", terms=120, near=1e-10),   # -n^4 ~ catalan family kappa=0 (b=-2n^4 scaled in A)
+         index_map="id", terms=120, near=1e-10, control_A=[1, 3, 3, 0], control_const="catalan"),   # -n^4 ~ catalan family kappa=0 (b=-2n^4 scaled in A)
     dict(name="zeta2-home", A_form=("dense", 2, 11), B_form=("monomial", 1, 4),
-         index_map="id", terms=120, near=1e-10),
+         index_map="id", terms=120, near=1e-10, control_A=[3, 11, 11, 0], control_const="pi^2"),
     dict(name="prime-monomial", A_form=("dense", 2, 6), B_form=("monomial", -1, 2),
          index_map="primes", terms=200, near=1e-9),
     dict(name="prime-cubic", A_form=("dense", 3, 4), B_form=("monomial", -1, 6),
@@ -319,9 +333,20 @@ def run_universe(genome, table_t, battery, ref_values, mp, max_near=400):
         o = np.argsort(NV)
         keep = np.linspace(0, len(NV) - 1, max_near).astype(int)
         NA, NV = NA[o][keep], NV[o][keep]
-    hits = verify_hits(list(zip(NA, NV)), genome, battery)
+    cands = list(zip(NA, NV))
+    ctrl_ok = None
+    if genome.get("control_A") is not None:
+        cands = [(np.array(genome["control_A"], float), 0.0)] + cands
+    hits = verify_hits(cands, genome, battery)
+    if genome.get("control_A") is not None:
+        ch = hits[0] if hits else {}
+        ctrl_ok = bool(ch.get("status") == "hit" and ch.get("verified")
+                       and ch.get("constant") == genome.get("control_const"))
+        hits = hits[1:]
     verified = [h for h in hits if h.get("status") == "hit" and h.get("verified")]
     rational = sum(1 for h in hits if h.get("status") == "rational")
+    unverified = sum(1 for h in hits if h.get("status") == "hit" and not h.get("verified"))
+    multi = sum(1 for h in hits if h.get("status") == "none")
     # reference subtraction + dedup within universe by (constant, relation up to sign)
     novel, seen = [], set()
     for h in verified:
@@ -340,7 +365,8 @@ def run_universe(genome, table_t, battery, ref_values, mp, max_near=400):
     fit = (2.0 * len(novel) + 0.5 * len(verified) + 3.0 * (pocket >= 2)
            + 0.3 * best_delta + liftability(best_delta, genome, 1.0)
            - 0.02 * rational - 0.2 * sum(1 for h in verified if h.get("matches_reference")))
-    return dict(name=genome["name"], B=bdesc, index_map=genome["index_map"],
+    return dict(name=genome["name"], B=bdesc, index_map=genome["index_map"], ctrl_ok=ctrl_ok,
+                n_unverified=int(unverified), n_multi=int(multi),
                 n_total=int(n_total), n_conv=int(n_conv), n_near=int(len(NV)),
                 n_verified=len(verified), n_novel=len(novel), pocket=int(pocket),
                 rational=rational, best_delta=round(best_delta, 2),
@@ -424,6 +450,25 @@ def main():
     for kk in range(4):
         for cc in range(4):
             refs[f"cat_fam_k{kk}c{cc}"] = _famval(kk, cc)
+    # FULL Table-7 generators (arXiv:2210.15669): a=j(2i-j+2)+(4i+3)n+3n^2,
+    # b=-2n(n+j-1)(n+2i-j+1)(n+mu)
+    def _t7val(ii, jj, mu, terms=2500):
+        pp, qp = mp.mpf(1), mp.mpf(0)
+        p, q = mp.mpf(jj * (2 * ii - jj + 2)), mp.mpf(1)
+        for t in range(1, terms + 1):
+            An = mp.mpf(jj * (2 * ii - jj + 2) + (4 * ii + 3) * t + 3 * t * t)
+            Bn = mp.mpf(-2 * t * (t + jj - 1) * (t + 2 * ii - jj + 1) * (t + mu))
+            p, pp = An * p + Bn * pp, p
+            q, qp = An * q + Bn * qp, q
+            if t % 4 == 0 and q != 0:
+                s = q; p, q, pp, qp = p / s, q / s, pp / s, qp / s
+        return p / q if q != 0 else mp.mpf(0)
+    for ii in range(1, 5):
+        for jj in range(0, ii // 2 + 2):
+            for mu in range(0, 4):
+                tv = _t7val(ii, jj, mu)
+                if mp.isfinite(tv) and abs(tv) > mp.mpf(10) ** -8:
+                    refs[f"t7_i{ii}j{jj}m{mu}"] = tv
     history = []
     for gen in range(args.gens):
         battery = make_battery(latent)
@@ -434,9 +479,10 @@ def main():
             ALL_GENOMES.append(u)
             r = run_universe(u, table_t, battery, refs, mp)
             reports.append(r)
-            print(f"  g{gen} {r['name'][:46]:46s} B={r['B']:16s} im={r['index_map'][:2]} "
-                  f"conv={r['n_conv']:>8,} near={r['n_near']:>4} ver={r['n_verified']:>3} "
-                  f"novel={r['n_novel']} pocket={r['pocket']} fit={r['fitness']:>6.2f} [{r['secs']}s]", flush=True)
+            cflag = {True: "C+", False: "C-!", None: "  "}[r["ctrl_ok"]]
+            print(f"  g{gen} {cflag} {r['name'][:44]:44s} B={r['B']:15s} im={r['index_map'][:2]} "
+                  f"conv={r['n_conv']:>8,} near={r['n_near']:>4} ver={r['n_verified']:>3} unv={r['n_unverified']} "
+                  f"multi={r['n_multi']} novel={r['n_novel']} pocket={r['pocket']} fit={r['fitness']:>6.2f} [{r['secs']}s]", flush=True)
         # unknown-constant clustering every 3rd gen
         if gen % 3 == 2:
             newk = latent_constants(reports, mp)
