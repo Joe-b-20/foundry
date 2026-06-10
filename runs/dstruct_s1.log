@@ -3,3 +3,5 @@ gpu_depthstruct | device=NVIDIA GeForce RTX 4060 Laptop GPU 9GB | n=5 L=8192 Tma
   change WHAT depth-evolution finds — deep+structured machines vs plain deep counters?
 
   === condition: depth ===
+    [depth] gen    0: fit=19.0 rt=19 track=0.000 tape=0.000 [17s]
+    [depth] gen   10: fit=104.0 rt=104 track=0.000 tape=0.000 [185s]

@@ -3727,3 +3727,84 @@ with measurement; exp2/oe closures prepped, smoked, and queued for the pod).
 Files: consolidation/01-09 (edits), .claude/RULES.md (amendments), .gitignore, expFF_search.py, runs/expFF_search.log,
 runs/expFF_search.json, gpu_exp2_qd.py (fixed), gpu_avida_oe.py (upgraded), run_closures.sh, runs/oe_smoke_closure.log,
 runs/exp2_smoke_closure.log
+
+## 2026-06-10 — CLOSURE A (exp2 QD, FIXED archive): the "QD is the wrong tool" verdict is OVERTURNED; landscape depth is heavy-tailed
+What I tried: re-ran the landscape-wall QD experiment with the audit's fixes (consolidation/09 §1.2): the dedup-safe
+per-cell-argmax MAP-Elites insert (replacing the undefined duplicate-index CUDA scatter), stationary log-binning of the
+ones axis, mandatory re-execution of the archived winner (archive_ok), and a descriptor-confound arm. 5 runs on the 4090:
+3 seeds at the original config (n=5, Tmax 8000, batch 4096, gens 200, span_ones descriptor), 1 with a depth-aligned
+descriptor (rt_span), 1 at Tmax 30000. (Results pulled to runs_pod/closures/.)
+What happened (deepest halter, steps; archive_ok=True on ALL — the stored best genome re-runs to its archived depth and
+halts, so no corruption this time):
+  run                sampling  evolution  MAP-Elites  coverage
+  exp2fix_s1               51        675         410   229/676   span_ones Tmax8000
+  exp2fix_s2               45        596         201   224/676   span_ones Tmax8000
+  exp2fix_s3               50       1887         713   224/676   span_ones Tmax8000
+  exp2fix_rtspan_s1        51        675        2139    82/676   rt_span   Tmax8000
+  exp2fix_T30k_s1          81        675         258   234/676   span_ones Tmax8000
+  TWO headline corrections to the session-10 story:
+  (1) "QD is ~40x WORSE than evolution / the wrong tool" is OVERTURNED. With a valid archive, MAP-Elites is the SAME
+      ORDER as evolution (ME/evo ratio across seeds: 0.61, 0.34, 0.38 on span_ones) — not 154/6238=0.025. And with a
+      DEPTH-ALIGNED descriptor (rt_span), MAP-Elites (2139) BEATS evolution (675) by 3.2x at matched budget — exactly the
+      "QD's stepping-stones cross the rugged landscape" outcome the experiment was built to test for. The session-10
+      "154" was a corruption artifact; the "QD diffuses budget, wrong tool" reading was a plain-read OF that artifact.
+      The honest verdict: QD's depth performance is DESCRIPTOR-DEPENDENT (it found shallower elites under span_ones, deeper
+      under rt_span where the behavior axis aligns with the objective) — which is the known QD fact, now actually measured.
+  (2) Evolution depth is HEAVY-TAILED and seed-dominated: 675 / 596 / 1887 across 3 seeds at IDENTICAL config — and the
+      ORIGINAL session-10 run got 6238 at this same config/seed. So a single evolution number is a draw from a
+      high-variance distribution (here 596-1887, ~3x; the 6238 was a lucky upper-tail draw, ~3-10x above the new median).
+      "Scale moves the wall 140x" was a point estimate of an extreme-value statistic with n=1. Corrected reading: scale
+      moves the wall by ~1-2 orders of magnitude (evolution median here ~675, vs expEE's 43 at low budget = ~16x; the
+      6238/43=145x was the tail). Tmax 30000 did NOT raise evolution's best (still 675) — so at this budget evolution
+      is not detection-cap-limited; the cap caveat from the audit applies to the original 6238 run, not these.
+What I learned: BOTH audit flags on this experiment were real and consequential. The bug inverted the qualitative verdict
+(QD useless -> QD competitive-and-descriptor-dependent), and the n=1 inflated the headline by ~3-10x. The corrected
+landscape-wall statement: scale moves the wall by ~1-2 orders (heavy-tailed, seed-dominated, needs the median of several
+seeds), and QD is a LEGITIMATE tool whose depth depends on descriptor-objective alignment (rt_span > evolution here). The
+deepest machine found across all runs (rt_span ME, 2139 steps) was re-verified by re-execution. BB(5)=47,176,870 remains
+astronomically out of reach — the champion is still a needle; scale moves the FLOOR of reachable depth, not the ceiling.
+This is the cleanest vindication in the project of the new RULES (comparative-claims-need-seeds; re-execute-archived-
+winners; no-dup-index-scatter): every one of them caught a real distortion here.
+Status: WORKS (closure complete; archive bug fixed + verified, 5 runs). Overturns the session-10 "QD wrong tool" verdict
+(QD is competitive and descriptor-dependent; rt_span ME 2139 > evo 675) and recasts "scale moves wall 140x" as
+"~1-2 orders, heavy-tailed, n must be >1". consolidation/03 #4 + 08 to be updated.
+Files: runs_pod/closures/exp2fix_{s1,s2,s3,rtspan_s1,T30k_s1}/qd_result.json (+ .log), gpu_exp2_qd.py (fixed)
+
+## 2026-06-10 — CLOSURE B (avida_oe, waypoint evidence): the a+b/a^b claim does NOT reproduce; target-free search lands on UNNAMED structured functions
+What I tried: re-ran the target-free edge-of-chaos oe experiment with the audit's instrumentation (09 §1.3): the named
+suite expanded 10 -> ~85 functions exact-matched on 64 probe pairs (8 structured + 56 pseudo-random, so a match is
+effectively a proof), snapshots every 10 gens (was 200) describing the TOP-5 (was top-1), a persisted FIRST-MATCH table
+(named fn -> first gen any top-5 organism exactly matched it), and nearest-named bit-similarity for the unmatched. 3 seeds
+(1,7,3), N=12288, 1000 gens on the 4090. The session-10 entry claimed "discovered ADDITION (a+b EXACT) by gen 50, then
+XOR (a^b EXACT) by gen 100"; the audit found NO surviving artifact for that. This run was built to settle it with logging
+fine enough to catch a gen-50 event.
+What happened (the a+b/a^b waypoints do NOT reproduce): across all 3 seeds and 1000 gens, the first_match table NEVER
+contains a+b. It contains only TRIVIAL early matches captured at gen 0-10 before structure evolves -- {a, b, a-1} (projections)
+and ~(a^b) (= EQU / XNOR), all matched in the first 1-2 snapshots and then LEFT BEHIND. After ~gen 100 the top organisms
+by the edge-of-chaos signal match NO named function and STAY unmatched for 900+ generations:
+  seed1: first_match {a-1:g0, a:g0, b:g0}              top1 named-sim 0.77->0.72->0.77 (never a match after g0)
+  seed7: first_match {a:g0, ~(a^b):g10}               top1 named-sim 0.66->0.55->0.55
+  seed3: first_match {a:g0, b:g0, ~(a^b):g10}         top1 named-sim 0.73->0.70->0.72
+  The converged winners (edge ~1.0, merit ~5.2) are STRUCTURED but UNNAMED: e.g. seed7's final top-3 all compute the same
+  map (3,5->65516, 100,7->65508, 255,200->65532, 1000,999->65476, 40000,25000->30816), nearest named = a<<1 at only 0.545
+  bit-similarity (~chance). They are convergent across the top of the population (3 distinct programs, identical I/O = an
+  evolved consensus function), input-dependent, edge-of-chaos-maximal -- and match nothing in an 85-entry arithmetic/logic
+  suite. (a^b DID appear transiently in some mid-run snapshots' lower ranks but is not the attractor; XNOR/~(a^b) is the
+  only nontrivial early match and it too is abandoned.)
+What I learned: TWO things, both sharpening the audit. (1) The session-10 "a+b/a^b discovered exactly" claim is now
+positively DISCONFIRMED, not merely unverified: with gen-10 logging across 3 seeds it never happens; the earlier claim was
+almost certainly a misread of a transient low-rank match or an interactive run whose output didn't survive. (2) The deeper,
+HONEST result is the OPPOSITE flavor and more interesting: target-free edge-of-chaos on this substrate converges to
+structured functions that have NO name in a thorough suite -- exactly the "structured-but-unrecognized" objects Frontier 2
+is about. This DISCONFIRMS the original wall-#6 framing ("everything found is a named op / composite") at the level of the
+actual artifacts: the search does NOT resurface named ops, it resurfaces UNNAMED structured composites. So the ceiling is
+NOT "the vocabulary bounds you to named functions" -- it is that we cannot CERTIFY whether these unnamed structured
+functions are novel-and-meaningful or just arbitrary-structured (the recognition problem, Frontier 2). The phase-2b loop
+sweep tests whether this is depth-invariant (preliminary: yes -- unnamed at both shallow and deep reachable depth).
+Honest caveats: "unnamed" = "not in my 85-entry suite", which is itself a finite reference list (the recurring expX
+lesson -- a bigger suite could name some); and edge-of-chaos DELIBERATELY avoids the simple (densely-named) region, so
+"finds unnamed functions" is partly by construction of the signal. Neither weakens the disconfirmation of the a+b claim.
+Status: WORKS (closure complete, 3 seeds, fine logging). DISCONFIRMS the session-10 a+b/a^b-by-gen-50/100 waypoints (never
+occur); establishes the truer result -- target-free search converges to STRUCTURED UNNAMED functions, relocating the
+ceiling from vocabulary (wall #6, retracted) to recognition (Frontier 2). consolidation/04 III.B + 07 to be updated.
+Files: runs_pod/closures/oe_fix_{s1,s7,s3}/oe_log.json, gpu_avida_oe.py (upgraded suite + first_match logging)
