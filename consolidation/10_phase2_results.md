@@ -105,9 +105,15 @@ GPU float64 prefilter → mpmath/PSLQ verify, positive controls + reject-rationa
   matching the 2021 RM paper (a recent, non-classical, **still-unproven** result).
 - **ζ(2) family** (b=+n⁴, |c|≤55): only the 30/π² control (rediscovery).
 - The instrument provably operates in the exact regime where the only historical
-  human-unknown finds live. A larger push past the published coefficient region
-  (|c|≤120, 3.37B PCFs) is the standing extension *(result: see the 2026-06-10 TRACKER
-  entry "PHASE-2c BIG SWEEP" once it lands)*.
+  human-unknown finds live.
+- **Past the published region** (|c|≤120, **3.37B PCFs**, 20× past the RM coefficients):
+  an **honest null** — only the known forms reappear (Apéry 6/ζ(3), the RM 8/(7ζ(3))
+  conjecture + mirror; the ζ(2) family gives only 30/π²). No novel identity. In this
+  family the catalogued low-height forms are the only ones; a novel identity would need
+  a different b(n)-family, a constant outside the battery, or heights/precision beyond
+  this grid. The method **reaches** the tail; it has not (yet) found one not already
+  there — which is the recognition/scale frontier (Frontier 2), not a wall in the
+  method. *(Validated the streaming OOM fix at billion-scale; bounded host memory.)*
 
 ---
 
