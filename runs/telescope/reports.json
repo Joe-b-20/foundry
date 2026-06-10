@@ -1,0 +1,197 @@
+[
+ {
+  "name": "oe_fix_s7 top",
+  "encoding_equiv": [],
+  "poly_mod_2_16": null,
+  "anf": {
+   "deg_per_bit": [
+    -1,
+    -1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    2,
+    3,
+    4,
+    0,
+    1,
+    1,
+    2,
+    3
+   ],
+   "max_deg": 4,
+   "mean_density": 3.528594970703125e-05
+  },
+  "blr_linear": 0.0,
+  "equivariance": {
+   "shift_equiv": 1.0,
+   "xor_translate": 0.0,
+   "arg_symmetric": 0.0
+  },
+  "bit_dep": {
+   "n_deps": 140,
+   "upward": 138,
+   "downward": 0,
+   "triangularity": 1.0
+  }
+ },
+ {
+  "name": "oe_fix_s1 top",
+  "encoding_equiv": [],
+  "poly_mod_2_16": null,
+  "anf": {
+   "deg_per_bit": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1
+   ],
+   "max_deg": 2,
+   "mean_density": 4.863739013671875e-05
+  },
+  "blr_linear": 0.0044999998062849045,
+  "equivariance": {
+   "shift_equiv": 0.7534999847412109,
+   "xor_translate": 0.0,
+   "arg_symmetric": 1.0
+  },
+  "bit_dep": {
+   "n_deps": 60,
+   "upward": 60,
+   "downward": 0,
+   "triangularity": 1.0
+  }
+ },
+ {
+  "name": "oe_fix_s3 top",
+  "encoding_equiv": [],
+  "poly_mod_2_16": null,
+  "anf": {
+   "deg_per_bit": [
+    0,
+    0,
+    2,
+    0,
+    3,
+    2,
+    3,
+    4,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    2,
+    1
+   ],
+   "max_deg": 4,
+   "mean_density": 6.4849853515625e-05
+  },
+  "blr_linear": 0.0010000000474974513,
+  "equivariance": {
+   "shift_equiv": 0.27300000190734863,
+   "xor_translate": 0.0,
+   "arg_symmetric": 0.009499999694526196
+  },
+  "bit_dep": {
+   "n_deps": 92,
+   "upward": 62,
+   "downward": 30,
+   "triangularity": 0.674
+  }
+ },
+ {
+  "name": "loop_m1_s1 top",
+  "encoding_equiv": [],
+  "poly_mod_2_16": null,
+  "anf": {
+   "deg_per_bit": [
+    1,
+    0,
+    1,
+    2,
+    2,
+    1,
+    2,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    7,
+    8,
+    0
+   ],
+   "max_deg": 8,
+   "mean_density": 0.00075531005859375
+  },
+  "blr_linear": 0.0012499999720603228,
+  "equivariance": {
+   "shift_equiv": 0.0,
+   "xor_translate": 0.0010000000474974513,
+   "arg_symmetric": 0.0010000000474974513
+  },
+  "bit_dep": {
+   "n_deps": 200,
+   "upward": 166,
+   "downward": 30,
+   "triangularity": 0.847
+  }
+ },
+ {
+  "name": "loop_m16_s1 top",
+  "encoding_equiv": [],
+  "poly_mod_2_16": null,
+  "anf": {
+   "deg_per_bit": [
+    -1,
+    -1,
+    1,
+    2,
+    3,
+    3,
+    5,
+    7,
+    8,
+    10,
+    9,
+    11,
+    12,
+    13,
+    15,
+    16
+   ],
+   "max_deg": 16,
+   "mean_density": 0.048012733459472656
+  },
+  "blr_linear": 0.0002500000118743628,
+  "equivariance": {
+   "shift_equiv": 0.0,
+   "xor_translate": 0.0,
+   "arg_symmetric": 0.0010000000474974513
+  },
+  "bit_dep": {
+   "n_deps": 272,
+   "upward": 272,
+   "downward": 0,
+   "triangularity": 1.0
+  }
+ }
+]

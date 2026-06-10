@@ -4035,3 +4035,46 @@ subtract recognition pipeline demonstrated. Next campaign: larger coefficient he
 Files: gpu_pcf_hunt.py (gen6 family + delta-scoring + verifier-depth fix), pcf_quadmine.py, run_gen6.sh,
 run_quadmine_local.sh, runs_pod/phase2/pcf_gen6/{stage1_survivors.npz,stage1_topdelta.npz,stage2_hits.json,stage2_summary.json},
 runs/quadmine/quadmine_*.json, runs/gen6_stage2.log
+
+## 2026-06-10 — PHASE 4a FUNCTION TELESCOPE: the unnamed attractors CHARACTERIZED — carry-like nonlinear mixers whose ALGEBRAIC DEGREE TRACKS REACHABLE DEPTH
+What I tried (Frontier-2 recognition for FUNCTION space, made concrete): the oe/loop experiments left verified
+structured-but-unnamed functions ("not in an 85-entry suite" was all we could say). Built fn_telescope.py — a battery that
+characterizes a 2-input 16-bit function: (1) ENCODING-EQUIVALENCE vs the named suite under lightweight encodings
+({id,~,<<1,>>1,bit-reverse} on inputs/output, + arg swap; the carry-save lesson — same function re-encoded); (2) INTEGER-
+POLYNOMIAL fit mod 2^16 (deg<=3, exact Gaussian elimination over Z/2^16 with odd pivots, held-out verified); (3) ANF /
+ALGEBRAIC DEGREE over GF(2) (fast Mobius transform on random 16-bit subcubes -> per-output-bit degree + monomial density);
+(4) BLR linearity distance; (5) equivariances (shift, xor-translate, arg-symmetry); (6) BIT-DEPENDENCY matrix (sampled
+flips -> triangularity = carry-like upward flow). CONTROLS GATED: hand-written a+b and a^b programs must classify exactly
+(caught a real convention bug first: oe reads output at stack slot 11, so controls must fill the stack — dup-padded).
+What happened (controls: a+b -> poly '1*a + 1*b mod 2^16', named, triangular carry profile; a^b -> GF(2)-linear deg-1,
+named — telescope CALIBRATED. Then the 5 banked unnamed attractors, runs/telescope/reports.json):
+  target          enc-equiv  poly  maxANFdeg  BLR    shift-eq  symmetric  triangularity
+  oe_fix_s7 top      NONE    NONE      4      0.000    1.00       0.00        1.000
+  oe_fix_s1 top      NONE    NONE      2      0.004    0.75       1.00        1.000
+  oe_fix_s3 top      NONE    NONE      4      0.001    0.27       0.01        0.674
+  loop_m1_s1 top     NONE    NONE      8      0.001    0.00       0.00        0.847
+  loop_m16_s1 top    NONE    NONE     16      0.000    0.00       0.00        1.000
+  Three findings. (1) NONE of the attractors is a named op in light disguise, an arithmetic polynomial (deg<=3 mod 2^16),
+  or GF(2)-linear — the "unnamed" verdict survives a much stronger test than a finite suite. (2) They form a COHERENT
+  CLASS: upward-TRIANGULAR bit-dependency (carry-like low->high information flow, like addition's profile) + genuinely
+  NONLINEAR ANF — "carry-like nonlinear mixers" — with seed-dependent EXACT symmetries: s7 is perfectly SHIFT-EQUIVARIANT
+  (f(a<<1,b<<1)=f(a,b)<<1 — covaries with the place-value structure, like x but unlike any named op it could be), s1 is
+  perfectly ARG-SYMMETRIC with max ANF degree only 2 (a symmetric quadratic-ANF carry function — remarkably simple, still
+  unnamed). (3) THE DEPTH RESULT: ANF degree TRACKS REACHABLE DEPTH — oe (straight-line) tops out at deg 2-4; loop maxit=1
+  reaches deg 8; loop maxit=16 reaches deg 16 (the maximum possible) at 4.8% monomial density while STAYING perfectly
+  triangular. The loop sweep's naming-metric saw nothing change with depth (top_named_sim flat); the telescope sees what
+  changed: deeper substrates produce ALGEBRAICALLY DEEPER functions of the same structured class. Depth grows the object's
+  complexity; recognition (naming) was simply blind to it.
+What I learned: Frontier 2 now has its instrument and its first result. The edge-of-chaos attractor class is characterized:
+not named, not named-re-encoded, not polynomial, not linear — but carry-like-triangular, nonlinear, often exactly
+symmetric/equivariant, with algebraic degree set by the substrate's reachable depth. This UPGRADES the loop-sweep
+conclusion: depth DOES matter (it raises algebraic degree) — what is depth-invariant is only NAMEDNESS, i.e. the shallow
+human catalog. The moonshot reframe sharpens once more: the bridge generates a parameterized family of structured objects
+whose complexity we can now MEASURE (degree, density, symmetries, flow) without naming them; what remains beyond reach is
+showing any such object is USEFUL/meaningful beyond its structure metrics — the irreducible half of recognition. Honest
+scope: 5 objects, 1 subcube per ANF profile (random restriction; full 32-var ANF is 2^32), encodings limited to a
+lightweight battery (full affine-equivalence over GL(16,2) is computationally out of scope), deg<=3 polynomial cap.
+Status: WORKS (telescope built, control-gated, run on all banked attractors): unnamed attractors = carry-like nonlinear
+mixers; ANF degree tracks reachable depth (2-4 -> 8 -> 16) while namedness stays flat — recognition was blind to real
+depth growth. Frontier-2's function-space instrument now exists.
+Files: fn_telescope.py, runs/telescope/reports.json, runs/telescope_run.log

@@ -1,0 +1,58 @@
+=== telescope controls (must classify exactly) ===
+== CONTROL a+b
+  encoding-equiv : ["id(a+b[id(a'),id(b')])", "id((a|b)+(a&b)[id(a'),id(b')])", "not(~(a+b)[id(a'),id(b')])", "not(b-a[id(a'),not(b')])", "id(a-b-1[id(a'),not(b')])", "not(a-b[not(a'),id(b')])"]
+  poly mod 2^16  : 1*a^1b^0 + 1*a^0b^1
+  ANF            : max_deg=5 deg/bit=[0, 1, -1, 1, 1, 1, 1, 2, 3, 4, 1, 1, 2, 3, 4, 5] density=0.000
+  BLR linearity  : 0.002  (1.0 = GF(2)-linear)
+  equivariance   : shift=1.00 xor-translate=0.00 symmetric=1.00
+  bit-dependency : 186/512 edges, triangularity=1.0 (1.0 = pure carry-like upward flow)
+== CONTROL a^b
+  encoding-equiv : ["id(a^b[id(a'),id(b')])", "not(~(a^b)[id(a'),id(b')])", "id((a|b)-(a&b)[id(a'),id(b')])", "not(a^b[id(a'),not(b')])", "id(~(a^b)[id(a'),not(b')])", "not((a|b)-(a&b)[id(a'),not(b')])"]
+  poly mod 2^16  : NONE (not an arithmetic polynomial, deg<=3)
+  ANF            : max_deg=1 deg/bit=[0, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, 1, 1, 1, 1, -1] density=0.000
+  BLR linearity  : 1.000  (1.0 = GF(2)-linear)
+  equivariance   : shift=1.00 xor-translate=0.00 symmetric=1.00
+  bit-dependency : 32/512 edges, triangularity=1.0 (1.0 = pure carry-like upward flow)
+  controls: a+b poly=True, xor linear/deg1=True, both named=True
+
+== oe_fix_s7 top
+  encoding-equiv : NONE (not a named op in light disguise)
+  poly mod 2^16  : NONE (not an arithmetic polynomial, deg<=3)
+  ANF            : max_deg=4 deg/bit=[-1, -1, 0, 1, 0, 0, 1, 1, 2, 3, 4, 0, 1, 1, 2, 3] density=0.000
+  BLR linearity  : 0.000  (1.0 = GF(2)-linear)
+  equivariance   : shift=1.00 xor-translate=0.00 symmetric=0.00
+  bit-dependency : 140/512 edges, triangularity=1.0 (1.0 = pure carry-like upward flow)
+
+== oe_fix_s1 top
+  encoding-equiv : NONE (not a named op in light disguise)
+  poly mod 2^16  : NONE (not an arithmetic polynomial, deg<=3)
+  ANF            : max_deg=2 deg/bit=[0, 0, 1, 1, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1] density=0.000
+  BLR linearity  : 0.004  (1.0 = GF(2)-linear)
+  equivariance   : shift=0.75 xor-translate=0.00 symmetric=1.00
+  bit-dependency : 60/512 edges, triangularity=1.0 (1.0 = pure carry-like upward flow)
+
+== oe_fix_s3 top
+  encoding-equiv : NONE (not a named op in light disguise)
+  poly mod 2^16  : NONE (not an arithmetic polynomial, deg<=3)
+  ANF            : max_deg=4 deg/bit=[0, 0, 2, 0, 3, 2, 3, 4, 2, 2, 2, 3, 3, 3, 2, 1] density=0.000
+  BLR linearity  : 0.001  (1.0 = GF(2)-linear)
+  equivariance   : shift=0.27 xor-translate=0.00 symmetric=0.01
+  bit-dependency : 92/512 edges, triangularity=0.674 (1.0 = pure carry-like upward flow)
+
+== loop_m1_s1 top
+  encoding-equiv : NONE (not a named op in light disguise)
+  poly mod 2^16  : NONE (not an arithmetic polynomial, deg<=3)
+  ANF            : max_deg=8 deg/bit=[1, 0, 1, 2, 2, 1, 2, 3, 4, 4, 5, 5, 6, 7, 8, 0] density=0.001
+  BLR linearity  : 0.001  (1.0 = GF(2)-linear)
+  equivariance   : shift=0.00 xor-translate=0.00 symmetric=0.00
+  bit-dependency : 200/512 edges, triangularity=0.847 (1.0 = pure carry-like upward flow)
+
+== loop_m16_s1 top
+  encoding-equiv : NONE (not a named op in light disguise)
+  poly mod 2^16  : NONE (not an arithmetic polynomial, deg<=3)
+  ANF            : max_deg=16 deg/bit=[-1, -1, 1, 2, 3, 3, 5, 7, 8, 10, 9, 11, 12, 13, 15, 16] density=0.048
+  BLR linearity  : 0.000  (1.0 = GF(2)-linear)
+  equivariance   : shift=0.00 xor-translate=0.00 symmetric=0.00
+  bit-dependency : 272/512 edges, triangularity=1.0 (1.0 = pure carry-like upward flow)
+
+wrote runs/telescope/reports.json
