@@ -3880,3 +3880,37 @@ Status: WORKS (clean pre-registered result, 2 seeds x 3 depths): reachable compo
 relocates the wall-#6 successor from depth/vocabulary to RECOGNITION (Frontier 2), triangulating oe_fix + the PCF null.
 consolidation/07 Frontier-1/2 to be updated.
 Files: gpu_avida_loop.py, runs_pod/phase2/loop_m{1,4,16}_s{1,2}/loop_log.json, analyze_phase2.py
+
+## 2026-06-10 — PHASE-2c TARGETED zeta(3)-CLASS HUNT: independently REDISCOVERED a Ramanujan-Machine conjecture (8/(7 zeta(3))) from outcome — the method reaches the tail
+What I tried (closing the deg-2 PCF null: that null was GRID SCOPE — the zeta(3) identities need deg-3 numerators with
+b=-n^6, structurally absent from deg-2). Built the n6 family in gpu_pcf_hunt.py: A(n)=c0+c1 n+c2 n^2+c3 n^3 (deg-3),
+B(n)=-n^6 (the Apery / Ramanujan-Machine zeta(3) class), with Apery's own PCF (a_n=34n^3+51n^2+27n+5 -> 6/zeta(3))
+verified IN-GRID to 40+ digits as the positive control. Added a Mobius-proximity PREFILTER: precompute (pC+q)/(rC+s) for
+tail constants {zeta3, catalan, gamma, pi^3, zeta5} over |p,q,r,s|<=16 (2.70M transform values), keep every survivor within
+1e-8 of one (the 'NEAR' arm, exactly PSLQ-verified) PLUS a uniform blind-null arm. Ran 151.8M PCFs (|c|<=55, 111^4) on the
+4090 in 78s -> 60,776 NEAR + 50,000 blind, then 250-digit PSLQ verification on 60 CPU cores.
+What happened (runs_pod/phase2/pcf_n6/ + pcf_n6_blind/, control_ok=True both arms):
+  Beyond the Apery control, the NEAR arm returned 2 genuine constant-specific verified hits (+ their sign-mirror):
+    A=[1,5,9,6] -> a_n = 6n^3+9n^2+5n+1 = (2n+1)(3n^2+3n+1),  b_n = -n^6,  rel [-8,0,0,7]  =>  v = 8/(7 zeta(3))
+    (and A=[-1,-5,-9,-6] = the exact sign-mirror, v = -8/(7 zeta(3)))
+  INDEPENDENTLY RE-VERIFIED (fresh 1200-term mpmath eval, dps=260): the PCF equals 8/(7 zeta(3)) to 250+ digits exactly.
+  THIS IS A KNOWN RESULT -- it is the Ramanujan Machine's PUBLISHED (2021, arXiv:1907.00205) and still-UNPROVEN conjecture
+  for 8/(7 zeta(3)), with a_n=(2n+1)(3n(n+1)+1), b_n=-n^6. The hunt found it from OUTCOME ALONE (numerical value -> PSLQ),
+  with the identical coefficients, having never been told the target. (Web-checked the coefficients against the RM
+  literature to classify it as known -- the audit's reference-subtraction discipline; this is REDISCOVERY, not novelty.)
+What I learned: TWO things. (1) The deg-2 null is now fully explained AND the method is VALIDATED in the regime that
+matters: scaled to the deg-3 x -n^6 family, the identity hunt independently rediscovers a genuine 2021 machine-discovered,
+non-classical, still-unproven zeta(3) conjecture -- proving the instrument reaches the Ramanujan-Machine TAIL where the
+only historical human-unknown finds live (unlike algorithm synthesis, which provably rediscovers). This is the single
+strongest validation in the project that the identity direction is the right moonshot lever (audit Frontier-1 revision
+called it "the one direction with a historical base rate of human-unknown finds"; this confirms the pipeline operates in
+exactly that space). (2) The honest ceiling, again: what it found IS in the references. No novel identity at |c|<=55.
+The bigger push (|c|<=120 = 3.37e9 PCFs, PAST the published RM coefficient region, + the zeta(2)/+n^4 family with 30/pi^2
+control) is running now (run_n6big.sh) specifically to look for a verified tail-constant identity that is NOT in the
+references -- the one place a genuine evidenceable-but-unproven find could surface. No novelty claim from THIS run.
+Status: WORKS (strong validation): the scaled identity hunt independently rediscovered the Ramanujan-Machine 8/(7 zeta(3))
+conjecture from outcome (250-digit verified, coefficients matched, classified KNOWN by literature check) -- the method
+provably reaches the tail. deg-2 null explained as grid scope. Bigger past-the-published-region sweep in progress. n=1
+grid (|c|<=55).
+Files: gpu_pcf_hunt.py (n6/n4/p4 families + Mobius prefilter), runs_pod/phase2/pcf_n6/{stage2_hits.json,stage2_summary.json},
+runs_pod/phase2/pcf_n6_blind/, runs/n6_*.log
