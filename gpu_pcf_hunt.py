@@ -69,6 +69,10 @@ def eval_pcf_batch(Acoef, Bcoef, terms, renorm_every=1, bmode="poly"):
             An = An + Acoef[:, 3] * (n ** 3)
         if bmode == "n6":
             Bn = torch.full_like(An, -float(n) ** 6)
+        elif bmode == "n4":
+            Bn = torch.full_like(An, -float(n) ** 4)
+        elif bmode == "p4":
+            Bn = torch.full_like(An, float(n) ** 4)
         else:
             Bn = Bcoef[:, 0] + Bcoef[:, 1] * n + Bcoef[:, 2] * n * n
         p_new = An * p_cur + Bn * p_prev
@@ -101,15 +105,17 @@ def gen_coef_grid(crange, deg=2):
     return np.array(rows, dtype=np.float64)
 
 
-def stage1_n6(crange, terms, out_dir, batch=400000):
-    """TARGETED deg-3 family: A(n)=c0+c1 n+c2 n^2+c3 n^3 (|ci|<=crange), B(n)=-n^6 —
-    the Apery / Ramanujan-Machine zeta(3) class. The Apery PCF (A=[5,27,51,34] ->
-    6/zeta(3)) is IN-GRID for crange>=51 and acts as the built-in positive control."""
+def stage1_n6(crange, terms, out_dir, batch=400000, family="n6"):
+    """TARGETED deg-3 families: A(n)=c0+c1 n+c2 n^2+c3 n^3 (|ci|<=crange) with a fixed
+    B family. family='n6': B=-n^6 (Apery zeta(3) class; control A=[5,27,51,34] ->
+    6/zeta(3), in-grid for crange>=51). family='p4': B=+n^4 (Apery zeta(2) class;
+    control A=[3,11,11,0] -> 30/pi^2, in-grid for crange>=11)."""
     os.makedirs(out_dir, exist_ok=True)
     rng1 = np.arange(-crange, crange + 1, dtype=np.float64)
     n1 = len(rng1)
     total = n1 ** 4
-    print(f"  STAGE 1-n6 (GPU float64): A deg-3 grid {n1}^4 = {total:,} PCFs, B=-n^6, {terms} terms, |c|<={crange}")
+    bdesc = {"n6": "-n^6", "n4": "-n^4", "p4": "+n^4"}[family]
+    print(f"  STAGE 1-{family} (GPU float64): A deg-3 grid {n1}^4 = {total:,} PCFs, B={bdesc}, {terms} terms, |c|<={crange}")
     t0 = time.time()
     surv_A, surv_v = [], []
     # outer over c3; inner = the full (c2,c1,c0) cube flattened (n1^3 per c3), chunked
@@ -126,7 +132,7 @@ def stage1_n6(crange, terms, out_dir, batch=400000):
             Ac[:, 1] = blk[:, 1]   # c1
             Ac[:, 2] = blk[:, 0]   # c2
             Ac[:, 3] = float(c3)
-            v, conv, div = eval_pcf_batch(Ac, None, terms, bmode="n6")
+            v, conv, div = eval_pcf_batch(Ac, None, terms, bmode=family)
             finite = torch.isfinite(v) & (v.abs() < 1e6) & (v.abs() > 1e-6)
             near_int = (v - v.round()).abs() < 1e-7
             keep = conv & finite & ~near_int
@@ -155,7 +161,7 @@ def stage1_n6(crange, terms, out_dir, batch=400000):
     import mpmath as mp
     mp.mp.dps = 30
     tails = dict(zeta3=float(mp.zeta(3)), catalan=float(mp.catalan), gamma=float(mp.euler),
-                 pi3=float(mp.pi ** 3), zeta5=float(mp.zeta(5)))
+                 pi3=float(mp.pi ** 3), zeta5=float(mp.zeta(5)), pi2=float(mp.pi ** 2))
     R = 16
     coefs = np.arange(-R, R + 1)
     P, Q, Rr, S = np.meshgrid(coefs, coefs, coefs, coefs, indexing="ij")
@@ -177,14 +183,14 @@ def stage1_n6(crange, terms, out_dir, batch=400000):
     print(f"    NEAR candidates (within 1e-8 of a tail Mobius value): {n_near:,}")
     np.savez(os.path.join(out_dir, "stage1_survivors.npz"),
              A=SA[near], B=np.zeros((n_near, 3)), V=SV[near],
-             meta=np.array([crange, terms]), family=np.array(["n6"]))
+             meta=np.array([crange, terms]), family=np.array([family]))
     # blind-null arm: a uniform sample of the NON-near survivors
     rest = np.where(~near)[0]
     nsamp = min(50000, len(rest))
     samp = rest[np.linspace(0, len(rest) - 1, nsamp).astype(int)] if nsamp else rest
     np.savez(os.path.join(out_dir, "stage1_blindsample.npz"),
              A=SA[samp], B=np.zeros((len(samp), 3)), V=SV[samp],
-             meta=np.array([crange, terms]), family=np.array(["n6"]))
+             meta=np.array([crange, terms]), family=np.array([family]))
     print(f"  STAGE 1-n6 done: {n_near:,} NEAR candidates -> stage1_survivors.npz; "
           f"{len(samp):,} blind sample -> stage1_blindsample.npz [{time.time()-t0:.0f}s]")
     return n_near
@@ -267,6 +273,10 @@ def _eval_pcf_mp(A, B, mp, terms=400, family="poly"):
                     + (int(A[3]) * n ** 3 if len(A) > 3 else 0))
         if family == "n6":
             Bn = -mp.mpf(n) ** 6
+        elif family == "n4":
+            Bn = -mp.mpf(n) ** 4
+        elif family == "p4":
+            Bn = mp.mpf(n) ** 4
         else:
             Bn = mp.mpf(int(B[0]) + int(B[1]) * n + int(B[2]) * n * n)
         p_new = An * p_cur + Bn * p_prev
@@ -349,6 +359,9 @@ def stage2(out_dir, procs, dps_verify=250, limit=0):
     if family == "n6":
         ctrlA = np.array([[5, 27, 51, 34]], float)
         A = np.vstack([ctrlA, A]); B = np.vstack([np.zeros((1, 3)), B])
+    elif family == "p4":
+        ctrlA = np.array([[3, 11, 11, 0]], float)
+        A = np.vstack([ctrlA, A]); B = np.vstack([np.zeros((1, 3)), B])
     else:
         A = np.vstack([np.array([[1, 2, 0]], float), A])
         B = np.vstack([np.array([[0, 0, 1]], float), B])
@@ -370,6 +383,9 @@ def stage2(out_dir, procs, dps_verify=250, limit=0):
     if family == "n6":
         ctrl = [r for r in results if r["A"] == [5, 27, 51, 34]]
         ctrl_ok = bool(ctrl) and ctrl[0]["constant"] == "zeta3"
+    elif family == "p4":
+        ctrl = [r for r in results if r["A"] == [3, 11, 11, 0]]
+        ctrl_ok = bool(ctrl) and ctrl[0]["constant"] in ("pi^2", "pi")
     else:
         ctrl = [r for r in results if r["A"] == [1, 2, 0] and r["B"] == [0, 0, 1]]
         ctrl_ok = bool(ctrl) and ctrl[0]["constant"] == "pi"
@@ -380,7 +396,7 @@ def stage2(out_dir, procs, dps_verify=250, limit=0):
     tail = ["catalan", "zeta3", "gamma"]
     print(f"\n  STAGE 2 done: {len(results)} constant-specific Mobius identities "
           f"(rational trap filtered) [{time.time()-t0:.0f}s]")
-    ctrl_name = "Apery 6/zeta(3)" if family == "n6" else "4/pi"
+    ctrl_name = {"n6": "Apery 6/zeta(3)", "p4": "Apery 30/pi^2"}.get(family, "4/pi")
     print(f"  POSITIVE CONTROL ({ctrl_name} recovered): {'OK' if ctrl_ok else 'FAILED — null is uninterpretable!'}")
     print(f"  per-constant: " + "  ".join(f"{k}:{v}" for k, v in sorted(bycon.items(), key=lambda x: -x[1])))
     print(f"  TAIL constants (catalan/zeta3/gamma) hits: " +
@@ -442,7 +458,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--stage1", action="store_true"); ap.add_argument("--stage2", action="store_true")
-    ap.add_argument("--family", type=str, default="poly", choices=["poly", "n6"],
+    ap.add_argument("--family", type=str, default="poly", choices=["poly", "n6", "n4", "p4"],
                     help="poly: A,B deg<=2 grids. n6: A deg-3 grid x B=-n^6 (Apery/zeta3 class)")
     ap.add_argument("--crange", type=int, default=6); ap.add_argument("--terms", type=int, default=80)
     ap.add_argument("--procs", type=int, default=60); ap.add_argument("--dps", type=int, default=250)
@@ -459,8 +475,8 @@ if __name__ == "__main__":
         stage2(out_dir=args.out, procs=4, dps_verify=120, limit=200)
         raise SystemExit(0)
     if args.stage1:
-        if args.family == "n6":
-            stage1_n6(args.crange, args.terms, args.out)
+        if args.family in ("n6", "n4", "p4"):
+            stage1_n6(args.crange, args.terms, args.out, family=args.family)
         else:
             stage1(args.crange, args.terms, args.out)
     if args.stage2:

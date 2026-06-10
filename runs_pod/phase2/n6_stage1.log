@@ -1,0 +1,20 @@
+  STAGE 1-n6 (GPU float64): A deg-3 grid 111^4 = 151,807,041 PCFs, B=-n^6, 90 terms, |c|<=55
+    c3= -49  done 9,573,417/151,807,041  survivors 9,573,417  [1s]
+    c3= -42  done 19,146,834/151,807,041  survivors 19,146,834  [3s]
+    c3= -35  done 28,720,251/151,807,041  survivors 28,720,251  [4s]
+    c3= -28  done 38,293,668/151,807,041  survivors 38,293,668  [5s]
+    c3= -21  done 47,867,085/151,807,041  survivors 47,867,084  [6s]
+    c3= -14  done 57,440,502/151,807,041  survivors 57,440,501  [8s]
+    c3=  -7  done 67,013,919/151,807,041  survivors 67,013,917  [9s]
+    c3=   0  done 76,587,336/151,807,041  survivors 74,654,556  [10s]
+    c3=   7  done 86,160,753/151,807,041  survivors 82,983,139  [11s]
+    c3=  14  done 95,734,170/151,807,041  survivors 92,556,556  [13s]
+    c3=  21  done 105,307,587/151,807,041  survivors 102,129,973  [14s]
+    c3=  28  done 114,881,004/151,807,041  survivors 111,703,389  [15s]
+    c3=  35  done 124,454,421/151,807,041  survivors 121,276,806  [17s]
+    c3=  42  done 134,027,838/151,807,041  survivors 130,850,223  [18s]
+    c3=  49  done 143,601,255/151,807,041  survivors 140,423,640  [19s]
+  STAGE 1-n6 sweep done: 132,287,542 distinct convergent values of 151,807,041 [72s]; running the Mobius-proximity prefilter...
+    Mobius table: 2,695,417 distinct tail-constant transform values (|coef|<=16)
+    NEAR candidates (within 1e-8 of a tail Mobius value): 60,776
+  STAGE 1-n6 done: 60,776 NEAR candidates -> stage1_survivors.npz; 50,000 blind sample -> stage1_blindsample.npz [78s]

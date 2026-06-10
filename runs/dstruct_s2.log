@@ -1,0 +1,40 @@
+gpu_depthstruct | device=NVIDIA GeForce RTX 4060 Laptop GPU 9GB | n=5 L=8192 Tmax=30000 batch=4096 gens=100 seed=2
+  QUESTION: does a TM-appropriate structure term (head-track edge-of-chaos, the expEE gap closed)
+  change WHAT depth-evolution finds — deep+structured machines vs plain deep counters?
+
+  === condition: depth ===
+    [depth] gen    0: fit=33.0 rt=33 track=0.000 tape=0.000 [10s]
+    [depth] gen   10: fit=64.0 rt=64 track=0.000 tape=0.000 [135s]
+    [depth] gen   20: fit=74.0 rt=74 track=0.000 tape=0.000 [250s]
+    [depth] gen   30: fit=115.0 rt=115 track=0.000 tape=0.000 [372s]
+    [depth] gen   40: fit=121.0 rt=121 track=0.000 tape=0.000 [485s]
+    [depth] gen   50: fit=171.0 rt=171 track=0.000 tape=0.000 [612s]
+    [depth] gen   60: fit=596.0 rt=596 track=0.053 tape=0.000 [727s]
+    [depth] gen   70: fit=596.0 rt=596 track=0.053 tape=0.000 [851s]
+    [depth] gen   80: fit=596.0 rt=596 track=0.053 tape=0.000 [970s]
+    [depth] gen   90: fit=596.0 rt=596 track=0.053 tape=0.000 [1094s]
+    [depth] gen   99: fit=596.0 rt=596 track=0.053 tape=0.000 [1196s]
+    BEST: rt=596 track=0.053 tape=0.0 rerun_ok=True
+
+  === condition: depthXtrack ===
+    [depthXtrack] gen    0: fit=3.3 rt=33 track=0.000 tape=0.000 [12s]
+    [depthXtrack] gen   10: fit=6.4 rt=64 track=0.000 tape=0.000 [140s]
+    [depthXtrack] gen   20: fit=7.4 rt=74 track=0.000 tape=0.000 [259s]
+    [depthXtrack] gen   30: fit=11.5 rt=115 track=0.000 tape=0.000 [383s]
+    [depthXtrack] gen   40: fit=12.1 rt=121 track=0.000 tape=0.000 [501s]
+    [depthXtrack] gen   50: fit=17.1 rt=171 track=0.000 tape=0.000 [626s]
+    [depthXtrack] gen   60: fit=91.0 rt=596 track=0.053 tape=0.000 [738s]
+    [depthXtrack] gen   70: fit=91.0 rt=596 track=0.053 tape=0.000 [860s]
+    [depthXtrack] gen   80: fit=91.0 rt=596 track=0.053 tape=0.000 [977s]
+    [depthXtrack] gen   90: fit=91.0 rt=596 track=0.053 tape=0.000 [1101s]
+    [depthXtrack] gen   99: fit=91.0 rt=596 track=0.053 tape=0.000 [1206s]
+    BEST: rt=596 track=0.053 tape=0.0 rerun_ok=True
+
+  === condition: trackonly ===
+    [trackonly] gen    0: fit=1.0 rt=30000 track=0.997 tape=0.000 [14s]
+    [trackonly] gen   10: fit=1.0 rt=30000 track=0.997 tape=0.000 [142s]
+    [trackonly] gen   20: fit=1.0 rt=30000 track=1.000 tape=0.000 [261s]
+    [trackonly] gen   30: fit=1.0 rt=30000 track=1.000 tape=0.000 [396s]
+    [trackonly] gen   40: fit=1.0 rt=30000 track=1.000 tape=0.000 [555s]
+    [trackonly] gen   50: fit=1.0 rt=30000 track=1.000 tape=0.000 [731s]
+    [trackonly] gen   60: fit=1.0 rt=30000 track=1.000 tape=0.000 [902s]

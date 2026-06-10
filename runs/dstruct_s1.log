@@ -41,3 +41,15 @@ gpu_depthstruct | device=NVIDIA GeForce RTX 4060 Laptop GPU 9GB | n=5 L=8192 Tma
     [trackonly] gen   70: fit=1.0 rt=30000 track=0.998 tape=0.000 [1018s]
     [trackonly] gen   80: fit=1.0 rt=30000 track=1.000 tape=0.000 [1170s]
     [trackonly] gen   90: fit=1.0 rt=30000 track=1.000 tape=0.000 [1304s]
+    [trackonly] gen   99: fit=1.0 rt=30000 track=1.000 tape=0.000 [1417s]
+    BEST: rt=30000 track=1.0 tape=0.0 rerun_ok=True
+
+  === SUMMARY (best per condition) ===
+    depth        rt=    307  track=0.000  tape=0.000  rerun_ok=True
+    depthXtrack  rt=    307  track=0.000  tape=0.000  rerun_ok=True
+    trackonly    rt=  30000  track=1.000  tape=0.000  rerun_ok=True
+
+  READ: depth-only finding high-rt/low-track machines while depthXtrack finds high-rt/
+  mid-track machines = the structure term steers WHAT is found (then RENDER the position
+  traces before any verdict). depthXtrack collapsing to shallow runtimes = structure taxes
+  depth (the expEE landscape gate, now measured with an uncontaminated signal).

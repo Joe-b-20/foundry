@@ -1,0 +1,4379 @@
+[
+ {
+  "gen": 0,
+  "best": 3.292,
+  "mean": 0.014,
+  "best_edge": 0.726,
+  "match": [
+   "a+b",
+   "(a|b)+(a&b)"
+  ],
+  "top_named_sim": 1.0,
+  "n_named_in_top": 5,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 3.292,
+    "edge": 0.726,
+    "match": [
+     "a+b",
+     "(a|b)+(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->8 100,7->107 255,200->455 1000,999->1999 40000,25000->65000",
+    "prog": "add rep4 dup a end end nand end sub or shl rep8 rep8 b shl shl nop b a end end add dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 0.871,
+    "edge": 0.638,
+    "match": [
+     "a<<2",
+     "4a"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->12 100,7->400 255,200->1020 1000,999->4000 40000,25000->28928",
+    "prog": "shl rep2 b add and end drop dup rep8 a rep8 b shr a nop shl shl 0 and shr drop or b rep2"
+   },
+   {
+    "rank": 2,
+    "merit": 0.808,
+    "edge": 0.59,
+    "match": [
+     "a<<1",
+     "2a"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->200 255,200->510 1000,999->2000 40000,25000->14464",
+    "prog": "a dup dup b add end rep4 shr add rep2 shr 0 nop rep8 1 1 b 0 or end a rep8 shl or"
+   },
+   {
+    "rank": 3,
+    "merit": 0.808,
+    "edge": 0.59,
+    "match": [
+     "a<<1",
+     "2a"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->200 255,200->510 1000,999->2000 40000,25000->14464",
+    "prog": "nand 0 rep2 rep8 0 and b nop shl b b nand b a shl rep8 nand rep8 nand rep8 rep2 rep2 loop and"
+   },
+   {
+    "rank": 4,
+    "merit": 0.808,
+    "edge": 0.59,
+    "match": [
+     "a<<1",
+     "2a"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->200 255,200->510 1000,999->2000 40000,25000->14464",
+    "prog": "0 0 rep8 a rep4 rep8 1 a shl rep4 nand rep8 rep4 sub 0 a rep4 shl rep4 shr 0 and nop or"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0
+  }
+ },
+ {
+  "gen": 10,
+  "best": 4.116,
+  "mean": 2.242,
+  "best_edge": 0.998,
+  "match": [
+   "a^b",
+   "(a|b)-(a&b)"
+  ],
+  "top_named_sim": 1.0,
+  "n_named_in_top": 5,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.116,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "nand rep4 dup a end end nand end sub or shl rep8 rep8 b shl shl nop b a end end xor dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 4.116,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "add rep4 dup a end end nand end sub or shl rep8 rep8 b shl shl nop b a end end xor dup add"
+   },
+   {
+    "rank": 2,
+    "merit": 4.116,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "add rep4 dup dup end end nand end sub or shl rep8 rep8 b swap shl nop b a end end xor dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 4.116,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "add rep4 dup a end end nand end sub or shl rep8 rep8 b shl shl nop b a end end xor dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 4.116,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "add rep4 dup a end end nand end sub or shl rep8 rep8 b shl shl nop b a end end xor dup add"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 20,
+  "best": 4.115,
+  "mean": 2.934,
+  "best_edge": 0.998,
+  "match": [],
+  "top_named_sim": 0.938,
+  "n_named_in_top": 4,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.115,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.938,
+    "pairs": "3,5->2 100,7->103 255,200->51 1000,999->11 40000,25000->65004",
+    "prog": "add rep4 dup dup end b nand end sub or shl rep8 dup b swap shl nop xor a end end xor dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 4.111,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "add rep4 dup a end end nand end sub or shl rep8 rep8 b shl shl shr b a end end xor dup add"
+   },
+   {
+    "rank": 2,
+    "merit": 4.111,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "end rep4 dup a loop end nand end a sub shl rep8 rep8 b shl shl nop b a end end xor dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 4.111,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "drop rep4 dup a end end nand end a swap shl end rep8 b shl shl nop b a swap dup xor dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 4.111,
+    "edge": 0.998,
+    "match": [
+     "a^b",
+     "(a|b)-(a&b)"
+    ],
+    "nearest": "",
+    "near_sim": 0.0,
+    "pairs": "3,5->6 100,7->99 255,200->55 1000,999->15 40000,25000->65000",
+    "prog": "add rep4 dup a a end nand end 0 or rep2 a rep8 b 1 a nop b a end end xor dup add"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 30,
+  "best": 4.169,
+  "mean": 2.836,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.579,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.169,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "3a+b",
+    "near_sim": 0.579,
+    "pairs": "3,5->22 100,7->65471 255,200->745 1000,999->3995 40000,25000->19464",
+    "prog": "add rep4 dup a end end dup end 0 or end rep8 rep8 b shl shl nop add a end end sub dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 4.169,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "3a+b",
+    "near_sim": 0.579,
+    "pairs": "3,5->22 100,7->65471 255,200->745 1000,999->3995 40000,25000->19464",
+    "prog": "dup rep4 dup a end end rep4 rep4 swap dup end add rep8 b shl shl add b a end end sub dup add"
+   },
+   {
+    "rank": 2,
+    "merit": 4.169,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "3a+b",
+    "near_sim": 0.579,
+    "pairs": "3,5->22 100,7->65471 255,200->745 1000,999->3995 40000,25000->19464",
+    "prog": "add rep4 dup a nop end a end sub or swap rep8 rep8 b shl shl nop add a loop rep4 sub dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 4.169,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "3a+b",
+    "near_sim": 0.579,
+    "pairs": "3,5->22 100,7->65471 255,200->745 1000,999->3995 40000,25000->19464",
+    "prog": "add rep4 dup a end end dup end 0 or dup rep8 rep8 b shl shl nop add a end end sub dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 4.169,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "3a+b",
+    "near_sim": 0.579,
+    "pairs": "3,5->22 100,7->65471 255,200->745 1000,999->3995 40000,25000->19464",
+    "prog": "add rep4 dup a end end dup end 0 or end rep8 rep8 b shl shl nop add a end end sub dup drop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 40,
+  "best": 4.459,
+  "mean": 2.93,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.459,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 dup sub nand or rep2 rep8 rep8 b a dup nop nand a end shr add dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 4.459,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "b rep4 dup a end 1 dup end sub or rep2 rep8 rep8 b a dup nop nand a end shr add dup add"
+   },
+   {
+    "rank": 2,
+    "merit": 4.459,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 dup end sub or rep2 rep8 rep8 b a dup nop nand a end shr add dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 4.459,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 dup end sub or rep2 rep8 rep8 b a dup nop nand a end shr add dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 4.459,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 dup end sub or rep2 rep8 rep8 b a dup nop nand a end shr add dup add"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 50,
+  "best": 4.263,
+  "mean": 2.935,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.263,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 shl sub nand or rep2 rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.263,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup dup end sub shr rep2 rep8 rep8 b a dup nop nand a end shr add dup end"
+   },
+   {
+    "rank": 2,
+    "merit": 4.263,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end swap dup end sub or 0 rep8 rep8 b a dup nop nand a end shr add dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 4.263,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "nand rep4 dup rep4 end rep2 dup end sub or rep2 dup rep8 b a dup nop nand a end shr add dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 4.263,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 shl sub nand or rep2 rep8 rep8 b a dup nop nand a end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 60,
+  "best": 4.635,
+  "mean": 3.068,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.635,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 shl sub nand or rep2 rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.635,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup b end 1 shl nand nand or a rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.635,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 shl sub nand or rep2 rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.635,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "rep2 rep4 dup a end 1 shl sub nand or rep2 rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.635,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 shl sub nand or rep2 rep8 rep8 b a dup nop nand a end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 70,
+  "best": 4.887,
+  "mean": 3.076,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.887,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end 1 xor nand nand or a rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.887,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup 1 nand nand or a rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.17,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a-b",
+    "near_sim": 0.56,
+    "pairs": "3,5->65514 100,7->65 255,200->64791 1000,999->61541 40000,25000->46072",
+    "prog": "add rep4 dup loop end 1 swap end 0 or rep4 rep8 rep8 b shl shl nop add a swap end sub dup and"
+   },
+   {
+    "rank": 3,
+    "merit": 4.17,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a-b",
+    "near_sim": 0.56,
+    "pairs": "3,5->65514 100,7->65 255,200->64791 1000,999->61541 40000,25000->46072",
+    "prog": "add rep4 dup rep8 end 1 swap end 0 or end rep8 rep8 b shl shl nop add a swap end sub dup and"
+   },
+   {
+    "rank": 4,
+    "merit": 4.17,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a-b",
+    "near_sim": 0.56,
+    "pairs": "3,5->65514 100,7->65 255,200->64791 1000,999->61541 40000,25000->46072",
+    "prog": "sub rep4 dup rep8 end b swap shl 0 or end drop rep8 b shl shl nop add a end swap sub dup and"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 80,
+  "best": 4.495,
+  "mean": 3.122,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.495,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup 1 shr nand xor a rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.495,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup 1 nand nand or a rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.495,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup 1 shr nand xor a rep8 rep8 b a end nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.495,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup rep8 end dup 1 shr nand xor a rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.495,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup 1 xor nand or end rep8 rep8 b a dup nop nand a end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 90,
+  "best": 4.434,
+  "mean": 3.119,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.669,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.434,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup shl end dup 1 shr nand xor a rep8 rep8 b a dup nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.391,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup 1 xor swap or end rep8 rep8 b a dup nop nand a end shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.391,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end b 1 xor nand or end rep8 rep8 b a dup nop nand a end shr add dup rep4"
+   },
+   {
+    "rank": 3,
+    "merit": 4.391,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end b 1 xor nand or end rep8 rep8 b a dup nop nand a end shr add dup rep4"
+   },
+   {
+    "rank": 4,
+    "merit": 4.391,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->19999",
+    "prog": "add rep4 dup a end dup 1 shr nand xor a rep8 rep8 b a end nop nand a end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 100,
+  "best": 4.277,
+  "mean": 3.052,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.669,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.277,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "shl rep4 dup shl end dup 1 nop nand xor swap rep8 rep8 b a dup nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.277,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a end dup 1 shr dup sub a rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.277,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a end or a xor swap end rep8 rep8 rep8 b a dup nop nand a b shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.277,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "shl rep4 dup shl end dup 1 nop nand xor end rep8 rep8 b a dup nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.277,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a sub dup 1 shr nand sub a rep8 rep8 b a end nop nand b end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 110,
+  "best": 4.885,
+  "mean": 3.281,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.669,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.885,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add b dup a or dup 1 shr nand sub a rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.885,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a or dup 1 shr nand sub sub rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.885,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "swap rep4 dup a or dup 1 shr nand sub a rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.885,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup shl or dup 1 shr nand sub a rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.885,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a or dup 1 shr nand sub a rep8 rep8 b a end nop nand b end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 120,
+  "best": 4.217,
+  "mean": 3.082,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.669,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.217,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a or dup 1 shr nand sub sub rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.217,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add a dup a or dup 1 shr nand sub a rep2 rep8 b a rep2 nop nand b end shr add dup rep8"
+   },
+   {
+    "rank": 2,
+    "merit": 4.217,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add a dup a or dup 1 shr nand sub a rep2 rep8 b a rep2 nop nand b end shr add dup rep8"
+   },
+   {
+    "rank": 3,
+    "merit": 4.217,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a or dup 1 shr add sub sub rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.217,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a or dup 1 drop nand sub nop rep8 rep8 b a end nop nand b end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 130,
+  "best": 4.924,
+  "mean": 3.122,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.538,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.924,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "b rep4 dup a rep2 swap or and loop or end rep8 rep8 b a sub a nand a end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.238,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add a dup a or a 1 shr nand sub a 1 rep8 b a rep2 nop nand b end shr add dup rep8"
+   },
+   {
+    "rank": 2,
+    "merit": 4.238,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add rep4 dup a a dup 1 drop nand sub nop rep8 rep8 b a end nop nand b end shr add dup 1"
+   },
+   {
+    "rank": 3,
+    "merit": 4.238,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "0 rep4 dup a or dup 1 swap add sub sub rep8 rep8 b a end nop nand b end shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.238,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "add a dup a or a 1 shr nand a a 1 rep8 b a rep2 nop nand b end shr add dup rep8"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 140,
+  "best": 4.88,
+  "mean": 3.13,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.53,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "add loop end end end end 1 xor shl rep4 a rep8 rep8 b a nand a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.264,
+    "edge": 0.976,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.727,
+    "pairs": "3,5->65534 100,7->99 255,200->54 1000,999->39 40000,25000->64447",
+    "prog": "a shr nand a dup xor 1 b 0 sub a rep8 rep8 b a end shl nand a shl shr add dup nand"
+   },
+   {
+    "rank": 2,
+    "merit": 4.17,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a+(a&b)",
+    "near_sim": 0.576,
+    "pairs": "3,5->28 100,7->135 255,200->1255 1000,999->5995 40000,25000->33928",
+    "prog": "a shr b rep2 sub end a 1 dup dup end swap rep8 b shl shl add b a rep2 end add dup nand"
+   },
+   {
+    "rank": 3,
+    "merit": 4.17,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a+(a&b)",
+    "near_sim": 0.576,
+    "pairs": "3,5->28 100,7->135 255,200->1255 1000,999->5995 40000,25000->33928",
+    "prog": "a and rep2 rep2 sub end a 1 dup dup end swap rep8 b shl shl add b a rep2 end add dup xor"
+   },
+   {
+    "rank": 4,
+    "merit": 4.17,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a+(a&b)",
+    "near_sim": 0.576,
+    "pairs": "3,5->28 100,7->135 255,200->1255 1000,999->5995 40000,25000->33928",
+    "prog": "xor dup b a add rep8 rep4 b 0 rep2 end rep4 rep8 b shl shl add rep2 a rep2 end add dup or"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 150,
+  "best": 4.88,
+  "mean": 3.011,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.53,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "add end drop 1 rep4 dup 1 1 shr sub swap rep8 rep8 b 1 nand a nand a end shr add dup end"
+   },
+   {
+    "rank": 1,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr a rep2 rep8 end b 1 1 b rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr a rep2 shl end b 1 1 b rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr a rep2 shl end b 1 shl b rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr a rep2 rep8 end b add shl b rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 160,
+  "best": 4.88,
+  "mean": 3.371,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.53,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr swap rep2 xor end b 1 1 and rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr loop end end end end 1 xor 1 rep4 a rep8 rep8 b a nand a nand a loop shr add dup or"
+   },
+   {
+    "rank": 2,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr 0 rep2 xor end b 1 1 b rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr swap rep2 xor end b 1 1 sub rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "loop a rep2 xor end b 1 1 b rep4 a b rep8 b nand end a nand a loop shr add dup rep4"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 170,
+  "best": 4.809,
+  "mean": 3.523,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.53,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.809,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "1 swap rep2 xor end b 1 1 sub rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.809,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr swap rep2 xor end b 1 1 sub rep4 1 rep8 rep8 b nand end a nand a loop shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.809,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "nand 0 rep2 rep4 rep4 b 1 1 b or a rep8 rep8 b nand 0 a nand a loop shr add dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 4.809,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "add loop end or swap shr 1 xor 1 rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.809,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "nop swap rep2 xor end b 1 1 sub rep2 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 180,
+  "best": 4.88,
+  "mean": 3.518,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.53,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr loop rep4 end end end 1 xor rep8 rep4 a 1 rep8 b a nand a nand a loop shr add dup or"
+   },
+   {
+    "rank": 1,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr loop end end end end 1 nand 1 b a rep8 rep8 b a nand a nand a loop shr add dup or"
+   },
+   {
+    "rank": 2,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "1 swap b xor end 1 1 swap add rep4 a swap rep8 b nand loop a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "add loop end dup nand end 0 xor nop rep4 a rep8 rep8 b a xor a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shr a rep2 xor end b 1 a b drop 1 end rep8 b nand end a nand a loop shr add dup rep4"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 190,
+  "best": 4.947,
+  "mean": 3.572,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.538,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.947,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "shr loop nop end end end end 1 1 b a rep8 rep8 b a sub a nand a loop shr add dup or"
+   },
+   {
+    "rank": 1,
+    "merit": 4.947,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "shr loop nop end end end end 1 1 b a rep8 rep8 b a sub a nand a loop shr add dup or"
+   },
+   {
+    "rank": 2,
+    "merit": 4.947,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "shr loop nop end end rep8 end 1 1 b a rep8 rep8 b a sub a nand a loop shr add dup or"
+   },
+   {
+    "rank": 3,
+    "merit": 4.947,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "shr loop nop end end end 1 add 1 b a rep8 rep8 b a sub a nand a loop shr add dup or"
+   },
+   {
+    "rank": 4,
+    "merit": 4.947,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "shr loop nop end end end end 1 1 b a rep8 rep8 b a sub a nand a loop shr add dup or"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 200,
+  "best": 4.932,
+  "mean": 3.668,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.669,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "b xor drop add swap b a 1 b sub 0 rep8 rep8 b shl end a nand b loop shr add dup nop"
+   },
+   {
+    "rank": 1,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "or dup drop b end nop rep4 0 end drop xor rep8 rep8 b 1 a nand b b dup shr add dup xor"
+   },
+   {
+    "rank": 2,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "or dup 0 b end nop rep4 0 end rep2 nop rep8 rep8 b 1 a nand b b dup shr add dup nand"
+   },
+   {
+    "rank": 3,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "b and end a 1 and b 1 a sub dup rep8 rep8 b a end nop nand rep4 b shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "nop end drop add xor add 1 end dup dup 0 rep8 rep8 b a end nop nand b end shr add b swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 210,
+  "best": 4.98,
+  "mean": 3.651,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.546,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.98,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "sub rep4 a a end dup b xor xor 1 shr rep8 rep8 b 1 sub a nand a end shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.98,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "sub rep4 a a end dup b xor xor 1 shr rep8 rep8 b 1 sub a nand a end shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "swap b b shl dup dup 0 1 0 rep2 sub rep2 rep8 b a rep2 dup nand b dup shr add dup end"
+   },
+   {
+    "rank": 3,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a drop and 1 nop dup end a 1 1 and a rep8 b a nop loop nand a b shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.932,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.669,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "or b 0 1 and dup end a 1 xor and dup rep8 b a end loop nand a b shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 220,
+  "best": 4.833,
+  "mean": 3.653,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.656,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.833,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "nand add end dup 0 dup b 1 nop sub xor rep8 dup b 1 a a nand 0 b shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.778,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shl and end rep4 nand b 1 1 0 b a swap rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.778,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "b end rep2 swap end b 0 0 nop end shl swap rep8 b nand end a nand a end shr add dup nand"
+   },
+   {
+    "rank": 3,
+    "merit": 4.778,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "a 0 nop loop end end b a 1 a 0 rep8 rep8 b nand b a nand a nop shr add dup rep4"
+   },
+   {
+    "rank": 4,
+    "merit": 4.778,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "a swap xor swap end b 1 1 sub rep4 b b rep8 b nand end a nand a loop shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 230,
+  "best": 4.88,
+  "mean": 3.249,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.53,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "loop end rep2 dup end and nand xor a rep4 a rep8 rep8 b nand end a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "or a rep2 shl end nand 1 a b drop a b rep8 b nand rep2 a nand a loop shr add dup nand"
+   },
+   {
+    "rank": 2,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "or shr loop 1 end and 1 b or rep4 dup rep8 rep8 b swap nand a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "shl shr end end nop swap b xor dup rep4 a rep8 rep8 b dup nand a nand a loop shr add dup rep8"
+   },
+   {
+    "rank": 4,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "b nand rep2 swap end 1 1 rep2 nop 0 b shr rep8 b nand end a nand a end shr add dup nand"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 240,
+  "best": 4.943,
+  "mean": 3.62,
+  "best_edge": 0.999,
+  "match": [],
+  "top_named_sim": 0.677,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.943,
+    "edge": 0.999,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.677,
+    "pairs": "3,5->1 100,7->65534 255,200->65436 1000,999->65042 40000,25000->12499",
+    "prog": "end shl rep2 add end b nop shl dup shl dup rep8 rep8 b 1 add a nand a b shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.943,
+    "edge": 0.999,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.677,
+    "pairs": "3,5->1 100,7->65534 255,200->65436 1000,999->65042 40000,25000->12499",
+    "prog": "end xor add add end dup nop shl dup rep4 a rep8 rep8 b 1 add a nand a b shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.943,
+    "edge": 0.999,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.677,
+    "pairs": "3,5->1 100,7->65534 255,200->65436 1000,999->65042 40000,25000->12499",
+    "prog": "end shl rep2 add end b nop shl dup shl dup rep8 rep8 b 1 add a nand a b shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.943,
+    "edge": 0.999,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.677,
+    "pairs": "3,5->1 100,7->65534 255,200->65436 1000,999->65042 40000,25000->12499",
+    "prog": "end shl rep2 add end b nop shl dup shl dup rep8 rep8 b 1 add a nand a b shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.907,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "~(a+b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65532 100,7->20 255,200->65426 1000,999->65273 40000,25000->5839",
+    "prog": "end dup 0 end rep2 end 1 xor add rep4 a a rep8 b shr xor a nand a shr shr add dup or"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 250,
+  "best": 4.874,
+  "mean": 3.59,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.578,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.874,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "and swap rep2 dup end b shl and 1 a rep4 rep2 rep8 b shr xor a nand a loop shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.86,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "xor loop drop end end swap nop sub 1 rep4 a rep8 rep8 b 1 sub a nand b loop shr add dup rep8"
+   },
+   {
+    "rank": 2,
+    "merit": 4.86,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "shr loop drop end xor swap nop sub 1 rep4 a rep8 rep8 b 1 sub a nand b loop shr add dup rep8"
+   },
+   {
+    "rank": 3,
+    "merit": 4.86,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "shr loop drop end end swap nop sub 1 rep4 a rep8 rep8 b 1 sub a nand b loop shr add dup rep8"
+   },
+   {
+    "rank": 4,
+    "merit": 4.86,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "shr loop xor end end swap shr sub 1 rep4 b rep8 rep8 b 1 sub a nand b loop shr add dup or"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 260,
+  "best": 4.88,
+  "mean": 3.468,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.53,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "sub shl a loop end a a shl b drop nop rep8 1 b nand rep2 a nand a end shr add dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "1 loop add end rep2 b 1 shr 1 rep4 a and rep8 b a nand a nand a loop shr add dup 0"
+   },
+   {
+    "rank": 2,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "and a rep2 swap rep2 a rep4 a b drop rep2 rep4 rep8 b nand loop a nand a loop shr add dup rep4"
+   },
+   {
+    "rank": 3,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "loop shr end b nand b b a dup rep4 nop and rep8 b a nand a nand a loop shr add dup rep8"
+   },
+   {
+    "rank": 4,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.53,
+    "pairs": "3,5->65534 100,7->65489 255,200->71 1000,999->491 40000,25000->45535",
+    "prog": "nop a swap end rep2 shr xor a 1 0 rep8 rep8 rep8 b b nand a nand a loop shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 270,
+  "best": 4.852,
+  "mean": 3.666,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.546,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.852,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "shr rep4 dup end end nop end end swap or a shr rep8 b 1 sub a nand a loop shr add dup and"
+   },
+   {
+    "rank": 1,
+    "merit": 4.852,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "end sub shl dup end nand rep2 1 1 b 1 end rep8 b 1 sub a nand a loop shr add dup or"
+   },
+   {
+    "rank": 2,
+    "merit": 4.852,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "shr rep4 dup end end nop end end shr or a shr rep8 b 1 sub a nand a loop shr add dup and"
+   },
+   {
+    "rank": 3,
+    "merit": 4.852,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "shr rep4 dup end end nop end end swap or a shr rep8 b 1 sub a nand a loop shr add dup and"
+   },
+   {
+    "rank": 4,
+    "merit": 4.852,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "shr rep4 dup end end nop end end swap or a shr rep8 b 1 sub a nand a loop shr add dup and"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 280,
+  "best": 4.924,
+  "mean": 3.451,
+  "best_edge": 0.998,
+  "match": [],
+  "top_named_sim": 0.551,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "1 shr end nand sub nand nand end and rep4 a and rep8 b nand dup a or b end shr add dup swap"
+   },
+   {
+    "rank": 1,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "1 shr end nand sub nand 1 end b rep4 a and rep8 b nand dup a or b end shr add dup swap"
+   },
+   {
+    "rank": 2,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "1 shr end nand sub nand nand end and rep4 a and rep8 b nand dup a or b end shr add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "1 shr end nand sub nand 1 end and rep4 a and rep8 b nand dup a or b end shr add dup swap"
+   },
+   {
+    "rank": 4,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "1 shr end nand sub nand 1 end and rep4 a and rep8 b nand dup a or b end shr add dup swap"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 290,
+  "best": 5.146,
+  "mean": 3.562,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.578,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.146,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shr rep2 a dup nand a 1 xor a b a dup rep8 b shr xor a nand a loop shr add dup or"
+   },
+   {
+    "rank": 1,
+    "merit": 5.039,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "shl shr xor add nand drop b end shl b a a rep8 b shl or a xor a loop nop add dup drop"
+   },
+   {
+    "rank": 2,
+    "merit": 5.039,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "shl shr xor add nand drop b 1 shl b a a rep8 b shl or a xor a loop nop add dup swap"
+   },
+   {
+    "rank": 3,
+    "merit": 5.039,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "shl shr xor add nand drop b 1 shl b a a rep8 b shl or a xor a loop nop add dup drop"
+   },
+   {
+    "rank": 4,
+    "merit": 5.039,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "shl shr xor add nand drop b 1 shl b a a rep8 b shl or a xor a loop nop add dup nop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 300,
+  "best": 5.057,
+  "mean": 3.615,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.578,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.057,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shr sub a dup nand a 1 xor a b a dup rep8 b shr xor a nand a loop shr add dup or"
+   },
+   {
+    "rank": 1,
+    "merit": 4.948,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub shr xor add end rep2 1 1 shl b a a rep8 b shl or a xor a loop nop add dup nop"
+   },
+   {
+    "rank": 2,
+    "merit": 4.948,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "shl a xor add nand drop b 1 dup b a a rep8 b shl or a xor a loop nop add dup drop"
+   },
+   {
+    "rank": 3,
+    "merit": 4.948,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub shr xor add end rep2 1 1 shl b a a rep8 b shl or a xor a loop nop add dup nop"
+   },
+   {
+    "rank": 4,
+    "merit": 4.948,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub shr xor add end rep2 1 1 shl b a xor rep8 b shl or a xor a loop nop add dup nop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 310,
+  "best": 5.152,
+  "mean": 3.63,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a b loop end 0 rep4 shr dup rep8 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a b loop end 0 rep4 b dup rep8 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a b loop end 0 rep4 b dup rep8 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a b loop end 0 rep4 b dup rep8 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a b loop end 0 rep4 b dup rep8 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 320,
+  "best": 5.104,
+  "mean": 3.455,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.666,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.104,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub shr xor add end 1 b shr shl b a a rep8 b shl or a xor a nop dup add dup nop"
+   },
+   {
+    "rank": 1,
+    "merit": 5.104,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "dup shr xor add end or 1 shr shl b a a rep8 b shl or a xor a nop nop add dup and"
+   },
+   {
+    "rank": 2,
+    "merit": 5.104,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub shr xor add end 1 b shr shl b a rep2 rep8 b shl or a xor a nop nop add dup nop"
+   },
+   {
+    "rank": 3,
+    "merit": 5.104,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub shr xor add end 1 b shr shl b a a rep8 b shl or a xor a nop dup add dup nop"
+   },
+   {
+    "rank": 4,
+    "merit": 5.104,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "shl shr xor sub xor drop b 1 dup a and a rep8 b shl or a xor a loop nop add dup drop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 330,
+  "best": 5.003,
+  "mean": 3.626,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.003,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a shr a end 0 rep4 b dup rep8 rep8 b a nand a shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.003,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a shr shl end drop rep4 b dup rep8 b b a nand a shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.003,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a 0 rep2 end 0 rep4 b rep2 rep8 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 5.003,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a shr shl end drop rep4 b dup rep8 rep8 b a nand a shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 4,
+    "merit": 5.003,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a 0 a end 0 rep4 b rep2 rep8 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 340,
+  "best": 5.152,
+  "mean": 3.638,
+  "best_edge": 0.988,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a add a end 0 and b rep2 0 rep8 b a nand a shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "0 nop 0 shr shl shl end drop a b dup rep8 rep8 b a nand a shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "rep8 end 0 a rep2 nop end 0 rep4 b xor rep8 rep8 b a nand a shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 3,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a shr drop end shl b b dup a rep8 b a nand a shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 4,
+    "merit": 5.152,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "a end 0 a shr loop end shr swap a dup nop rep8 b a nand a shl rep4 rep2 shr add rep2 dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 350,
+  "best": 4.946,
+  "mean": 3.63,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.578,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.946,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl a swap a b 1 b drop dup sub 0 a rep8 b shr xor a nand a end shr add dup loop"
+   },
+   {
+    "rank": 1,
+    "merit": 4.946,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl b swap a b xor b drop dup sub 0 a rep8 b shr xor a nand a end shr add dup loop"
+   },
+   {
+    "rank": 2,
+    "merit": 4.946,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl b swap a b xor b drop dup sub 0 a rep8 b shr xor a nand a end shr add dup loop"
+   },
+   {
+    "rank": 3,
+    "merit": 4.946,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "or dup dup b nand a a swap swap a swap swap rep8 b shr xor a nand a end shr add dup loop"
+   },
+   {
+    "rank": 4,
+    "merit": 4.946,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "or 1 dup b nand a a swap swap a swap swap rep8 b shr xor a nand a end shr add dup loop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 360,
+  "best": 4.979,
+  "mean": 3.606,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.533,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.979,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.533,
+    "pairs": "3,5->65534 100,7->65517 255,200->71 1000,999->499 40000,25000->13855",
+    "prog": "loop sub nand rep4 0 shr a a 0 rep2 end rep8 a b sub b a nand rep2 a shr add dup loop"
+   },
+   {
+    "rank": 1,
+    "merit": 4.979,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.533,
+    "pairs": "3,5->65534 100,7->65517 255,200->71 1000,999->499 40000,25000->13855",
+    "prog": "loop sub nand rep4 0 shr a a 0 rep8 end rep8 a b sub b a nand rep2 a shr add dup loop"
+   },
+   {
+    "rank": 2,
+    "merit": 4.979,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.533,
+    "pairs": "3,5->65534 100,7->65517 255,200->71 1000,999->499 40000,25000->13855",
+    "prog": "dup rep2 loop shl end a nop a rep4 1 swap rep8 a b sub end a nand a loop shr add dup drop"
+   },
+   {
+    "rank": 3,
+    "merit": 4.979,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.533,
+    "pairs": "3,5->65534 100,7->65517 255,200->71 1000,999->499 40000,25000->13855",
+    "prog": "drop a dup a b 1 a 1 dup a 1 a rep8 b sub a end nand a loop shr add dup rep8"
+   },
+   {
+    "rank": 4,
+    "merit": 4.979,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.533,
+    "pairs": "3,5->65534 100,7->65517 255,200->71 1000,999->499 40000,25000->13855",
+    "prog": "drop a dup a b 1 a 1 dup a 1 a rep8 b sub a end nand a loop shr add dup rep8"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 370,
+  "best": 5.019,
+  "mean": 3.6,
+  "best_edge": 0.984,
+  "match": [],
+  "top_named_sim": 0.54,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.019,
+    "edge": 0.984,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.54,
+    "pairs": "3,5->65533 100,7->45 255,200->25 1000,999->65515 40000,25000->47647",
+    "prog": "a dup a a xor end b rep8 dup shr loop swap rep8 b a sub a nand a rep8 shr add dup xor"
+   },
+   {
+    "rank": 1,
+    "merit": 5.019,
+    "edge": 0.984,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.54,
+    "pairs": "3,5->65533 100,7->45 255,200->25 1000,999->65515 40000,25000->47647",
+    "prog": "a dup a a xor end b rep8 dup shr loop swap rep8 b a sub a nand a rep8 shr add dup xor"
+   },
+   {
+    "rank": 2,
+    "merit": 5.019,
+    "edge": 0.984,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.54,
+    "pairs": "3,5->65533 100,7->45 255,200->25 1000,999->65515 40000,25000->47647",
+    "prog": "a dup a a xor end b rep8 dup shr loop swap rep8 b a sub a nand a rep8 shr add dup xor"
+   },
+   {
+    "rank": 3,
+    "merit": 5.019,
+    "edge": 0.984,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.54,
+    "pairs": "3,5->65533 100,7->45 255,200->25 1000,999->65515 40000,25000->47647",
+    "prog": "swap dup b a shl b 1 rep8 b shr loop swap loop b a sub a nand a end shr add dup loop"
+   },
+   {
+    "rank": 4,
+    "merit": 5.019,
+    "edge": 0.984,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.54,
+    "pairs": "3,5->65533 100,7->45 255,200->25 1000,999->65515 40000,25000->47647",
+    "prog": "swap dup rep2 a shl b 1 rep8 b shr loop swap loop 1 a sub a nand a end shr add dup loop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 380,
+  "best": 5.109,
+  "mean": 3.655,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.644,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.109,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a drop 0 a shr end end 0 nand b 1 nop rep8 b a nand b shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.109,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a drop 0 a shr end end 0 nand b 1 nop rep8 b a nand b shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.109,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a drop 0 a shr end end 0 nand b 1 nop rep8 b a nand b shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 3,
+    "merit": 5.109,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "dup drop 0 a shr end end 0 nand b 1 nop rep8 b a nand b shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 4,
+    "merit": 5.052,
+    "edge": 0.988,
+    "match": [],
+    "nearest": "~(a^b)",
+    "near_sim": 0.54,
+    "pairs": "3,5->65535 100,7->45 255,200->65462 1000,999->65043 40000,25000->3615",
+    "prog": "rep2 end 0 sub rep2 nop end xor rep4 b shl a rep8 b a nand a shl rep4 rep2 shr add rep2 dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 390,
+  "best": 5.01,
+  "mean": 3.627,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.644,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.01,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a end end a shr end xor 0 nand 1 nop nop rep8 b a nand b shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.01,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "dup drop 0 sub shr end end 0 nand b 1 rep8 rep8 b a nand b shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.01,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "dup drop 0 sub shr end end 0 nand b 1 rep8 0 b a nand b shl rep4 rep2 shr add rep2 dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.978,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.533,
+    "pairs": "3,5->65534 100,7->65517 255,200->71 1000,999->499 40000,25000->13855",
+    "prog": "loop sub nand rep4 0 dup 0 a 0 rep8 end rep8 a b sub b a nand rep2 a shr add dup sub"
+   },
+   {
+    "rank": 4,
+    "merit": 4.978,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.533,
+    "pairs": "3,5->65534 100,7->65517 255,200->71 1000,999->499 40000,25000->13855",
+    "prog": "loop sub nand rep4 0 dup 0 a 0 rep8 end rep8 a b sub b a nand rep2 a shr add dup sub"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 400,
+  "best": 5.16,
+  "mean": 3.652,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.644,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.16,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a end end a 0 end xor 0 nand 1 nop nop rep8 b a nand b shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.16,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a end end a 0 end xor 0 nand 1 nop nop rep8 b a nand b shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.16,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a end end rep4 0 end xor 0 nand 1 or nop rep8 b a nand b shl nop rep2 shr add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 5.16,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a end end a 0 end xor 0 nand 1 nop nop rep8 b a nand b shl rep4 rep2 shr add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 5.16,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.644,
+    "pairs": "3,5->0 100,7->65534 255,200->65435 1000,999->65042 40000,25000->12499",
+    "prog": "a end end a 0 end xor 0 nand 1 nop nop rep8 b a nand b shl rep4 rep2 shr add dup dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 410,
+  "best": 4.924,
+  "mean": 3.553,
+  "best_edge": 0.998,
+  "match": [],
+  "top_named_sim": 0.551,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "loop nand rep2 end nop or xor 1 shr a a shr rep8 b 1 1 a nand xor b shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "loop nand rep2 end nop or xor 1 shr a a shr rep8 b 1 shl a nand xor b shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "swap and a shr add drop end 0 0 0 a rep8 rep8 b a xor swap nand nop b shr add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "loop nand rep2 end nop or xor 1 shr a a shr rep8 b 1 shl a nand xor b shr add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 4.924,
+    "edge": 0.998,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.551,
+    "pairs": "3,5->65533 100,7->65535 255,200->99 1000,999->491 40000,25000->53035",
+    "prog": "loop nand rep2 end nop or xor 1 shr a a shr rep8 b 1 shl a nand xor b shr add dup dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 420,
+  "best": 4.933,
+  "mean": 3.5,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.666,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.933,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub sub sub nand end shr rep2 1 1 b and a rep8 b shl or a xor end loop a add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.933,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "a shr b b swap b shl nand rep2 b nop nop rep8 b shl or a xor a loop nop add dup 0"
+   },
+   {
+    "rank": 2,
+    "merit": 4.933,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "1 swap loop nop and shl and dup end 0 a 1 rep8 b shl or a xor rep2 nop a add dup loop"
+   },
+   {
+    "rank": 3,
+    "merit": 4.933,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "a sub sub nand end shr rep2 1 sub b a a rep8 b shl or a xor rep8 loop a add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 4.933,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "1 swap loop swap and shl xor dup end 0 a 1 rep8 b shl or a xor 0 nop a add dup loop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 430,
+  "best": 5.065,
+  "mean": 3.554,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.578,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.065,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl nop a b xor b 0 swap 1 nop a rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 1,
+    "merit": 5.065,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl nop a b xor b 0 swap 1 nop a rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 2,
+    "merit": 5.065,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl nop a b xor b 0 swap 1 nop a rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 3,
+    "merit": 5.065,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl nand a b xor rep2 0 swap 1 nop rep8 rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 4,
+    "merit": 5.065,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl nop a b xor b 0 swap 1 nop a rep8 b shr xor a nand a end shr add dup end"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 440,
+  "best": 4.904,
+  "mean": 3.627,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.578,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.904,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl nand a b xor b 0 swap end nop a rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 1,
+    "merit": 4.904,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl nand a 1 xor b 0 swap end nop a rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 2,
+    "merit": 4.904,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl a a b xor b 0 swap end nop a rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 3,
+    "merit": 4.904,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl a a b xor b 0 swap end nop a rep8 b shr xor a nand a end shr add dup end"
+   },
+   {
+    "rank": 4,
+    "merit": 4.904,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "shl shl a a b xor b 0 swap end nop a rep8 b shr xor a nand a end shr add dup end"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 450,
+  "best": 5.164,
+  "mean": 3.57,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.656,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.164,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "drop shl swap xor nand nand b 1 drop 0 0 shr rep8 b 1 sub a nand loop b shr add dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 5.164,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "b end xor 1 b 1 end 1 add and shl dup rep8 b 1 sub a nand a b shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.164,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "drop shl end xor end nand b 1 nop 0 0 shr rep8 b 1 sub a nand loop b shr add dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 5.164,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "drop shl swap xor nand nand b 1 drop 0 0 shr rep8 b 1 sub a nand loop b shr add dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 5.164,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "drop shl swap xor nand nand b 1 drop 0 0 shr rep8 b 1 sub a nand loop b shr add dup add"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 460,
+  "best": 4.88,
+  "mean": 3.639,
+  "best_edge": 0.986,
+  "match": [],
+  "top_named_sim": 0.545,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "a>>1",
+    "near_sim": 0.545,
+    "pairs": "3,5->65535 100,7->65490 255,200->72 1000,999->492 40000,25000->45536",
+    "prog": "end add end nop loop swap b 0 b end b rep4 rep8 b a and a sub a end shr add dup or"
+   },
+   {
+    "rank": 1,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "a>>1",
+    "near_sim": 0.545,
+    "pairs": "3,5->65535 100,7->65490 255,200->72 1000,999->492 40000,25000->45536",
+    "prog": "add and end and nand dup b rep2 b nop b swap rep8 b a and a sub a a shr add dup or"
+   },
+   {
+    "rank": 2,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "a>>1",
+    "near_sim": 0.545,
+    "pairs": "3,5->65535 100,7->65490 255,200->72 1000,999->492 40000,25000->45536",
+    "prog": "nand swap nand a shr rep4 rep2 dup b end rep4 swap rep8 b a and a sub a end shr add dup nop"
+   },
+   {
+    "rank": 3,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "a>>1",
+    "near_sim": 0.545,
+    "pairs": "3,5->65535 100,7->65490 255,200->72 1000,999->492 40000,25000->45536",
+    "prog": "end swap swap b rep2 b rep2 dup or end rep4 nop rep8 b a and a sub a end shr add dup 1"
+   },
+   {
+    "rank": 4,
+    "merit": 4.88,
+    "edge": 0.986,
+    "match": [],
+    "nearest": "a>>1",
+    "near_sim": 0.545,
+    "pairs": "3,5->65535 100,7->65490 255,200->72 1000,999->492 40000,25000->45536",
+    "prog": "add and end a rep2 nop 0 rep2 b rep4 b rep2 rep8 b a and a sub a end shr add dup nop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 470,
+  "best": 4.994,
+  "mean": 3.658,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.546,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "drop shr b and drop dup shl 1 1 rep2 end shr rep8 b 1 sub a nand dup a shr add dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "drop shl end xor b nand b 1 swap rep2 1 a rep8 b 1 sub a nand 0 a shr add dup add"
+   },
+   {
+    "rank": 2,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "sub shl rep2 xor 1 nand b 1 nop 0 0 b rep8 b 1 sub a nand loop a shr add dup add"
+   },
+   {
+    "rank": 3,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "drop shl end nand 1 drop b 1 nop 0 nand a rep8 b 1 sub a nand loop a shr add dup xor"
+   },
+   {
+    "rank": 4,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "drop swap end xor 1 drop b 1 0 dup 0 a rep8 b 1 sub a nand 0 a shr add dup add"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 480,
+  "best": 5.026,
+  "mean": 3.615,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.549,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.026,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2b-a",
+    "near_sim": 0.549,
+    "pairs": "3,5->65535 100,7->65518 255,200->72 1000,999->500 40000,25000->13856",
+    "prog": "xor xor end a nand and rep2 dup b end add dup rep8 dup a and a sub a end shr add dup nop"
+   },
+   {
+    "rank": 1,
+    "merit": 4.943,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "add 0 b b sub 1 1 swap rep2 b add nop rep8 dup shl or a xor a loop nop add dup 1"
+   },
+   {
+    "rank": 2,
+    "merit": 4.943,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "a 0 b b sub 1 1 swap rep2 b add nop rep8 dup shl or a xor a loop nop add dup 1"
+   },
+   {
+    "rank": 3,
+    "merit": 4.943,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "a 0 b b sub 1 1 swap rep2 b add nop rep8 dup shl or a xor a loop nop add dup 1"
+   },
+   {
+    "rank": 4,
+    "merit": 4.943,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "a 0 b b sub 1 1 swap rep2 b add nop rep8 dup shl or a xor a loop nop add dup 1"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 490,
+  "best": 4.994,
+  "mean": 3.694,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.546,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "loop end end or nop swap dup nop dup b a b rep8 b 1 sub a nand 1 a shr add rep4 dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "drop and sub 0 add nand shl or b 0 end a rep8 b 1 sub a nand end a shr add dup or"
+   },
+   {
+    "rank": 2,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "drop sub end drop or nop drop dup 0 rep2 a a rep8 b 1 sub a nand nop a shr add dup loop"
+   },
+   {
+    "rank": 3,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "nop xor end 1 shr a sub 1 shl 0 shl a rep8 b 1 sub a nand end a shr add dup rep2"
+   },
+   {
+    "rank": 4,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "drop sub end drop or nop drop dup 0 rep2 a a rep8 b 1 sub a nand nop a shr add dup loop"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 500,
+  "best": 5.129,
+  "mean": 3.685,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.661,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.129,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "a-b",
+    "near_sim": 0.661,
+    "pairs": "3,5->30 100,7->255 255,200->1071 1000,999->4127 40000,25000->65528",
+    "prog": "0 0 b nop b a 0 nand a b a add rep8 dup shl or a xor a loop nop add dup sub"
+   },
+   {
+    "rank": 1,
+    "merit": 4.85,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "rep2 0 nand sub 0 1 nand or a 0 0 a rep8 b 1 sub a nand end a shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.85,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "end nop nand b shr end sub end b 0 0 end rep8 b 1 sub a nand dup a shr add rep8 dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.85,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "end nop nand b shr end sub 0 b 0 0 a rep8 b 1 sub a nand dup a shr add rep8 dup"
+   },
+   {
+    "rank": 4,
+    "merit": 4.85,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "end nop nand b shr end sub 0 b 0 0 end rep8 b 1 sub a nand dup a shr add rep8 dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 510,
+  "best": 4.994,
+  "mean": 3.654,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.546,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "nop and rep2 drop shr nand sub rep2 shl 0 dup a rep8 b 1 sub a nand end a shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "swap and b and add rep8 end sub end xor b dup rep8 b 1 sub a nand end a shr add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "nop and rep2 drop shr xor sub rep2 shl a dup a rep8 b 1 sub a nand end a shr add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "end nop nand b shr end sub 0 b 0 0 a rep8 b 1 sub a nand dup a shr add rep2 dup"
+   },
+   {
+    "rank": 4,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "shl nop or b shr end sub end b 0 0 end rep8 b 1 sub a nand rep4 a shr add rep8 dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 520,
+  "best": 4.994,
+  "mean": 3.642,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.546,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "nop drop swap end shr nand sub rep2 and 0 dup a rep8 b 1 sub a nand end a shr add dup nop"
+   },
+   {
+    "rank": 1,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "nop end swap end shr nand sub rep2 and 0 dup a rep8 b 1 sub a nand end a shr add dup nop"
+   },
+   {
+    "rank": 2,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "nand and rep2 drop shr xor sub rep2 nand a dup a rep8 b 1 sub a nand end a shr add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "nop drop swap end shr nand sub rep2 and 0 dup a rep8 b 1 sub a nand end a shr add dup nop"
+   },
+   {
+    "rank": 4,
+    "merit": 4.994,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.546,
+    "pairs": "3,5->65534 100,7->49 255,200->65461 1000,999->65035 40000,25000->19999",
+    "prog": "shl shl or a swap swap b 0 a and 1 swap rep8 b 1 sub a nand a end shr add dup or"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 530,
+  "best": 4.999,
+  "mean": 3.441,
+  "best_edge": 0.995,
+  "match": [],
+  "top_named_sim": 0.666,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.999,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "0 shl b b nand 1 0 a a a 1 b rep8 b shl or a xor rep8 loop a add dup rep4"
+   },
+   {
+    "rank": 1,
+    "merit": 4.999,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub or b b or 1 sub dup 1 swap shr a rep8 b shl or a xor dup loop a add dup 0"
+   },
+   {
+    "rank": 2,
+    "merit": 4.999,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "and shl b 0 nand 1 0 1 1 a a add rep8 b shl or a xor a loop a add dup sub"
+   },
+   {
+    "rank": 3,
+    "merit": 4.999,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "a dup b and swap a nop 1 1 a 1 sub rep8 b shl or a xor a loop rep8 add dup or"
+   },
+   {
+    "rank": 4,
+    "merit": 4.999,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "xor b b b 1 b or swap sub 1 a xor rep8 b shl or a xor a end a add dup 0"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 540,
+  "best": 5.052,
+  "mean": 3.667,
+  "best_edge": 0.991,
+  "match": [],
+  "top_named_sim": 0.689,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.052,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "shr 0 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.019,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "a^b",
+    "near_sim": 0.718,
+    "pairs": "3,5->2 100,7->2 255,200->55 1000,999->30 40000,25000->57703",
+    "prog": "add dup loop loop end 1 nand dup add a rep2 0 a b shl dup a nand end swap shr add rep8 dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.963,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "or nand sub end shr nand sub rep2 rep4 1 nand a rep8 b a sub a nand end a shr add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.963,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "1 nand rep4 end shr nand sub rep2 rep4 1 nand a rep8 b a sub a nand a a shr add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 4.963,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "~(a&b)",
+    "near_sim": 0.538,
+    "pairs": "3,5->65534 100,7->17 255,200->65461 1000,999->65035 40000,25000->51679",
+    "prog": "nop and rep2 end nand nand nand rep2 drop xor dup a rep8 b a sub a nand end a shr add dup dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 550,
+  "best": 4.936,
+  "mean": 3.619,
+  "best_edge": 0.991,
+  "match": [],
+  "top_named_sim": 0.689,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.936,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "shr swap 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 4.936,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "shr swap 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup add"
+   },
+   {
+    "rank": 2,
+    "merit": 4.936,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop 0 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.936,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "shr swap 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 4.936,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "shr swap 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup add"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 560,
+  "best": 5.015,
+  "mean": 3.699,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.656,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.015,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "1 nand rep4 end shr nand sub rep2 rep4 1 nand nop rep8 b 1 sub a nand a b shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.979,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop 0 0 shr swap b 0 b shl b shl swap rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.979,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "xor 0 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.979,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop 0 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 4.979,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop 0 0 shr or b 0 a shl b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 570,
+  "best": 4.895,
+  "mean": 3.585,
+  "best_edge": 0.991,
+  "match": [],
+  "top_named_sim": 0.689,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 4.895,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop 0 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.895,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "sub 0 0 shr drop b 0 b shl b shl or rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 4.895,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop 0 0 shr drop b 0 b shl b sub shl rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 4.895,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop 0 0 shr drop b 0 b shl b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 4.895,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "0 0 end shr 0 b a b shl b shl nop rep8 dup shl or a xor a dup nop add dup 1"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 580,
+  "best": 5.075,
+  "mean": 3.657,
+  "best_edge": 0.991,
+  "match": [],
+  "top_named_sim": 0.689,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.075,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "sub 0 0 shr drop b 1 b shl b shl or rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 5.075,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "sub 0 0 shr drop b 1 b shl b shl or rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.075,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "sub 0 0 shr drop b 0 b shl b shl or rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 3,
+    "merit": 5.075,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "nop dup end shr nop 0 end b and b shl nop rep8 dup shl or a xor a loop nop add dup dup"
+   },
+   {
+    "rank": 4,
+    "merit": 5.075,
+    "edge": 0.991,
+    "match": [],
+    "nearest": "(a^b)<<1",
+    "near_sim": 0.689,
+    "pairs": "3,5->32 100,7->222 255,200->1102 1000,999->4126 40000,25000->63472",
+    "prog": "sub 0 0 shr drop b 0 b shl b shl or rep8 dup shl or a xor a loop nop add dup dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 590,
+  "best": 5.164,
+  "mean": 3.672,
+  "best_edge": 0.997,
+  "match": [],
+  "top_named_sim": 0.656,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.164,
+    "edge": 0.997,
+    "match": [],
+    "nearest": "a^(b>>1)",
+    "near_sim": 0.656,
+    "pairs": "3,5->65535 100,7->2 255,200->65434 1000,999->65034 40000,25000->12499",
+    "prog": "loop and add nand drop rep8 end rep2 1 shr b b rep8 b 1 sub a nand end b shr add dup add"
+   },
+   {
+    "rank": 1,
+    "merit": 5.053,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.541,
+    "pairs": "3,5->65533 100,7->49 255,200->65460 1000,999->65035 40000,25000->19999",
+    "prog": "swap 1 shr xor sub end rep4 a loop drop b 1 shl sub rep8 dup a nand a end shr add rep8 dup"
+   },
+   {
+    "rank": 2,
+    "merit": 5.053,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.541,
+    "pairs": "3,5->65533 100,7->49 255,200->65460 1000,999->65035 40000,25000->19999",
+    "prog": "rep4 1 1 xor nand a rep4 a loop drop b 1 shl sub rep2 rep4 a nand a end shr add rep8 dup"
+   },
+   {
+    "rank": 3,
+    "merit": 5.053,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.541,
+    "pairs": "3,5->65533 100,7->49 255,200->65460 1000,999->65035 40000,25000->19999",
+    "prog": "sub 1 shr xor sub end rep4 a loop drop b 1 shl sub rep8 dup a nand a end shr add rep8 dup"
+   },
+   {
+    "rank": 4,
+    "merit": 5.053,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "a|~b",
+    "near_sim": 0.541,
+    "pairs": "3,5->65533 100,7->49 255,200->65460 1000,999->65035 40000,25000->19999",
+    "prog": "swap 1 shr xor sub end rep4 a loop drop b 1 shl sub rep8 dup a nand a end shr add rep8 dup"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ },
+ {
+  "gen": 600,
+  "best": 5.146,
+  "mean": 3.586,
+  "best_edge": 1.0,
+  "match": [],
+  "top_named_sim": 0.578,
+  "n_named_in_top": 0,
+  "top": [
+   {
+    "rank": 0,
+    "merit": 5.146,
+    "edge": 1.0,
+    "match": [],
+    "nearest": "(a+b)>>1",
+    "near_sim": 0.578,
+    "pairs": "3,5->65533 100,7->45 255,200->65490 1000,999->65523 40000,25000->15839",
+    "prog": "rep2 or rep2 xor and nand dup 1 drop 1 dup a rep8 b shr xor a nand end a shr add dup dup"
+   },
+   {
+    "rank": 1,
+    "merit": 4.975,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "sub shl nop and and add 0 0 1 a shr b rep8 b shl or a xor a loop dup add dup 0"
+   },
+   {
+    "rank": 2,
+    "merit": 4.975,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "drop dup add 1 a shr 1 1 1 a 0 b rep8 b shl or a xor a swap loop add dup rep8"
+   },
+   {
+    "rank": 3,
+    "merit": 4.975,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "swap add shl sub shr a a a 0 rep2 a nop rep8 b shl or a xor loop loop a add dup add"
+   },
+   {
+    "rank": 4,
+    "merit": 4.975,
+    "edge": 0.995,
+    "match": [],
+    "nearest": "2a+b",
+    "near_sim": 0.666,
+    "pairs": "3,5->15 100,7->207 255,200->550 1000,999->2031 40000,25000->7160",
+    "prog": "drop or xor sub rep2 xor and a 0 shr a nop rep8 b shl or a xor dup loop a add dup 1"
+   }
+  ],
+  "first_match": {
+   "a+b": 0,
+   "(a|b)+(a&b)": 0,
+   "a<<2": 0,
+   "4a": 0,
+   "a<<1": 0,
+   "2a": 0,
+   "a^b": 10,
+   "(a|b)-(a&b)": 10
+  }
+ }
+]

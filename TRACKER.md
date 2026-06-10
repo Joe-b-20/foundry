@@ -3841,3 +3841,42 @@ Status: WORKS (clean scaled negative-plus-rediscovery; control recovered; tail n
 targeted hunt is the queued follow-up). n=1 run (sampling 400k of 4.3M survivors).
 Files: gpu_pcf_hunt.py, runs_pod/phase2/pcf_main/{stage1_survivors.npz,stage2_hits.json,stage2_summary.json},
 runs_pod/phase2/{pcf_stage1.log,pcf_stage2.log}
+
+## 2026-06-10 — PHASE-2b LOOP SWEEP: reachable depth does NOT change naming-density — the ceiling is RECOGNITION, not vocabulary/depth
+What I tried (the sharpest test of the restated wall #6, audit §2.3): the original "vocabulary bounds you to named functions"
+ceiling was disconfirmed by oe_fix (target-free search lands on UNNAMED structured functions). The audit's reframe: the real
+gate is reachable composition DEPTH x naming-density of the shallow region. gpu_avida_loop.py tests it directly — add bounded
+loops (REP2/4/8, LOOP..END unrolled `maxit` times) to the validated cross-bit stack VM so a length-24 genome expresses
+reachable depth up to ~24*maxit, run the SAME target-free edge-of-chaos merit, and watch the nearest-named bit-similarity of
+the top organism as maxit grows. PRE-REGISTERED interpretation rule (written into the script before running): top_named_sim
+FALLS with maxit -> depth was the gate (named region shallow); FLAT -> naming-density extends deep, ceiling is RECOGNITION
+(Frontier 2). 2 seeds x maxit in {1,4,16} (reachable depth 24/96/384), N=6144, 600 gens, on the 4090. The 85-fn suite
+exact-matched on 64 probes + nearest-named for non-matches.
+What happened (runs_pod/phase2/loop_m{1,4,16}_s{1,2}/loop_log.json; final-gen, mean over 2 seeds):
+  maxit  reachable_depth  edge   top_named_sim  named_in_top5
+    1          24        0.998      0.579            0
+    4          96        1.000      0.595            0
+   16         384        1.000      0.603            0
+  The result is FLAT (0.579 -> 0.595 -> 0.603 — slightly RISING, not falling) across a 16x increase in reachable depth, and
+  named_in_top5 = 0 at EVERY depth and both seeds. So: (a) every condition's edge-of-chaos optimum is a STRUCTURED function
+  the 85-entry suite cannot name (~0.58-0.60 bit-similarity to its nearest named neighbor = barely above the ~0.5 chance
+  floor for a 16-bit map); (b) making the substrate able to reach 16x DEEPER compositions did NOT push the discovered
+  functions further from OR closer to the named region in any meaningful way — naming-density of the bridge-flagged region is
+  essentially depth-INVARIANT here. (Aside: distinct_named_ever FELL with depth, 7.5 -> 3.5, i.e. deeper substrates pass
+  THROUGH fewer named functions en route — consistent with them spending less time in the shallow named layer.)
+What I learned: By the pre-registered rule, this lands squarely on RECOGNITION (Frontier 2), not depth or vocabulary. The
+edge-of-chaos bridge reliably finds structured-but-unnamed functions at ALL reachable depths; the obstruction to a moonshot
+is NOT "we can't reach deep/exotic enough functions" (depth changed 16x with no effect on namedness) — it is that we have NO
+operational way to tell whether these unnamed structured functions are GENUINELY novel-and-meaningful or merely
+arbitrary-structured. This triangulates with oe_fix (unnamed attractor) and the deg-2 PCF null (rediscovery in the
+catalogued region): across three different substrates the ceiling is the same — surfacing structure is EASY and target-free;
+CERTIFYING novelty is the wall, and it is partly epistemically impossible (novelty evidenceable, not provable). HONEST
+caveats: "unnamed" = "not in an 85-fn arithmetic/logic suite" (a finite reference list — the recurring expX lesson; a much
+larger suite could name some of the 0.58-similarity functions); edge-of-chaos by construction avoids the simple
+densely-named region, so "finds unnamed" is partly baked into the signal; n=2 seeds (consistent, but not a large sample);
+and the loop unrolling is data-INDEPENDENT (fixed maxit), so "reachable depth" grew but data-dependent iteration was not
+tested (a richer variant). None of these blunts the central, pre-registered finding: depth is not the gate.
+Status: WORKS (clean pre-registered result, 2 seeds x 3 depths): reachable composition depth is naming-density-INVARIANT;
+relocates the wall-#6 successor from depth/vocabulary to RECOGNITION (Frontier 2), triangulating oe_fix + the PCF null.
+consolidation/07 Frontier-1/2 to be updated.
+Files: gpu_avida_loop.py, runs_pod/phase2/loop_m{1,4,16}_s{1,2}/loop_log.json, analyze_phase2.py

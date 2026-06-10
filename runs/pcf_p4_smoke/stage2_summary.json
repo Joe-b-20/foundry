@@ -1,0 +1,8 @@
+{
+ "n_hits": 1,
+ "control_ok": true,
+ "by_constant": {
+  "pi^2": 1
+ },
+ "tail_hits": []
+}

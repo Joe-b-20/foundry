@@ -1,0 +1,32 @@
+{
+ "n_hits": 1,
+ "control_ok": true,
+ "by_constant": {
+  "zeta3": 1
+ },
+ "tail_hits": [
+  {
+   "A": [
+    5,
+    27,
+    51,
+    34
+   ],
+   "B": [
+    0,
+    0,
+    0
+   ],
+   "value": "4.99144423548424481209875767293",
+   "constant": "zeta3",
+   "relation": [
+    -6,
+    0,
+    0,
+    1
+   ],
+   "height": 6,
+   "verified": true
+  }
+ ]
+}
