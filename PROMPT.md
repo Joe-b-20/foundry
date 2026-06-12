@@ -75,12 +75,17 @@ Building the project is itself a win: the lab is also the dataset.
   foundry must not). Strassen once the mold and recognizer are mature.
 - C1 — roof, findable: a planted short bit program whose primitives ARE
   in-language. Pass = engine finds it and the doctor stays quiet. Planted
-  length is a difficulty dial.
+  length is a difficulty dial (set so the exam CAN fail — a trivial plant
+  tests nothing).
 - C2 — roof, hopeless: keyed/pseudorandom mixer, same interface. Pass = the
-  doctor issues its scoped verdict and recommends quitting within budget.
+  doctor issues its scoped verdict and recommends quitting within budget,
+  judged on HELD-OUT data (corpus fit can be memorization).
+- C3 — roof, deceptive (added 2026-06-12 after Joe's grokking question): a
+  reachable target that plateaus above chance for a long stretch before a
+  sudden reorganization. Pass = the doctor never confidently abandons it.
 
-C1/C2 together are the doctor's exam: same interface, opposite correct
-answers — it gets tested for both wrong-quit and wrong-grind.
+C1/C2/C3 together are the doctor's exam: same interface, different correct
+answers — tested for wrong-quit, wrong-grind, and grok-killing.
 
 ## Roles
 

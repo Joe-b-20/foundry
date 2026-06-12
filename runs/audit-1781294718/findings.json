@@ -1,0 +1,35 @@
+{
+  "seconds": 0.45,
+  "findings": [
+    {
+      "check": "A1 pcf-rejects",
+      "status": "FLAG",
+      "detail": "9/13 rejects explained by b(1)=0 truncation; unexplained: [('table7(i=2,j=2,mu=1)', 'reason=rational, b(1)=-32'), ('table7(i=2,j=2,mu=2)', 'reason=rational, b(1)=-48'), ('table7(i=3,j=2,mu=1)', 'reason=rational, b(1)=-48'), ('table7(i=3,j=2,mu=2)', 'reason=rational, b(1)=-72')]"
+    },
+    {
+      "check": "A2 tracker-artifacts",
+      "status": "FLAG",
+      "detail": "18 cited run patterns; missing: ['runs/pcf-replication-s{0,1,2}-1781287481*', 'runs/pcf-replication-s{0,1,2}-1781287517*', 'runs/pcf-replication-s{0,1,2}-1781287521*', 'runs/pcf-sweep-s0-1781288694*']"
+    },
+    {
+      "check": "A3 re-execute-archived",
+      "status": "OK",
+      "detail": "63 archived winners independently re-executed; failures: none"
+    },
+    {
+      "check": "A4 reverify-sweep-findings",
+      "status": "OK",
+      "detail": "{'apery': ('verified', 'zeta3'), 'rm-8-7zeta3': ('verified', 'zeta3')}"
+    },
+    {
+      "check": "A5 artifact-completeness",
+      "status": "FLAG",
+      "detail": "reports lacking machine-readable found candidate: 15 (['bitmixer', 'karatsuba'])"
+    },
+    {
+      "check": "A6 todo-census",
+      "status": "INFO",
+      "detail": "3 TODO/FIXME markers: ['scripts/run_audit_checks.py:13', 'scripts/run_audit_checks.py:129', 'scripts/run_audit_checks.py:132']"
+    }
+  ]
+}

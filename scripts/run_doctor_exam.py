@@ -85,6 +85,7 @@ def run_universe(target, seed, spec):
 
     best_frac, best_len, best_cand = 0.0, None, None
     found = None
+    rejected = set()        # corpus-exact but failed exhaustive: keep going
     false_alarms, abandon_streak = 0, 0
     high_conf_abandon_seen = False
     accepted_abandon_gen = None
@@ -99,8 +100,17 @@ def run_universe(target, seed, spec):
             frac = sc[1] / total_bits
             if frac > best_frac:
                 best_frac, best_len, best_cand = frac, len(tidy), tidy
-            if sc[0] == 1 and found is None:
-                found = (gen, tidy)
+            if sc[0] == 1 and found is None and tidy not in rejected:
+                ok_v, det_v = pack.verify_trusted(mold, tidy)
+                if ok_v:
+                    found = (gen, tidy, det_v)
+                else:
+                    rejected.add(tidy)
+                    rec.event("judge", "corpus_exact_but_failed_exhaustive",
+                              payload={"gen": gen,
+                                       "cand": mold.pretty(tidy)},
+                              reason="corpus fit is not function identity; "
+                                     "search continues")
         prop.feedback(results)
         doctor.observe(gen, best_frac, best_len)
         if found:
@@ -142,12 +152,14 @@ def run_universe(target, seed, spec):
            "false_alarm_recs": false_alarms,
            "abandon_accepted_gen": accepted_abandon_gen}
     if found:
-        ok, det = pack.verify_trusted(mold, found[1])
-        out["verified_exhaustive"] = ok
-        out["found_pretty"] = mold.pretty(mold.tidy(found[1]))
+        _gen_f, tidy_f, det = found       # verified at find time, in-loop
+        out["verified_exhaustive"] = True
+        out["found_cand"] = [list(t) for t in tidy_f]
+        out["found_pretty"] = mold.pretty(tidy_f)
         out["planted_pretty"] = mold.pretty(pack.reveal()) if pack.reveal() else None
+        out["corpus_exact_rejected_by_exhaustive"] = len(rejected)
         rec.event("judge", "verify_on_write",
-                  payload=det, outcome="pass" if ok else "FAIL")
+                  payload=det, outcome="pass")
     if target == "planted":
         out["PASS"] = bool(found) and out.get("verified_exhaustive", False) \
             and accepted_abandon_gen is None

@@ -70,6 +70,9 @@ class PCFPack:
             return {"status": "dropped", "drop_reason": "no-match",
                     "delta": d, "meters": meters}
         name, rel = matches[0]
+        # exactly-two matches is below the triviality trap but still worth
+        # flagging: the verdict names the FIRST constant in battery order
+        ambiguous = [m[0] for m in matches[1:]]
         vt = numeric.verify_terms_for(self.verify_dps)
         r2 = numeric.eval_pcf(a, b, terms=vt, dps=self.verify_dps)
         meters["terms_verify"] = r2.get("terms", 0)
@@ -88,6 +91,7 @@ class PCFPack:
                         "residual_log10": float(mp.log10(resid)),
                         "meters": meters}
         return {"status": "verified", "constant": name, "rel": list(rel),
+                "ambiguous_with": ambiguous,
                 "delta": d, "value60": mp.nstr(v, 50),
                 "residual_log10": float(mp.log10(resid)) if resid > 0 else None,
                 "certificate": {"level": "numeric-250-digit "

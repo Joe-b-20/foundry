@@ -290,7 +290,10 @@ from the disjoint box c3 41..80, prediction zero verified survivors.
 Apery's fraction was added to the shelf first (citations: Apery 1979; van
 der Poorten 1979), shelf cache rebuilt.
 
-What happened (runs/pcf-sweep-s0-1781288694/report.json + s1/s2 runs):
+What happened (runs/pcf-sweep-s0-1781288694/report.json [ERRATUM
+2026-06-12 audit: wrong timestamp, that path does not exist — the real
+artifacts are runs/pcf-sweep-s0-1781288327, s1-1781288353, s2-1781288355]
++ s1/s2 runs):
 585,600 candidates -> 581,233 converged -> 23 prefilter survivors -> 2
 verified: (5,27,51,34) = KNOWN apery-zeta3 (control C+) and (1,5,9,6) =
 KNOWN rm-8-7zeta3, the target, verified at 250 digits and named BY FORM.
@@ -476,3 +479,55 @@ Files: scripts/run_grokking_probe.py, engine/doctor.py (confidence +
 asymmetric patience), domains/bitmixer.py (explicit plant param),
 scripts/run_doctor_exam.py (C3), runs/grokking-probe-*,
 runs/doctor_exam_summary-1781292497
+
+## 2026-06-12 — self-audit + full-engine re-proof + documentation refresh
+
+What I tried (while Joe thinks over the portfolio): a systematic audit of
+everything since the fork — programmatic probes (scripts/run_audit_checks
+.py, kept rerunnable), independent re-execution of every archived winner,
+claim-vs-artifact reconciliation against this tracker, and a code review
+pass. Then built the GAUNTLET (scripts/run_proof_phase.py): one command
+that re-runs the entire proof-it-works phase on the current engine — 19
+module sanity blocks + calibration A + exhaustion certificates + islands
++ PCF replication (3 seeds) + PCF sweep (3 seeds) + Karatsuba + the 9-
+universe doctor exam + the grokking probe + the audit itself.
+
+What the audit found (full report: docs/audit_2026-06-12.md):
+- ONE WRONG ARTIFACT PATH: the sweep entry cited runs/pcf-sweep-s0-
+  1781288694, which never existed (real: 1781288327/-353/-355). Dated
+  [ERRATUM] added in place. This is exactly the error class the claims-
+  need-artifacts rule exists for; the audit probe now checks every cited
+  path automatically.
+- ONE INCOMPLETE EXPLANATION: PCF shelf rejects had TWO mechanisms, not
+  one — 9/13 are j=0 -> b(1)=0 truncations, 4/13 (table7 j=2 corners) are
+  genuine telescoping rationals (verified values: 6, 4, 10, 60/7). The
+  trap caught all 13 correctly; my explanation covered only the first
+  mechanism.
+- CLEAN: all 63 archived winners re-executed independently, 0 failures;
+  sweep findings re-verify through a fresh pack.
+- FIXED: machine-readable found candidates now persisted in karatsuba +
+  doctor-exam reports (artifact completeness); doctor exam now verifies
+  corpus-exact candidates exhaustively AT FIND TIME and continues on
+  failure instead of ending the run; PCF verify flags 2-constant
+  ambiguity; audit tooling's own bugs (brace expansion, self-matching
+  TODO census).
+- DOCUMENTED (not hidden): standalone breaker still roadmap; archive
+  pareto keys and recognizer module sorting-flavored; delta not comparable
+  to RM-published values (unreduced q).
+
+Re-proof: PROOF PHASE PASS — 19/19 sanities, 9/9 stages, 108.6 s
+(runs/proof_phase-1781294922/summary.json). The whole ladder reproduces
+on the post-audit engine.
+
+Docs refreshed: README rewritten with two up-to-date mermaids (the machine
+map incl. roadmap items marked as such; candidate lifecycle), the ladder
+results table, and the gauntlet command. PROMPT.md calibration section
+now includes C3. RULES.md gains two earned rules (held-out generalization
+is the only claim basis in learned-signal domains; exams must be able to
+fail) and the run-the-gauntlet-after-engine-changes practice.
+
+Status: DONE — audit clean apart from the items above (all corrected or
+documented); full proof phase re-verified on the current engine.
+Files: scripts/run_audit_checks.py, scripts/run_proof_phase.py,
+docs/audit_2026-06-12.md, README.md, PROMPT.md, RULES.md,
+runs/audit-*, runs/proof_phase-1781294922

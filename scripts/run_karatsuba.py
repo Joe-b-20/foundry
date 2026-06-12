@@ -124,6 +124,7 @@ def run_one(seed):
                      "group — wider canonicalization is future recognizer work")
         report.update({
             "gen": gen, "island": nm, "verified": ok,
+            "found_cand": [[list(u), list(v), list(w)] for (u, v, w) in tidy],
             "pretty": mold.pretty(tidy), "mults": r,
             "certificate": det.get("certificate") if ok else det,
             "recognition": label})

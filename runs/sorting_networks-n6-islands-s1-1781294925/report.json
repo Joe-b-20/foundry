@@ -1,0 +1,151 @@
+{
+  "run_id": "sorting_networks-n6-islands-s1-1781294925",
+  "spec": {
+    "domain": "sorting_networks",
+    "domain_params": {
+      "n": 6
+    },
+    "roles": [
+      "blank",
+      "seeded",
+      "pressure"
+    ],
+    "pop_size": 64,
+    "generations": 600,
+    "migrate_every": 25,
+    "init_length": 15,
+    "seed": 1,
+    "target_outcome_size": 12,
+    "cost_rules": "primary: comparators (size); secondary: depth",
+    "schema": "islandsspec-v0"
+  },
+  "evals_total": 9792,
+  "seconds": 0.17,
+  "stop_reason": "outcome-only entry reached target size 12 at gen 50",
+  "islands": {
+    "blank-0": {
+      "evals": 3264,
+      "best": {
+        "pretty": "(0,4) (1,5) (2,3) | (0,1) (4,5) | (0,2) (1,3) | (1,4) (3,5) | (2,4) | (1,2) (3,4)",
+        "score": [
+          1,
+          64,
+          -12,
+          -6
+        ],
+        "cost": {
+          "comparators": 12,
+          "depth": 6
+        }
+      }
+    },
+    "seeded-1": {
+      "evals": 3264,
+      "best": {
+        "pretty": "(0,1) (2,3) (4,5) | (0,2) (1,3) | (0,4) (1,2) | (1,5) (2,4) | (1,2) (3,5) | (3,4)",
+        "score": [
+          1,
+          64,
+          -12,
+          -6
+        ],
+        "cost": {
+          "comparators": 12,
+          "depth": 6
+        }
+      }
+    },
+    "pressure-2": {
+      "evals": 3264,
+      "best": {
+        "pretty": "(0,4) (1,5) (2,3) | (0,1) (4,5) | (0,2) (1,3) | (1,4) (3,5) | (2,4) | (1,2) (3,4)",
+        "score": [
+          1,
+          64,
+          -12,
+          -6
+        ],
+        "cost": {
+          "comparators": 12,
+          "depth": 6
+        }
+      }
+    }
+  },
+  "best_outcome-only": {
+    "pretty": "(0,4) (1,5) (2,3) | (0,1) (4,5) | (0,2) (1,3) | (1,4) (3,5) | (2,4) | (1,2) (3,4)",
+    "cost": {
+      "comparators": 12,
+      "depth": 6
+    },
+    "island": "pressure-2",
+    "gen": 50,
+    "certificate": {
+      "level": "L1-exhaustive-in-bounds",
+      "evidence": {
+        "checked": 89,
+        "core_cost": {
+          "steps": 48,
+          "by_family": {
+            "cmp": 24,
+            "mov": 24
+          },
+          "native": {
+            "comparator": 12
+          }
+        }
+      }
+    },
+    "recognition": {
+      "label": "UNRESOLVED",
+      "cost": {
+        "comparators": 12,
+        "depth": 6
+      },
+      "notes": [
+        "same size+depth as ['batcher-odd-even'] but different wiring",
+        "size matches the proven optimal (Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+        "depth is +1 above optimal 5 (Knuth TAOCP v3 5.3.4)",
+        "not in shelf; NEW would need a full literature check"
+      ]
+    }
+  },
+  "best_seeded": {
+    "pretty": "(0,1) (2,3) (4,5) | (0,2) (1,3) | (0,4) (1,2) | (1,5) (2,4) | (1,2) (3,5) | (3,4)",
+    "cost": {
+      "comparators": 12,
+      "depth": 6
+    },
+    "island": "seeded-1",
+    "gen": 0,
+    "certificate": {
+      "level": "L1-exhaustive-in-bounds",
+      "evidence": {
+        "checked": 89,
+        "core_cost": {
+          "steps": 48,
+          "by_family": {
+            "cmp": 24,
+            "mov": 24
+          },
+          "native": {
+            "comparator": 12
+          }
+        }
+      }
+    },
+    "recognition": {
+      "label": "KNOWN",
+      "name": "batcher-odd-even",
+      "citation": "K. E. Batcher, 'Sorting networks and their applications', 1968",
+      "cost": {
+        "comparators": 12,
+        "depth": 6
+      },
+      "notes": [
+        "exact canonical match"
+      ]
+    }
+  },
+  "archive_entries": 4
+}

@@ -1,0 +1,35 @@
+{
+  "seconds": 0.64,
+  "findings": [
+    {
+      "check": "A1 pcf-rejects",
+      "status": "FLAG",
+      "detail": "9/13 rejects explained by b(1)=0 truncation; unexplained: [('table7(i=2,j=2,mu=1)', 'reason=rational, b(1)=-32'), ('table7(i=2,j=2,mu=2)', 'reason=rational, b(1)=-48'), ('table7(i=3,j=2,mu=1)', 'reason=rational, b(1)=-48'), ('table7(i=3,j=2,mu=2)', 'reason=rational, b(1)=-72')]"
+    },
+    {
+      "check": "A2 tracker-artifacts",
+      "status": "FLAG",
+      "detail": "22 cited run patterns; missing: ['runs/pcf-sweep-s0-1781288694*', 'runs/pcf-sweep-s0-1781288327,*', 'runs/sorting_networks-n{3..8}-hill-climb-s0-*', 'runs/pcf-replication-s0-1781287517*', 'runs/pcf-replication-s0-1781287521*', 'runs/pcf-replication-s1-1781287481*', 'runs/pcf-replication-s1-1781287521*', 'runs/pcf-replication-s2-1781287481*', 'runs/pcf-replication-s2-1781287517*']"
+    },
+    {
+      "check": "A3 re-execute-archived",
+      "status": "OK",
+      "detail": "110 archived winners independently re-executed; failures: none"
+    },
+    {
+      "check": "A4 reverify-sweep-findings",
+      "status": "OK",
+      "detail": "{'apery': ('verified', 'zeta3'), 'rm-8-7zeta3': ('verified', 'zeta3')}"
+    },
+    {
+      "check": "A5 artifact-completeness",
+      "status": "FLAG",
+      "detail": "reports lacking machine-readable found candidate: 15 (['bitmixer', 'karatsuba'])"
+    },
+    {
+      "check": "A6 todo-census",
+      "status": "OK",
+      "detail": "0 TODO/FIXME markers: none"
+    }
+  ]
+}

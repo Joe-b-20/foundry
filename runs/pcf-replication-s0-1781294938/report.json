@@ -1,0 +1,47 @@
+{
+  "run_id": "pcf-replication-s0-1781294938",
+  "spec": {
+    "seeds": [
+      "kappa(k=0,c=0)",
+      "kappa(k=1,c=0)",
+      "kappa(k=0,c=1)",
+      "kappa(k=1,c=1)"
+    ],
+    "generations": 14,
+    "children_per_gen": 8,
+    "parents_kept": 4,
+    "seed": 0,
+    "screen_dps": 60,
+    "verify_dps": 250,
+    "cost_rules": "primary: verified Mobius match (250-digit, conjecture-grade); quality: delta high, dl low",
+    "schema": "pcfwalk-v0"
+  },
+  "seconds": 3.7,
+  "void": false,
+  "controls": {
+    "ok": 42,
+    "total": 42
+  },
+  "shelf": {
+    "verified": 22,
+    "rejected": 13
+  },
+  "seeds": [
+    "kappa(k=0,c=0)",
+    "kappa(k=1,c=0)",
+    "kappa(k=0,c=1)",
+    "kappa(k=1,c=1)"
+  ],
+  "unique_candidates_classified": 97,
+  "reached_published_members_by_form": [
+    "kappa(k=0,c=2)"
+  ],
+  "class_hits_known_orbit_new_form": [],
+  "novel_flags": [],
+  "drop_histogram": {
+    "no-match": 43,
+    "rational": 28,
+    "diverged-or-degenerate": 19
+  },
+  "PASS": true
+}

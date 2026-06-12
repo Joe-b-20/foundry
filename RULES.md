@@ -59,6 +59,13 @@ tracker is for humans. Both are kept.
   shelf and bounds tables, with citations.
 - Reference-shelf and bounds-table numbers are never written from memory —
   only with citations checked at shelf-build time.
+- Learned-signal domains judge generalization on HELD-OUT data the search
+  never optimized. Corpus fit is never the basis of a claim or of an
+  abandon verdict (added 2026-06-12: corpus overfit masqueraded as signal
+  in the first C2 exam).
+- An exam that cannot fail tests nothing: difficulty dials are set so
+  failure is possible (added 2026-06-12: a planted target found at gen 0
+  exercised neither the search nor the doctor).
 
 ## Code discipline
 
@@ -73,3 +80,9 @@ Small and fast first — never start at scale 10. GPU for real training, CPU
 for sanity checks. Think before any run longer than 5 minutes. Abandonment
 is a first-class action: three tuning rounds on the same core approach
 without improvement means try something structurally different and log it.
+
+After any engine change, run the gauntlet — it re-runs the entire
+proof-it-works phase (all calibrations, the doctor exam, the grokking
+probe, and the claims-vs-artifacts audit) in ~2 minutes:
+
+    python3 -m scripts.run_proof_phase
