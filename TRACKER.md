@@ -135,3 +135,57 @@ one oversized binary was. No other blob exceeds 100 MB on main.
 
 Status: DONE
 Files: (history-level change; no working-tree code touched)
+
+## 2026-06-12 — step 3: archive + island ecology + tiny-n certificates; n=6 and n=8 gaps CLOSED outcome-only
+
+What I tried: Archive v0 (content-addressed, verify-on-write re-execution
+through the core runner, pareto elites, provenance as a first-class field);
+EvolutionProposer (population GA using mold moves, splice crossover,
+"pressure" rank = Island C: smallness outranks sortedness, so wrong
+intermediates are allowed INSIDE the island — only verified candidates
+leave, because the archive is the only bridge and it verifies on write);
+islands driver per Joe's injection #1 — blank / seeded / pressure islands;
+blank+pressure pull only outcome-only archive entries, so their lineages
+stay discovered-from-outcome by induction; Island D deferred until a second
+mold exists. Plus independent optimality certificates for tiny n by
+exhaustion (enumerate ALL sequences of length optimal-1; monotone-extension
+lemma covers shorter lengths).
+
+What happened:
+- Certificates (runs/certify_tiny-1781286005/certificates.json): n=3 — none
+  of 9 length-2 sequences sorts; n=4 — none of 1296 length-4 sequences
+  sorts; Batcher witnesses give the upper bounds. Optimal sizes 1/3/5 for
+  n=2/3/4 confirmed with our own machinery, matching Floyd-Knuth.
+- BUG FOUND AND FIXED (first islands batch, runs/islands_summary-
+  1781286021.json): archive pareto-domination was checked ACROSS provenance
+  classes — the seeded Batcher (19/6), admitted at gen 0, blocked every
+  outcome-only admission at n=8, silently erasing the outcome-only record
+  (outcome-only=None despite live progress). Fix: identity + domination now
+  scoped within provenance (key = (provenance, canonical)). The 3-seed +
+  provenance-split reporting is what surfaced the bug.
+- Fixed batch (runs/islands_summary-1781286099.json; 3 seeds per n):
+  n=6 outcome-only reached proven-optimal size 12 in 3/3 seeds (9.8k-14.6k
+  evals, 0.15-0.22 s; seed 2 found 12/depth-5 = proven-optimal size AND
+  depth, blank island). n=8 outcome-only reached proven-optimal size 19 in
+  2/3 seeds (108k-123k evals, ~2.5 s; both finds 19/6 = proven-optimal size
+  AND depth; third seed 21 at the 345.6k-eval budget). Seeded island sits
+  at Batcher 12/6 and 19/6, and the recognizer labels it KNOWN =
+  batcher-odd-even by exact canonical match — the KNOWN path now fires in
+  the wild. All outcome-only finds: UNRESOLVED (cost-identical to Batcher
+  at n=8 but different wiring).
+- The pressure island produced the outcome-only best in 5 of 6 runs: blank
+  finds correct ~13/~22, pressure compresses to 12/19.
+
+What I learned: (1) the ecology closes gaps hill-climb couldn't (n=8:
+22 -> 19), n=3 seeds; (2) provenance separation must be structural, not
+just reported — the archive bug would have quietly converted discoveries
+into nothing; (3) cost-exact-but-different-wiring rediscovery is the common
+case, so canonical-equivalence-up-to-untangling is the recognizer's most
+valuable next feature; (4) exhaustion certificates are cheap and real at
+n<=4; n=5 (10^8 sequences) is the SAT proposer's first job.
+
+Status: WORKS (n=6: 3/3 seeds outcome-only at proven-optimal size; n=8:
+2/3; certificates n=2,3,4 match the cited table)
+Files: engine/archive.py, engine/islands.py, engine/proposers.py
+(EvolutionProposer), scripts/certify_tiny_optimality.py,
+scripts/run_islands_a.py, runs/ as cited above

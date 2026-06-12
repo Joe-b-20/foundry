@@ -1,0 +1,150 @@
+[
+ {
+  "cand": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "cost": {
+   "comparators": 12,
+   "depth": 6
+  },
+  "provenance": "seeded",
+  "island": "seeded-1",
+  "gen": 0,
+  "ts": 1781286021.305,
+  "verified": true,
+  "verify_details": {
+   "checked": 89,
+   "core_cost": {
+    "steps": 48,
+    "by_family": {
+     "cmp": 24,
+     "mov": 24
+    },
+    "native": {
+     "comparator": 12
+    }
+   }
+  }
+ },
+ {
+  "cand": [
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "cost": {
+   "comparators": 12,
+   "depth": 5
+  },
+  "provenance": "outcome-only",
+  "island": "blank-0",
+  "gen": 100,
+  "ts": 1781286021.558,
+  "verified": true,
+  "verify_details": {
+   "checked": 89,
+   "core_cost": {
+    "steps": 48,
+    "by_family": {
+     "cmp": 24,
+     "mov": 24
+    },
+    "native": {
+     "comparator": 12
+    }
+   }
+  }
+ }
+]

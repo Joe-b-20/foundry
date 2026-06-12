@@ -54,7 +54,86 @@ class HillClimber:
                 self.restarts += 1
 
 
-PROPOSERS = {"random": RandomProposer, "hill-climb": HillClimber}
+class EvolutionProposer:
+    """Population GA. Strategy only — moves come from the mold.
+
+    rank="default": climb correctness first, then shrink (correct, sorted,
+    -size, -depth). rank="pressure": Island-C mode — among candidates,
+    smallness outranks sortedness ((correct, -size, -depth, sorted)), so the
+    population may pass through WRONG intermediates on the way to smaller
+    correct forms. Wrong candidates never leave the island: only the archive
+    bridges islands, and the archive verifies on write.
+    """
+
+    name = "evolution"
+
+    def __init__(self, pop_size=64, mut_stack=3, crossover=0.2,
+                 max_len_factor=3, rank="default", seeds=None):
+        self.pop_size = pop_size
+        self.mut_stack = mut_stack
+        self.crossover = crossover
+        self.max_len_factor = max_len_factor
+        self.rank = rank
+        self.seeds = list(seeds or [])
+        self.population = []          # list of (cand, score_tuple)
+
+    def _key(self, sc):
+        correct, n_sorted, neg_size, neg_depth = sc
+        if self.rank == "pressure":
+            return (correct, neg_size, neg_depth, n_sorted)
+        return sc
+
+    def _parent(self, rng):
+        a = rng.choice(self.population)
+        b = rng.choice(self.population)
+        return a[0] if self._key(a[1]) >= self._key(b[1]) else b[0]
+
+    def propose(self, ctx):
+        mold, rng = ctx["mold"], ctx["rng"]
+        if not self.population:
+            fresh = [mold.random_candidate(rng, ctx["init_length"])
+                     for _ in range(max(0, self.pop_size - len(self.seeds)))]
+            return list(self.seeds) + fresh
+        cap = self.max_len_factor * ctx["init_length"]
+        out = []
+        for _ in range(ctx["batch"]):
+            child = self._parent(rng)
+            if self.crossover and rng.random() < self.crossover:
+                other = self._parent(rng)
+                if child and other:
+                    child = (child[: rng.randrange(1, len(child) + 1)]
+                             + other[rng.randrange(len(other)):])
+            for _ in range(rng.randrange(1, self.mut_stack + 1)):
+                child = mold.mutate(child, rng)
+            if len(child) > cap:
+                child = child[:cap]
+            out.append(child)
+        return out
+
+    def absorb(self, scored):
+        """Inject already-scored candidates (e.g. archive migrants)."""
+        self.population.extend(scored)
+        self._truncate()
+
+    def feedback(self, results):
+        self.population.extend(results)
+        self._truncate()
+
+    def _truncate(self):
+        seen = {}
+        for cand, sc in self.population:
+            if cand not in seen or sc > seen[cand]:
+                seen[cand] = sc
+        ranked = sorted(seen.items(), key=lambda kv: self._key(kv[1]),
+                        reverse=True)
+        self.population = ranked[: self.pop_size]
+
+    def best(self):
+        return max(self.population, key=lambda r: r[1]) if self.population else None
+
+
+PROPOSERS = {"random": RandomProposer, "hill-climb": HillClimber,
+             "evolution": EvolutionProposer}
 
 
 if __name__ == "__main__":

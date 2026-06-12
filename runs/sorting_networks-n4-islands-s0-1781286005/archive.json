@@ -1,0 +1,102 @@
+[
+ {
+  "cand": [
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    0,
+    1
+   ]
+  ],
+  "cost": {
+   "comparators": 7,
+   "depth": 6
+  },
+  "provenance": "outcome-only",
+  "island": "blank-0",
+  "gen": 0,
+  "ts": 1781286005.716,
+  "verified": true,
+  "verify_details": {
+   "checked": 41,
+   "core_cost": {
+    "steps": 28,
+    "by_family": {
+     "cmp": 14,
+     "mov": 14
+    },
+    "native": {
+     "comparator": 7
+    }
+   }
+  }
+ },
+ {
+  "cand": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    2
+   ]
+  ],
+  "cost": {
+   "comparators": 5,
+   "depth": 3
+  },
+  "provenance": "seeded",
+  "island": "seeded-1",
+  "gen": 0,
+  "ts": 1781286005.717,
+  "verified": true,
+  "verify_details": {
+   "checked": 41,
+   "core_cost": {
+    "steps": 20,
+    "by_family": {
+     "cmp": 10,
+     "mov": 10
+    },
+    "native": {
+     "comparator": 5
+    }
+   }
+  }
+ }
+]
