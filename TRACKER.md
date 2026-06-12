@@ -118,3 +118,20 @@ Status: WORKS (rung 1 on table values for n=3,4,5,7; headroom flagged at 6,8)
 Files: domains/sorting_networks_shelf.py, engine/recognizer.py,
 engine/foreman.py (gate-3 wiring), scripts/run_calibration_a.py,
 runs/sorting_networks-n{3,4,5,6,7,8}-hill-climb-s0-1781283145/
+
+## 2026-06-12 — repo maintenance: GitHub remote + history filter
+
+What: created public remote github.com/Joe-b-20/foundry (Joe approved going
+public; reasons: parent already public, timestamped commits = priority
+trail, external-validation rung needs visibility). First push was rejected:
+the inherited parent history contained one 230.6 MB artifact
+(runs_pod/phase2/pcf_main/stage1_survivors.npz) over GitHub's 100 MB hard
+limit. Stripped that single blob from foundry's mirror of the history with
+git filter-branch (28 commits rewritten — all commit hashes changed,
+including the fork-point hashes cited anywhere earlier). The canonical
+artifact is untouched in the parent working copy (~/math_lab) and the
+parent's own repo; foundry's reference archive simply has a gap where the
+one oversized binary was. No other blob exceeds 100 MB on main.
+
+Status: DONE
+Files: (history-level change; no working-tree code touched)
