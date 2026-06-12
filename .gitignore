@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+# heavyweight artifacts go under runs_big/ (pointer files in runs/ instead);
+# runs/ itself stays tracked — small logs and reports are training data
+runs_big/
+_private/
+*.pt
+*.ckpt
