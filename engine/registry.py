@@ -26,4 +26,8 @@ def build(domain, domain_params):
         from domains.bilinear import BilinearPack
         from engine.molds_bilinear import BilinearMold
         return BilinearPack(**domain_params), BilinearMold()
+    if domain == "bitmixer":
+        from domains.bitmixer import BitMixerPack
+        from engine.molds_bits import BitProgMold
+        return BitMixerPack(**domain_params), BitProgMold()
     raise KeyError(f"unknown domain: {domain}")

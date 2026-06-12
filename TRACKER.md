@@ -364,3 +364,56 @@ data when we want it. Remaining calibration: C1/C2 + the wall doctor.
 Files: engine/molds_bilinear.py, domains/bilinear.py,
 domains/bilinear_shelf.py, engine/registry.py, engine/proposers.py (key
 param), scripts/run_karatsuba.py, runs/bilinear-karatsuba-s{0,1,2}-*
+
+## 2026-06-12 — C1/C2 + wall doctor: EXAM PASSED 6/6 — calibration ladder COMPLETE
+
+What I tried: the roof. Bit-program mold (candidates ARE core programs
+over XOR/AND/OR/ADD/MUL on 4 slots; +,*,&,|,^ commute with mod-2^w
+reduction, so the unmodified core runner executes them and only the final
+output is masked — no bit-width machinery). BitMixer pack: hidden f behind
+an I/O interface; C1 = planted program from the mold's own op set
+(non-trivial-filtered; length = difficulty dial), C2 = 8-round
+rotation+key ARX-style mixer (rotation NOT a primitive; 64-bit key folded
+in every round — the parent's expFF class). gate1 = bit-agreement on a
+corpus (graded signal); verify = exhaustive, all 2^16 input pairs at w=8
+through the core runner (L1-exhaustive). Wall doctor v1
+(engine/doctor.py): plateau detection + comparison against one-op
+"chance-plus" baselines; verdicts in the agreed scoped format, exactly one
+recommendation, RECOMMENDS-ONLY; operator = predeclared logged policy
+(accept after 2 consecutive abandon recommendations).
+
+EXAM v1 FAILED HONESTLY, twice over (runs/doctor_exam_summary-1781290969):
+planted_len=4 was trivial (random init solved it at gen 0-1 — wrong-quit
+direction never exercised) and keyed at a 384-bit corpus let evolution
+reach 0.61-0.63 agreement — which was CORPUS OVERFIT, not signal, and the
+doctor had no way to tell. Fix, and it is now a permanent doctor feature:
+a HELD-OUT set from a distinct stream (search never sees it; the doctor
+judges generalization on it — plateau + corpus >> heldout = memorization).
+Also planted_len -> 6, corpus -> 128 + heldout 256, mixer -> 8 rounds.
+
+EXAM v2 PASSED 6/6 (runs/doctor_exam_summary-1781291101.json):
+- C1 planted, 3/3: found at gens 116/63/475 (real time for the doctor to
+  wrongly quit; ZERO false alarms), each verified exhaustively on all
+  65,536 pairs. In s0 and s1 the finds are SHORTER equivalents of the
+  plants (3 ops vs 5 planted) — compression beyond the plant. (Note: the
+  printed per-run "heldout" is the last pre-find diagnostic reading, not
+  the found program's; verified_exhaustive subsumes it.)
+- C2 keyed, 3/3: corpus best 0.55-0.58 vs heldout 0.507-0.511 vs chance+
+  0.507-0.527 -> doctor: scoped verdict, wall-smell
+  learnability/pseudorandom, recommendation abandon; operator accepted at
+  gens 1400/1000/850. No exact found, obviously.
+- Total exam wall time ~16 s.
+
+What I learned: (1) the doctor can now pass both directions of its exam —
+it does not quit on findable targets and does not grind on hopeless ones,
+within this exam's scope (w=8, this op set, these budgets); (2) the
+held-out generalization check is not optional for learned-signal domains —
+corpus fit lies (mathlab's stratify/fit lessons, now structural); (3) exam
+difficulty dials matter: a trivial C1 tests nothing — planted_len 6 at
+gen 63-475 is the useful range for this budget.
+
+Status: WORKS (6/6, predeclared bar). CALIBRATION LADDER COMPLETE:
+A floor + B PCFs (walks + sweep) + B-prime Karatsuba + C1/C2 roof.
+Files: engine/molds_bits.py, domains/bitmixer.py, engine/doctor.py,
+engine/registry.py, scripts/run_doctor_exam.py,
+runs/bitmixer-*, runs/doctor_exam_summary-*

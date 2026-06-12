@@ -1,0 +1,14 @@
+{
+  "run_id": "bitmixer-keyed-s2-1781290968",
+  "target": "keyed",
+  "seed": 2,
+  "evals": 54464,
+  "seconds": 1.37,
+  "best_frac": 0.5599,
+  "chance_plus": 0.5365,
+  "found": false,
+  "found_gen": null,
+  "false_alarm_recs": 0,
+  "abandon_accepted_gen": 850,
+  "PASS": true
+}

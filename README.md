@@ -26,6 +26,10 @@ flagship results replicated — seeded walks reach published family members
 in a predeclared sweep with an in-grid Apery control and an empty null arm.
 Bilinear decompositions: Karatsuba rediscovered from outcome and NAMED
 (exact canonical match, Karatsuba & Ofman 1962) in 3/3 seeds, R=3 proven
-optimal by a flattening bound computed exactly in-repo. Full event logs
-under `runs/`. Next: the wall doctor and its C1/C2 exam, then the
-portfolio opens.
+optimal by a flattening bound computed exactly in-repo. Bit-mixers: the
+wall doctor passed its C1/C2 exam 6/6 — finds planted programs (sometimes
+shorter than the plant, verified exhaustively) and correctly recommends
+abandoning a keyed 8-round mixer, judging generalization on held-out data
+rather than corpus fit. The calibration ladder (floor / middle / roof) is
+complete. Full event logs under `runs/`. Next: the portfolio opens —
+new domains chosen for headroom and neglect.
