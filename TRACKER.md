@@ -189,3 +189,67 @@ Status: WORKS (n=6: 3/3 seeds outcome-only at proven-optimal size; n=8:
 Files: engine/archive.py, engine/islands.py, engine/proposers.py
 (EvolutionProposer), scripts/certify_tiny_optimality.py,
 scripts/run_islands_a.py, runs/ as cited above
+
+## 2026-06-12 — step 4 part 1: PCF domain pack — parent's seeded-walk result REPLICATED through the generic engine (calibration B, part 1)
+
+What I tried: second domain, polynomial continued fractions — the parent's
+strongest territory. New organs: engine/numeric.py (owned metered wrapper
+over mpmath; eval recurrence, delta, pslq helpers; the parent's hard
+lessons baked in: term count scales with precision vterms=max(1400,dps*9) —
+their v2 control failure was exactly a fixed term count — plus the rational
+trap and the multi-constant >=3 triviality trap); engine/molds_pcf.py (PCF
+mold); domains/pcf.py (pack: two-stage verification — 60-dps screen with
+Mobius pslq [1,C,v,vC], then 250-dps re-verify with scaled terms and
+residual < 1e-238; certificate level "numeric-250-digit, conjecture-grade,
+RM-style" — NOT proof, wording bounded accordingly); domains/pcf_shelf.py
+(battery of 8 constants, no algebraics; kappa + Table-7 families of
+arXiv:2210.15669 per the parent's parameterization, plus rm-8-7zeta3 as the
+zeta3-class control). Shelf is self-verified: 21/34 members pass the full
+pipeline; 13 rejects (parameter-degenerate cases, e.g. j=0 makes b(1)=0 ->
+truncation -> rational under our indexing convention) are logged, not
+hidden. Replication experiment: 4 kappa seeds, 14 generations, 8 children/
+gen, 3 controls (rm-8-7zeta3, kappa(0,0), kappa(1,0)) re-verified fresh
+EVERY generation; any control failure voids the run.
+
+What happened (3 seeds; runs/pcf-replication-s{0,1,2}-1781287{481,517,521}/
+report.json; earlier runs in the same prefix are the failed iterations,
+kept):
+- Controls: 42/42 C+ in every run (294 control checks total across all 7
+  runs including the failed iterations; zero failures). Parent's was 18/18.
+- All 3 seeds: a mutant walked BY FORM to kappa(k=0,c=2) — a published
+  family member not among the seeds (gens 5/7/2; ~3.3 s per run, CPU only).
+- Zero unexplained novel-flags in all runs: clean control-gated null,
+  matching the parent's v2 endpoint.
+- THREE honest catches en route, each its own small wall lesson:
+  (1) Mold v1 mutated dense polynomial coefficients -> 109 mutants, zero
+  members reached. The published families are parameterized by FACTOR
+  shifts; one family step is one move in factored space but a far junk jump
+  in coefficient space. Rebuilt the mold factored (the parent's B-shift/
+  B-split grammar). Moves define the geometry — the representational wall,
+  PCF edition.
+  (2) Value-level reference subtraction can only name the Mobius CLASS:
+  the whole catalan family is one Mobius orbit, so every hit "matched" the
+  first member in list order. Member identity needs STRUCTURAL matching.
+  (3) Factored forms are not unique (n^3(n+2) == n^2(n)(n+2)) AND distinct
+  published parameterizations can be the same polynomial — kappa(1,0) ==
+  table7(i=1,j=1,mu=0) expand identically. Canonical key = dense expansion;
+  "reached" requires the polynomial to differ from every seed's polynomial.
+  Before this fix the run claimed table7(1,1,0) as reached when it was a
+  seed under another name. (Neutral note: the parent's run-1 also reported
+  reaching (1,1,0); whether that was the same aliasing cannot be checked
+  from here and is not asserted.)
+
+What I learned: the recognizer ladder (canonical/structural first, value
+second) is not optional in numeric domains — value equivalence is class-
+level only. The engine now demands its first real refactor: judge v0 is
+sorting-shaped; pack-polymorphic judging (each pack provides its own gate-1
+path) is the next structural change. delta values here are internal-
+relative (our formula; not comparable to the parent's absolute numbers
+without checking normalization).
+
+Status: WORKS — calibration B part 1 PASSED, 3/3 seeds (controls perfect,
+member reached by form, clean null). Part 2 (scoped in-grid sweep
+rediscovery with positive control, Apery-class) still ahead.
+Files: engine/numeric.py, engine/molds_pcf.py, domains/pcf.py,
+domains/pcf_shelf.py, domains/pcf_refs.json (cached verified shelf),
+scripts/run_pcf_replication.py, runs/pcf-replication-*
