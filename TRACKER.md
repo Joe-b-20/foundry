@@ -253,3 +253,63 @@ rediscovery with positive control, Apery-class) still ahead.
 Files: engine/numeric.py, engine/molds_pcf.py, domains/pcf.py,
 domains/pcf_shelf.py, domains/pcf_refs.json (cached verified shelf),
 scripts/run_pcf_replication.py, runs/pcf-replication-*
+
+## 2026-06-12 — earned refactor: pack-polymorphic judge + domain registry
+
+What/why: judge v0 hardwired the sorting-network gates; the PCF pack was
+the second domain demanding the shape (RULES: no abstraction until a
+second domain forces it — this is that moment). Now: engine/registry.py
+maps domain name -> (pack, mold); the judge is a thin domain-blind
+dispatcher; each pack provides gate1(mold, tidy) -> (score, cost) and
+verify_trusted(mold, cand) -> (ok, details) built on engine services (core
+runner / numeric engine). Foreman and islands build via the registry
+(islands driver still sorting-flavored in its seeds/bounds, stated in an
+assert). Regression: all 13 module sanity checks pass; calibration A
+reproduces identically (same sizes/depths per seed); islands smoke at n=4
+now reaches outcome-only optimal size 5 at gen 10 — pre-provenance-fix it
+could not (the seeded Batcher blocked admission), consistent with the
+step-3 bug analysis.
+Status: DONE
+Files: engine/registry.py, engine/judge.py, domains/sorting_networks.py,
+domains/pcf.py, engine/foreman.py, engine/islands.py
+
+## 2026-06-12 — step 4 part 2: scoped in-grid sweep — RM 8/(7 zeta3) REDISCOVERED FROM OUTCOME (calibration B COMPLETE)
+
+What I tried: the parent's flagship from-outcome rediscovery (its commit
+c104290, run on a GPU pod) at a CPU-sized scope, everything predeclared in
+the RunSpec before running: grid a(n)=c0+c1 n+c2 n^2+c3 n^3 with c0 1..8,
+c1 1..30, c2 0..60, c3 1..40, b(n)=-n^6 (585,600 candidates; contains both
+Apery (5,27,51,34) and the target (1,5,9,6)); stage 1 = vectorized float64
+recurrence, 150 terms, renormalized, keep converged values within 1e-9 of
+a Mobius net (p+qC)/(r+sC), |coeffs|<=8, det!=0, C in {zeta3, pi^2,
+catalan}; stage 2 = full two-stage mpmath verification + structural naming
++ reference subtraction. Discovery is outcome-only: the prefilter sees
+battery CONSTANTS only, never shelf forms; naming happens after. Apery =
+in-grid positive control (fail -> VOID). Null arm = 100k random vectors
+from the disjoint box c3 41..80, prediction zero verified survivors.
+Apery's fraction was added to the shelf first (citations: Apery 1979; van
+der Poorten 1979), shelf cache rebuilt.
+
+What happened (runs/pcf-sweep-s0-1781288694/report.json + s1/s2 runs):
+585,600 candidates -> 581,233 converged -> 23 prefilter survivors -> 2
+verified: (5,27,51,34) = KNOWN apery-zeta3 (control C+) and (1,5,9,6) =
+KNOWN rm-8-7zeta3, the target, verified at 250 digits and named BY FORM.
+The other 21 survivors all dropped as no-match at the 60-dps pslq screen
+(float64 prefilter near-misses — the two-stage design doing its job).
+Null arm: 0 stage-1 survivors in all 3 seeds (300k samples total). Wall
+time 2.9 s CPU. PASS.
+
+What I learned: (1) the parent's pipeline shape (cheap-float prefilter ->
+exact verification) ports cleanly and the scoped version costs seconds,
+not pods; (2) the Mobius-net prefilter at 1e-9 has a measured-zero false-
+positive rate on the null box at this scale, and its 21 in-grid false
+positives were all caught downstream; (3) SCOPE of the rediscovery claim:
+within the predeclared box, prefilter constants, coeff bound 8, and
+tolerances above — no claim beyond it. Calibration B (replicate the
+parent's best) is now COMPLETE: seeded walks (part 1, 3/3 seeds) + from-
+outcome sweep rediscovery with control and null arm (part 2).
+
+Status: WORKS — calibration B COMPLETE. (Main arm is exhaustive over the
+declared grid, so no seed variance there; null arm n=3 seeds.)
+Files: scripts/run_pcf_sweep.py, domains/pcf_shelf.py (apery added),
+domains/pcf_refs.json (rebuilt), runs/pcf-sweep-s{0,1,2}-*

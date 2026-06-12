@@ -132,6 +132,21 @@ class PCFPack:
                     "ref_rel": list(ref_rel), **rec}
         return {"label": "UNRESOLVED-novel-flag", **rec}
 
+    # --- judge contract (engine/registry.py) ----------------------------
+    def gate1(self, mold, tidy):
+        """Screen-grade score for generic drivers: full pipeline verdict
+        folded into (verified, delta, -dl). Expensive relative to sorting's
+        gate (pslq-bound) — drivers should cache by tidy form."""
+        rec = self.verify(mold.dense(tidy))
+        d = rec.get("delta")
+        cost = mold.native_cost(tidy)
+        return ((1 if rec["status"] == "verified" else 0,
+                 d if d is not None else -5.0, -cost["dl"]), cost)
+
+    def verify_trusted(self, mold, cand):
+        rec = self.verify(mold.dense(mold.tidy(cand)))
+        return rec["status"] == "verified", rec
+
     def controls(self):
         """Known members injected into every batch; failure voids the batch.
         Chosen to span constant classes."""

@@ -13,12 +13,9 @@ import time
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from engine import judge, recognizer
-from engine.molds import ComparatorMold
+from engine import judge, recognizer, registry
 from engine.proposers import PROPOSERS
 from engine.recorder import Recorder
-from domains.sorting_networks import SortingNetworkPack
-from domains import sorting_networks_shelf as shelf_mod
 
 
 @dataclass
@@ -40,9 +37,7 @@ class RunSpec:
 
 
 def build(spec: RunSpec):
-    assert spec.domain == "sorting_networks", "v0 knows exactly one domain"
-    pack = SortingNetworkPack(**spec.domain_params)
-    mold = ComparatorMold(pack.n)
+    pack, mold = registry.build(spec.domain, spec.domain_params)
     proposer = PROPOSERS[spec.proposer](**spec.proposer_params)
     return pack, mold, proposer
 
@@ -114,12 +109,14 @@ def run(spec: RunSpec, runs_root="runs"):
                                  " all inputs (see pack docstring); plus"
                                  f" {len(pack._extra)} random integer vectors"),
                 }
-                shelf = shelf_mod.build_shelf(pack, mold)
-                verdict = recognizer.recognize(
-                    mold, tidy, shelf, shelf_mod.BOUNDS.get(pack.n))
-                rec.event("recognizer", "verdict", payload=verdict,
-                          reason="gate 3: new, known, or variant?")
-                report["recognition"] = verdict
+                if spec.domain == "sorting_networks":
+                    from domains import sorting_networks_shelf as shelf_mod
+                    shelf = shelf_mod.build_shelf(pack, mold)
+                    verdict = recognizer.recognize(
+                        mold, tidy, shelf, shelf_mod.BOUNDS.get(pack.n))
+                    rec.event("recognizer", "verdict", payload=verdict,
+                              reason="gate 3: new, known, or variant?")
+                    report["recognition"] = verdict
     rec.event("foreman", "report", payload=report)
     (rec.run_dir / "report.json").write_text(json.dumps(report, indent=2))
     rec.close()

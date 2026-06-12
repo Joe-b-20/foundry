@@ -72,6 +72,28 @@ class SortingNetworkPack:
                    "bounds table is filled during shelf-building (step 2) "
                    "with citations, never from memory")
 
+    # --- judge contract (engine/registry.py) ----------------------------
+    def gate1(self, mold, tidy):
+        n_ok, total = self.fast_score(tidy)
+        cost = mold.native_cost(tidy)
+        return ((int(n_ok == total), n_ok,
+                 -cost["comparators"], -cost["depth"]), cost)
+
+    def verify_trusted(self, mold, cand):
+        """Re-run the poured program through the core runner on the full
+        canonical input set (all 2^n binary vectors + random integers)."""
+        from engine import runner as core_runner
+        program = mold.pour(cand)
+        checked, last_cost = 0, None
+        for inputs in self.all_inputs():
+            out, last_cost = core_runner.run(program, inputs)
+            if not self.is_correct(inputs, out):
+                return False, {"checked": checked,
+                               "failed_on": list(inputs), "got": list(out)}
+            checked += 1
+        return True, {"checked": checked,
+                      "core_cost": last_cost.as_dict() if last_cost else None}
+
 
 if __name__ == "__main__":
     pack = SortingNetworkPack(4)

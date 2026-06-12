@@ -1,0 +1,87 @@
+{
+  "run_id": "pcf-sweep-s1-1781288353",
+  "spec": {
+    "c0": [
+      1,
+      8
+    ],
+    "c1": [
+      1,
+      30
+    ],
+    "c2": [
+      0,
+      60
+    ],
+    "c3": [
+      1,
+      40
+    ],
+    "terms_stage1": 150,
+    "conv_tol": 1e-11,
+    "prefilter_constants": [
+      "zeta3",
+      "pi^2",
+      "catalan"
+    ],
+    "mobius_coeff_bound": 8,
+    "prefilter_tol": 1e-09,
+    "null_arm_c3": [
+      41,
+      80
+    ],
+    "null_arm_samples": 100000,
+    "survivor_verify_cap": 200,
+    "seed": 1,
+    "schema": "pcfsweep-v0"
+  },
+  "seconds": 1.89,
+  "void": false,
+  "stage1": {
+    "grid": 585600,
+    "converged": 581233,
+    "survivors": 23
+  },
+  "verified_findings": [
+    {
+      "a": [
+        1,
+        5,
+        9,
+        6
+      ],
+      "label": "KNOWN",
+      "constant": "zeta3",
+      "named_by_form": [
+        "rm-8-7zeta3"
+      ],
+      "drop_reason": null,
+      "delta": -0.9951245542729963
+    },
+    {
+      "a": [
+        5,
+        27,
+        51,
+        34
+      ],
+      "label": "KNOWN",
+      "constant": "zeta3",
+      "named_by_form": [
+        "apery-zeta3"
+      ],
+      "drop_reason": null,
+      "delta": -0.9955548029207996
+    }
+  ],
+  "apery_control": {
+    "survived": true,
+    "verified": true
+  },
+  "target_rediscovered_from_outcome": true,
+  "null_arm": {
+    "stage1_survivors": 0,
+    "verified": []
+  },
+  "PASS": true
+}

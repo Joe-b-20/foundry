@@ -23,12 +23,10 @@ import time
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from engine import judge, recognizer
+from engine import judge, recognizer, registry
 from engine.archive import Archive
-from engine.molds import ComparatorMold
 from engine.proposers import EvolutionProposer
 from engine.recorder import Recorder
-from domains.sorting_networks import SortingNetworkPack
 from domains import sorting_networks_shelf as shelf_mod
 
 PROV = {"blank": "outcome-only", "pressure": "outcome-only", "seeded": "seeded"}
@@ -58,9 +56,11 @@ def run_islands(spec: IslandsSpec, runs_root="runs"):
     rec.event("foreman", "runspec", payload=dataclasses.asdict(spec),
               reason="predeclaration: budgets, roles and cost rules fixed before search")
 
-    assert spec.domain == "sorting_networks", "v0 knows exactly one domain"
-    pack = SortingNetworkPack(**spec.domain_params)
-    mold = ComparatorMold(pack.n)
+    # the islands DRIVER is generic via the registry; the seeded island's
+    # shelf and the bounds-based stop are still sorting-flavored (v0)
+    assert spec.domain == "sorting_networks", \
+        "islands v0 seeds/bounds are sorting-flavored; PCF walks have their own script"
+    pack, mold = registry.build(spec.domain, spec.domain_params)
     archive = Archive(spec.domain, pack, mold)
     shelf = shelf_mod.build_shelf(pack, mold)
     bounds = shelf_mod.BOUNDS.get(pack.n)

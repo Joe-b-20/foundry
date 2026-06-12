@@ -79,7 +79,8 @@ def rm_f():
 
 
 def factored_by_id():
-    out = {"rm-8-7zeta3": rm_f()}
+    out = {"rm-8-7zeta3": rm_f(),
+           "apery-zeta3": ((5, 27, 51, 34), (-1, 6, ()))}
     for k in range(0, 3):
         for c in range(0, 3):
             out[f"kappa(k={k},c={c})"] = kappa_f(k, c)
@@ -93,7 +94,12 @@ def factored_by_id():
 def candidate_refs():
     """(id, family, params, cand) for every member we attempt to verify."""
     out = [("rm-8-7zeta3", "rm", {},
-            ((1, 5, 9, 6), (0, 0, 0, 0, 0, 0, -1)))]
+            ((1, 5, 9, 6), (0, 0, 0, 0, 0, 0, -1))),
+           # Apery's zeta(3) fraction (value 6/zeta3): a = 34n^3+51n^2+27n+5,
+           # b = -n^6. Apery 1979 ("Irrationalite de zeta(2) et zeta(3)");
+           # CF form per van der Poorten 1979 ("A proof that Euler missed").
+           ("apery-zeta3", "apery-1979", {},
+            ((5, 27, 51, 34), (0, 0, 0, 0, 0, 0, -1)))]
     for k in range(0, 3):
         for c in range(0, 3):
             out.append((f"kappa(k={k},c={c})", "kappa-2210.15669",
