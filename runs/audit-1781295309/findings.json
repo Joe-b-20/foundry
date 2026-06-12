@@ -1,0 +1,35 @@
+{
+  "seconds": 0.68,
+  "findings": [
+    {
+      "check": "A1 pcf-rejects",
+      "status": "OK",
+      "detail": "9 b(1)=0 truncations + 4 verified telescoping rationals = 13/13; unexplained: none"
+    },
+    {
+      "check": "A2 tracker-artifacts",
+      "status": "FLAG",
+      "detail": "21 cited run patterns; missing: ['runs/pcf-sweep-s0-1781288694*']"
+    },
+    {
+      "check": "A3 re-execute-archived",
+      "status": "OK",
+      "detail": "110 archived winners independently re-executed; failures: none"
+    },
+    {
+      "check": "A4 reverify-sweep-findings",
+      "status": "OK",
+      "detail": "{'apery': ('verified', 'zeta3'), 'rm-8-7zeta3': ('verified', 'zeta3')}"
+    },
+    {
+      "check": "A5 artifact-completeness",
+      "status": "FLAG",
+      "detail": "9 newest found-reports checked; lacking found_cand: [('karatsuba', 'runs/bilinear-karatsuba-s2-1781289120/report.json'), ('bitmixer', 'runs/bitmixer-planted-s2-1781291085/report.json'), ('bitmixer', 'runs/bitmixer-planted-s2-1781292467/report.json'), ('bitmixer', 'runs/bitmixer-deceptive-s2-1781292495/report.json')]"
+    },
+    {
+      "check": "A6 todo-census",
+      "status": "OK",
+      "detail": "0 TODO/FIXME markers: none"
+    }
+  ]
+}

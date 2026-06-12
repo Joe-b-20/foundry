@@ -31,47 +31,79 @@ def finding(check, status, detail):
 
 
 def a1_pcf_rejects():
+    """Two known mechanisms (docs/audit_2026-06-12.md F2): b(1)=0
+    truncation, and telescoping members that genuinely converge to a
+    rational — the latter verified here by evaluation + pslq."""
     from domains.pcf_shelf import candidate_refs
+    from engine import numeric
     refs = {rid: cand for rid, fam, params, cand in candidate_refs()}
     data = json.loads(Path("domains/pcf_refs.json").read_text())
     rejects = data["rejects"]
-    explained, unexplained = [], []
+    truncated, telescoping, unexplained = [], [], []
     for rj in rejects:
         cand = refs.get(rj["id"])
         if cand is None:
             unexplained.append((rj["id"], "not in candidate_refs"))
             continue
-        b = cand[1]
-        b1 = sum(c * (1 ** k) for k, c in enumerate(b))
+        b1 = sum(cand[1])                    # b evaluated at n=1
         if rj["reason"] == "rational" and b1 == 0:
-            explained.append(rj["id"])
+            truncated.append(rj["id"])
+        elif rj["reason"] == "rational":
+            r = numeric.eval_pcf(cand[0], cand[1], terms=1400, dps=60)
+            if not r["degenerate"] and numeric.is_rational(r["value"]):
+                telescoping.append(rj["id"])
+            else:
+                unexplained.append((rj["id"], "rational reject but value "
+                                              "not confirmed rational"))
         else:
-            unexplained.append((rj["id"], f"reason={rj['reason']}, b(1)={b1}"))
+            unexplained.append((rj["id"], f"reason={rj['reason']}"))
     status = "OK" if not unexplained else "FLAG"
     finding("A1 pcf-rejects", status,
-            f"{len(explained)}/{len(rejects)} rejects explained by b(1)=0 "
-            f"truncation; unexplained: {unexplained}")
+            f"{len(truncated)} b(1)=0 truncations + {len(telescoping)} "
+            f"verified telescoping rationals = {len(truncated) + len(telescoping)}"
+            f"/{len(rejects)}; unexplained: {unexplained or 'none'}")
 
 
-def _expand_braces(p):
-    m = re.match(r"(.*?)\{([0-9,]+)\}(.*)", p)
-    if not m:
-        return [p]
-    out = []
-    for v in m.group(2).split(","):
-        out.extend(_expand_braces(m.group(1) + v + m.group(3)))
-    return out
+def _brace_groups(p):
+    return re.findall(r"\{([0-9,.]+)\}", p)
+
+
+def _group_values(g):
+    m = re.match(r"^(\d+)\.\.(\d+)$", g)        # {3..8} ranges
+    if m:
+        return [str(v) for v in range(int(m.group(1)), int(m.group(2)) + 1)]
+    return [v for v in g.split(",") if v]
 
 
 def a2_tracker_runs():
     text = Path("TRACKER.md").read_text()
+    # an erratum'd citation reads "runs/<bad-path> [ERRATUM ... real ...]":
+    # drop the bad path together with its bracket, then any stray brackets
+    text = re.sub(r"runs/\S+\s*\[ERRATUM.*?\]", "", text, flags=re.S)
+    text = re.sub(r"\[ERRATUM.*?\]", "", text, flags=re.S)
     pats = set(re.findall(r"runs/([A-Za-z0-9_\-{},.]+)", text))
     missing = []
     for p in pats:
-        for q in _expand_braces(p):
-            pat = f"runs/{q.rstrip('/.')}*"
-            if not glob.glob(pat):
-                missing.append(pat)
+        p = p.rstrip(",./")
+        groups = _brace_groups(p)
+        if len(groups) <= 1:
+            cands = [p] if not groups else [
+                p.replace("{" + groups[0] + "}", v, 1)
+                for v in _group_values(groups[0])]
+            for q in cands:
+                if not glob.glob(f"runs/{q}*"):
+                    missing.append(f"runs/{q}*")
+        else:
+            # multi-group shorthand (e.g. s{0,1,2}-ts{a,b,c}) means the
+            # DIAGONAL, not the cross product: check each value per axis
+            # with the other axes wildcarded
+            for gi, g in enumerate(groups):
+                for v in _group_values(g):
+                    q = p
+                    for gj, g2 in enumerate(groups):
+                        q = q.replace("{" + g2 + "}", v if gj == gi else "*", 1)
+                    if not glob.glob(f"runs/{q}*"):
+                        missing.append(f"runs/{q}*")
     status = "OK" if not missing else "FLAG"
     finding("A2 tracker-artifacts", status,
             f"{len(pats)} cited run patterns; missing: {missing or 'none'}")
@@ -107,20 +139,28 @@ def a4_reverify_sweep():
 
 
 def a5_artifact_completeness():
-    gaps = []
-    for f in glob.glob("runs/bilinear-karatsuba-*/report.json"):
-        r = json.loads(Path(f).read_text())
-        if r.get("found_r3") and "found_cand" not in r and "cand" not in str(r.keys()):
-            gaps.append(("karatsuba", f))
-    for f in glob.glob("runs/bitmixer-planted-*/report.json") \
-            + glob.glob("runs/bitmixer-deceptive-*/report.json"):
-        r = json.loads(Path(f).read_text())
-        if r.get("found") and "found_cand" not in r:
-            gaps.append(("bitmixer", f))
+    """Pre-fix runs are immutable history; only the NEWEST runs per family
+    must carry machine-readable found candidates."""
+    gaps, checked = [], 0
+    fams = (("karatsuba", "runs/bilinear-karatsuba-*/report.json",
+             "found_r3", 3),
+            ("bitmixer", "runs/bitmixer-planted-*/report.json", "found", 3),
+            ("bitmixer", "runs/bitmixer-deceptive-*/report.json", "found", 3))
+    def ts(path):                 # newest = largest trailing run timestamp
+        m = re.search(r"-(\d+)/report\.json$", path)
+        return int(m.group(1)) if m else 0
+
+    for fam, pat, flag, newest_n in fams:
+        for f in sorted(glob.glob(pat), key=ts)[-newest_n:]:
+            r = json.loads(Path(f).read_text())
+            if r.get(flag):
+                checked += 1
+                if "found_cand" not in r:
+                    gaps.append((fam, f))
     status = "OK" if not gaps else "FLAG"
     finding("A5 artifact-completeness", status,
-            f"reports lacking machine-readable found candidate: "
-            f"{len(gaps)} ({sorted(set(g[0] for g in gaps)) or 'none'})")
+            f"{checked} newest found-reports checked; lacking found_cand: "
+            f"{gaps or 'none'}")
 
 
 def a6_todos():
