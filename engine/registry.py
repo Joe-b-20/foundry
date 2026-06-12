@@ -22,4 +22,8 @@ def build(domain, domain_params):
         from domains.pcf import PCFPack
         from engine.molds_pcf import PCFMold
         return PCFPack(**domain_params), PCFMold()
+    if domain == "bilinear":
+        from domains.bilinear import BilinearPack
+        from engine.molds_bilinear import BilinearMold
+        return BilinearPack(**domain_params), BilinearMold()
     raise KeyError(f"unknown domain: {domain}")

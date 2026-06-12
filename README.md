@@ -18,9 +18,14 @@ domains. Or, at minimum, be the project that honestly tries.
   [rediscovery-engine](https://github.com/Joe-b-20/rediscovery-engine.)),
   whose wall taxonomy and honesty rules this project inherits.
 
-Status: engine skeleton + first domain (sorting networks) calibrated —
-proven-optimal-size networks found from outcome at n=3..8, optimality
-independently re-certified by exhaustion at n=2..4, full event logs under
-`runs/`. Next: the polynomial-continued-fraction domain pack (replicating
-the parent's strongest results through the generic engine), then the
-decomposition mold (Karatsuba), then the wall doctor's C1/C2 exam.
+Status: three domains live through one generic engine. Sorting networks:
+proven-optimal sizes found from outcome at n=3..8, optimality re-certified
+by exhaustion at n<=4. Polynomial continued fractions: the parent's
+flagship results replicated — seeded walks reach published family members
+(3/3 seeds, controls perfect) and RM 8/(7 zeta3) rediscovered from outcome
+in a predeclared sweep with an in-grid Apery control and an empty null arm.
+Bilinear decompositions: Karatsuba rediscovered from outcome and NAMED
+(exact canonical match, Karatsuba & Ofman 1962) in 3/3 seeds, R=3 proven
+optimal by a flattening bound computed exactly in-repo. Full event logs
+under `runs/`. Next: the wall doctor and its C1/C2 exam, then the
+portfolio opens.

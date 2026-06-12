@@ -68,16 +68,19 @@ class EvolutionProposer:
     name = "evolution"
 
     def __init__(self, pop_size=64, mut_stack=3, crossover=0.2,
-                 max_len_factor=3, rank="default", seeds=None):
+                 max_len_factor=3, rank="default", seeds=None, key=None):
         self.pop_size = pop_size
         self.mut_stack = mut_stack
         self.crossover = crossover
         self.max_len_factor = max_len_factor
         self.rank = rank
+        self.key = key                # optional custom rank callable
         self.seeds = list(seeds or [])
         self.population = []          # list of (cand, score_tuple)
 
     def _key(self, sc):
+        if self.key is not None:
+            return self.key(sc)
         correct, n_sorted, neg_size, neg_depth = sc
         if self.rank == "pressure":
             return (correct, neg_size, neg_depth, n_sorted)

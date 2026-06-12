@@ -313,3 +313,54 @@ Status: WORKS — calibration B COMPLETE. (Main arm is exhaustive over the
 declared grid, so no seed variance there; null arm n=3 seeds.)
 Files: scripts/run_pcf_sweep.py, domains/pcf_shelf.py (apery added),
 domains/pcf_refs.json (rebuilt), runs/pcf-sweep-s{0,1,2}-*
+
+## 2026-06-12 — Karatsuba REDISCOVERED AND NAMED from outcome (decomposition mold; third domain)
+
+What I tried: the bilinear-decomposition mold — candidates are R products
+(u.a)(v.b) plus integer recombination; the induced tensor
+T'[i][j][k] = sum_r u_r[i] v_r[j] w_r[k] must equal the target tensor
+entry-for-entry. That identity is INTEGER-EXACT and by bilinearity proves
+correctness for ALL inputs — certificate "L1-exact-tensor-identity", the
+strongest level foundry has issued (plus a poured-to-core cross-check on
+50 random integer inputs; this is the first new mold that pours to core).
+Target = polymul2 (degree-1 polynomial multiplication; Karatsuba's R=3 vs
+naive R=4). Bounds: rank >= 3 PROVEN by the flattening/slice-span argument
+COMPUTED EXACTLY in domains/bilinear_shelf.py (integer row reduction shows
+the three output slices are independent; slices of a rank-R decomposition
+span <= R dims), witness Karatsuba & Ofman 1962 -> R=3 proven optimal, so
+the recognizer's CONTRADICTS-PROVEN-BOUND logic applies below it. Search:
+two islands (the validated pattern) — blank with exact-first lexicographic
+rank, pressure with a STOKE-style blended scalar (l1 + 0.45R + 0.02dl) so
+near-miss R=3 candidates survive in-population and the R=4 -> R=3 valley
+is crossable through wrong intermediates; exact-only migration every 20
+gens. Recognition by canonical key over the target's symmetry group
+(a<->b swap + index reversal). EvolutionProposer gained an optional custom
+rank `key` (backward compatible). Registry: third domain, "bilinear".
+
+What happened (runs/bilinear-karatsuba-s{0,1,2}-*/report.json):
+- 3/3 seeds: exact verified R=3, all named KNOWN by exact canonical match:
+  s0 gen 204 (blank) = karatsuba-3 (+,+); s1 gen 173 (PRESSURE) =
+  karatsuba-3 (-,-) — the other sign variant; s2 gen 164 (blank) = (+,+).
+  Citations attached (Karatsuba & Ofman 1962).
+- Naive R=4 rediscovered first in every seed (gens 40/68/48) — the rung-1
+  baseline — then compressed to R=3.
+- 21-26k evals, 0.4-0.5 s per seed, CPU. ~1.4 s for the whole experiment.
+
+What I learned: (1) FIRST fully-closed named-rediscovery loop: discovered
+from outcome -> verified exactly -> named KNOWN with citation (sorting
+finds stayed UNRESOLVED wiring-variants; PCF naming was post-hoc by form;
+here symmetry-group canonicalization nails identity). (2) The parent
+needed custom scaffolding ("Strassen tensor method") for Karatsuba; the
+generic pipeline did it with zero domain-specific search code — the
+calibration-B "must not need hand-holding" bar, met. (3) Both Karatsuba
+sign variants appear across seeds — the solution space structure is
+visible in the archive of runs. (4) The blended-scalar pressure rank
+works where lexicographic pressure couldn't cross valleys; worth folding
+back into the islands driver someday.
+
+Status: WORKS (3/3 seeds; predeclared bar met). The middle calibration
+item is done; Strassen (matmul tensor, R=7) plugs into the SAME pack as
+data when we want it. Remaining calibration: C1/C2 + the wall doctor.
+Files: engine/molds_bilinear.py, domains/bilinear.py,
+domains/bilinear_shelf.py, engine/registry.py, engine/proposers.py (key
+param), scripts/run_karatsuba.py, runs/bilinear-karatsuba-s{0,1,2}-*
