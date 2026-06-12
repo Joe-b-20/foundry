@@ -1,0 +1,15 @@
+{
+  "run_id": "bitmixer-keyed-s0-1781292469",
+  "target": "keyed",
+  "seed": 0,
+  "evals": 105664,
+  "seconds": 6.58,
+  "best_frac": 0.5693,
+  "heldout_best": 0.5068,
+  "chance_plus": 0.5273,
+  "found": false,
+  "found_gen": null,
+  "false_alarm_recs": 0,
+  "abandon_accepted_gen": 1650,
+  "PASS": true
+}

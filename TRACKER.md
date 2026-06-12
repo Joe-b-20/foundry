@@ -417,3 +417,62 @@ A floor + B PCFs (walks + sweep) + B-prime Karatsuba + C1/C2 roof.
 Files: engine/molds_bits.py, domains/bitmixer.py, engine/doctor.py,
 engine/registry.py, scripts/run_doctor_exam.py,
 runs/bitmixer-*, runs/doctor_exam_summary-*
+
+## 2026-06-12 — grokking stress-test (Joe's question): does the doctor kill slow-reorganizing searches?
+
+Question (Joe): a search can look dead for thousands of gens then suddenly
+reorganize (grokking). Would the doctor kill it first?
+
+Honest pre-answer: the plateau+chance rule COULD kill a search that sits
+exactly AT CHANCE then jumps — and that case is information-theoretically
+near-identical to the cryptographic wall (no learnable partial signal = the
+PRF property), so no outcome-only detector can separate "flat-at-chance
+grok" from "dead". Not a fixable bug; a near-fundamental limit.
+
+What I tried (scripts/run_grokking_probe.py): maximize the doctor's chance
+to wrongly quit — reachable planted targets, early min_gens=200 so it
+diagnoses through the whole run, a deceptive conjunction plant
+out=(x^y)*(x+y) (building-block plateau) + random hard len-7 plants, doctor
+OBSERVE-ONLY (logs the verdict it WOULD give, never acts). Measure: any
+would-abandon STRICTLY before the find?
+
+What happened (runs/grokking-probe-*/report.json): 0/6 runs would have been
+killed before the find — INCLUDING a genuine grok (deceptive seed 1: flat
+at corpus 0.755 / held-out 0.761 for gens 0-2300, then SOLVED at gen 2303).
+Mechanism, confirmed from the trace: held-out 0.76 >> chance+ 0.62, so the
+doctor said "switch/raise budget" the entire plateau, NEVER "abandon".
+The abandon verdict is gated on held-out AT CHANCE, not on mere flatness —
+so a grok carrying above-chance partial signal during its plateau is routed
+to patience, not death. (A deceptive seed-2 run parked at 0.907 for 6000
+gens without finding: also never abandoned — correctly "switch/raise".)
+
+Hardening applied (motivated by the measurement, not speculative):
+- Doctor verdicts now CONFIDENCE-GRADED. A high-confidence abandon requires
+  the at-chance plateau to persist past abandon_min_gens (asymmetric
+  patience: killing a discovery costs >> running a dead search longer).
+  Below that horizon an at-chance plateau is "abandon, low confidence".
+- Operator policy tightened: accept an abandon only on HIGH confidence +
+  2 consecutive (was: any abandon + 2 consecutive).
+- C3 added as a PERMANENT exam case (out=(x^y)*(x+y)): PASS = the doctor
+  never issues a high-confidence abandon on this reachable deceptive target.
+  Locks in grok-survival against future doctor changes.
+
+Exam v2 (9 universes, runs/doctor_exam_summary-1781292497.json): PASS 9/9.
+C1 planted found gens 116/63/475 (0 false alarms); C2 keyed abandoned at
+1650/1650/2700 (later than v1's 850-1400 — the asymmetric patience, still
+within budget); C3 deceptive never confidently abandoned (found 19/19/492
+under the exam's search seed; the slow-grok stress lives in the probe).
+
+OPEN (honest): the residual at-chance-then-jump grok is undetectable from
+outcome alone. Next defense to BUILD ONLY WHEN an at-chance grok can be
+manufactured to test it: a "motion underneath" signal — population novelty
+/ description-length still moving while best-so-far is flat (the parent's
+bridge idea). Not built now: would be an untested mechanism for an
+unmanufactured case (violates measure-before-claim).
+
+Status: WORKS — doctor stress-tested against grokking; 0/6 wrongly killed;
+hardened + C3 locked in. Calibration ladder stays complete (now 9/9).
+Files: scripts/run_grokking_probe.py, engine/doctor.py (confidence +
+asymmetric patience), domains/bitmixer.py (explicit plant param),
+scripts/run_doctor_exam.py (C3), runs/grokking-probe-*,
+runs/doctor_exam_summary-1781292497

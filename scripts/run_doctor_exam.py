@@ -1,20 +1,25 @@
-"""The C1/C2 exam — the calibration roof. Same interface, opposite
-correct answers, both failure directions tested:
+"""The C1/C2/C3 exam — the calibration roof. Same interface, different
+correct answers, three directions tested:
 
-- C1 (planted, 3 seeds): a length-4 program from the mold's own op set is
+- C1 (planted, 3 seeds): a length-6 program from the mold's own op set is
   hidden behind the I/O interface. PASS = the engine finds it (exact on
   corpus, then verified exhaustively on all 2^16 pairs) AND the operator
   never accepts an abandon recommendation first (wrong-quit direction).
-- C2 (keyed, 3 seeds): a 6-round rotation+key mixer outside the op set.
-  PASS = the doctor recommends abandoning and the operator accepts it
-  within budget, with no exact found (wrong-grind direction).
+- C2 (keyed, 3 seeds): an 8-round rotation+key mixer outside the op set.
+  PASS = the doctor recommends abandoning (high confidence) and the
+  operator accepts within budget, no exact found (wrong-grind direction).
+- C3 (deceptive, 3 seeds): out=(x^y)*(x+y) — reachable, but partial
+  assembly plateaus ABOVE chance for a long time before a sudden grok-style
+  reorganization. PASS = the doctor NEVER issues a high-confidence abandon
+  (it may only ever say switch/raise). This is Joe's grokking case made a
+  permanent exam question (2026-06-12).
 
-Operator policy (predeclared, v1 doctor recommends-only): a diagnosis is
-requested every 50 generations; TWO consecutive abandon recommendations
-are accepted. Single recommendations on C1 are logged as false-alarm
-warnings; an ACCEPTED abandon on C1 fails the exam.
+Operator policy (predeclared, v1 doctor recommends-only): diagnosis every
+50 generations; an abandon is accepted only if HIGH confidence and TWO
+consecutive. Single/low-confidence recs on C1 are logged as false alarms;
+an accepted abandon on C1 or C3 fails the exam.
 
-EXAM PASS = all 6 universes.
+EXAM PASS = all 9 universes.
 
 Run from repo root:  python3 -m scripts.run_doctor_exam
 """
@@ -33,6 +38,9 @@ from engine.proposers import EvolutionProposer
 from engine.recorder import Recorder
 
 
+DECEPTIVE_PLANT = (("XOR", 2, 0, 1), ("ADD", 3, 0, 1), ("MUL", 0, 2, 3))
+
+
 @dataclass
 class ExamSpec:
     w: int = 8
@@ -44,9 +52,10 @@ class ExamSpec:
     doctor_min_gens: int = 800
     doctor_window: int = 500
     doctor_margin: float = 0.03
+    doctor_abandon_min_gens: int = 1600   # high-confidence abandon horizon
     diagnose_every: int = 50
-    accept_after: int = 2           # consecutive abandon recs accepted
-    schema: str = "doctorexam-v0"
+    accept_after: int = 2           # consecutive HIGH-conf abandons accepted
+    schema: str = "doctorexam-v1"
 
 
 def run_universe(target, seed, spec):
@@ -57,13 +66,18 @@ def run_universe(target, seed, spec):
               payload={**dataclasses.asdict(spec), "target": target,
                        "seed": seed},
               reason="predeclaration incl. operator accept-after policy")
-    pack, mold = registry.build("bitmixer", {
-        "target": target, "seed": seed, "w": spec.w,
-        "planted_len": spec.planted_len, "corpus_size": spec.corpus_size})
+    build_kwargs = {"target": "keyed" if target == "keyed" else "planted",
+                    "seed": seed, "w": spec.w,
+                    "planted_len": spec.planted_len,
+                    "corpus_size": spec.corpus_size}
+    if target == "deceptive":
+        build_kwargs["plant"] = DECEPTIVE_PLANT
+    pack, mold = registry.build("bitmixer", build_kwargs)
     baselines = pack.baselines()
     total_bits = spec.w * len(pack.corpus)
     doctor = WallDoctor(spec.doctor_min_gens, spec.doctor_window,
-                        chance_margin=spec.doctor_margin)
+                        chance_margin=spec.doctor_margin,
+                        abandon_min_gens=spec.doctor_abandon_min_gens)
     prop = EvolutionProposer(pop_size=spec.pop_size)
     rng = random.Random(seed)
     ctx = {"rng": rng, "mold": mold, "batch": spec.pop_size,
@@ -72,6 +86,7 @@ def run_universe(target, seed, spec):
     best_frac, best_len, best_cand = 0.0, None, None
     found = None
     false_alarms, abandon_streak = 0, 0
+    high_conf_abandon_seen = False
     accepted_abandon_gen = None
     heldout_best = None
     evals = 0
@@ -96,16 +111,19 @@ def run_universe(target, seed, spec):
             v = doctor.diagnose(baselines, heldout_best=heldout_best)
             if v:
                 rec.event("doctor", "verdict", payload=v)
-                if v["recommendation"] == "abandon-target":
+                high = (v["recommendation"] == "abandon-target"
+                        and v.get("confidence") == "high")
+                if high:
+                    high_conf_abandon_seen = True
                     abandon_streak += 1
-                    if target == "planted":
+                    if target in ("planted", "deceptive"):
                         false_alarms += 1
                     if abandon_streak >= spec.accept_after:
                         accepted_abandon_gen = gen
                         rec.event("operator", "decision",
                                   payload={"gen": gen},
                                   reason=f"{spec.accept_after} consecutive "
-                                         "abandon recommendations — "
+                                         "HIGH-confidence abandon recs — "
                                          "predeclared policy accepts",
                                   outcome="ABANDON")
                         break
@@ -133,7 +151,14 @@ def run_universe(target, seed, spec):
     if target == "planted":
         out["PASS"] = bool(found) and out.get("verified_exhaustive", False) \
             and accepted_abandon_gen is None
-    else:
+    elif target == "deceptive":
+        # the grok must never be confidently abandoned; finding it is a
+        # bonus, not required (it's stochastic). The property under test is
+        # the doctor's restraint.
+        out["high_conf_abandon_seen"] = high_conf_abandon_seen
+        out["PASS"] = (accepted_abandon_gen is None
+                       and not high_conf_abandon_seen)
+    else:  # keyed
         out["PASS"] = (accepted_abandon_gen is not None) and not found
     rec.event("foreman", "report", payload=out)
     (rec.run_dir / "report.json").write_text(json.dumps(out, indent=2))
@@ -144,7 +169,7 @@ def run_universe(target, seed, spec):
 def main():
     spec = ExamSpec()
     rows = []
-    for target in ("planted", "keyed"):
+    for target in ("planted", "keyed", "deceptive"):
         for seed in (0, 1, 2):
             r = run_universe(target, seed, spec)
             rows.append(r)
@@ -157,12 +182,13 @@ def main():
                   f"false_alarms={r['false_alarm_recs']} t={r['seconds']}s")
             if r.get("found_pretty"):
                 print(f"   found:   {r['found_pretty']}")
-                print(f"   planted: {r['planted_pretty']}")
+                if r.get("planted_pretty"):
+                    print(f"   planted: {r['planted_pretty']}")
     exam_pass = all(r["PASS"] for r in rows)
     path = f"runs/doctor_exam_summary-{int(time.time())}.json"
     with open(path, "w") as fh:
         json.dump({"rows": rows, "EXAM_PASS": exam_pass}, fh, indent=2)
-    print(f"\nEXAM PASS: {exam_pass} (bar: all 6 universes) -> {path}")
+    print(f"\nEXAM PASS: {exam_pass} (bar: all 9 universes) -> {path}")
     return 0 if exam_pass else 1
 
 

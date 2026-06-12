@@ -28,7 +28,7 @@ class BitMixerPack:
     name = "bitmixer"
 
     def __init__(self, target="planted", seed=0, w=8, planted_len=4,
-                 corpus_size=128, heldout_size=256):
+                 corpus_size=128, heldout_size=256, plant=None):
         self.target_name = target
         self.w = w
         self.mask = (1 << w) - 1
@@ -39,15 +39,20 @@ class BitMixerPack:
         if target == "planted":
             from engine.molds_bits import BitProgMold
             mold = BitProgMold()
-            while True:
-                cand = mold.tidy(mold.random_candidate(rng, planted_len))
-                if len(cand) < max(2, planted_len - 1):
-                    continue
-                f = lambda x, y, c=cand: self._interp(c, x, y)
-                if self._nontrivial(f, rng):
-                    self._planted = cand
-                    self._f = f
-                    break
+            if plant is not None:                 # explicit plant (probes)
+                cand = mold.tidy(tuple(plant))
+                self._planted = cand
+                self._f = lambda x, y, c=cand: self._interp(c, x, y)
+            else:
+                while True:
+                    cand = mold.tidy(mold.random_candidate(rng, planted_len))
+                    if len(cand) < max(2, planted_len - 1):
+                        continue
+                    f = lambda x, y, c=cand: self._interp(c, x, y)
+                    if self._nontrivial(f, rng):
+                        self._planted = cand
+                        self._f = f
+                        break
         elif target == "keyed":
             key = rng.getrandbits(64)
             def f(x, y, key=key, w=w):

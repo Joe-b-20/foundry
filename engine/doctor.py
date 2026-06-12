@@ -8,10 +8,24 @@ always use the scoped format agreed with Joe — never absolute claims:
      primitives / budget"
 
 v1 RECOMMENDS and never kills: the operator (a human, or a predeclared
-logged policy) decides. The C1/C2 exam (scripts/run_doctor_exam.py) tests
-both failure directions: wrong-quit on a findable target and wrong-grind
-on a hopeless one. The wall taxonomy behind the smells is the parent
+logged policy) decides. The exam (scripts/run_doctor_exam.py) tests three
+directions: wrong-quit on a findable target (C1), wrong-grind on a hopeless
+one (C2), and — added after Joe's grokking question, 2026-06-12 — NOT
+killing a deceptive search that plateaus ABOVE chance then suddenly
+reorganizes (C3). The wall taxonomy behind the smells is the parent
 project's (reference/mathlab, consolidation docs).
+
+GROKKING NOTE (measured, scripts/run_grokking_probe.py): the abandon
+verdict fires only when the plateau sits at CHANCE on held-out data, not
+merely when best-so-far is flat. A grokking-bound search assembling
+building blocks carries above-chance partial signal during its plateau, so
+it is routed to 'switch/raise budget', never 'abandon' — verified on a real
+gen-2303 grok. The residual hard case (a search flat exactly AT chance then
+sudden) is information-theoretically near-identical to the cryptographic
+wall; no outcome-only detector separates them. Defenses: recommends-only,
+confidence grading + asymmetric patience below, and the open 'motion
+underneath' signal (population novelty / description-length still moving)
+to be built when an at-chance grok can be manufactured to test it.
 """
 
 SCOPED = ("no usable signal under the current representation / "
@@ -20,11 +34,19 @@ SCOPED = ("no usable signal under the current representation / "
 
 class WallDoctor:
     def __init__(self, min_gens=800, plateau_window=500,
-                 improve_eps=0.002, chance_margin=0.03):
+                 improve_eps=0.002, chance_margin=0.03,
+                 abandon_min_gens=None):
         self.min_gens = min_gens
         self.plateau_window = plateau_window
         self.improve_eps = improve_eps
         self.chance_margin = chance_margin
+        # asymmetric patience: a HIGH-confidence abandon needs the
+        # at-chance plateau to persist this long. Killing a real discovery
+        # costs far more than running a dead search a while longer, so the
+        # bar to confidently declare a wall is deliberately higher than the
+        # bar to start worrying.
+        self.abandon_min_gens = (abandon_min_gens if abandon_min_gens
+                                 is not None else min_gens + 2 * plateau_window)
         self.history = []          # (gen, best_frac_so_far, best_len)
 
     def observe(self, gen, best_frac, best_len=None):
@@ -61,32 +83,54 @@ class WallDoctor:
                     "baselines": {k: round(v, 4)
                                   for k, v in baselines.items()}}
         if basis <= chance_plus + self.chance_margin:
+            # confidence is asymmetric: only a long-sustained at-chance
+            # plateau earns 'high'. A grok that sits at chance briefly then
+            # jumps is still 'low' and survives an operator that requires
+            # high confidence to accept an abandon.
+            confidence = "high" if gen >= self.abandon_min_gens else "low"
+            evidence["abandon_min_gens"] = self.abandon_min_gens
             return {"verdict": SCOPED,
                     "wall_smell": "learnability/pseudorandom — plateaued "
-                                  "at one-op chance-plus level",
+                                  "at one-op chance-plus level on held-out",
                     "evidence": evidence,
+                    "confidence": confidence,
                     "recommendation": "abandon-target"}
         return {"verdict": SCOPED,
-                "wall_smell": "partial signal, plateaued above chance — "
-                              "representation or budget limit",
+                "wall_smell": "partial signal, plateaued ABOVE chance — "
+                              "representation or budget limit, NOT a wall "
+                              "(grokking-compatible: keep going)",
                 "evidence": evidence,
+                "confidence": "n/a",
                 "recommendation": "switch-representation-or-raise-budget"}
 
 
 if __name__ == "__main__":
     bl = {"x^y": 0.55, "x": 0.52}
-    d = WallDoctor(min_gens=100, plateau_window=50, chance_margin=0.03)
-    for g in range(0, 200, 10):
-        d.observe(g, 0.56)                  # flat at chance-plus
+    # at chance, sustained past abandon_min_gens -> high-confidence abandon
+    d = WallDoctor(min_gens=100, plateau_window=50, chance_margin=0.03,
+                   abandon_min_gens=150)
+    for g in range(0, 400, 10):
+        d.observe(g, 0.56)
     v = d.diagnose(bl)
-    assert v and v["recommendation"] == "abandon-target", v
+    assert v and v["recommendation"] == "abandon-target" \
+        and v["confidence"] == "high", v
+    # at chance but NOT yet sustained -> low confidence (grok still has rope)
+    d_low = WallDoctor(min_gens=100, plateau_window=50, abandon_min_gens=5000)
+    for g in range(0, 400, 10):
+        d_low.observe(g, 0.56)
+    vlow = d_low.diagnose(bl)
+    assert vlow["recommendation"] == "abandon-target" \
+        and vlow["confidence"] == "low", vlow
+    # still climbing -> no concern
     d2 = WallDoctor(min_gens=100, plateau_window=50)
     for g in range(0, 200, 10):
-        d2.observe(g, 0.5 + g * 0.002)      # still climbing
+        d2.observe(g, 0.5 + g * 0.002)
     assert d2.diagnose(bl) is None
+    # plateaued ABOVE chance (the grokking case) -> switch, never abandon
     d3 = WallDoctor(min_gens=100, plateau_window=50)
     for g in range(0, 200, 10):
-        d3.observe(g, 0.80)                 # plateaued but well above chance
+        d3.observe(g, 0.80)
     v3 = d3.diagnose(bl)
     assert v3 and v3["recommendation"].startswith("switch"), v3
-    print("doctor v1 ok: abandon / quiet / switch verdicts behave")
+    print("doctor v1 ok: high/low-confidence abandon, climbing, "
+          "and above-chance-plateau (grok-safe) verdicts behave")
