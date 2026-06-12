@@ -103,7 +103,9 @@ class EvolutionProposer:
             child = self._parent(rng)
             if self.crossover and rng.random() < self.crossover:
                 other = self._parent(rng)
-                if child and other:
+                if hasattr(mold, "crossover"):
+                    child = mold.crossover(child, other, rng)
+                elif child and other:
                     child = (child[: rng.randrange(1, len(child) + 1)]
                              + other[rng.randrange(len(other)):])
             for _ in range(rng.randrange(1, self.mut_stack + 1)):

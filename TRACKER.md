@@ -531,3 +531,74 @@ documented); full proof phase re-verified on the current engine.
 Files: scripts/run_audit_checks.py, scripts/run_proof_phase.py,
 docs/audit_2026-06-12.md, README.md, PROMPT.md, RULES.md,
 runs/audit-*, runs/proof_phase-1781294922
+
+## 2026-06-12 — PORTFOLIO DOMAIN #1: rsqrt (numerical approximants). Magic constant found from outcome: 0x5F375A87, one step from Lomont's, marginally better on our scope
+
+Domain rationale (Joe picked numerical approximants — exp/log/sqrt/rsqrt/
+sin/cos/tanh/sigmoid/erf/softplus/gelu; scoped to start with rsqrt, tanh
+next): extremely load-bearing; float32 unary input spaces are FINITE so
+verification is EXHAUSTIVE (this domain's 0/1 principle); the polynomial
+corner is theory-solved (Remez/minimax — that's bounds machinery, not a
+competitor), so headroom lives in bit/float hybrids and the sloppy
+ML-activation corner. Citations checked: Quake III 0x5F3759DF (1999);
+Lomont 2003 0x5F375A86, bound 1.751302e-3; Moroz/Walczyk/Cieslinski
+(arXiv:1802.06302 etc.) modified-Newton class — their exact constants NOT
+carried (rules: no shelf numbers from memory).
+
+Built: core language's first real extension — 32-bit BITS-TYPED op subset
+(FADD/FSUB/FMUL + ADD32/SUB32/SHR32/SHL32/XOR32; ops interpret a slot's
+low 32 bits, so int<->float reinterpretation is free, exactly how the
+trick family sees the world; FDIV excluded: float64 intermediates would
+double-round division — add/sub/mul are exact). FloatProgMold: programs +
+4 CONSTANT GENES (bit-flip mutations; mold-aware crossover mixes constant
+genes — the generic sequence splice cannot handle (instrs, consts) pairs).
+RsqrtPack: declared scope all float32 in [2^-8, 2^8) (134,217,728 values);
+gate1 = shaped search loss; CLAIM metric = exhaustive max rel error vs
+float64 reference; verify_trusted = exhaustive sweep + 256-input bit-exact
+cross-check against the core runner. Shelf self-verified: our exhaustive
+measurement reproduces Lomont's published bound DIGIT-FOR-DIGIT
+(1.751302e-3) and Quake's at 1.752339e-3; seed-only at 3.437577e-2.
+
+THREE SEARCH-DESIGN FAILURES en route, each measured and kept:
+(1) constant-output attractor: raw max-rel fitness saturates near 1.0 for
+"output a tiny constant" while bit-trick exploration scores astronomically
+worse -> total collapse (summaries -1781296565, -1781296725; the shaped
+log-loss alone did NOT fix it because (2) global truncation selection
+culls any temporarily-bad lineage — scaffold seeds with random constants
+died in gen 1. Niche protection by structure-freezing fixed retention
+(-1781296890). (3) Coordinate search traps: single-bit descent cannot
+cross multi-bit boundaries (shift gene stuck at 2; 2->1 is ...10 -> ...01,
+two simultaneous flips — summary -1781297088); carry deltas fixed that but
+one-gene-at-a-time descent cannot enter the Newton basin (c2~0.5 AND
+c3~1.5 AND magic c0 must move together; -1781297202).
+
+ARM B1 (the rung-1 result; structure + DERIVED Newton coefficients (3/2,
+1/2 — calculus, not discovered magic) given; THE CONSTANT searched from
+outcome — historically faithful to what Lomont's numerical search
+optimized): coarse-to-fine 1-D global sweep over all 2^32 constants
+(8192-point coarse grid on the sample metric -> recursive refinement ->
+2M-point dense grid -> final +-8 fine scan under the EXHAUSTIVE metric).
+Result, 3/3 seeds, deterministic: c0 = 0x5F375A87, exhaustive max rel
+error 1.751288e-3 — ONE integer step from Lomont's 0x5F375A86 and
+MARGINALLY BETTER on our scope/metric (1.751288e-3 vs 1.751302e-3; the
+1.4e-8 gap is far above the ~1e-16 reference noise). HONEST FLAG, not a
+claim of beating Lomont: his optimum may be over a different scope (all
+normals) or a slightly different error definition; whether 0x5F375A87
+refines or merely ties his constant needs a read of the primary paper
+before anything is said publicly. Label: UNRESOLVED-novel-flag pending
+literature check. (~38 s/seed; runs/rsqrt-B1-s{0,1,2}-*,
+summary runs/rsqrt_hunt_summary-1781297607.json, PASS predeclared bar
+3/3.)
+
+OPEN, honestly: arm B (all four constants jointly from outcome) 0/3 —
+needs a coupled-variable optimizer (CMA-style or nested descent); arm A
+(open structure from nothing) 0/3 — the constant-output attractor is this
+domain's landscape wall; needs diversity machinery (novelty/MAP-Elites),
+which is a real next-session research item, and the doctor should learn
+this domain's baselines.
+
+Status: WORKS (B1 3/3, predeclared) + two honest OPENs. Next: tanh pack
+(Remez bounds machinery), joint-constant optimizer, arm-A diversity.
+Files: engine/core_lang.py + engine/runner.py (32-bit subset),
+engine/molds_float.py, domains/rsqrt.py, domains/rsqrt_shelf.py,
+engine/registry.py, scripts/run_rsqrt_hunt.py, runs/rsqrt-*

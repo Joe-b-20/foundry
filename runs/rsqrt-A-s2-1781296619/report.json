@@ -1,0 +1,39 @@
+{
+  "run_id": "rsqrt-A-s2-1781296619",
+  "arm": "A",
+  "seed": 2,
+  "seconds": 8.96,
+  "evals": 240000,
+  "sample_err": 0.9922178988344967,
+  "verified": true,
+  "exhaustive_err": 0.9922178988344967,
+  "vs": {
+    "quake": 0.0017523386720978999,
+    "lomont": 0.0017513015578613242
+  },
+  "found_cand": {
+    "instrs": [
+      [
+        "SUB32",
+        0,
+        5,
+        2
+      ]
+    ],
+    "consts": [
+      "0x1598150d",
+      "0xc200ff01",
+      "0xf08978e0",
+      "0x215c255c"
+    ]
+  },
+  "pretty": "[c0=0x1598150D c1=0xC200FF01 c2=0xF08978E0 c3=0x215C255C] x=t0-ic1",
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "max relative error 9.922179e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+    "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+  },
+  "labels": [
+    "UNRESOLVED structure"
+  ]
+}

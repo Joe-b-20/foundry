@@ -1,0 +1,1 @@
+{"schema": "fr-v0", "ts": 1781296445.559, "run": "rsqrt-B-s0-1781296445", "seq": 0, "actor": "foreman", "action": "runspec", "payload": {"lo_exp": -8, "hi_exp": 8, "pop_size": 96, "generations": 2500, "init_length": 6, "seeds_per_arm": [0, 1, 2], "scaffold_variants": 8, "schema": "rsqrthunt-v0", "arm": "B", "seed": 0}, "reason": "predeclaration: budget, metric, scope, pass bars"}

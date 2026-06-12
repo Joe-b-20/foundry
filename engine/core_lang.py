@@ -25,6 +25,23 @@ OPS = {
     "AND":   (2, "bit"),
     "OR":    (2, "bit"),
     "XOR":   (2, "bit"),
+    # --- 32-bit "bits-typed" subset (added for the approximants domain,
+    # the first domain that demanded floats). These ops read the LOW 32
+    # BITS of a slot and interpret them per-op: F-ops view bits as IEEE-754
+    # float32, compute, round to float32, store the result's bits; *32 ops
+    # are uint32 arithmetic. Under bits-typing, int<->float reinterpretation
+    # is free — which is exactly how the magic-constant trick family sees
+    # the world. FDIV is deliberately absent for now: a float64
+    # intermediate double-rounds division (add/sub/mul are exact in f64),
+    # which would break bit-exactness against vectorized evaluators.
+    "ADD32": (2, "bit"),
+    "SUB32": (2, "bit"),
+    "SHR32": (2, "bit"),   # shift amount = low 5 bits of m[b]
+    "SHL32": (2, "bit"),
+    "XOR32": (2, "bit"),
+    "FADD":  (2, "fadd"),
+    "FSUB":  (2, "fadd"),
+    "FMUL":  (2, "fmul"),
 }
 
 

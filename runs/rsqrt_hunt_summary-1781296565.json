@@ -1,0 +1,266 @@
+{
+  "seconds": 63.25,
+  "rows": [
+    {
+      "run_id": "rsqrt-B-s0-1781296570",
+      "arm": "B",
+      "seed": 0,
+      "seconds": 9.32,
+      "evals": 240000,
+      "sample_err": 0.9922178988344967,
+      "verified": true,
+      "exhaustive_err": 0.9922178988344967,
+      "vs": {
+        "quake": 0.0017523386720978999,
+        "lomont": 0.0017513015578613242
+      },
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            0,
+            1,
+            4
+          ]
+        ],
+        "consts": [
+          "0xa723fecd",
+          "0xcf853cc",
+          "0x13041737",
+          "0xd647087a"
+        ]
+      },
+      "pretty": "[c0=0xA723FECD c1=0x0CF853CC c2=0x13041737 c3=0xD647087A] x=c0*fc3",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max relative error 9.922179e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      },
+      "labels": [
+        "UNRESOLVED structure"
+      ]
+    },
+    {
+      "run_id": "rsqrt-B-s1-1781296580",
+      "arm": "B",
+      "seed": 1,
+      "seconds": 8.86,
+      "evals": 240000,
+      "sample_err": 0.9922178988344967,
+      "verified": true,
+      "exhaustive_err": 0.9922178988344967,
+      "vs": {
+        "quake": 0.0017523386720978999,
+        "lomont": 0.0017513015578613242
+      },
+      "found_cand": {
+        "instrs": [
+          [
+            "SHR32",
+            0,
+            1,
+            6
+          ]
+        ],
+        "consts": [
+          "0x3dff00ff",
+          "0xc4232b5",
+          "0x58b20ee1",
+          "0x1fe9956"
+        ]
+      },
+      "pretty": "[c0=0x3DFF00FF c1=0x0C4232B5 c2=0x58B20EE1 c3=0x01FE9956] x=c0>>t1",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max relative error 9.922179e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      },
+      "labels": [
+        "UNRESOLVED structure"
+      ]
+    },
+    {
+      "run_id": "rsqrt-B-s2-1781296589",
+      "arm": "B",
+      "seed": 2,
+      "seconds": 12.59,
+      "evals": 240000,
+      "sample_err": 0.9799457304179668,
+      "verified": true,
+      "exhaustive_err": 0.9799464329678395,
+      "vs": {
+        "quake": 0.0017523386720978999,
+        "lomont": 0.0017513015578613242
+      },
+      "found_cand": {
+        "instrs": [
+          [
+            "FADD",
+            7,
+            0,
+            0
+          ],
+          [
+            "FMUL",
+            0,
+            7,
+            3
+          ],
+          [
+            "FADD",
+            7,
+            0,
+            7
+          ],
+          [
+            "FADD",
+            7,
+            7,
+            4
+          ],
+          [
+            "FMUL",
+            0,
+            1,
+            7
+          ]
+        ],
+        "consts": [
+          "0xb00fe653",
+          "0xe54e9978",
+          "0x49918fff",
+          "0xce12227f"
+        ]
+      },
+      "pretty": "[c0=0xB00FE653 c1=0xE54E9978 c2=0x49918FFF c3=0xCE12227F] t2=x+fx; x=t2*fc2; t2=x+ft2; t2=t2+fc3; x=c0*ft2",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max relative error 9.799464e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      },
+      "labels": [
+        "UNRESOLVED structure"
+      ]
+    },
+    {
+      "run_id": "rsqrt-A-s0-1781296601",
+      "arm": "A",
+      "seed": 0,
+      "seconds": 8.7,
+      "evals": 240000,
+      "sample_err": 0.9922178988344967,
+      "verified": true,
+      "exhaustive_err": 0.9922178988344967,
+      "vs": {
+        "quake": 0.0017523386720978999,
+        "lomont": 0.0017513015578613242
+      },
+      "found_cand": {
+        "instrs": [
+          [
+            "SUB32",
+            0,
+            6,
+            4
+          ]
+        ],
+        "consts": [
+          "0xe6134695",
+          "0x718cf022",
+          "0xaa2245b",
+          "0xc200ff01"
+        ]
+      },
+      "pretty": "[c0=0xE6134695 c1=0x718CF022 c2=0x0AA2245B c3=0xC200FF01] x=t1-ic3",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max relative error 9.922179e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      },
+      "labels": [
+        "UNRESOLVED structure"
+      ]
+    },
+    {
+      "run_id": "rsqrt-A-s1-1781296610",
+      "arm": "A",
+      "seed": 1,
+      "seconds": 9.44,
+      "evals": 240000,
+      "sample_err": 0.9922178988344967,
+      "verified": true,
+      "exhaustive_err": 0.9922178988344967,
+      "vs": {
+        "quake": 0.0017523386720978999,
+        "lomont": 0.0017513015578613242
+      },
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            0,
+            4,
+            2
+          ]
+        ],
+        "consts": [
+          "0xd98c3907",
+          "0x8bff57e2",
+          "0x551b9d02",
+          "0xf17fa8e4"
+        ]
+      },
+      "pretty": "[c0=0xD98C3907 c1=0x8BFF57E2 c2=0x551B9D02 c3=0xF17FA8E4] x=c3*fc1",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max relative error 9.922179e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      },
+      "labels": [
+        "UNRESOLVED structure"
+      ]
+    },
+    {
+      "run_id": "rsqrt-A-s2-1781296619",
+      "arm": "A",
+      "seed": 2,
+      "seconds": 8.96,
+      "evals": 240000,
+      "sample_err": 0.9922178988344967,
+      "verified": true,
+      "exhaustive_err": 0.9922178988344967,
+      "vs": {
+        "quake": 0.0017523386720978999,
+        "lomont": 0.0017513015578613242
+      },
+      "found_cand": {
+        "instrs": [
+          [
+            "SUB32",
+            0,
+            5,
+            2
+          ]
+        ],
+        "consts": [
+          "0x1598150d",
+          "0xc200ff01",
+          "0xf08978e0",
+          "0x215c255c"
+        ]
+      },
+      "pretty": "[c0=0x1598150D c1=0xC200FF01 c2=0xF08978E0 c3=0x215C255C] x=t0-ic1",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max relative error 9.922179e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      },
+      "labels": [
+        "UNRESOLVED structure"
+      ]
+    }
+  ],
+  "B_match_or_beat_lomont": "0/3",
+  "A_structure_assembled": "3/3",
+  "PASS": false
+}

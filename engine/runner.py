@@ -7,10 +7,31 @@ Candidates see inputs only; there is no way to reach the checker, the shelf,
 or other candidates from in here.
 """
 
+import math
+import struct
 from collections import Counter
 from dataclasses import dataclass, field
 
 from engine.core_lang import OPS, Program
+
+_M32 = 0xFFFFFFFF
+_F32_MAX = 3.4028235677973366e38     # values beyond round to inf
+
+
+def _f32(bits):
+    """View low 32 bits as IEEE-754 float32."""
+    return struct.unpack("<f", struct.pack("<I", bits & _M32))[0]
+
+
+def _bits(value):
+    """Round a python float to float32, return its bits. Overflow -> inf."""
+    if math.isnan(value):
+        return 0x7FC00000
+    if value > _F32_MAX:
+        return 0x7F800000
+    if value < -_F32_MAX:
+        return 0xFF800000
+    return struct.unpack("<I", struct.pack("<f", value))[0]
 
 
 @dataclass
@@ -64,6 +85,22 @@ def run(program: Program, inputs, step_budget: int = 100_000):
             m[ins.dst] = m[ins.a] | m[ins.b]
         elif op == "XOR":
             m[ins.dst] = m[ins.a] ^ m[ins.b]
+        elif op == "ADD32":
+            m[ins.dst] = (m[ins.a] + m[ins.b]) & _M32
+        elif op == "SUB32":
+            m[ins.dst] = (m[ins.a] - m[ins.b]) & _M32
+        elif op == "SHR32":
+            m[ins.dst] = (m[ins.a] & _M32) >> (m[ins.b] & 31)
+        elif op == "SHL32":
+            m[ins.dst] = ((m[ins.a] & _M32) << (m[ins.b] & 31)) & _M32
+        elif op == "XOR32":
+            m[ins.dst] = (m[ins.a] ^ m[ins.b]) & _M32
+        elif op == "FADD":
+            m[ins.dst] = _bits(_f32(m[ins.a]) + _f32(m[ins.b]))
+        elif op == "FSUB":
+            m[ins.dst] = _bits(_f32(m[ins.a]) - _f32(m[ins.b]))
+        elif op == "FMUL":
+            m[ins.dst] = _bits(_f32(m[ins.a]) * _f32(m[ins.b]))
         cost.steps += 1
         cost.by_family[OPS[op][1]] += 1
         for t in ins.tags:

@@ -1,0 +1,87 @@
+{
+  "run_id": "rsqrt-B-s2-1781296763",
+  "arm": "B",
+  "seed": 2,
+  "seconds": 18.58,
+  "evals": 240000,
+  "sample_max_rel_after_polish": 0.9820539448410273,
+  "verified": true,
+  "exhaustive_err": 0.9820541153824487,
+  "vs": {
+    "quake": 0.0017523386720978999,
+    "lomont": 0.0017513015578613242
+  },
+  "found_cand": {
+    "instrs": [
+      [
+        "FMUL",
+        7,
+        0,
+        2
+      ],
+      [
+        "FSUB",
+        7,
+        4,
+        7
+      ],
+      [
+        "FMUL",
+        0,
+        1,
+        7
+      ],
+      [
+        "FSUB",
+        0,
+        0,
+        1
+      ],
+      [
+        "FSUB",
+        0,
+        0,
+        1
+      ],
+      [
+        "FSUB",
+        0,
+        0,
+        1
+      ],
+      [
+        "FSUB",
+        0,
+        0,
+        1
+      ],
+      [
+        "FSUB",
+        0,
+        0,
+        1
+      ],
+      [
+        "FSUB",
+        0,
+        0,
+        1
+      ]
+    ],
+    "consts": [
+      "0xb052444b",
+      "0xc98e78a4",
+      "0x9c165216",
+      "0xcdb2fdf1"
+    ]
+  },
+  "pretty": "[c0=0xB052444B c1=0xC98E78A4 c2=0x9C165216 c3=0xCDB2FDF1] t2=x*fc1; t2=c3-ft2; x=c0*ft2; x=x-fc0; x=x-fc0; x=x-fc0; x=x-fc0; x=x-fc0; x=x-fc0",
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "max relative error 9.820541e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+    "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+  },
+  "labels": [
+    "UNRESOLVED structure"
+  ]
+}

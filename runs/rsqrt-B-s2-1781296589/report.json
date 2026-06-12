@@ -1,0 +1,63 @@
+{
+  "run_id": "rsqrt-B-s2-1781296589",
+  "arm": "B",
+  "seed": 2,
+  "seconds": 12.59,
+  "evals": 240000,
+  "sample_err": 0.9799457304179668,
+  "verified": true,
+  "exhaustive_err": 0.9799464329678395,
+  "vs": {
+    "quake": 0.0017523386720978999,
+    "lomont": 0.0017513015578613242
+  },
+  "found_cand": {
+    "instrs": [
+      [
+        "FADD",
+        7,
+        0,
+        0
+      ],
+      [
+        "FMUL",
+        0,
+        7,
+        3
+      ],
+      [
+        "FADD",
+        7,
+        0,
+        7
+      ],
+      [
+        "FADD",
+        7,
+        7,
+        4
+      ],
+      [
+        "FMUL",
+        0,
+        1,
+        7
+      ]
+    ],
+    "consts": [
+      "0xb00fe653",
+      "0xe54e9978",
+      "0x49918fff",
+      "0xce12227f"
+    ]
+  },
+  "pretty": "[c0=0xB00FE653 c1=0xE54E9978 c2=0x49918FFF c3=0xCE12227F] t2=x+fx; x=t2*fc2; t2=x+ft2; t2=t2+fc3; x=c0*ft2",
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "max relative error 9.799464e-01 vs float64 reference over ALL 134,217,728 float32 in [2^-8, 2^8)",
+    "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+  },
+  "labels": [
+    "UNRESOLVED structure"
+  ]
+}

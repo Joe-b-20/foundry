@@ -30,4 +30,8 @@ def build(domain, domain_params):
         from domains.bitmixer import BitMixerPack
         from engine.molds_bits import BitProgMold
         return BitMixerPack(**domain_params), BitProgMold()
+    if domain == "rsqrt":
+        from domains.rsqrt import RsqrtPack
+        from engine.molds_float import FloatProgMold
+        return RsqrtPack(**domain_params), FloatProgMold()
     raise KeyError(f"unknown domain: {domain}")
