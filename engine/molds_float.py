@@ -26,16 +26,17 @@ OPS_I = ("ADD32", "SUB32", "SHR32", "SHL32", "XOR32")
 
 class FloatProgMold:
     name = "float-program"
-    N_CONST = 4
-    N_SLOTS = 9          # 0 x | 1..4 consts | 5..8 temps
 
-    def __init__(self, max_len=9, ops=OPS_F + OPS_I):
+    def __init__(self, max_len=9, ops=OPS_F + OPS_I, n_const=4):
         self.max_len = max_len
         self.ops = ops
+        self.N_CONST = n_const
+        self.N_SLOTS = 1 + n_const + 4   # 0 x | consts | 4 temps
+        self._writable = (0,) + tuple(range(1 + n_const, self.N_SLOTS))
 
     # --- shape ----------------------------------------------------------
     def _rand_instr(self, rng):
-        return (rng.choice(self.ops), rng.choice((0, 5, 6, 7, 8)),
+        return (rng.choice(self.ops), rng.choice(self._writable),
                 rng.randrange(self.N_SLOTS), rng.randrange(self.N_SLOTS))
 
     def random_candidate(self, rng, length=6):
@@ -55,7 +56,7 @@ class FloatProgMold:
             if f == 0:
                 op = rng.choice(self.ops)
             elif f == 1:
-                dst = rng.choice((0, 5, 6, 7, 8))   # consts are read-only
+                dst = rng.choice(self._writable)    # consts are read-only
             elif f == 2:
                 a = rng.randrange(self.N_SLOTS)
             else:
@@ -200,7 +201,8 @@ class FloatProgMold:
     # --- human view ------------------------------------------------------------
     def pretty(self, cand):
         instrs, consts = cand
-        names = ["x", "c0", "c1", "c2", "c3", "t0", "t1", "t2", "t3"]
+        names = (["x"] + [f"c{i}" for i in range(self.N_CONST)]
+                 + [f"t{i}" for i in range(4)])
         sym = {"FADD": "+f", "FSUB": "-f", "FMUL": "*f", "ADD32": "+i",
                "SUB32": "-i", "SHR32": ">>", "SHL32": "<<", "XOR32": "^"}
         body = "; ".join(f"{names[d]}={names[a]}{sym[o]}{names[b]}"

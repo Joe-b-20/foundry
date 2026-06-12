@@ -34,4 +34,10 @@ def build(domain, domain_params):
         from domains.rsqrt import RsqrtPack
         from engine.molds_float import FloatProgMold
         return RsqrtPack(**domain_params), FloatProgMold()
+    if domain == "tanh":
+        from domains.tanh import TanhPack
+        from engine.molds_float import FloatProgMold
+        n_const = domain_params.pop("n_const", 4)
+        return TanhPack(**domain_params), FloatProgMold(n_const=n_const,
+                                                        max_len=16)
     raise KeyError(f"unknown domain: {domain}")

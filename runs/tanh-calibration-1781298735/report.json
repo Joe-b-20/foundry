@@ -1,0 +1,115 @@
+{
+  "run_id": "tanh-calibration-1781298735",
+  "seconds": 12.5,
+  "rows": [
+    {
+      "deg": 3,
+      "seed": 0,
+      "evals": 7752,
+      "seconds": 1.24,
+      "E_found": 0.5869158851201118,
+      "E_shelf_f32": 0.10628098147873252,
+      "floor_real_model": 0.10628026896668748,
+      "PASS": false,
+      "consts": [
+        "0x3ec40005",
+        "0x97b75092",
+        "0x8b529b4a",
+        "0x3b000000"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 3,
+      "seed": 1,
+      "evals": 8816,
+      "seconds": 1.23,
+      "E_found": 0.5435176997008443,
+      "E_shelf_f32": 0.10628098147873252,
+      "floor_real_model": 0.10628026896668748,
+      "PASS": false,
+      "consts": [
+        "0x3ec0fff9",
+        "0xafffffff",
+        "0x3c8e007f",
+        "0x0"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 3,
+      "seed": 2,
+      "evals": 8816,
+      "seconds": 1.29,
+      "E_found": 0.5436106651534592,
+      "E_shelf_f32": 0.10628098147873252,
+      "floor_real_model": 0.10628026896668748,
+      "PASS": false,
+      "consts": [
+        "0x3ec10005",
+        "0x37ffffff",
+        "0x3c8ffffc",
+        "0xb80001ff"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 5,
+      "seed": 0,
+      "evals": 10032,
+      "seconds": 1.58,
+      "E_found": 0.5118309902789817,
+      "E_shelf_f32": 0.009955514291990958,
+      "floor_real_model": 0.009949539740038876,
+      "PASS": false,
+      "consts": [
+        "0xa001cf45",
+        "0x3effbffb",
+        "0x35b7399",
+        "0xbc2000f9",
+        "0x39bf0043",
+        "0x87c966c"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 5,
+      "seed": 1,
+      "evals": 12996,
+      "seconds": 1.84,
+      "E_found": 0.5435800011559999,
+      "E_shelf_f32": 0.009955514291990958,
+      "floor_real_model": 0.009949539740038876,
+      "PASS": false,
+      "consts": [
+        "0x3ec0fff9",
+        "0x8295bc5d",
+        "0x3c900000",
+        "0x200f1400",
+        "0x836961bd",
+        "0xafffffe4"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 5,
+      "seed": 2,
+      "evals": 8436,
+      "seconds": 1.5,
+      "E_found": 0.9996613269509507,
+      "E_shelf_f32": 0.009955514291990958,
+      "floor_real_model": 0.009949539740038876,
+      "PASS": false,
+      "consts": [
+        "0x80000000",
+        "0x88377d37",
+        "0x0",
+        "0x3bae0005",
+        "0x8530e1c2",
+        "0xb7c00002"
+      ],
+      "labels": []
+    }
+  ],
+  "PASS": false
+}

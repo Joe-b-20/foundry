@@ -602,3 +602,83 @@ Status: WORKS (B1 3/3, predeclared) + two honest OPENs. Next: tanh pack
 Files: engine/core_lang.py + engine/runner.py (32-bit subset),
 engine/molds_float.py, domains/rsqrt.py, domains/rsqrt_shelf.py,
 engine/registry.py, scripts/run_rsqrt_hunt.py, runs/rsqrt-*
+
+## 2026-06-12 — the 0x5F375A87 flag RESOLVED: wins the full domain under our metric (all 2.13e9 positive normal float32)
+
+Primary source read (Lomont 2003 PDF, fetched + text-extracted): his table
+tests constants "over all floating point values" against the FLOAT32
+reference (float)(1.0/sqrt(x)) and reports 0x5F375A86 best at 0.175124%
+after one Newton step (0x5F3759DF at 0.175228%). Our metric uses a
+float64 reference — the two differ at the ~6th significant digit, so
+neither ranking supersedes the other; ours is stated alongside his.
+
+Decisive sweep (scripts/run_rsqrt_fullscope.py; runs/rsqrt-fullscope-*/
+report.json; 187 s): exhaustive max rel error vs float64 reference over
+ALL 2,130,706,432 positive normal float32, standard structure + one
+Newton (3/2, 1/2):
+  0x5F375A87 (ours)    1.751287782e-3   <- best of the tested set
+  0x5F375A85           1.751291588e-3
+  0x5F375A88           1.751300410e-3
+  0x5F375A86 (Lomont)  1.751301558e-3
+  0x5F3759DF (Quake)   1.752338672e-3
+Scope of the claim, exactly: under THIS metric, 0x5F375A87 beats the
+published constant and all +-2 neighbors on the full domain
+(L1-exhaustive certificate). The constant was selected by a global
+coarse-to-fine search on a 16-octave sub-scope, then confirmed on the
+full domain — a constant-exhaustive x input-exhaustive proof of global
+optimality was NOT performed (2^32 x 2.13e9). The optimum is extremely
+flat (5th-6th digit); the practical value of the improvement is nil; the
+demonstrated value is the pipeline: outcome-only search + exhaustive
+certificates reproducing and marginally refining a 20-year-old famous
+result in ~3 minutes of CPU.
+
+Status: WORKS — flag resolved, claim filed at its honest size.
+Files: scripts/run_rsqrt_fullscope.py, domains/rsqrt.py (full-range
+scope), runs/rsqrt-fullscope-*
+
+## 2026-06-12 — tanh: weighted-Remez floors + rung-1 calibration lands ON the proven floor (6/6)
+
+Built: engine/remez.py — Remez exchange with the de la Vallee Poussin
+bracket (proven floor for the whole degree-d polynomial class; numeric at
+40 dps), extended to WEIGHTED equioscillation after the first shelf build
+exposed a metric mismatch (absolute-error minimax is ~4x off the pack's
+relative metric at tanh(0.25)≈0.245; weight=f fixes it — generalized
+equioscillation covers positive weights). TanhPack subclasses RsqrtPack
+(truth = float64 numpy.tanh; scope all float32 in [0.25, 8), 41,943,040
+values, exhaustive; generalization deferred per the rule of three).
+Shelf: weighted-Remez minimax polys deg 3/5/7, float32-rounded, each
+exhaustively measured: E_f32 sits 0.04-0.2% above its real-model floor
+(deg5: 9.9555e-3 vs floor 9.9495e-3) — exactly the expected rounding
+inflation; FPminimax-style float-native fitting noted as future craft.
+FloatProgMold gained a parameterized constant pool (Horner deg d needs
+d+1 genes).
+
+Calibration (coefficients FROM OUTCOME, Horner skeleton given;
+scripts/run_tanh_calibration.py): FOUR optimizer failures on the way,
+each diagnosed and kept:
+(1) cyclic bit-descent under the max metric from cold: all FAIL at
+E~0.6-1.0 — coordinate descent PROVABLY stalls on nonsmooth objectives
+(max-of-kinks); (2) two-phase shaped-then-max: still stuck — the shaped
+loss's 1e6 clip created a gradient-free plateau over garbage-coefficient
+space; UNCLIPPED log1p restored slope everywhere (fix now in the packs);
+(3) plain least-squares init: lands in-basin but 1.4-1.8x off minimax
+(the L2-vs-minimax gap); (4) Lawson IRLS at 40 iterations + shaped-phase
+polish: 1.13x off — Lawson converges linearly (needs patience) and the
+shaped polish pulls a near-minimax point AWAY toward the mean-optimum.
+Final recipe: Lawson IRLS (150 iters, relative-error rows, outcome
+samples only) -> float32 round -> bit-descent polish under the TRUE
+metric. RESULT 6/6 PASS: deg3 E=1.0632e-1 (floor 1.0628e-1, 0.04% above);
+deg5 E=9.9582e-3 (floor 9.9495e-3, 0.09% above) — the from-outcome search
+lands essentially ON the proven optimal floor. ~12 s total.
+
+Gauntlet re-run after all engine touches: 19/19 + 9/9 PASS (103 s,
+runs/proof_phase-1781298930).
+
+Status: WORKS — tanh rung 1 done against our own proven floors. Next:
+the actual HUNT (beat the polynomial frontier with bit/float hybrids at
+equal op budget — the open question this domain exists for), gelu/sigmoid
+down Joe's list, joint-constant optimizer, arm-A diversity machinery.
+Files: engine/remez.py, domains/tanh.py, domains/tanh_shelf.py,
+engine/molds_float.py (n_const), engine/registry.py, domains/rsqrt.py
+(unclipped shaped loss, sample_shaped), scripts/run_tanh_calibration.py,
+scripts/run_rsqrt_hunt.py (metric param), runs/tanh-calibration-*

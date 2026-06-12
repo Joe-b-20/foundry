@@ -54,14 +54,16 @@ class HuntSpec:
     schema: str = "rsqrthunt-v1"
 
 
-def bit_descent(pack, mold, cand, passes, const_indices=(0, 1, 2, 3)):
+def bit_descent(pack, mold, cand, passes, const_indices=(0, 1, 2, 3),
+                metric=None):
+    metric = metric or pack.sample_max_rel
     """Greedy per-bit coordinate descent on the constant genes under the
     TRUE metric (sample max rel error). This is the systematic search
     Lomont-style numerical optimization actually needs — random bit flips
     stall in the rugged 128-bit constant landscape (measured: summary
     -1781296890)."""
     cur = mold.tidy(cand)
-    cur_e = pack.sample_max_rel(mold, cur)
+    cur_e = metric(mold, cur)
     evals = 0
     # moves per constant: every single-bit flip PLUS small +- deltas.
     # Deltas matter: multi-bit boundaries (shift 2 -> 1 is ...10 -> ...01)
@@ -76,7 +78,7 @@ def bit_descent(pack, mold, cand, passes, const_indices=(0, 1, 2, 3)):
                 consts = list(cur[1])
                 consts[ci] ^= m
                 c2 = mold.tidy((cur[0], tuple(consts)))
-                e2 = pack.sample_max_rel(mold, c2)
+                e2 = metric(mold, c2)
                 evals += 1
                 if e2 < cur_e:
                     cur, cur_e = c2, e2
@@ -85,7 +87,7 @@ def bit_descent(pack, mold, cand, passes, const_indices=(0, 1, 2, 3)):
                 consts = list(cur[1])
                 consts[ci] = (consts[ci] + d) & 0xFFFFFFFF
                 c2 = mold.tidy((cur[0], tuple(consts)))
-                e2 = pack.sample_max_rel(mold, c2)
+                e2 = metric(mold, c2)
                 evals += 1
                 if e2 < cur_e:
                     cur, cur_e = c2, e2

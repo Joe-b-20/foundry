@@ -1,0 +1,56 @@
+{
+  "run_id": "rsqrt-fullscope-1781298373",
+  "seconds": 186.7,
+  "ranking": [
+    {
+      "name": "ours",
+      "c0": "0x5f375a87",
+      "E": 0.0017512877816225204,
+      "worst_at": "0x16eb510",
+      "seconds": 31.7
+    },
+    {
+      "name": "lomont-1",
+      "c0": "0x5f375a85",
+      "E": 0.0017512915878496937,
+      "worst_at": "0x16eb546",
+      "seconds": 31.9
+    },
+    {
+      "name": "lomont+2",
+      "c0": "0x5f375a88",
+      "E": 0.0017513004103269759,
+      "worst_at": "0x124e051",
+      "seconds": 31.0
+    },
+    {
+      "name": "lomont",
+      "c0": "0x5f375a86",
+      "E": 0.0017513015578613242,
+      "worst_at": "0x16eb51e",
+      "seconds": 31.4
+    },
+    {
+      "name": "quake",
+      "c0": "0x5f3759df",
+      "E": 0.0017523386720978999,
+      "worst_at": "0x16eb3c0",
+      "seconds": 31.1
+    },
+    {
+      "name": "ours-sample-stage",
+      "c0": "0x5f3759bb",
+      "E": 0.0017525639049125435,
+      "worst_at": "0x16eb378",
+      "seconds": 29.6
+    }
+  ],
+  "winner": {
+    "name": "ours",
+    "c0": "0x5f375a87",
+    "E": 0.0017512877816225204,
+    "worst_at": "0x16eb510",
+    "seconds": 31.7
+  },
+  "metric": "max rel err vs float64 ref, all positive normal float32 (exhaustive)"
+}

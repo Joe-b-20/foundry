@@ -29,7 +29,8 @@ class RsqrtPack:
 
     def __init__(self, lo_exp=-8, hi_exp=8, sample_per_octave=256,
                  sample_random=1024, seed=12345):
-        assert -126 <= lo_exp < hi_exp <= 127
+        # hi_exp == 128 means "through the last normal binade" (exponent 127)
+        assert -126 <= lo_exp < hi_exp <= 128
         self.lo_exp, self.hi_exp = lo_exp, hi_exp
         self.octaves = list(range(lo_exp, hi_exp))
         self.scope_size = (1 << 23) * len(self.octaves)
@@ -77,8 +78,11 @@ class RsqrtPack:
         with np.errstate(all="ignore"):
             y = mold.npfunc(tidy)(self.sample_bits).astype(np.float64)
             rel = np.abs(y - self.sample_truth) / self.sample_truth
-            rel = np.where(np.isfinite(rel), rel, 1e6)
-            rel = np.minimum(rel, 1e6)
+            # NO clipping: a clip plateau (rel capped at 1e6) leaves
+            # garbage-coefficient regions gradient-free and descent never
+            # escapes (measured: tanh calibration v1/v2 all-FAIL).
+            # log1p keeps slope from anywhere; non-finite -> huge sentinel.
+            rel = np.where(np.isfinite(rel), rel, 1e300)
             shaped = -float(np.mean(np.log1p(rel)))
         return ((shaped, -cost["ops"], -cost["dl"], 0.0), cost)
 
@@ -88,6 +92,13 @@ class RsqrtPack:
         err, _ = self._max_rel(mold, tidy, self.sample_bits,
                                self.sample_truth)
         return err
+
+    def sample_shaped(self, mold, tidy):
+        """The smooth search loss as a minimizable scalar (lower=better).
+        Coordinate descent provably stalls on the nonsmooth max metric;
+        descend THIS first, polish on sample_max_rel after."""
+        (shaped, *_), _cost = self.gate1(mold, tidy)
+        return -shaped
 
     def dense_max_rel(self, mold, tidy, per_octave=4096):
         """Denser (but still sampled) max-rel for final tie-breaking

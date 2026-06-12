@@ -1,0 +1,108 @@
+{
+  "run_id": "sorting_networks-n5-hill-climb-s0-1781298931",
+  "spec": {
+    "domain": "sorting_networks",
+    "domain_params": {
+      "n": 5
+    },
+    "proposer": "hill-climb",
+    "proposer_params": {
+      "patience": 60
+    },
+    "budget_candidates": 80000,
+    "batch": 32,
+    "init_length": 10,
+    "seed": 0,
+    "settle_batches": 150,
+    "cost_rules": "primary: comparators (size); secondary: depth",
+    "log_every_candidate": true,
+    "schema": "runspec-v0"
+  },
+  "candidates_used": 4928,
+  "seconds": 0.18,
+  "stop_reason": "correct candidate held through 150 batches without improvement",
+  "found_correct": true,
+  "best": {
+    "pretty": "(0,1) (2,3) | (1,3) (2,4) | (0,2) (1,4) | (1,2) (3,4) | (2,3)",
+    "cand": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "score": [
+      1,
+      32,
+      -9,
+      -5
+    ],
+    "cost": {
+      "comparators": 9,
+      "depth": 5
+    }
+  },
+  "verified_canonical": true,
+  "verify_details": {
+    "checked": 57,
+    "core_cost": {
+      "steps": 36,
+      "by_family": {
+        "cmp": 18,
+        "mov": 18
+      },
+      "native": {
+        "comparator": 9
+      }
+    }
+  },
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "sorts every length-5 input",
+    "evidence": "all 32 binary vectors pass via the core runner; 0/1 principle extends this to all inputs (see pack docstring); plus 25 random integer vectors"
+  },
+  "recognition": {
+    "label": "UNRESOLVED",
+    "cost": {
+      "comparators": 9,
+      "depth": 5
+    },
+    "notes": [
+      "same size+depth as ['batcher-odd-even'] but different wiring",
+      "size matches the proven optimal (Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+      "depth 5 vs optimal 5 (Knuth TAOCP v3 5.3.4)",
+      "not in shelf; NEW would need a full literature check"
+    ]
+  }
+}

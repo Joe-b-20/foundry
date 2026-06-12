@@ -1,0 +1,115 @@
+{
+  "run_id": "tanh-calibration-1781298904",
+  "seconds": 12.3,
+  "rows": [
+    {
+      "deg": 3,
+      "seed": 0,
+      "evals": 9576,
+      "seconds": 1.19,
+      "E_found": 0.10631589963900318,
+      "E_shelf_f32": 0.10628098147873252,
+      "floor_real_model": 0.10628026896668748,
+      "PASS": true,
+      "consts": [
+        "0x3dba3804",
+        "0x3f43b2b1",
+        "0xbe38c6ba",
+        "0x3c4e55fb"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 3,
+      "seed": 1,
+      "evals": 8360,
+      "seconds": 1.15,
+      "E_found": 0.10631589963900318,
+      "E_shelf_f32": 0.10628098147873252,
+      "floor_real_model": 0.10628026896668748,
+      "PASS": true,
+      "consts": [
+        "0x3dba3804",
+        "0x3f43b2b1",
+        "0xbe38c6ba",
+        "0x3c4e55fb"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 3,
+      "seed": 2,
+      "evals": 8512,
+      "seconds": 1.14,
+      "E_found": 0.10631589963900318,
+      "E_shelf_f32": 0.10628098147873252,
+      "floor_real_model": 0.10628026896668748,
+      "PASS": true,
+      "consts": [
+        "0x3dba3804",
+        "0x3f43b2b1",
+        "0xbe38c6ba",
+        "0x3c4e55fb"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 5,
+      "seed": 0,
+      "evals": 12540,
+      "seconds": 1.61,
+      "E_found": 0.009958190193301082,
+      "E_shelf_f32": 0.009955514291990958,
+      "floor_real_model": 0.009949539740038876,
+      "PASS": true,
+      "consts": [
+        "0xbd0e9ff1",
+        "0x3fa16c31",
+        "0xbf170924",
+        "0x3e066aea",
+        "0xbc63a53c",
+        "0x3a13569b"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 5,
+      "seed": 1,
+      "evals": 12312,
+      "seconds": 1.64,
+      "E_found": 0.009958190193301082,
+      "E_shelf_f32": 0.009955514291990958,
+      "floor_real_model": 0.009949539740038876,
+      "PASS": true,
+      "consts": [
+        "0xbd0e9ff1",
+        "0x3fa16c31",
+        "0xbf170924",
+        "0x3e066aea",
+        "0xbc63a53c",
+        "0x3a13569b"
+      ],
+      "labels": []
+    },
+    {
+      "deg": 5,
+      "seed": 2,
+      "evals": 12312,
+      "seconds": 1.58,
+      "E_found": 0.009958190193301082,
+      "E_shelf_f32": 0.009955514291990958,
+      "floor_real_model": 0.009949539740038876,
+      "PASS": true,
+      "consts": [
+        "0xbd0e9ff1",
+        "0x3fa16c31",
+        "0xbf170924",
+        "0x3e066aea",
+        "0xbc63a53c",
+        "0x3a13569b"
+      ],
+      "labels": []
+    }
+  ],
+  "PASS": true
+}

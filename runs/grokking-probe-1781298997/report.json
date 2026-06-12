@@ -1,0 +1,1114 @@
+{
+  "runs": 6,
+  "killed_before_find": 0,
+  "seconds": 35.11,
+  "rows": [
+    {
+      "label": "deceptive-conj s0",
+      "found_gen": 19,
+      "first_would_abandon_gen": null,
+      "would_have_killed_before_find": false,
+      "best_frac": 1.0,
+      "chance_plus": 0.6182,
+      "trace": []
+    },
+    {
+      "label": "deceptive-conj s1",
+      "found_gen": 2303,
+      "first_would_abandon_gen": null,
+      "would_have_killed_before_find": false,
+      "best_frac": 1.0,
+      "chance_plus": 0.6182,
+      "trace": [
+        {
+          "gen": 50,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 100,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 150,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 200,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 250,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 300,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 350,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 400,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 450,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 500,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 550,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 600,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 650,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 700,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 750,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 800,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 850,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 900,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 950,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1000,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1050,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1100,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1150,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1200,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1250,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1300,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1350,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1400,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1450,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1500,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1550,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1600,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1650,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1700,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1750,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1800,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1850,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1900,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1950,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2000,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2050,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2100,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2150,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2200,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2250,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2300,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        }
+      ]
+    },
+    {
+      "label": "deceptive-conj s2",
+      "found_gen": null,
+      "first_would_abandon_gen": null,
+      "would_have_killed_before_find": false,
+      "best_frac": 0.9072,
+      "chance_plus": 0.6182,
+      "trace": [
+        {
+          "gen": 50,
+          "corpus": 0.7393,
+          "heldout": 0.7158,
+          "verdict": null
+        },
+        {
+          "gen": 100,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 150,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 200,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 250,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 300,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 350,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 400,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 450,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 500,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 550,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 600,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 650,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 700,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 750,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 800,
+          "corpus": 0.7549,
+          "heldout": 0.7612,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 850,
+          "corpus": 0.8555,
+          "heldout": 0.8345,
+          "verdict": null
+        },
+        {
+          "gen": 900,
+          "corpus": 0.874,
+          "heldout": 0.8662,
+          "verdict": null
+        },
+        {
+          "gen": 950,
+          "corpus": 0.8867,
+          "heldout": 0.8677,
+          "verdict": null
+        },
+        {
+          "gen": 1000,
+          "corpus": 0.8867,
+          "heldout": 0.8677,
+          "verdict": null
+        },
+        {
+          "gen": 1050,
+          "corpus": 0.8896,
+          "heldout": 0.8857,
+          "verdict": null
+        },
+        {
+          "gen": 1100,
+          "corpus": 0.9033,
+          "heldout": 0.897,
+          "verdict": null
+        },
+        {
+          "gen": 1150,
+          "corpus": 0.9053,
+          "heldout": 0.895,
+          "verdict": null
+        },
+        {
+          "gen": 1200,
+          "corpus": 0.9053,
+          "heldout": 0.895,
+          "verdict": null
+        },
+        {
+          "gen": 1250,
+          "corpus": 0.9053,
+          "heldout": 0.895,
+          "verdict": null
+        },
+        {
+          "gen": 1300,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": null
+        },
+        {
+          "gen": 1350,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": null
+        },
+        {
+          "gen": 1400,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": null
+        },
+        {
+          "gen": 1450,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": null
+        },
+        {
+          "gen": 1500,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": null
+        },
+        {
+          "gen": 1550,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1600,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1650,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1700,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1750,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1800,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1850,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1900,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 1950,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2000,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2050,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2100,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2150,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2200,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2250,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2300,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2350,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2400,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2450,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2500,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2550,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2600,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2650,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2700,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2750,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2800,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2850,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2900,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 2950,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3000,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3050,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3100,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3150,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3200,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3250,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3300,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3350,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3400,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3450,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3500,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3550,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3600,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3650,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3700,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3750,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3800,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3850,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3900,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 3950,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4000,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4050,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4100,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4150,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4200,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4250,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4300,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4350,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4400,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4450,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4500,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4550,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4600,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4650,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4700,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4750,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4800,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4850,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4900,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 4950,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5000,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5050,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5100,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5150,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5200,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5250,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5300,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5350,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5400,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5450,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5500,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5550,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5600,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5650,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5700,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5750,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5800,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5850,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5900,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        },
+        {
+          "gen": 5950,
+          "corpus": 0.9072,
+          "heldout": 0.8975,
+          "verdict": "switch-representation-or-raise-budget"
+        }
+      ]
+    },
+    {
+      "label": "hard-rand s0",
+      "found_gen": 539,
+      "first_would_abandon_gen": null,
+      "would_have_killed_before_find": false,
+      "best_frac": 1.0,
+      "chance_plus": 0.6963,
+      "trace": [
+        {
+          "gen": 50,
+          "corpus": 0.7158,
+          "heldout": 0.7124,
+          "verdict": null
+        },
+        {
+          "gen": 100,
+          "corpus": 0.7559,
+          "heldout": 0.7612,
+          "verdict": null
+        },
+        {
+          "gen": 150,
+          "corpus": 0.7568,
+          "heldout": 0.7607,
+          "verdict": null
+        },
+        {
+          "gen": 200,
+          "corpus": 0.7568,
+          "heldout": 0.7607,
+          "verdict": null
+        },
+        {
+          "gen": 250,
+          "corpus": 0.7568,
+          "heldout": 0.7607,
+          "verdict": null
+        },
+        {
+          "gen": 300,
+          "corpus": 0.7568,
+          "heldout": 0.7607,
+          "verdict": null
+        },
+        {
+          "gen": 350,
+          "corpus": 0.7568,
+          "heldout": 0.7607,
+          "verdict": null
+        },
+        {
+          "gen": 400,
+          "corpus": 0.7578,
+          "heldout": 0.7578,
+          "verdict": null
+        },
+        {
+          "gen": 450,
+          "corpus": 0.8379,
+          "heldout": 0.8125,
+          "verdict": null
+        },
+        {
+          "gen": 500,
+          "corpus": 0.8379,
+          "heldout": 0.8125,
+          "verdict": null
+        }
+      ]
+    },
+    {
+      "label": "hard-rand s1",
+      "found_gen": 23,
+      "first_would_abandon_gen": null,
+      "would_have_killed_before_find": false,
+      "best_frac": 1.0,
+      "chance_plus": 0.6094,
+      "trace": []
+    },
+    {
+      "label": "hard-rand s2",
+      "found_gen": 23,
+      "first_would_abandon_gen": null,
+      "would_have_killed_before_find": false,
+      "best_frac": 1.0,
+      "chance_plus": 0.7627,
+      "trace": []
+    }
+  ]
+}
