@@ -1,0 +1,35 @@
+{
+  "seconds": 1.46,
+  "findings": [
+    {
+      "check": "A1 pcf-rejects",
+      "status": "OK",
+      "detail": "9 b(1)=0 truncations + 4 verified telescoping rationals = 13/13; unexplained: none"
+    },
+    {
+      "check": "A2 tracker-artifacts",
+      "status": "OK",
+      "detail": "28 cited run patterns; missing: none"
+    },
+    {
+      "check": "A3 re-execute-archived",
+      "status": "OK",
+      "detail": "251 archived winners independently re-executed; failures: none"
+    },
+    {
+      "check": "A4 reverify-sweep-findings",
+      "status": "OK",
+      "detail": "{'apery': ('verified', 'zeta3'), 'rm-8-7zeta3': ('verified', 'zeta3')}"
+    },
+    {
+      "check": "A5 artifact-completeness",
+      "status": "OK",
+      "detail": "9 newest found-reports checked; lacking found_cand: none"
+    },
+    {
+      "check": "A6 todo-census",
+      "status": "OK",
+      "detail": "0 TODO/FIXME markers: none"
+    }
+  ]
+}

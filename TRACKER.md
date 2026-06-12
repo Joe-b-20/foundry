@@ -732,3 +732,64 @@ Status: WORKS — null verdict, predeclared valid, doubly informative
 sanities + tanh calibration stage); README portfolio section added.
 Files: scripts/run_tanh_hunt.py, scripts/run_proof_phase.py, README.md,
 runs/tanh-hunt-*
+
+## 2026-06-12 — the exponent-family hunt: BEYOND-POLYNOMIAL WIN certified for log2 (129x / 83x past PROVEN floors); sqrt pareto points; the routing validated
+
+Following the tanh-null routing: sqrt and log2, where exponent-scaling
+symmetry lives (theory citation: Blinn 1997, "Floating-Point Tricks",
+IEEE CG&A 17(4) — "the bit pattern, interpreted as an integer, gives a
+piecewise linear approximation to the logarithm"). New capability, earned:
+U2F / F2U value-conversion ops (single-rounding-safe: uint32->f64 exact,
+one f32 round; F2U truncation semantics defined identically in both
+paths) + AND32/OR32 completing the 32-bit family. Metric switch in the
+pack base (err_kind rel/abs): log2 uses max ABSOLUTE error — the
+shift-invariant choice, and relative blows up at the in-scope zero
+log2(1)=0.
+
+sqrt (scope all f32 in [2^-8,2^8), max rel, exhaustive certs):
+- seed-only (2 ops): K = 0x1FBB4F19 found from outcome by the 1-D
+  coarse-to-fine sweep; E = 3.4750e-2.
+- via-rsqrt (8 ops): x *f rsqrt_A87(x), composing the engine's own rsqrt
+  artifact: E = 1.7513e-3 — composition inherits the rsqrt accuracy, as
+  theory predicts. Two certified pareto points.
+
+log2 (scope all f32 in [2^-8,2^8), max ABS, exhaustive certs):
+- PROVEN polynomial floors (weighted=None Remez at 60 dps, log-spaced
+  extrema grid — a linear grid misses everything left of x=1 on a
+  16-octave range, fixed in engine/remez.py): deg-1 (2 ops) floor 5.5431;
+  deg-5 (10 ops) floor 3.5565. Polynomials are catastrophic at log2 over
+  16 octaves, as expected.
+- L3 trick (3 ops: U2F, FMUL c0, FADD c1; both constants genes): the
+  engine found c0 = 0x34000000 = EXACTLY 2^-23 and c1 ~ -126.957 (the
+  optimal bias). Exhaustive E = 4.3043e-2 -> 129x BELOW the proven
+  deg-1 floor. Matches the folklore trick's known quality; the structure
+  is Blinn-family (cited), the constants are from outcome, the
+  certificates are ours. All 3 seeds identical (deterministic).
+- L10 (trick + deg-2 mantissa correction, masks as genes): the correction
+  NEVER ENGAGED (poly genes stayed zero; masks junk-inert) — the coupled-
+  genes optimizer limitation again, OPEN. Still 83x below the deg-5
+  floor via the base trick. The L10 structure's extra headroom is real
+  and uncaptured: optimizer work item (CMA-style joint moves, or
+  Lawson-on-the-residual once masks are engaged).
+- PASS 6/6 (predeclared bar: every log2 run >10x below its floor).
+
+Optimizer lessons (toolbox += 2): (a) the zero-output desert exists in
+the ABS metric too (flat |truth|-level plateau) — plain and shaped
+descent both trapped; (b) when a gene has a CLOSED-FORM optimum given the
+others (the additive offset = Chebyshev center -(max+min)/2 of the
+residual), solve it analytically and sweep only the rest — this killed
+the desert. Also: NaN sort-keys silently corrupt coarse sweeps (guarded).
+
+THE ARC, COMPLETE: tanh (saturating, no exponent symmetry) -> honest
+null, polynomials hold; log2 (the symmetry itself) -> certified 129x
+beyond-polynomial win. The routing rule is now empirical, both
+directions, with certificates. Three sub-runs in runs/explog-hunt-*.
+
+Status: WORKS (PASS 6/6 + 2 sqrt pareto points). Open: L10 correction
+engagement; exp2 (needs F2U path exercised) next; FDIV+SELECT for the
+saturating family still queued.
+Files: engine/core_lang.py + engine/runner.py (U2F/F2U/AND32/OR32),
+engine/molds_float.py (OPS_CVT, npfunc, pretty), engine/remez.py
+(log-spaced grid), domains/rsqrt.py (err_kind switch),
+domains/sqrt_log2.py, engine/registry.py, scripts/run_explog_hunt.py,
+scripts/run_proof_phase.py (sanity add), runs/explog-hunt-*

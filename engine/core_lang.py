@@ -39,9 +39,19 @@ OPS = {
     "SHR32": (2, "bit"),   # shift amount = low 5 bits of m[b]
     "SHL32": (2, "bit"),
     "XOR32": (2, "bit"),
+    "AND32": (2, "bit"),
+    "OR32":  (2, "bit"),
     "FADD":  (2, "fadd"),
     "FSUB":  (2, "fadd"),
     "FMUL":  (2, "fmul"),
+    # value CONVERSIONS (not reinterpretations) — added for the log2/exp2
+    # family (Blinn 1997 integer-aliasing tricks need them). Both are
+    # single-rounding: uint32 -> float64 is exact, the float32 round is
+    # the only rounding; F2U truncates toward zero with non-finite and
+    # out-of-range mapped to 0 (defined semantics, matched in vectorized
+    # evaluators).
+    "U2F":   (1, "cvt"),
+    "F2U":   (1, "cvt"),
 }
 
 

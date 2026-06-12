@@ -34,6 +34,13 @@ def build(domain, domain_params):
         from domains.rsqrt import RsqrtPack
         from engine.molds_float import FloatProgMold
         return RsqrtPack(**domain_params), FloatProgMold()
+    if domain in ("sqrt", "log2"):
+        from domains.sqrt_log2 import Log2Pack, SqrtPack
+        from engine.molds_float import OPS_CVT, OPS_F, OPS_I, FloatProgMold
+        cls = SqrtPack if domain == "sqrt" else Log2Pack
+        n_const = domain_params.pop("n_const", 8)
+        return cls(**domain_params), FloatProgMold(
+            n_const=n_const, max_len=12, ops=OPS_F + OPS_I + OPS_CVT)
     if domain == "tanh":
         from domains.tanh import TanhPack
         from engine.molds_float import FloatProgMold

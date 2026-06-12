@@ -24,17 +24,27 @@ def polyval(coeffs, x):
     return acc
 
 
-def remez(f, a, b, deg, dps=40, iters=40, grid_n=4096, weight=None):
+def remez(f, a, b, deg, dps=40, iters=40, grid_n=4096, weight=None,
+          grid_kind="lin"):
     """weight=None minimizes ABSOLUTE error; weight=f (positive on [a,b])
     minimizes RELATIVE error — the generalized equioscillation theorem
     covers positive-weighted Chebyshev systems, so the bracket remains a
-    proven floor for the weighted error."""
+    proven floor for the weighted error. grid_kind="log" places the
+    extrema-search grid geometrically — needed on wide ranges (e.g. log2
+    on [2^-8, 256]) where the error's features cluster near the left edge
+    and a linear grid misses them entirely."""
     with mp.workdps(dps):
         a, b = mp.mpf(a), mp.mpf(b)
         w = weight or (lambda x: mp.mpf(1))
         n = deg + 2
         xs = [(a + b) / 2 - (b - a) / 2 * mp.cos(mp.pi * k / (n - 1))
               for k in range(n)]
+        if grid_kind == "log":
+            ratio = b / a
+            grid = [a * ratio ** (mp.mpf(k) / grid_n)
+                    for k in range(grid_n + 1)]
+        else:
+            grid = [a + (b - a) * k / grid_n for k in range(grid_n + 1)]
         coeffs, E, low, high = None, None, None, None
         for it in range(iters):
             rows = [[x ** j for j in range(deg + 1)]
@@ -44,7 +54,6 @@ def remez(f, a, b, deg, dps=40, iters=40, grid_n=4096, weight=None):
             sol = mp.lu_solve(mp.matrix(rows), mp.matrix(rhs))
             coeffs = [sol[j] for j in range(deg + 1)]
             E = abs(sol[deg + 1])
-            grid = [a + (b - a) * k / grid_n for k in range(grid_n + 1)]
             errs = [(polyval(coeffs, x) - f(x)) / w(x) for x in grid]
             # alternating extrema: the max-|err| point of each sign run
             ext, i = [], 0

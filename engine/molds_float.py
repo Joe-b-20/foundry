@@ -21,7 +21,8 @@ import numpy as np
 from engine.core_lang import Instr, Program
 
 OPS_F = ("FADD", "FSUB", "FMUL")
-OPS_I = ("ADD32", "SUB32", "SHR32", "SHL32", "XOR32")
+OPS_I = ("ADD32", "SUB32", "SHR32", "SHL32", "XOR32", "AND32", "OR32")
+OPS_CVT = ("U2F", "F2U")
 
 
 class FloatProgMold:
@@ -174,6 +175,17 @@ class FloatProgMold:
                             r = fa * fb
                     m[dst] = r.view(np.uint32) if hasattr(r, "view") \
                         else np.float32(r).view(np.uint32)
+                elif op in ("U2F", "F2U"):
+                    ua = np.asarray(m[a], dtype=np.uint32)
+                    if op == "U2F":
+                        r = ua.astype(np.float32).view(np.uint32)
+                    else:
+                        f = ua.view(np.float32).astype(np.float64)
+                        okm = np.isfinite(f) & (np.abs(f) < 4294967296.0)
+                        t = np.trunc(np.where(okm, f, 0.0))
+                        r = ((t.astype(np.int64) & 0xFFFFFFFF)
+                             .astype(np.uint32))
+                    m[dst] = r
                 else:
                     ua, ub = m[a], m[b]
                     if op == "ADD32":
@@ -185,6 +197,10 @@ class FloatProgMold:
                         r = ua >> (ub & np.uint32(31))
                     elif op == "SHL32":
                         r = ua << (ub & np.uint32(31))
+                    elif op == "AND32":
+                        r = ua & ub
+                    elif op == "OR32":
+                        r = ua | ub
                     else:
                         r = ua ^ ub
                     m[dst] = np.uint32(r) if not hasattr(r, "shape") else r
@@ -204,9 +220,12 @@ class FloatProgMold:
         names = (["x"] + [f"c{i}" for i in range(self.N_CONST)]
                  + [f"t{i}" for i in range(4)])
         sym = {"FADD": "+f", "FSUB": "-f", "FMUL": "*f", "ADD32": "+i",
-               "SUB32": "-i", "SHR32": ">>", "SHL32": "<<", "XOR32": "^"}
-        body = "; ".join(f"{names[d]}={names[a]}{sym[o]}{names[b]}"
-                         for (o, d, a, b) in instrs)
+               "SUB32": "-i", "SHR32": ">>", "SHL32": "<<", "XOR32": "^",
+               "AND32": "&", "OR32": "|"}
+        body = "; ".join(
+            f"{names[d]}={o.lower()}({names[a]})" if o in OPS_CVT
+            else f"{names[d]}={names[a]}{sym[o]}{names[b]}"
+            for (o, d, a, b) in instrs)
         cstr = " ".join(f"c{i}=0x{c:08X}" for i, c in enumerate(consts))
         return f"[{cstr}] {body}"
 

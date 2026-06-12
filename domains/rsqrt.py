@@ -26,6 +26,8 @@ import numpy as np
 
 class RsqrtPack:
     name = "rsqrt"
+    err_kind = "rel"        # subclasses may use "abs" (e.g. log2, where
+                            # absolute error is the shift-invariant choice)
 
     def __init__(self, lo_exp=-8, hi_exp=8, sample_per_octave=256,
                  sample_random=1024, seed=12345):
@@ -57,12 +59,16 @@ class RsqrtPack:
         x = bits_u32.view(np.float32).astype(np.float64)
         return 1.0 / np.sqrt(x)
 
+    def _err(self, y, truth):
+        e = np.abs(y - truth)
+        return e / np.abs(truth) if self.err_kind == "rel" else e
+
     def _max_rel(self, mold, cand, bits_u32, truth):
         with np.errstate(all="ignore"):
             y = mold.npfunc(cand)(bits_u32).astype(np.float64)
             if not np.all(np.isfinite(y)):
                 return float("inf"), None
-            rel = np.abs(y - truth) / truth
+            rel = self._err(y, truth)
             i = int(np.argmax(rel))
             return float(rel[i]), int(bits_u32[i])
 
@@ -77,7 +83,7 @@ class RsqrtPack:
         cost = mold.native_cost(tidy)
         with np.errstate(all="ignore"):
             y = mold.npfunc(tidy)(self.sample_bits).astype(np.float64)
-            rel = np.abs(y - self.sample_truth) / self.sample_truth
+            rel = self._err(y, self.sample_truth)
             # NO clipping: a clip plateau (rel capped at 1e6) leaves
             # garbage-coefficient regions gradient-free and descent never
             # escapes (measured: tanh calibration v1/v2 all-FAIL).

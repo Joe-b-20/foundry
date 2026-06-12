@@ -95,12 +95,23 @@ def run(program: Program, inputs, step_budget: int = 100_000):
             m[ins.dst] = ((m[ins.a] & _M32) << (m[ins.b] & 31)) & _M32
         elif op == "XOR32":
             m[ins.dst] = (m[ins.a] ^ m[ins.b]) & _M32
+        elif op == "AND32":
+            m[ins.dst] = (m[ins.a] & m[ins.b]) & _M32
+        elif op == "OR32":
+            m[ins.dst] = (m[ins.a] | m[ins.b]) & _M32
         elif op == "FADD":
             m[ins.dst] = _bits(_f32(m[ins.a]) + _f32(m[ins.b]))
         elif op == "FSUB":
             m[ins.dst] = _bits(_f32(m[ins.a]) - _f32(m[ins.b]))
         elif op == "FMUL":
             m[ins.dst] = _bits(_f32(m[ins.a]) * _f32(m[ins.b]))
+        elif op == "U2F":
+            m[ins.dst] = _bits(float(m[ins.a] & _M32))
+        elif op == "F2U":
+            f = _f32(m[ins.a])
+            m[ins.dst] = (int(f) & _M32
+                          if math.isfinite(f) and abs(f) < 4294967296.0
+                          else 0)
         cost.steps += 1
         cost.by_family[OPS[op][1]] += 1
         for t in ins.tags:
