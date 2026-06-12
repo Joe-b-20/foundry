@@ -18,13 +18,14 @@ from engine.foreman import RunSpec, run
 def main():
     overall_ok = True
     summaries = []
-    for n in (3, 4, 5, 6):
+    for n in (3, 4, 5, 6, 7, 8):
         spec = RunSpec(
             domain="sorting_networks",
             domain_params={"n": n},
             proposer="hill-climb",
             proposer_params={"patience": 60},
-            budget_candidates=6_000 if n <= 4 else 80_000,
+            budget_candidates=(6_000 if n <= 4 else
+                               80_000 if n <= 6 else 200_000),
             batch=32,
             init_length=max(3, n * (n - 1) // 2),
             seed=0,
@@ -34,18 +35,22 @@ def main():
         ok = bool(report.get("found_correct") and report.get("verified_canonical"))
         overall_ok &= ok
         b = report.get("best", {})
+        rcg = report.get("recognition", {})
         summaries.append((n, ok, b.get("cost"), report["candidates_used"],
-                          report["seconds"], b.get("pretty"), report["run_id"]))
+                          report["seconds"], rcg, report["run_id"]))
+        name = f" = {rcg.get('name')}" if rcg.get("name") else ""
         print(f"n={n}: {'OK' if ok else 'FAILED'} cost={b.get('cost')} "
-              f"used={report['candidates_used']} t={report['seconds']}s")
+              f"used={report['candidates_used']} t={report['seconds']}s "
+              f"[{rcg.get('label', '-')}{name}]")
         print(f"      {b.get('pretty')}")
+        for note in rcg.get("notes", []):
+            print(f"      note: {note}")
 
     print()
-    for n, ok, cost, used, secs, pretty, rid in summaries:
+    for n, ok, cost, used, secs, rcg, rid in summaries:
         if cost:
-            bubble = n * (n - 1) // 2  # size of the naive bubble network
             print(f"n={n}: size {cost['comparators']} depth {cost['depth']} "
-                  f"(bubble-network size {bubble}) run={rid}")
+                  f"verdict={rcg.get('label', '-')} run={rid}")
     sys.exit(0 if overall_ok else 1)
 
 

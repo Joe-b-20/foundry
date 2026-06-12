@@ -76,3 +76,45 @@ correctness claims are exact and exempt)
 Files: engine/ (core_lang, runner, molds, proposers, judge, recorder,
 foreman), domains/sorting_networks.py, scripts/run_calibration_a.py,
 runs/sorting_networks-n{3,4,5,6}-hill-climb-s0-1781280940/
+
+## 2026-06-12 — step 2: reference shelf (cited bounds) + recognizer v0; calibration n=3..8
+
+What I tried: built the sorting-network reference shelf — three GENERATED
+constructions (bubble, insertion, Batcher odd-even mergesort incl. a
+sentinel-padding argument for non-power-of-2 n), each self-verified against
+the pack's checker at build time so nothing is trusted from memory — plus a
+known-bounds table with citations checked today via web search: size
+optimality n<=8 Floyd-Knuth (Knuth TAOCP v3 5.3.4), n=9,10 Codish-Cruz-
+Filipe-Frank-Schneider-Kamp 2014, n=11,12 Harder 2020; depth optimality
+n<=8 Knuth, n=9,10 Parberry 1989, n=11..16 Bundala-Zavodny 2014
+(arXiv:1310.6271). Recognizer v0: exact canonical match -> KNOWN(name);
+cost-profile comparison; bounds headroom statements; below-proven-bound ->
+CONTRADICTS-PROVEN-BOUND (= suspect our own verifier first). NEW is never
+emitted by v0 (rule: needs full literature check). Wired into foreman gate 3
++ extended calibration to n=3..8.
+
+What happened (artifacts in runs/sorting_networks-n{3..8}-hill-climb-s0-
+1781283145/report.json; total wall time 0.89 s [STDOUT-ONLY]):
+- n=3: size 3 depth 3 = proven optimal size+depth; 4832 cands; UNRESOLVED
+- n=4: size 5 depth 3 = proven optimal size+depth; 4992 cands; UNRESOLVED
+- n=5: size 9 depth 5 = proven optimal size+depth; 4928 cands; UNRESOLVED
+- n=6: size 13 depth 6 = +1/+1 above proven optimal 12/5; 5152; UNRESOLVED
+- n=7: size 16 depth 6 = proven optimal size+depth; 7968 cands; UNRESOLVED
+- n=8: size 22 depth 9 = +3/+3 above proven optimal 19/6; 5728; UNRESOLVED
+All L1-verified via the core runner before recognition (verify-on-write).
+
+What I learned: (1) the recognition pipeline works end to end and every
+optimality statement now carries its citation. (2) Plain hill-climbing hits
+proven-optimal SIZE at n=3,4,5,7 but not n=6,8 — pattern noted, n=1 seed,
+no theory claimed. (3) No exact canonical match to any shelf construction:
+optimal-cost wirings are plentiful, so rung 1 PASSES on the published table
+values (n=3,4,5,7 match proven optima under the declared verifier) but
+named-construction rediscovery has not happened; recognizing networks
+equivalent up to standard untangling transformations is future recognizer
+work. (4) The honest gaps at n=6 (+1) and n=8 (+3) are the work order for
+step 3 (evolution/islands + exhaustive proposer).
+
+Status: WORKS (rung 1 on table values for n=3,4,5,7; headroom flagged at 6,8)
+Files: domains/sorting_networks_shelf.py, engine/recognizer.py,
+engine/foreman.py (gate-3 wiring), scripts/run_calibration_a.py,
+runs/sorting_networks-n{3,4,5,6,7,8}-hill-climb-s0-1781283145/
