@@ -1,0 +1,609 @@
+{
+  "run_id": "tanh-hunt-1781299308",
+  "seconds": 155.1,
+  "rows": [
+    {
+      "budget": 10,
+      "seed": 0,
+      "evals": 307514,
+      "seconds": 23.3,
+      "verified": true,
+      "E": 0.012446273748464227,
+      "poly_floor_proven": 0.009949539740038876,
+      "shelf_f32": 0.009955514291990958,
+      "uses_bit_ops": false,
+      "ops": 10,
+      "pretty": "[c0=0xBD1FC001 c1=0x3FA1D00E c2=0xBF1723FD c3=0x3E065A00 c4=0xBC63A48A c5=0x3A13AA62 c6=0x8681E53D c7=0x14D32408] t0=c5*fx; t0=t0+fc4; t0=t0*fx; t0=t0+fc3; t0=t0*fx; t0=t0+fc2; t0=t0*fx; t0=t0+fc1; t0=t0*fx; x=t0+fc0",
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            9,
+            6,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            5
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            4
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            3
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            2
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            0,
+            9,
+            1
+          ]
+        ],
+        "consts": [
+          "0xbd1fc001",
+          "0x3fa1d00e",
+          "0xbf1723fd",
+          "0x3e065a00",
+          "0xbc63a48a",
+          "0x3a13aa62",
+          "0x8681e53d",
+          "0x14d32408"
+        ]
+      },
+      "verdict": "null: no usable signal under the current representation / search primitives / budget (beyond-polynomial structure not found at this scope)"
+    },
+    {
+      "budget": 10,
+      "seed": 1,
+      "evals": 307210,
+      "seconds": 24.4,
+      "verified": true,
+      "E": 0.012483467058435067,
+      "poly_floor_proven": 0.009949539740038876,
+      "shelf_f32": 0.009955514291990958,
+      "uses_bit_ops": false,
+      "ops": 10,
+      "pretty": "[c0=0xBD1E0004 c1=0x3FA1C00D c2=0xBF1727BD c3=0x3E066400 c4=0xBC63AA7D c5=0x3A139CFD c6=0x66B18262 c7=0x7FA8CFBC] t0=c5*fx; t0=t0+fc4; t0=t0*fx; t0=t0+fc3; t0=t0*fx; t0=t0+fc2; t0=t0*fx; t0=t0+fc1; t0=t0*fx; x=t0+fc0",
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            9,
+            6,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            5
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            4
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            3
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            2
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            0,
+            9,
+            1
+          ]
+        ],
+        "consts": [
+          "0xbd1e0004",
+          "0x3fa1c00d",
+          "0xbf1727bd",
+          "0x3e066400",
+          "0xbc63aa7d",
+          "0x3a139cfd",
+          "0x66b18262",
+          "0x7fa8cfbc"
+        ]
+      },
+      "verdict": "null: no usable signal under the current representation / search primitives / budget (beyond-polynomial structure not found at this scope)"
+    },
+    {
+      "budget": 10,
+      "seed": 2,
+      "evals": 306906,
+      "seconds": 24.1,
+      "verified": true,
+      "E": 0.012878288311030472,
+      "poly_floor_proven": 0.009949539740038876,
+      "shelf_f32": 0.009955514291990958,
+      "uses_bit_ops": false,
+      "ops": 10,
+      "pretty": "[c0=0xBD1F8005 c1=0x3FA1C027 c2=0xBF171FF8 c3=0x3E065F82 c4=0xBC63A005 c5=0x3A138BFC c6=0x40580CBA c7=0x40C8674E] t0=c5*fx; t0=t0+fc4; t0=t0*fx; t0=t0+fc3; t0=t0*fx; t0=t0+fc2; t0=t0*fx; t0=t0+fc1; t0=t0*fx; x=t0+fc0",
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            9,
+            6,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            5
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            4
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            3
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            2
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            0,
+            9,
+            1
+          ]
+        ],
+        "consts": [
+          "0xbd1f8005",
+          "0x3fa1c027",
+          "0xbf171ff8",
+          "0x3e065f82",
+          "0xbc63a005",
+          "0x3a138bfc",
+          "0x40580cba",
+          "0x40c8674e"
+        ]
+      },
+      "verdict": "null: no usable signal under the current representation / search primitives / budget (beyond-polynomial structure not found at this scope)"
+    },
+    {
+      "budget": 14,
+      "seed": 0,
+      "evals": 306602,
+      "seconds": 27.6,
+      "verified": true,
+      "E": 0.009067014346069609,
+      "poly_floor_proven": 0.006076849228325312,
+      "shelf_f32": 0.0060907700978538384,
+      "uses_bit_ops": false,
+      "ops": 14,
+      "pretty": "[c0=0xBD180031 c1=0x3F9FEC05 c2=0xBF090A7A c3=0x3D94C0C5 c4=0x3C4BD6D5 c5=0xBBA80AB9 c6=0x3A19A4E0 c7=0xB7C1D404] t0=c7*fx; t0=t0+fc6; t0=t0*fx; t0=t0+fc5; t0=t0*fx; t0=t0+fc4; t0=t0*fx; t0=t0+fc3; t0=t0*fx; t0=t0+fc2; t0=t0*fx; t0=t0+fc1; t0=t0*fx; x=t0+fc0",
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            9,
+            8,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            7
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            6
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            5
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            4
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            3
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            2
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            0,
+            9,
+            1
+          ]
+        ],
+        "consts": [
+          "0xbd180031",
+          "0x3f9fec05",
+          "0xbf090a7a",
+          "0x3d94c0c5",
+          "0x3c4bd6d5",
+          "0xbba80ab9",
+          "0x3a19a4e0",
+          "0xb7c1d404"
+        ]
+      },
+      "verdict": "null: no usable signal under the current representation / search primitives / budget (beyond-polynomial structure not found at this scope)"
+    },
+    {
+      "budget": 14,
+      "seed": 1,
+      "evals": 306602,
+      "seconds": 26.0,
+      "verified": true,
+      "E": 0.008981660470648009,
+      "poly_floor_proven": 0.006076849228325312,
+      "shelf_f32": 0.0060907700978538384,
+      "uses_bit_ops": false,
+      "ops": 14,
+      "pretty": "[c0=0xBD180050 c1=0x3F9FF105 c2=0xBF090DE3 c3=0x3D94C20F c4=0x3C4BD800 c5=0xBBA80A25 c6=0x3A19A31C c7=0xB7C1CF7A] t0=c7*fx; t0=t0+fc6; t0=t0*fx; t0=t0+fc5; t0=t0*fx; t0=t0+fc4; t0=t0*fx; t0=t0+fc3; t0=t0*fx; t0=t0+fc2; t0=t0*fx; t0=t0+fc1; t0=t0*fx; x=t0+fc0",
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            9,
+            8,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            7
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            6
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            5
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            4
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            3
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            2
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            0,
+            9,
+            1
+          ]
+        ],
+        "consts": [
+          "0xbd180050",
+          "0x3f9ff105",
+          "0xbf090de3",
+          "0x3d94c20f",
+          "0x3c4bd800",
+          "0xbba80a25",
+          "0x3a19a31c",
+          "0xb7c1cf7a"
+        ]
+      },
+      "verdict": "null: no usable signal under the current representation / search primitives / budget (beyond-polynomial structure not found at this scope)"
+    },
+    {
+      "budget": 14,
+      "seed": 2,
+      "evals": 306602,
+      "seconds": 25.6,
+      "verified": true,
+      "E": 0.0088165555674589,
+      "poly_floor_proven": 0.006076849228325312,
+      "shelf_f32": 0.0060907700978538384,
+      "uses_bit_ops": false,
+      "ops": 14,
+      "pretty": "[c0=0xBD180031 c1=0x3F9FEE42 c2=0xBF090B33 c3=0x3D94BDFC c4=0x3C4BD9BB c5=0xBBA80AD3 c6=0x3A19A409 c7=0xB7C1CFF2] t0=c7*fx; t0=t0+fc6; t0=t0*fx; t0=t0+fc5; t0=t0*fx; t0=t0+fc4; t0=t0*fx; t0=t0+fc3; t0=t0*fx; t0=t0+fc2; t0=t0*fx; t0=t0+fc1; t0=t0*fx; x=t0+fc0",
+      "found_cand": {
+        "instrs": [
+          [
+            "FMUL",
+            9,
+            8,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            7
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            6
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            5
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            4
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            3
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            9,
+            9,
+            2
+          ],
+          [
+            "FMUL",
+            9,
+            9,
+            0
+          ],
+          [
+            "FADD",
+            0,
+            9,
+            1
+          ]
+        ],
+        "consts": [
+          "0xbd180031",
+          "0x3f9fee42",
+          "0xbf090b33",
+          "0x3d94bdfc",
+          "0x3c4bd9bb",
+          "0xbba80ad3",
+          "0x3a19a409",
+          "0xb7c1cff2"
+        ]
+      },
+      "verdict": "null: no usable signal under the current representation / search primitives / budget (beyond-polynomial structure not found at this scope)"
+    }
+  ],
+  "beyond_polynomial": 0,
+  "f32_gains": 0,
+  "PASS_script": true
+}

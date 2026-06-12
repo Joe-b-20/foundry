@@ -1,0 +1,231 @@
+{
+  "PASS": true,
+  "seconds": 113.93,
+  "stages": [
+    {
+      "stage": "sanities",
+      "ok": true,
+      "detail": "25/25 modules pass",
+      "seconds": 7.79,
+      "runs": []
+    },
+    {
+      "stage": "calibration-A",
+      "ok": true,
+      "seconds": 1.45,
+      "runs": [
+        {
+          "cmd": "scripts.run_calibration_a",
+          "rc": 0,
+          "seconds": 1.45,
+          "tail": [
+            "n=6: size 13 depth 6 verdict=UNRESOLVED run=sorting_networks-n6-hill-climb-s0-1781299731",
+            "n=7: size 16 depth 6 verdict=UNRESOLVED run=sorting_networks-n7-hill-climb-s0-1781299732",
+            "n=8: size 22 depth 9 verdict=UNRESOLVED run=sorting_networks-n8-hill-climb-s0-1781299732"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "certificates",
+      "ok": true,
+      "seconds": 0.02,
+      "runs": [
+        {
+          "cmd": "scripts.certify_tiny_optimality",
+          "rc": 0,
+          "seconds": 0.02,
+          "tail": [
+            "n=3: no size-2 sorter among 9 sequences; witness of size 3 exists -> optimal = 3 (matches Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+            "n=4: no size-4 sorter among 1296 sequences; witness of size 5 exists -> optimal = 5 (matches Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+            "certificates written to runs/certify_tiny-1781299732/certificates.json in 0.0s"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "islands-n6-n8",
+      "ok": true,
+      "seconds": 12.16,
+      "runs": [
+        {
+          "cmd": "scripts.run_islands_a",
+          "rc": 0,
+          "seconds": 12.16,
+          "tail": [
+            "n=6: proven optimal size 12 (Floyd-Knuth (Knuth TAOCP v3 5.3.4)) | outcome-only sizes [12, 12, 12] | seeded sizes [12, 12, 12]",
+            "n=8: proven optimal size 19 (Floyd-Knuth (Knuth TAOCP v3 5.3.4)) | outcome-only sizes [19, 21, 19] | seeded sizes [19, 19, 19]",
+            "summary -> runs/islands_summary-1781299732.json"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "pcf-replication",
+      "ok": true,
+      "seconds": 8.97,
+      "runs": [
+        {
+          "cmd": "scripts.run_pcf_replication 0",
+          "rc": 0,
+          "seconds": 2.72,
+          "tail": [
+            "  \"PASS\": true,",
+            "  \"seconds\": 2.68",
+            "}"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_replication 1",
+          "rc": 0,
+          "seconds": 3.15,
+          "tail": [
+            "  \"PASS\": true,",
+            "  \"seconds\": 3.11",
+            "}"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_replication 2",
+          "rc": 0,
+          "seconds": 3.1,
+          "tail": [
+            "  \"PASS\": true,",
+            "  \"seconds\": 3.06",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "pcf-sweep",
+      "ok": true,
+      "seconds": 5.63,
+      "runs": [
+        {
+          "cmd": "scripts.run_pcf_sweep 0",
+          "rc": 0,
+          "seconds": 1.94,
+          "tail": [
+            "}",
+            "verified: [1, 5, 9, 6] -> zeta3 | named: ['rm-8-7zeta3']",
+            "verified: [5, 27, 51, 34] -> zeta3 | named: ['apery-zeta3']"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_sweep 1",
+          "rc": 0,
+          "seconds": 1.86,
+          "tail": [
+            "}",
+            "verified: [1, 5, 9, 6] -> zeta3 | named: ['rm-8-7zeta3']",
+            "verified: [5, 27, 51, 34] -> zeta3 | named: ['apery-zeta3']"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_sweep 2",
+          "rc": 0,
+          "seconds": 1.83,
+          "tail": [
+            "}",
+            "verified: [1, 5, 9, 6] -> zeta3 | named: ['rm-8-7zeta3']",
+            "verified: [5, 27, 51, 34] -> zeta3 | named: ['apery-zeta3']"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "karatsuba",
+      "ok": true,
+      "seconds": 1.49,
+      "runs": [
+        {
+          "cmd": "scripts.run_karatsuba",
+          "rc": 0,
+          "seconds": 1.49,
+          "tail": [
+            "   -> KNOWN = karatsuba-3 (+,+) (Karatsuba & Ofman 1962)",
+            "",
+            "PASS: True (predeclared bar: 3/3 seeds)"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "doctor-exam",
+      "ok": true,
+      "seconds": 30.95,
+      "runs": [
+        {
+          "cmd": "scripts.run_doctor_exam",
+          "rc": 0,
+          "seconds": 30.95,
+          "tail": [
+            "   planted: t2=x^y; t3=x+y; x=t2*t3",
+            "",
+            "EXAM PASS: True (bar: all 9 universes) -> runs/doctor_exam_summary-1781299791.json"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "grokking-probe",
+      "ok": true,
+      "seconds": 33.79,
+      "runs": [
+        {
+          "cmd": "scripts.run_grokking_probe",
+          "rc": 0,
+          "seconds": 33.79,
+          "tail": [
+            "0/6 runs the plateau-only doctor would have killed before the find. (33.77s)",
+            "",
+            "example trace [deceptive-conj s0], find@19:"
+          ]
+        },
+        {
+          "cmd": "killed_before_find check",
+          "rc": 0,
+          "seconds": 0,
+          "tail": [
+            "killed=0"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "tanh-calibration",
+      "ok": true,
+      "seconds": 10.49,
+      "runs": [
+        {
+          "cmd": "scripts.run_tanh_calibration",
+          "rc": 0,
+          "seconds": 10.49,
+          "tail": [
+            "deg5 s2: E=9.9582e-03 shelf=9.9555e-03 floor=9.9495e-03 PASS ",
+            "",
+            "tanh calibration PASS: True (10.4s)"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "audit",
+      "ok": true,
+      "seconds": 1.21,
+      "runs": [
+        {
+          "cmd": "scripts.run_audit_checks",
+          "rc": 0,
+          "seconds": 1.21,
+          "tail": [
+            "[OK] A6 todo-census: 0 TODO/FIXME markers: none",
+            "",
+            "audit: 6 checks, 0 FAIL/ERROR -> runs/audit-1781299836/findings.json"
+          ]
+        }
+      ]
+    }
+  ]
+}

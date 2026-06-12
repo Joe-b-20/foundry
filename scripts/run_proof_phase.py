@@ -28,10 +28,12 @@ SANITY_MODULES = [
     "engine.core_lang", "engine.runner", "engine.molds", "engine.proposers",
     "engine.recorder", "engine.archive", "engine.recognizer",
     "engine.molds_pcf", "engine.numeric", "engine.molds_bilinear",
-    "engine.molds_bits", "engine.doctor",
+    "engine.molds_bits", "engine.doctor", "engine.molds_float",
+    "engine.remez",
     "domains.sorting_networks", "domains.sorting_networks_shelf",
     "domains.pcf_shelf", "domains.pcf", "domains.bilinear",
-    "domains.bilinear_shelf", "domains.bitmixer",
+    "domains.bilinear_shelf", "domains.bitmixer", "domains.rsqrt",
+    "domains.rsqrt_shelf", "domains.tanh", "domains.tanh_shelf",
 ]
 
 STAGES = [
@@ -45,6 +47,7 @@ STAGES = [
     ("karatsuba", ["scripts.run_karatsuba"]),
     ("doctor-exam", ["scripts.run_doctor_exam"]),
     ("grokking-probe", ["scripts.run_grokking_probe"]),
+    ("tanh-calibration", ["scripts.run_tanh_calibration"]),
     ("audit", ["scripts.run_audit_checks"]),
 ]
 

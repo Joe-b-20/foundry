@@ -682,3 +682,53 @@ Files: engine/remez.py, domains/tanh.py, domains/tanh_shelf.py,
 engine/molds_float.py (n_const), engine/registry.py, domains/rsqrt.py
 (unclipped shaped loss, sample_shaped), scripts/run_tanh_calibration.py,
 scripts/run_rsqrt_hunt.py (metric param), runs/tanh-calibration-*
+
+## 2026-06-12 — the tanh HUNT: honest null — the polynomial frontier holds at ops 10/14, and the null ROUTES the portfolio
+
+The question (predeclared, null declared valid): at op budgets 10 and 14
+on [0.25, 8), can any program over our 32-bit op set beat the PROVEN
+weighted-Remez polynomial floors? Search: per (budget, seed) two islands
+(warm = seeded with the engine's own Lawson-calibrated polynomial; cold =
+blank), unclipped shaped loss, memetic constants-descent every 50 gens,
+migration every 20, ~580k evals per run, final true-metric polish +
+exhaustive verification (runs/tanh-hunt-*/report.json).
+
+HARNESS BUG CAUGHT BETWEEN BATCHES: the first batch finished ABOVE its
+own warm seed's error (1.24e-2 vs the seed's 9.96e-3) — the shaped rank
+drifts toward the mean-optimum and truncation discards the max-metric
+baseline; the final polish could not return (nonsmooth descent). The
+calibration had already taught this lesson (warm starts must not pass
+through the shaped phase) and I reintroduced it in the hunt loop. Fix:
+polish BOTH the search best AND the preserved warm seed, keep the better
+— the hunt can no longer lose to its own starting point. First-batch
+verdict on f32-gains was therefore void; beyond-polynomial null was
+unaffected (no bit-op structure in either batch).
+
+RESULT (fixed batch, 6/6 deterministic): ops<=10: E = 9.9582e-3 (proven
+floor 9.9495e-3, shelf f32 9.9555e-3); ops<=14: E = 6.0927e-3 (floor
+6.0768e-3, shelf 6.0908e-3). bits=False in every winner — across ~3.5M
+total evaluations no bit-op-bearing candidate ever ranked into
+contention. Verdict, scoped: no usable signal for beyond-polynomial
+structure under this representation / search / budget on this scope. The
+engine's best IS the minimax polynomial, as theory demands within the
+float-only class; the bit ops bought nothing for tanh.
+
+WHY — and where this routes the portfolio (the null's actual value):
+rsqrt's magic trick works because rsqrt has EXPONENT-SCALING structure
+(f(2^2k x) = 2^-k f(x)) that integer ops on the exponent field exploit
+directly. tanh is a saturating knee on a bounded range — no such
+symmetry. The real-world beyond-polynomial tools for the saturating
+family are RATIONAL approximations (needs FDIV — currently excluded for
+float64 double-rounding; single-rounding FDIV semantics would unlock the
+class) and PIECEWISE evaluation (needs compare/select ops — absent from
+the op set). Two cleanly-identified representational walls, each with a
+concrete capability fix. Routing rule derived: hunt bit tricks on
+exponent-structured functions (sqrt, exp2, log2 family); bring
+FDIV+SELECT before hunting the saturating family (tanh, sigmoid, gelu,
+erf, softplus) beyond polynomials.
+
+Status: WORKS — null verdict, predeclared valid, doubly informative
+(frontier confirmed + portfolio routing). Gauntlet extended (new module
+sanities + tanh calibration stage); README portfolio section added.
+Files: scripts/run_tanh_hunt.py, scripts/run_proof_phase.py, README.md,
+runs/tanh-hunt-*

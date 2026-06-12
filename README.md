@@ -92,6 +92,28 @@ stateDiagram-v2
 | middle | bilinear decompositions | **Karatsuba rediscovered and NAMED** (exact canonical match, Karatsuba & Ofman 1962) in 3/3 seeds; R=3 proven optimal by a flattening bound computed exactly in-repo |
 | roof | bit-mixers + wall doctor | exam 9/9: finds planted programs (sometimes shorter than the plant, verified exhaustively on all 65,536 pairs), abandons a keyed 8-round mixer on held-out-at-chance evidence, and never confidently abandons the deceptive grokking case (C3); a real gen-2303 grok survived the doctor (0/6 wrongly killed) |
 
+## Portfolio (the actual mission, in progress)
+
+Domain #1 — numerical approximants (float32; exhaustive-over-all-floats
+verification is this domain's 0/1 principle):
+
+- **rsqrt**: searching all 2³² magic constants from outcome (structure +
+  calculus-derived Newton step given) found `0x5F375A87` — one integer
+  from Lomont 2003's published optimum, and the best of the tested set
+  over ALL 2,130,706,432 positive normal float32 under our declared
+  metric (max rel error vs float64 reference; Lomont's own table used a
+  float32 reference, so the last-digit rankings are metric-scoped —
+  stated side by side, no supersession claimed). Three search-design
+  failures en route are in the tracker.
+- **tanh**: weighted-Remez minimax floors (proven for the polynomial
+  class, equioscillation-verified in-repo) + from-outcome coefficient
+  calibration landing within 0.04–0.09% of those floors (Lawson IRLS on
+  outcome samples + true-metric bit polish). The beyond-polynomial hunt
+  (bit/float hybrids vs the proven floors at equal ops) reports its
+  verdict — find or honest null — in the tracker.
+- Next on the list: gelu, sigmoid, exp, log, sqrt, sin, cos, erf,
+  softplus (Joe's order, adjusted by headroom).
+
 Everything above re-runs with one command — the standing regression
 gauntlet (19/19 module sanities + 9 stages, ~110 s on CPU, ends with the
 claims-vs-artifacts audit):
