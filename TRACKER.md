@@ -1072,6 +1072,46 @@ softplus/exp/log naturals.
 Files: domains/sin.py, engine/registry.py, engine/remez.py (robust
 degenerate handling), scripts/run_sin_hunt.py,
 scripts/run_proof_phase.py (sanity), runs/sin-hunt-*
+
+## 2026-06-13 — cos (reuse) + rsqrt arm-B coupled optimizer = MOROZ-CLASS rsqrt rediscovered from outcome (1.99x better than standard Newton)
+
+cos: cos(x)=sin(x+pi/2), the sin machinery + a phase const. Trig hunt
+generalized (scripts/run_trig_hunt.py [sin|cos]; run_sin_hunt.py deleted;
+sin REPRODUCED exactly 5.124e-4 = regression check). cos (14 ops):
+exhaustive max abs 5.127e-4 = ~1950x over the unreduced deg-7 PROVEN floor
+1.0, SAME reduced polynomial P as sin. Both certified.
+
+rsqrt arm-B (the coupled-optimizer payoff). The earlier arm B (joint
+4-gene by bit-descent) was 0/3 for lack of a coupled optimizer. Done right
+here: structure y0=magic-(x>>1); y=y0*(k1-k2*x*y0*y0); JOINTLY optimize
+{magic, k1, k2} from outcome by ALTERNATING a 1-D coarse-to-fine magic
+sweep with Nelder-Mead on (k1,k2) (very different scales -> separate
+optimization beats joint bit-descent), then carry-aware bit-polish of all
+three on the true metric, then exhaustive verify.
+RESULT (runs/rsqrt-armB-*): magic 0x5F37599B, k1=1.501316 (vs std 1.5),
+k2=0.500441 (vs std 0.5) -> exhaustive max rel 8.787e-4 over all float32
+in [2^-8, 2^8), = 1.993x BETTER than standard-Newton A87 (1.751e-3) at the
+SAME op count. This is the Moroz/Walczyk/Cieslinski MODIFIED-NEWTON class
+(Computation 2019 / Entropy 2021): a y0 with biased error is corrected
+better by a step with k1,k2 tuned off the exact Newton 1.5/0.5 — their
+~2x, REDISCOVERED FROM OUTCOME. Their EXACT constants were NOT carried;
+status UNRESOLVED-matching-class pending a primary-source numeric check
+(do not claim our exact constants are theirs). Scope honesty: [2^-8, 2^8)
+sub-scope (same as the A87 comparison); a full-normal-range re-verify is a
+cheap follow-up. PASS (predeclared: beats standard-Newton A87).
+
+This also retires the long-open "coupled-genes optimizer" item for rsqrt:
+the alternating sweep+NelderMead+bit-polish recipe is the tool; log2-L10's
+uncaptured headroom is the remaining application.
+
+Status: WORKS (cos certified; rsqrt Moroz-class rediscovered from outcome,
+1.99x, flagged matching-class). Gauntlet green (sin+cos sanities, 138s).
+Next: full-normal-range re-verify of the modified-Newton rsqrt; log2-L10
+via the same coupled recipe; SELECT/piecewise; softplus; or step out to a
+NON-approximant portfolio domain for breadth.
+Files: domains/cos.py, engine/registry.py, scripts/run_trig_hunt.py (new,
+generic), scripts/run_rsqrt_armB.py, scripts/run_proof_phase.py (cos
+sanity), runs/trig-hunt-*, runs/rsqrt-armB-*
 Files: domains/erf.py, domains/gelu.py, engine/molds_float.py (build_gelu
 + rational_skeleton out-slot + _rational_consts/_check_rational_size),
 engine/registry.py, scripts/run_rational_hunt.py (erf config),

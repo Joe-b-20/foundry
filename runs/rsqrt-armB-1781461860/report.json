@@ -1,0 +1,20 @@
+{
+  "run_id": "rsqrt-armB-1781461860",
+  "seconds": 7.7,
+  "magic": "0x5f37599b",
+  "k1_three_halves": 1.5013164281845093,
+  "k2_half": 0.5004410743713379,
+  "exhaustive_max_rel": 0.0008787167708950203,
+  "A87_standard_newton": 0.0017512877816225204,
+  "improvement_factor": 1.9930059828478517,
+  "beats_standard_newton": true,
+  "moroz_class_~2x": true,
+  "PASS": true,
+  "pretty": "[c0=0x5F37599B c1=0x00000001 c2=0x3F001CE8 c3=0x3FC02B23] t0=x>>c1; t1=c0-it0; t2=x*ft1; t2=t2*ft1; t2=t2*fc2; t2=c3-ft2; x=t1*ft2",
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "max rel error 8.787168e-04 vs float64 reference over ALL 134,217,728 + float32 with |x| in [2^-8, 2^8)",
+    "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+  },
+  "note": "structure standard; magic+Newton coeffs from outcome (joint). If ~2x, matches the Moroz/Walczyk/Cieslinski modified-Newton class (their exact constants not carried) -> UNRESOLVED pending citation check. Scope all float32 [2^-8,2^8), max rel vs float64."
+}

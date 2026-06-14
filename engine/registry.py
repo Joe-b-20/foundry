@@ -45,11 +45,16 @@ def build(domain, domain_params):
         n_const = domain_params.pop("n_const", 8)
         return cls(**domain_params), FloatProgMold(
             n_const=n_const, max_len=12, ops=OPS_F + OPS_I + OPS_CVT)
-    if domain == "sin":
-        from domains.sin import SinPack
+    if domain in ("sin", "cos"):
         from engine.molds_float import OPS_F, FloatProgMold
+        if domain == "sin":
+            from domains.sin import SinPack
+            cls = SinPack
+        else:
+            from domains.cos import CosPack
+            cls = CosPack
         n_const = domain_params.pop("n_const", 8)
-        return SinPack(**domain_params), FloatProgMold(
+        return cls(**domain_params), FloatProgMold(
             n_const=n_const, max_len=28, ops=OPS_F)
     if domain in ("erf", "gelu"):
         from engine.molds_float import OPS_DIV, OPS_F, FloatProgMold

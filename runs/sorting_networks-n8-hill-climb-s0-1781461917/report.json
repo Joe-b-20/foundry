@@ -1,0 +1,159 @@
+{
+  "run_id": "sorting_networks-n8-hill-climb-s0-1781461917",
+  "spec": {
+    "domain": "sorting_networks",
+    "domain_params": {
+      "n": 8
+    },
+    "proposer": "hill-climb",
+    "proposer_params": {
+      "patience": 60
+    },
+    "budget_candidates": 200000,
+    "batch": 32,
+    "init_length": 28,
+    "seed": 0,
+    "settle_batches": 150,
+    "cost_rules": "primary: comparators (size); secondary: depth",
+    "log_every_candidate": true,
+    "schema": "runspec-v0"
+  },
+  "candidates_used": 5728,
+  "seconds": 0.32,
+  "stop_reason": "correct candidate held through 150 batches without improvement",
+  "found_correct": true,
+  "best": {
+    "pretty": "(0,3) (1,2) (5,6) | (0,5) (1,7) (4,6) | (0,1) (3,6) (4,7) | (0,4) (2,7) | (1,4) (2,5) (3,7) | (3,4) (6,7) | (2,3) (5,6) | (1,3) (4,5) | (1,2) (3,4)",
+    "cand": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "score": [
+      1,
+      256,
+      -22,
+      -9
+    ],
+    "cost": {
+      "comparators": 22,
+      "depth": 9
+    }
+  },
+  "verified_canonical": true,
+  "verify_details": {
+    "checked": 281,
+    "core_cost": {
+      "steps": 88,
+      "by_family": {
+        "cmp": 44,
+        "mov": 44
+      },
+      "native": {
+        "comparator": 22
+      }
+    }
+  },
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "sorts every length-8 input",
+    "evidence": "all 256 binary vectors pass via the core runner; 0/1 principle extends this to all inputs (see pack docstring); plus 25 random integer vectors"
+  },
+  "recognition": {
+    "label": "UNRESOLVED",
+    "cost": {
+      "comparators": 22,
+      "depth": 9
+    },
+    "notes": [
+      "size is +3 above the proven optimal 19 (Floyd-Knuth (Knuth TAOCP v3 5.3.4)) -> headroom exists",
+      "depth is +3 above optimal 6 (Knuth TAOCP v3 5.3.4)",
+      "not in shelf; NEW would need a full literature check"
+    ]
+  }
+}
