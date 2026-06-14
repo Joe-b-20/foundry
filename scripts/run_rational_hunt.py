@@ -41,6 +41,9 @@ CONFIGS = {
              "weight": (lambda x: mp.tanh(x)),
              "f": (lambda x: mp.tanh(x)),
              "rats": [(2, 2), (3, 3)]},
+    "erf": {"interval": ("-8", "8"), "metric": "abs", "weight": None,
+            "f": (lambda x: mp.erf(x)),
+            "rats": [(2, 2), (3, 3)]},
 }
 
 

@@ -140,6 +140,17 @@ verification is this domain's 0/1 principle):
     degree-6 floor. (tanh's *polynomials* held against bit-tricks — an
     earlier null — but its *rationals* beat polynomials: both branches of
     the routing rule, confirmed on a second function.)
+  - **erf [2/2]** (9 ops): **2.3× lower max absolute error** than the
+    proven degree-4 floor; **[3/3]** (13 ops): **8.5× lower** than degree-6.
+  - **gelu = x·Φ(x)** (the asymmetric one — a pure rational can't match its
+    tails, so the structure is x·rational(Φ)): **x·[3/3]** (14 ops) is
+    **2.6× lower max absolute error** than the proven degree-7 floor.
+    x·[2/2] does *not* beat the degree-5 polynomial — gelu's smoother
+    bounded shape lets low-order polynomials compete, so the rational
+    structure only pays off at higher order (an honest distinction from the
+    sharply-saturating functions).
+  - (Each function's metric — absolute or relative — is its own; the
+    factors are within-function and are not cross-compared.)
   - During development, exhaustive verification caught a build bug — a
     [3/3] program (13 ops) silently truncated by a too-small `max_len`
     became an identity function (output = input), a spurious "8.0" error.

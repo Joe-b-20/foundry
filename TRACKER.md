@@ -986,6 +986,56 @@ Files: engine/molds_float.py (rational_skeleton/build_rational + guards +
 guard tests), engine/molds_bilinear.py + engine/molds_bits.py (tidy
 comments), scripts/run_rational_hunt.py (new, generic), run_sigmoid_hunt.py
 (deleted), runs/sigmoid-rational-*, runs/tanh-rational-*
+
+## 2026-06-13 — erf certified (rational); gelu certified at [3/3] only (composed x*rational; honest partial)
+
+erf (third saturating-family member; scipy.special.erf reference oracle
+behind the pack wrapper, search-side only — core stays stdlib). Signed
+scope |x| in [2^-4, 8), max ABS, exhaustive, via the generic rational
+hunt:
+- erf [2/2] (9 ops): exhaustive max abs 1.844e-1 = 2.3x below the proven
+  deg-4 (8-op) floor 4.262e-1.
+- erf [3/3] (13 ops): exhaustive max abs 3.381e-2 = 8.5x below the proven
+  deg-6 (12-op) floor 2.882e-1.
+Both certified, PASS=True. (Absolute errors are higher than sigmoid/tanh —
+erf's transition over [-8,8] is sharp and the polynomial floors are
+catastrophic, 0.29 at deg-6 — but the rational win is clean. NOTE: erf abs
+metric is NOT comparable to tanh's relative metric.)
+
+gelu (most ML-load-bearing activation; gelu = x*Phi(x)). A pure rational
+can't match gelu's ASYMMETRIC tails (-> x right, -> 0 left), so the
+program is x * R(x) with R a rational approximating Phi — new mold method
+FloatProgMold.build_gelu (R into a temp, x kept in slot 0, final FMUL
+x*R). R fit from outcome to Phi (unweighted and |x|-weighted, |x|-weighted
+won — gelu error = |x|*|R-Phi|). gelu[p/q] = 2p+2q+2 ops; compared to the
+EQUAL-OP polynomial. Floors: gelu Remez over [-8,8] abs, deg-5 (10 op)
+2.617e-1, deg-7 (14 op) 1.561e-1.
+- gelu x*[3/3] (14 ops): exhaustive max abs 6.03e-2 = 2.6x below the
+  proven deg-7 (14-op) floor. CERTIFIED.
+- gelu x*[2/2] (10 ops): exhaustive max abs 5.09e-1 — does NOT beat the
+  deg-5 (10-op) floor 2.62e-1. HONEST NO-WIN.
+Predeclared PASS (both) -> FALSE (goalpost NOT moved). The real finding:
+gelu DIFFERS from sigmoid/erf — polynomials compete well on gelu's mostly-
+smooth bounded shape, so the rational structure only pays off at higher
+order ([3/3]+), not at [2/2]. gelu absolute errors are high in absolute
+terms (0.06 at 14 ops over [-8,8]) — production gelu uses range reduction/
+higher degree; our scoped 14-op result is a fair apples-to-apples win vs
+the 14-op polynomial, nothing more.
+
+SATURATING FAMILY now: sigmoid + tanh + erf rationals all beat their poly
+floors (routing confirmed 3x); gelu joins at [3/3] only (a 4th, with the
+honest caveat). Metrics differ per function (sigmoid/erf/gelu ABS, tanh
+REL) — win factors are within-domain only, never cross-compared.
+
+Status: WORKS (erf certified; gelu [3/3] certified, [2/2] honest no-win).
+Next: SELECT/piecewise (the 2nd saturating tool — may help gelu/erf at low
+op count); coupled optimizer (rsqrt arm-B / log2-L10); remaining list
+(exp via exp2, sin/cos, softplus, log via log2).
+Files: domains/erf.py, domains/gelu.py, engine/molds_float.py (build_gelu
++ rational_skeleton out-slot + _rational_consts/_check_rational_size),
+engine/registry.py, scripts/run_rational_hunt.py (erf config),
+scripts/run_gelu_hunt.py, scripts/run_proof_phase.py (sanities),
+runs/erf-rational-*, runs/gelu-hunt-*
 Files: engine/core_lang.py + engine/runner.py (FDIV), engine/molds_float.py
 (OPS_DIV, npfunc/pretty/cost), engine/ratfit.py, domains/sigmoid.py,
 engine/registry.py, scripts/run_sigmoid_hunt.py,

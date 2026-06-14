@@ -149,12 +149,11 @@ class FloatProgMold:
                 "dl": len(instrs) + self.N_CONST}
 
     # --- rational builders (P/Q via FDIV) — shared by rational hunts -------
-    def rational_skeleton(self, p, q):
+    def rational_skeleton(self, p, q, out=0):
         """Horner(P) / Horner(Q), Q normalized so b0 = 1 (a const gene),
-        then FDIV. consts order: [a0..ap, b1..bq, one]; total p+q+2 genes.
-        2p+2q+1 ops — the caller's mold max_len must hold it (FloatProgMold
-        now RAISES rather than silently truncating, after the sigmoid [3/3]
-        max_len bug)."""
+        then FDIV into slot `out`. consts order: [a0..ap, b1..bq, one];
+        total p+q+2 genes. 2p+2q+1 ops. x is read from slot 0 throughout
+        and (when out != 0) left intact — used by build_gelu for x*R."""
         T = 1 + self.N_CONST
         Pacc, Qacc = T, T + 1
 
@@ -172,25 +171,38 @@ class FloatProgMold:
         for k in range(q - 2, -1, -1):
             ins += [("FMUL", Qacc, Qacc, 0),
                     ("FADD", Qacc, Qacc, b_slot(k) if k >= 1 else one_slot)]
-        ins.append(("FDIV", 0, Pacc, Qacc))
+        ins.append(("FDIV", out, Pacc, Qacc))
         return tuple(ins)
 
-    def build_rational(self, p, q, a, b):
-        skel = self.rational_skeleton(p, q)
-        # construction-boundary guard: a hand-built skeleton longer than
-        # max_len would be silently capped by tidy (this is the class of
-        # bug that broke sigmoid [3/3]). Catch it where it is built.
-        if len(skel) > self.max_len:
-            raise ValueError(
-                f"[{p}/{q}] rational is {len(skel)} ops > mold max_len "
-                f"{self.max_len}: raise the mold max_len")
+    def _rational_consts(self, p, q, a, b):
+        consts = (tuple(_fb(x) for x in a) + tuple(_fb(x) for x in b)
+                  + (_fb(1.0),))
+        return consts + tuple(_fb(0.0)
+                              for _ in range(self.N_CONST - len(consts)))
+
+    def _check_rational_size(self, p, q, n_ops):
+        if n_ops > self.max_len:
+            raise ValueError(f"[{p}/{q}] program is {n_ops} ops > mold "
+                             f"max_len {self.max_len}: raise max_len")
         if p + q + 1 > self.N_CONST:
             raise ValueError(f"[{p}/{q}] needs {p+q+1} consts > N_CONST "
                              f"{self.N_CONST}")
-        consts = (tuple(_fb(x) for x in a) + tuple(_fb(x) for x in b)
-                  + (_fb(1.0),))
-        consts += tuple(_fb(0.0) for _ in range(self.N_CONST - len(consts)))
-        return self.tidy((skel, consts))
+
+    def build_gelu(self, p, q, a, b):
+        """x * R(x), R = [p/q] rational (for gelu = x*Phi(x)): R into a temp
+        with x left intact in slot 0, then FMUL slot0 = x * R. 2p+2q+2 ops."""
+        rout = 1 + self.N_CONST + 2          # a free temp slot
+        skel = self.rational_skeleton(p, q, out=rout) + (("FMUL", 0, 0, rout),)
+        self._check_rational_size(p, q, len(skel))
+        return self.tidy((skel, self._rational_consts(p, q, a, b)))
+
+    def build_rational(self, p, q, a, b):
+        # construction-boundary guard: a hand-built skeleton longer than
+        # max_len would be silently capped by tidy (the class of bug that
+        # broke sigmoid [3/3]). Caught in _check_rational_size.
+        skel = self.rational_skeleton(p, q)
+        self._check_rational_size(p, q, len(skel))
+        return self.tidy((skel, self._rational_consts(p, q, a, b)))
 
     # --- pour: core Program (trust path) ------------------------------------
     def pour(self, cand) -> Program:

@@ -35,6 +35,7 @@ SANITY_MODULES = [
     "domains.bilinear_shelf", "domains.bitmixer", "domains.rsqrt",
     "domains.rsqrt_shelf", "domains.tanh", "domains.tanh_shelf",
     "domains.sqrt_log2", "domains.exp2", "domains.sigmoid", "engine.ratfit",
+    "domains.erf", "domains.gelu",
 ]
 
 STAGES = [

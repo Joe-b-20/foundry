@@ -1,0 +1,87 @@
+{
+  "run_id": "sigmoid-rational-1781459876",
+  "domain": "sigmoid",
+  "seconds": 9.5,
+  "rows": [
+    {
+      "rational": "[1/1]",
+      "ops": 5,
+      "exhaustive_max_err": 0.2065760044418734,
+      "metric": "abs",
+      "vs_poly_deg": 2,
+      "poly_floor": 0.20616390053609757,
+      "factor_lower": 0.9980050736924201,
+      "beats_equal_deg_poly": false,
+      "consts": [
+        "0x3f000000",
+        "0x3db4cc30",
+        "0xa5500000",
+        "0x3f800000",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "pretty": "[c0=0x3F000000 c1=0x3DB4CC30 c2=0xA5500000 c3=0x3F800000 c4=0x00000000 c5=0x00000000 c6=0x00000000 c7=0x00000000] t0=c1*fx; t0=t0+fc0; t1=c2*fx; t1=t1+fc3; x=t0/ft1",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max abs error 2.065760e-01 vs float64 reference over ALL 117,440,512 +/- float32 with |x| in [2^-4, 2^3)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      }
+    },
+    {
+      "rational": "[2/2]",
+      "ops": 9,
+      "exhaustive_max_err": 0.030817255080700767,
+      "metric": "abs",
+      "vs_poly_deg": 4,
+      "poly_floor": 0.08946037405688931,
+      "factor_lower": 2.9029312903638083,
+      "beats_equal_deg_poly": true,
+      "consts": [
+        "0x3f000000",
+        "0x3e56b793",
+        "0x3ca4fbe6",
+        "0x26100000",
+        "0x3d24fbe6",
+        "0x3f800000",
+        "0x0",
+        "0x0"
+      ],
+      "pretty": "[c0=0x3F000000 c1=0x3E56B793 c2=0x3CA4FBE6 c3=0x26100000 c4=0x3D24FBE6 c5=0x3F800000 c6=0x00000000 c7=0x00000000] t0=c2*fx; t0=t0+fc1; t0=t0*fx; t0=t0+fc0; t1=c4*fx; t1=t1+fc3; t1=t1*fx; t1=t1+fc5; x=t0/ft1",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max abs error 3.081726e-02 vs float64 reference over ALL 117,440,512 +/- float32 with |x| in [2^-4, 2^3)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      }
+    },
+    {
+      "rational": "[3/3]",
+      "ops": 13,
+      "exhaustive_max_err": 0.002652184910846178,
+      "metric": "abs",
+      "vs_poly_deg": 6,
+      "poly_floor": 0.04085330876153879,
+      "factor_lower": 15.403642707741882,
+      "beats_equal_deg_poly": true,
+      "consts": [
+        "0x3f000000",
+        "0x3e7b3ed1",
+        "0x3d2dd830",
+        "0x3b2259e3",
+        "0x26c0c000",
+        "0x3dadd830",
+        "0x25200000",
+        "0x3f800000"
+      ],
+      "pretty": "[c0=0x3F000000 c1=0x3E7B3ED1 c2=0x3D2DD830 c3=0x3B2259E3 c4=0x26C0C000 c5=0x3DADD830 c6=0x25200000 c7=0x3F800000] t0=c3*fx; t0=t0+fc2; t0=t0*fx; t0=t0+fc1; t0=t0*fx; t0=t0+fc0; t1=c6*fx; t1=t1+fc5; t1=t1*fx; t1=t1+fc4; t1=t1*fx; t1=t1+fc7; x=t0/ft1",
+      "certificate": {
+        "level": "L1-exhaustive-in-bounds",
+        "claim": "max abs error 2.652185e-03 vs float64 reference over ALL 117,440,512 +/- float32 with |x| in [2^-4, 2^3)",
+        "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+      }
+    }
+  ],
+  "PASS": true,
+  "note": "rational (FDIV, Foundry-defined f64-quot->f32) vs PROVEN poly floor; coeffs from outcome (deterministic IRLS); exhaustive; factors are lower bounds (conservative-for-poly)"
+}

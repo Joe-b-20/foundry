@@ -45,6 +45,17 @@ def build(domain, domain_params):
         n_const = domain_params.pop("n_const", 8)
         return cls(**domain_params), FloatProgMold(
             n_const=n_const, max_len=12, ops=OPS_F + OPS_I + OPS_CVT)
+    if domain in ("erf", "gelu"):
+        from engine.molds_float import OPS_DIV, OPS_F, FloatProgMold
+        if domain == "erf":
+            from domains.erf import ErfPack
+            cls = ErfPack
+        else:
+            from domains.gelu import GeluPack
+            cls = GeluPack
+        n_const = domain_params.pop("n_const", 8)
+        return cls(**domain_params), FloatProgMold(
+            n_const=n_const, max_len=20, ops=OPS_F + OPS_DIV)
     if domain == "sigmoid":
         from domains.sigmoid import SigmoidPack
         from engine.molds_float import OPS_DIV, OPS_F, FloatProgMold
