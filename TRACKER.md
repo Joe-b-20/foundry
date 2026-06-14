@@ -793,3 +793,51 @@ engine/molds_float.py (OPS_CVT, npfunc, pretty), engine/remez.py
 (log-spaced grid), domains/rsqrt.py (err_kind switch),
 domains/sqrt_log2.py, engine/registry.py, scripts/run_explog_hunt.py,
 scripts/run_proof_phase.py (sanity add), runs/explog-hunt-*
+
+## 2026-06-12 — exp2 (Schraudolph trick): F2U path exercised, certified 31x beyond-polynomial; bias correction REDISCOVERED from outcome
+
+exp2 = log2's mirror (F2U writes the exponent field; canonical citation
+Schraudolph 1999, Neural Computation 11(4), "On a Fast, Compact
+Approximation of the Exponential Function"). First SIGNED-scope domain:
+extended the pack base with a signed flag (mirrors the positive-magnitude
+octave scope with its sign-flipped twin via XOR 0x80000000; verification
+stays exhaustive over the doubled set; _signs() threaded through
+verify/dense/cross-check). Scope: all float32 with |x| in [2^-8, 8), both
+signs (41,943,040 x 2 = ~84M... actually 11 octaves x 2^23 x 2 = 184.5M),
+max RELATIVE error vs float64 numpy.exp2, exhaustive.
+
+Arm E3 (3 ops: FMUL c0, FADD c1, F2U): slope c0 = 2^23 GIVEN (forced by
+the exponent field — derived, not searched, same status as rsqrt's Newton
+coeffs); bias c1 found FROM OUTCOME (coarse-to-fine 1-D sweep + dense
+fine-scan over the F2U sawtooth + exhaustive confirmation).
+
+RESULT (runs/exp2-hunt-*/report.json): exhaustive max rel error
+2.9827e-2. The engine found slope = 0x4B000000 = EXACTLY 2^23 and bias
+0x4E7DE9A3 (= 1064986816.0), an implied correction of +366400 = 0.0437 x
+2^23 vs the zero-correction 127x2^23 — that IS Schraudolph's published
+correction class (~0.043 x 2^23), REDISCOVERED from outcome (his exact
+constant not carried from memory; flagged matching-class). PROVEN
+polynomial floors (weighted Remez, relative) are catastrophic as the
+symmetry predicts — polynomials cannot track exp's relative error across
+5 orders of magnitude: deg-1 9.99e-1, deg-3 9.30e-1, deg-5 4.50e-1. So
+the 3-op trick beats the proven 6-op-poly floor by 31x and the 10-op-poly
+floor by 15x. PASS (predeclared: E < deg3_floor/2).
+
+Cost note: the hunt took 6 min (dense fine-scan window x signed scope is
+heavy); it is an on-demand experiment, NOT in the gauntlet (only its
+module sanity is). Optimization of the sweep is a minor todo.
+
+THE EXPONENT FAMILY, COMPLETE (3 certified members + the tanh contrast):
+log2 129x, exp2 31x, sqrt 2 pareto points (incl. composing the engine's
+own rsqrt artifact); tanh = honest null. The symmetry-based routing rule
+("bit tricks win where exponent-scaling structure exists, polynomials
+hold where it doesn't") is now empirical in BOTH directions with
+exhaustive certificates on four functions.
+
+Status: WORKS (PASS, predeclared). Next: FDIV+SELECT capability for the
+saturating family (tanh/sigmoid/gelu/erf rationals + piecewise);
+coupled-genes optimizer (rsqrt arm-B + log2 L10 uncaptured headroom);
+gelu/sigmoid down Joe's list once FDIV lands.
+Files: domains/rsqrt.py (signed scope), domains/exp2.py,
+engine/registry.py, scripts/run_exp2_hunt.py,
+scripts/run_proof_phase.py (sanity), runs/exp2-hunt-*

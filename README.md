@@ -107,12 +107,26 @@ verification is this domain's 0/1 principle):
   failures en route are in the tracker.
 - **tanh**: weighted-Remez minimax floors (proven for the polynomial
   class, equioscillation-verified in-repo) + from-outcome coefficient
-  calibration landing within 0.04–0.09% of those floors (Lawson IRLS on
-  outcome samples + true-metric bit polish). The beyond-polynomial hunt
-  (bit/float hybrids vs the proven floors at equal ops) reports its
-  verdict — find or honest null — in the tracker.
-- Next on the list: gelu, sigmoid, exp, log, sqrt, sin, cos, erf,
-  softplus (Joe's order, adjusted by headroom).
+  calibration landing within 0.04–0.09% of those floors. The
+  beyond-polynomial hunt returned an honest **null** — at this scope a
+  saturating knee has no exponent-scaling structure for bit ops to
+  exploit, so polynomials hold.
+- **the exponent family** (where the tanh null *predicted* bit tricks
+  would win, and they do — all exhaustively certified):
+  - **log2**: 3-op integer-aliasing trick (Blinn 1997), constants from
+    outcome (slope found to be exactly 2⁻²³), **129× below** the proven
+    deg-1 polynomial floor.
+  - **exp2**: 3-op Schraudolph trick, slope = exactly 2²³ given, bias
+    correction **rediscovered from outcome** (0.0437·2²³, Schraudolph's
+    published class), **31× below** the proven 6-op polynomial floor.
+  - **sqrt**: two certified pareto points, including one that composes the
+    engine's own rsqrt result.
+- The routing rule — *bit tricks win where exponent-scaling structure
+  exists; polynomials hold where it doesn't* — is now empirical in both
+  directions across four functions.
+- Next: an FDIV + select capability to open the saturating family
+  (rationals, piecewise) for gelu/sigmoid/erf/softplus; a coupled-gene
+  optimizer for the uncaptured joint-constant headroom.
 
 Everything above re-runs with one command — the standing regression
 gauntlet (19/19 module sanities + 9 stages, ~110 s on CPU, ends with the

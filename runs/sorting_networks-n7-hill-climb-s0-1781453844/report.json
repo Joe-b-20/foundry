@@ -1,0 +1,136 @@
+{
+  "run_id": "sorting_networks-n7-hill-climb-s0-1781453844",
+  "spec": {
+    "domain": "sorting_networks",
+    "domain_params": {
+      "n": 7
+    },
+    "proposer": "hill-climb",
+    "proposer_params": {
+      "patience": 60
+    },
+    "budget_candidates": 200000,
+    "batch": 32,
+    "init_length": 21,
+    "seed": 0,
+    "settle_batches": 150,
+    "cost_rules": "primary: comparators (size); secondary: depth",
+    "log_every_candidate": true,
+    "schema": "runspec-v0"
+  },
+  "candidates_used": 7968,
+  "seconds": 0.43,
+  "stop_reason": "correct candidate held through 150 batches without improvement",
+  "found_correct": true,
+  "best": {
+    "pretty": "(0,6) (1,4) (2,3) | (0,5) (1,2) (3,6) | (0,1) (2,5) (4,6) | (1,2) (3,4) (5,6) | (2,3) (4,5) | (1,2) (3,4)",
+    "cand": [
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "score": [
+      1,
+      128,
+      -16,
+      -6
+    ],
+    "cost": {
+      "comparators": 16,
+      "depth": 6
+    }
+  },
+  "verified_canonical": true,
+  "verify_details": {
+    "checked": 153,
+    "core_cost": {
+      "steps": 64,
+      "by_family": {
+        "cmp": 32,
+        "mov": 32
+      },
+      "native": {
+        "comparator": 16
+      }
+    }
+  },
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "sorts every length-7 input",
+    "evidence": "all 128 binary vectors pass via the core runner; 0/1 principle extends this to all inputs (see pack docstring); plus 25 random integer vectors"
+  },
+  "recognition": {
+    "label": "UNRESOLVED",
+    "cost": {
+      "comparators": 16,
+      "depth": 6
+    },
+    "notes": [
+      "same size+depth as ['batcher-odd-even'] but different wiring",
+      "size matches the proven optimal (Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+      "depth 6 vs optimal 6 (Knuth TAOCP v3 5.3.4)",
+      "not in shelf; NEW would need a full literature check"
+    ]
+  }
+}

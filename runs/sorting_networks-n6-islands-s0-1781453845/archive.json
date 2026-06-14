@@ -1,0 +1,322 @@
+[
+ {
+  "cand": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "cost": {
+   "comparators": 12,
+   "depth": 6
+  },
+  "provenance": "seeded",
+  "island": "seeded-1",
+  "gen": 0,
+  "ts": 1781453845.734,
+  "verified": true,
+  "verify_details": {
+   "checked": 89,
+   "core_cost": {
+    "steps": 48,
+    "by_family": {
+     "cmp": 24,
+     "mov": 24
+    },
+    "native": {
+     "comparator": 12
+    }
+   }
+  }
+ },
+ {
+  "cand": [
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    2,
+    5
+   ]
+  ],
+  "cost": {
+   "comparators": 17,
+   "depth": 10
+  },
+  "provenance": "outcome-only",
+  "island": "blank-0",
+  "gen": 25,
+  "ts": 1781453845.82,
+  "verified": true,
+  "verify_details": {
+   "checked": 89,
+   "core_cost": {
+    "steps": 68,
+    "by_family": {
+     "cmp": 34,
+     "mov": 34
+    },
+    "native": {
+     "comparator": 17
+    }
+   }
+  }
+ },
+ {
+  "cand": [
+   [
+    0,
+    5
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "cost": {
+   "comparators": 13,
+   "depth": 6
+  },
+  "provenance": "outcome-only",
+  "island": "blank-0",
+  "gen": 50,
+  "ts": 1781453845.903,
+  "verified": true,
+  "verify_details": {
+   "checked": 89,
+   "core_cost": {
+    "steps": 52,
+    "by_family": {
+     "cmp": 26,
+     "mov": 26
+    },
+    "native": {
+     "comparator": 13
+    }
+   }
+  }
+ },
+ {
+  "cand": [
+   [
+    0,
+    5
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "cost": {
+   "comparators": 12,
+   "depth": 6
+  },
+  "provenance": "outcome-only",
+  "island": "pressure-2",
+  "gen": 75,
+  "ts": 1781453845.983,
+  "verified": true,
+  "verify_details": {
+   "checked": 89,
+   "core_cost": {
+    "steps": 48,
+    "by_family": {
+     "cmp": 24,
+     "mov": 24
+    },
+    "native": {
+     "comparator": 12
+    }
+   }
+  }
+ }
+]

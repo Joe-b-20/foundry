@@ -34,7 +34,7 @@ SANITY_MODULES = [
     "domains.pcf_shelf", "domains.pcf", "domains.bilinear",
     "domains.bilinear_shelf", "domains.bitmixer", "domains.rsqrt",
     "domains.rsqrt_shelf", "domains.tanh", "domains.tanh_shelf",
-    "domains.sqrt_log2",
+    "domains.sqrt_log2", "domains.exp2",
 ]
 
 STAGES = [

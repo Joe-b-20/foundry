@@ -30,12 +30,18 @@ class RsqrtPack:
                             # absolute error is the shift-invariant choice)
 
     def __init__(self, lo_exp=-8, hi_exp=8, sample_per_octave=256,
-                 sample_random=1024, seed=12345):
-        # hi_exp == 128 means "through the last normal binade" (exponent 127)
+                 sample_random=1024, seed=12345, signed=False):
+        # hi_exp == 128 means "through the last normal binade" (exponent 127).
+        # signed=True mirrors the positive-magnitude scope with its sign-
+        # flipped twin (XOR 0x80000000) — for functions of a signed real
+        # argument (e.g. exp2), where |x| in [2^lo, 2^hi) but x takes both
+        # signs. Verification stays exhaustive over the doubled set.
         assert -126 <= lo_exp < hi_exp <= 128
         self.lo_exp, self.hi_exp = lo_exp, hi_exp
+        self.signed = signed
         self.octaves = list(range(lo_exp, hi_exp))
-        self.scope_size = (1 << 23) * len(self.octaves)
+        self.scope_size = ((1 << 23) * len(self.octaves)
+                           * (2 if signed else 1))
         self.cost_rules = ("primary: max relative error over the declared "
                            "scope (exhaustive); secondary: op count, dl; "
                            "op budget <= 9; no FDIV")
@@ -48,11 +54,18 @@ class RsqrtPack:
             bits.append(base + mant)
         extra = [((rng.randrange(lo_exp, hi_exp) + 127) << 23)
                  + rng.getrandbits(23) for _ in range(sample_random)]
-        self.sample_bits = np.unique(
+        sb = np.unique(
             np.concatenate([np.concatenate(bits),
                             np.array(extra, dtype=np.int64)])
         ).astype(np.uint32)
+        if signed:
+            sb = np.concatenate([sb, sb ^ np.uint32(0x80000000)])
+        self.sample_bits = sb
         self.sample_truth = self._truth(self.sample_bits)
+
+    def _signs(self):
+        return ((np.uint32(0), np.uint32(0x80000000)) if self.signed
+                else (np.uint32(0),))
 
     @staticmethod
     def _truth(bits_u32):
@@ -113,7 +126,8 @@ class RsqrtPack:
         for e in self.octaves:
             base = (e + 127) << 23
             mant = np.linspace(0, (1 << 23) - 1, per_octave, dtype=np.int64)
-            chunks.append(base + mant)
+            for s in self._signs():
+                chunks.append((base + mant) ^ np.int64(s))
         bits = np.concatenate(chunks).astype(np.uint32)
         err, _ = self._max_rel(mold, tidy, bits, self._truth(bits))
         return err
@@ -125,20 +139,27 @@ class RsqrtPack:
         for e in self.octaves:
             base = (e + 127) << 23
             for off in range(0, 1 << 23, chunk):
-                bits = (np.arange(off, off + chunk, dtype=np.int64)
-                        + base).astype(np.uint32)
-                err, at = self._max_rel(mold, tidy, bits, self._truth(bits))
-                if err == float("inf"):
-                    return False, {"reason": "non-finite output in scope",
-                                   "octave": e}
-                if err > worst:
-                    worst, worst_at = err, at
+                mbits = (np.arange(off, off + chunk, dtype=np.int64)
+                         + base).astype(np.uint32)
+                for s in self._signs():
+                    bits = mbits ^ s
+                    err, at = self._max_rel(mold, tidy, bits,
+                                            self._truth(bits))
+                    if err == float("inf"):
+                        return False, {"reason": "non-finite output in scope",
+                                       "octave": e, "sign": int(s)}
+                    if err > worst:
+                        worst, worst_at = err, at
         # cross-check: vectorized path == core runner, bit for bit
         from engine import runner as core_runner
         rng = random.Random(999)
         xs = np.array([((rng.randrange(self.lo_exp, self.hi_exp) + 127) << 23)
                        + rng.getrandbits(23) for _ in range(4096)],
                       dtype=np.uint32)
+        if self.signed:
+            flip = np.array([rng.choice((0, 0x80000000)) for _ in range(4096)],
+                            dtype=np.uint32)
+            xs = xs ^ flip
         vec = mold.npfunc(tidy)(xs).view(np.uint32)
         prog = mold.pour(tidy)
         for xb, vb in zip(xs[:: 16], vec[:: 16]):   # 256 through the runner
@@ -146,11 +167,12 @@ class RsqrtPack:
             if (out[0] & 0xFFFFFFFF) != int(vb):
                 return False, {"reason": "core-runner cross-check FAILED",
                                "input": hex(int(xb))}
+        scope = (f"{'+/-' if self.signed else '+'} float32 with |x| in "
+                 f"[2^{self.lo_exp}, 2^{self.hi_exp})")
         return True, {"certificate": {
             "level": "L1-exhaustive-in-bounds",
-            "claim": f"max relative error {worst:.6e} vs float64 reference "
-                     f"over ALL {self.scope_size:,} float32 in "
-                     f"[2^{self.lo_exp}, 2^{self.hi_exp})",
+            "claim": f"max {self.err_kind} error {worst:.6e} vs float64 "
+                     f"reference over ALL {self.scope_size:,} {scope}",
             "evidence": "exhaustive vectorized sweep; 256 random inputs "
                         "bit-exact against the core runner"},
             "max_rel_err": worst, "worst_at_bits": hex(worst_at)}
