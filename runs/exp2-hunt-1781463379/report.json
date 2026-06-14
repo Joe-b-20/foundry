@@ -1,0 +1,28 @@
+{
+  "run_id": "exp2-hunt-1781463379",
+  "seconds": 46.1,
+  "result": {
+    "arm": "E3",
+    "ops": 3,
+    "slope": "0x4b000000",
+    "bias_bits": "0x4e7de9a3",
+    "bias_value": 1064986816.0,
+    "implied_correction_vs_127x2^23": 366400.0,
+    "exhaustive_max_rel": 0.029826897757243277,
+    "deg3_floor": 0.930444567704762,
+    "factor_vs_deg3": 31.194815340083746,
+    "win": true,
+    "floors": {
+      "2": 0.9990805597559272,
+      "6": 0.930444567704762,
+      "10": 0.4500380994182998
+    },
+    "pretty": "[c0=0x4B000000 c1=0x4E7DE9A3] t0=x*fc0; t0=t0+fc1; x=f2u(t0)",
+    "certificate": {
+      "level": "L1-exhaustive-in-bounds",
+      "claim": "max rel error 2.982690e-02 vs float64 reference over ALL 184,549,376 +/- float32 with |x| in [2^-8, 2^3)",
+      "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+    }
+  },
+  "PASS": true
+}

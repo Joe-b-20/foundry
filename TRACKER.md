@@ -1112,6 +1112,46 @@ NON-approximant portfolio domain for breadth.
 Files: domains/cos.py, engine/registry.py, scripts/run_trig_hunt.py (new,
 generic), scripts/run_rsqrt_armB.py, scripts/run_proof_phase.py (cos
 sanity), runs/trig-hunt-*, runs/rsqrt-armB-*
+
+## 2026-06-13 — FULL AUDIT (Joe-directed; new discovery paused): all claims reproduce under the current engine, docs reconciled, actual-flow diagrams
+
+Joe judged audit higher-leverage than another new domain after the
+approximants domain grew to 13 functions and the engine changed a lot
+(FDIV, U2F/F2U/AND32/OR32, silent-failure guards, ratfit, remez
+robustness, mold rational/gelu builders). Targets: stale claims, engine
+changes shifting old numbers, doc drift, diagrams showing intended vs
+actual flow.
+
+Built scripts/run_approximants_audit.py (rerunnable): re-runs every
+DETERMINISTIC approximant hunt under the current engine and reconciles the
+fresh certified number against a hardcoded CLAIM ledger (number, scope,
+metric, provenance, certificate). Re-running the real hunt code (not hand-
+reconstruction) avoids skeleton-mistype risk and IS the "reproduce after
+engine changes" test.
+
+RESULT: 14/14 approximant claims reproduce, 0 mismatch (every number to
+5-6 sig figs; runs/approximants-audit-1781463104/reconciliation.json).
+Calibration/control domains green via the gauntlet (32 sanities + 10
+stages; runs/proof_phase-1781463511). Documentation-drift check: every
+prose win-FACTOR is consistent with reproduced-error / proven-floor
+(log2 129x, exp2 31x, sigmoid 15.4x, tanh 7.9x, erf 8.5x, gelu 2.6x, sin
+1952x, rsqrt arm-B 1.99x all check out). No stale claims, no drift.
+
+docs/audit_2026-06-13.md: verdict + full reconciliation table + drift
+check + ACTUAL-FLOW mermaids (the real candidate->search[npfunc,sample]->
+build[guards]->verify_trusted[exhaustive sweep + bit-exact core-runner
+cross-check]->certificate->vs-proven-floor path, per family). Findings all
+clean/re-affirmed: G4 rsqrt-armB & exp2-bias stay "matching-class pending
+citation"; G5 metrics within-function only; G6 sin/cos single-2pi (|x|<16)
++ arm-B [2^-8,2^8) sub-scope (full-normal re-verify = cheap follow-up).
+RULES updated: run the approximants audit after float-core/mold/fitter
+changes.
+
+Status: DONE — audit clean (14/14 + gauntlet); claims, scopes, metrics,
+provenance, certificates all reconciled; diagrams reflect actual flow.
+New-discovery pause can lift.
+Files: scripts/run_approximants_audit.py, docs/audit_2026-06-13.md,
+RULES.md, runs/approximants-audit-*, runs/proof_phase-1781463511
 Files: domains/erf.py, domains/gelu.py, engine/molds_float.py (build_gelu
 + rational_skeleton out-slot + _rational_consts/_check_rational_size),
 engine/registry.py, scripts/run_rational_hunt.py (erf config),

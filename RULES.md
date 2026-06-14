@@ -86,3 +86,11 @@ proof-it-works phase (all calibrations, the doctor exam, the grokking
 probe, and the claims-vs-artifacts audit) in ~2 minutes:
 
     python3 -m scripts.run_proof_phase
+
+After any change to the float core / molds / fitters that could shift an
+approximant result, also run the approximants audit — it re-runs every
+numerical-approximant hunt under the current engine and reconciles each
+certified number against the committed claim ledger (~6 min, or `fast` to
+skip the 187s full-domain rsqrt re-verify):
+
+    python3 -m scripts.run_approximants_audit [fast]
