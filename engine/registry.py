@@ -49,8 +49,13 @@ def build(domain, domain_params):
         from domains.sigmoid import SigmoidPack
         from engine.molds_float import OPS_DIV, OPS_F, FloatProgMold
         n_const = domain_params.pop("n_const", 6)
+        # max_len must hold the largest program built: a [3/3] rational is
+        # 13 ops (2p+2q+1). max_len=12 silently TRUNCATED the final FDIV via
+        # tidy -> dead program (output=input) -> a fake "8.0" error that I
+        # wrongly diagnosed as a float32-representability pole. (Bug found
+        # 2026-06-13; corrected in TRACKER.)
         return SigmoidPack(**domain_params), FloatProgMold(
-            n_const=n_const, max_len=12, ops=OPS_F + OPS_DIV)
+            n_const=n_const, max_len=20, ops=OPS_F + OPS_DIV)
     if domain == "tanh":
         from domains.tanh import TanhPack
         from engine.molds_float import FloatProgMold

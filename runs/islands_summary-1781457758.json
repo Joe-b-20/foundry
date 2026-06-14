@@ -1,0 +1,107 @@
+{
+  "seconds": 14.13,
+  "rows": [
+    {
+      "n": 6,
+      "seed": 0,
+      "run_id": "sorting_networks-n6-islands-s0-1781457758",
+      "evals": 14592,
+      "seconds": 0.26,
+      "stop": "outcome-only entry reached target size 12 at gen 75",
+      "outcome_only": {
+        "comparators": 12,
+        "depth": 6
+      },
+      "oo_island": "pressure-2",
+      "seeded": {
+        "comparators": 12,
+        "depth": 6
+      }
+    },
+    {
+      "n": 6,
+      "seed": 1,
+      "run_id": "sorting_networks-n6-islands-s1-1781457758",
+      "evals": 9792,
+      "seconds": 0.18,
+      "stop": "outcome-only entry reached target size 12 at gen 50",
+      "outcome_only": {
+        "comparators": 12,
+        "depth": 6
+      },
+      "oo_island": "pressure-2",
+      "seeded": {
+        "comparators": 12,
+        "depth": 6
+      }
+    },
+    {
+      "n": 6,
+      "seed": 2,
+      "run_id": "sorting_networks-n6-islands-s2-1781457759",
+      "evals": 14592,
+      "seconds": 0.25,
+      "stop": "outcome-only entry reached target size 12 at gen 75",
+      "outcome_only": {
+        "comparators": 12,
+        "depth": 5
+      },
+      "oo_island": "blank-0",
+      "seeded": {
+        "comparators": 12,
+        "depth": 6
+      }
+    },
+    {
+      "n": 8,
+      "seed": 0,
+      "run_id": "sorting_networks-n8-islands-s0-1781457759",
+      "evals": 122688,
+      "seconds": 2.93,
+      "stop": "outcome-only entry reached target size 19 at gen 425",
+      "outcome_only": {
+        "comparators": 19,
+        "depth": 6
+      },
+      "oo_island": "pressure-2",
+      "seeded": {
+        "comparators": 19,
+        "depth": 6
+      }
+    },
+    {
+      "n": 8,
+      "seed": 1,
+      "run_id": "sorting_networks-n8-islands-s1-1781457762",
+      "evals": 345600,
+      "seconds": 7.87,
+      "stop": "generation budget exhausted",
+      "outcome_only": {
+        "comparators": 21,
+        "depth": 6
+      },
+      "oo_island": "pressure-2",
+      "seeded": {
+        "comparators": 19,
+        "depth": 6
+      }
+    },
+    {
+      "n": 8,
+      "seed": 2,
+      "run_id": "sorting_networks-n8-islands-s2-1781457770",
+      "evals": 108288,
+      "seconds": 2.63,
+      "stop": "outcome-only entry reached target size 19 at gen 375",
+      "outcome_only": {
+        "comparators": 19,
+        "depth": 6
+      },
+      "oo_island": "pressure-2",
+      "seeded": {
+        "comparators": 19,
+        "depth": 6
+      }
+    }
+  ]
+}

@@ -897,27 +897,49 @@ RESULTS (runs/sigmoid-hunt-*/report.json):
   4.09e-2. So a 9-op rational beats the proven floor of the 12-op
   polynomial class. CERTIFIED (exhaustive, both paths). The tanh-null
   routing ("saturating family needs rationals") CONFIRMED for sigmoid.
-- [3/3] (13 ops): the real-coefficient fit is pole-free (min|Q|=1.0 over
-  a dense scope, no sign change) and 15x below the deg-6 floor (2.65e-3
-  on the sample) — BUT its coefficients span ~15 orders of magnitude (a
-  denominator root at -6.1e14 => b3 ~ 1.6e-15 vs b1 ~ O(1)), which
-  float32 CANNOT hold; rounding the coefficients produces an exhaustive
-  max abs error of 8.0. EXHAUSTIVE VERIFICATION CAUGHT WHAT A SAMPLED
-  BENCHMARK WOULD HAVE REPORTED AS A CLEAN 15x WIN. This is the project's
-  ruthless-verification thesis in one data point.
+- [3/3] (13 ops): [ORIGINAL CLAIM, NOW CORRECTED] reported exhaustive
+  8.0, attributed to float32 being unable to hold coefficients spanning
+  ~15 orders of magnitude. See the dated correction below.
 
-Predeclared PASS bar was "[2/2] AND [3/3] beat their floors" -> FALSE (I
-do NOT move the goalpost). But the meaningful result stands: [2/2] is a
-clean certified rational win confirming the routing, and [3/3] is a
-high-value verification catch. The fix for [3/3] is float32-AWARE
-coefficient fitting (fpminimax-style: search coefficients in float32 /
-control dynamic range), logged as next — naive real-fit + round is not
-enough for higher-order rationals.
+Predeclared PASS bar was "[2/2] AND [3/3] beat their floors" -> reported
+FALSE at the time. See correction.
 
-Status: WORKS ([2/2] certified; [3/3] honestly rejected by exhaustive).
-Next: fpminimax-style f32-aware rational fit (rescue [3/3], unlock higher
-orders); tanh/gelu/erf via the same FDIV machinery; SELECT/piecewise as
-the second saturating tool.
+[CORRECTION 2026-06-13, same day, self-caught while building the "fix"]:
+THE [3/3] 8.0 WAS A BUG, NOT A FLOAT32-REPRESENTABILITY FAILURE. The
+sigmoid mold was built with max_len=12 (registry); a [3/3] rational is 13
+ops (2p+2q+1), so mold.tidy TRUNCATED the final FDIV (which writes the
+output slot) -> dead-code elimination removed everything -> an IDENTITY
+program (output = input x). max |x - sigmoid(x)| over the scope ~ 8, hence
+the spurious "8.0". With max_len fixed (20), the NAIVE [3/3] (real-coeff
+linearized IRLS fit, float32-rounded, no ridge) verifies exhaustively at
+2.6522e-3 = 15.4x BELOW the proven deg-6 (12-op) floor. The "~15 orders of
+magnitude / float32 can't hold it" mechanism I wrote was FABRICATED
+reasoning that fit the symptom — the wide-range coefficients float32-round
+FINE; the failure was purely the truncation. I built an fpminimax ridge/
+dyn-cap/pole apparatus to "rescue" a non-problem; it has been REMOVED
+(ratfit ridge reverted; run_sigmoid_fpfit deleted). This is exactly the
+parent-audit failure mode (a plausible narrative on an undiagnosed cause)
+and exactly what Joe's claim-hygiene guidance targets — caught same day.
+The SURVIVING (and corrected) lessons:
+  1. Verify the ACTUAL PROGRAM, not the intended math. Exhaustive caught
+     that the built program != the intended rational (a silent truncation);
+     the separate real-coeff error (2.65e-3) never ran the built program so
+     never saw it. Real verification win, correct mechanism.
+  2. ADDED GUARD NEEDED (logged): mold.tidy / build should ERROR on a
+     program that exceeds max_len or whose output slot is never written,
+     not silently truncate to an identity. (Next change.)
+
+TRUE RESULT (re-run, runs/sigmoid-hunt-* latest, PASS=True): [1/1] null
+(2.07e-1 ~ deg-2 floor); [2/2] (9 ops) 3.08e-2 = 2.9x below deg-4 floor
+and below deg-6 floor; [3/3] (13 ops) 2.65e-3 = 15.4x below deg-6 floor.
+Both rationals CERTIFIED; the saturating-family routing confirmed, and the
+higher-order rational genuinely helps. No fpminimax needed.
+
+Status: WORKS ([2/2] + [3/3] certified, PASS=True after the max_len bug
+fix; misdiagnosis corrected same-day).
+Next: ADD the max_len/output-unwritten guard to the mold (silent-truncation
+is a verification hole); tanh/gelu/erf via FDIV; SELECT/piecewise as the
+second saturating tool.
 Files: engine/core_lang.py + engine/runner.py (FDIV), engine/molds_float.py
 (OPS_DIV, npfunc/pretty/cost), engine/ratfit.py, domains/sigmoid.py,
 engine/registry.py, scripts/run_sigmoid_hunt.py,

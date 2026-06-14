@@ -130,19 +130,22 @@ verification is this domain's 0/1 principle):
   directions across four functions.
 - **the saturating family** (the routing's other branch — these need
   rationals/piecewise, not bit tricks; opened with a defined FDIV op):
-  - **sigmoid**: a [2/2] rational (coefficients from outcome via
-    linearized least-squares + Lawson IRLS) achieves **2.9× lower max
-    absolute error** than the proven degree-4 polynomial floor at equal op
-    budget (9 ops) — and beats the 12-op polynomial floor too. Certified
-    exhaustively.
-  - A [3/3] rational looked 15× better *on the sample* but exhaustive
-    verification caught an 8.0 blowup: its coefficients span ~15 orders of
-    magnitude, beyond float32's range. A sampled benchmark would have
-    reported a false win — exhaustive verification did not. (Fix:
-    float32-aware coefficient fitting — logged.)
-- Next: float32-aware rational fitting; tanh/gelu/erf via the same FDIV
-  machinery; a coupled-gene optimizer for the uncaptured joint-constant
-  headroom (rsqrt, log2-L10).
+    coefficients from outcome (linearized least-squares + Lawson IRLS),
+    float32-rounded and verified exhaustively:
+  - **sigmoid [2/2]** (9 ops): **2.9× lower max absolute error** than the
+    proven degree-4 polynomial floor — and below the 12-op floor too.
+  - **sigmoid [3/3]** (13 ops): **15.4× lower** than the proven degree-6
+    (12-op) floor.
+  - During development, exhaustive verification caught a build bug — a
+    [3/3] program (13 ops) silently truncated by a too-small `max_len`
+    became an identity function (output = input), a spurious "8.0" error.
+    Verifying the *actual program* (not the intended math) caught it; the
+    mold now errors on over-length programs instead of truncating. (The
+    full episode, including a misdiagnosis I corrected the same day, is in
+    TRACKER.md — failures are kept.)
+- Next: a guard against programs that never write their output; tanh /
+  gelu / erf via the same FDIV machinery; a coupled-gene optimizer for the
+  uncaptured joint-constant headroom (rsqrt, log2-L10).
 
 Everything above re-runs with one command — the standing regression
 gauntlet (19/19 module sanities + 9 stages, ~110 s on CPU, ends with the

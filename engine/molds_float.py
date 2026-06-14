@@ -115,7 +115,16 @@ class FloatProgMold:
 
     # --- tidy: drop instructions whose result is never used ----------------
     def tidy(self, cand):
-        instrs, consts = cand[0][: self.max_len], cand[1]
+        # Search-generated candidates are always <= max_len (random/mutate
+        # cap there), so a longer program means a HAND-BUILT skeleton that
+        # exceeds max_len. Silently truncating it dropped the final output-
+        # writing instruction once (sigmoid [3/3], max_len=12 < 13 ops ->
+        # identity program -> spurious 8.0). Raise loudly instead.
+        if len(cand[0]) > self.max_len:
+            raise ValueError(
+                f"program has {len(cand[0])} ops > max_len {self.max_len}: "
+                "would silently truncate (build bug) — raise the mold max_len")
+        instrs, consts = cand[0], cand[1]
         live = {0}
         keep = [False] * len(instrs)
         for i in range(len(instrs) - 1, -1, -1):

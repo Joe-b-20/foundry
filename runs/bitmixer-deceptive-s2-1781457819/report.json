@@ -1,0 +1,58 @@
+{
+  "run_id": "bitmixer-deceptive-s2-1781457819",
+  "target": "deceptive",
+  "seed": 2,
+  "evals": 31552,
+  "seconds": 2.43,
+  "best_frac": 1.0,
+  "heldout_best": 0.771,
+  "chance_plus": 0.6235,
+  "found": true,
+  "found_gen": 492,
+  "false_alarm_recs": 0,
+  "abandon_accepted_gen": null,
+  "verified_exhaustive": true,
+  "found_cand": [
+    [
+      "XOR",
+      3,
+      1,
+      0
+    ],
+    [
+      "AND",
+      0,
+      1,
+      0
+    ],
+    [
+      "AND",
+      0,
+      0,
+      0
+    ],
+    [
+      "ADD",
+      1,
+      0,
+      3
+    ],
+    [
+      "ADD",
+      1,
+      0,
+      1
+    ],
+    [
+      "MUL",
+      0,
+      1,
+      3
+    ]
+  ],
+  "found_pretty": "t3=y^x; x=y&x; x=x&x; y=x+t3; y=x+y; x=y*t3",
+  "planted_pretty": "t2=x^y; t3=x+y; x=t2*t3",
+  "corpus_exact_rejected_by_exhaustive": 0,
+  "high_conf_abandon_seen": false,
+  "PASS": true
+}

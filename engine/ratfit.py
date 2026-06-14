@@ -14,6 +14,12 @@ import numpy as np
 
 
 def rational_fit(xs, fs, p, q, iters=80, weight0=None):
+    """(A ridge-regularized variant was tried 2026-06-13 to "rescue" a
+    [3/3] sigmoid fit that exhaustive verification flagged at 8.0 — but that
+    failure was a max_len truncation BUG, not a float32-coefficient problem;
+    the naive fit float32-rounds fine. The ridge machinery was removed as
+    speculative — re-add WITH A REAL TEST if a genuinely ill-conditioned
+    case appears.)"""
     xs = np.asarray(xs, dtype=np.float64)
     fs = np.asarray(fs, dtype=np.float64)
     Xp = np.vander(xs, p + 1, increasing=True)         # [1, x, ..., x^p]
