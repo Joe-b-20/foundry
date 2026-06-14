@@ -105,6 +105,13 @@ def run(program: Program, inputs, step_budget: int = 100_000):
             m[ins.dst] = _bits(_f32(m[ins.a]) - _f32(m[ins.b]))
         elif op == "FMUL":
             m[ins.dst] = _bits(_f32(m[ins.a]) * _f32(m[ins.b]))
+        elif op == "FDIV":
+            da, db = _f32(m[ins.a]), _f32(m[ins.b])
+            if db == 0.0:
+                m[ins.dst] = (0x7FC00000 if (da == 0.0 or math.isnan(da))
+                              else _bits(math.copysign(math.inf, da)))
+            else:
+                m[ins.dst] = _bits(da / db)     # f64 quotient -> round f32
         elif op == "U2F":
             m[ins.dst] = _bits(float(m[ins.a] & _M32))
         elif op == "F2U":

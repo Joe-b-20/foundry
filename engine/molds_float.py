@@ -23,6 +23,7 @@ from engine.core_lang import Instr, Program
 OPS_F = ("FADD", "FSUB", "FMUL")
 OPS_I = ("ADD32", "SUB32", "SHR32", "SHL32", "XOR32", "AND32", "OR32")
 OPS_CVT = ("U2F", "F2U")
+OPS_DIV = ("FDIV",)        # opt-in: rationals (saturating family)
 
 
 class FloatProgMold:
@@ -130,7 +131,7 @@ class FloatProgMold:
         instrs, _ = cand
         fam = {"f": 0, "i": 0}
         for (op, *_rest) in instrs:
-            fam["f" if op in OPS_F else "i"] += 1
+            fam["f" if (op in OPS_F or op == "FDIV") else "i"] += 1
         return {"ops": len(instrs), "fops": fam["f"], "iops": fam["i"],
                 "dl": len(instrs) + self.N_CONST}
 
@@ -159,7 +160,7 @@ class FloatProgMold:
             for i, c in enumerate(consts):
                 m[1 + i] = np.uint32(c)
             for (op, dst, a, b) in instrs:
-                if op in OPS_F:
+                if op in OPS_F or op == "FDIV":
                     fa = (np.asarray(m[a]).view(np.float32)
                           if hasattr(m[a], "view") else
                           np.uint32(m[a]).view(np.float32))
@@ -171,8 +172,11 @@ class FloatProgMold:
                             r = fa + fb
                         elif op == "FSUB":
                             r = fa - fb
-                        else:
+                        elif op == "FMUL":
                             r = fa * fb
+                        else:   # FDIV: f64 quotient -> f32, matches runner
+                            r = (fa.astype(np.float64)
+                                 / fb.astype(np.float64)).astype(np.float32)
                     m[dst] = r.view(np.uint32) if hasattr(r, "view") \
                         else np.float32(r).view(np.uint32)
                 elif op in ("U2F", "F2U"):
@@ -219,9 +223,9 @@ class FloatProgMold:
         instrs, consts = cand
         names = (["x"] + [f"c{i}" for i in range(self.N_CONST)]
                  + [f"t{i}" for i in range(4)])
-        sym = {"FADD": "+f", "FSUB": "-f", "FMUL": "*f", "ADD32": "+i",
-               "SUB32": "-i", "SHR32": ">>", "SHL32": "<<", "XOR32": "^",
-               "AND32": "&", "OR32": "|"}
+        sym = {"FADD": "+f", "FSUB": "-f", "FMUL": "*f", "FDIV": "/f",
+               "ADD32": "+i", "SUB32": "-i", "SHR32": ">>", "SHL32": "<<",
+               "XOR32": "^", "AND32": "&", "OR32": "|"}
         body = "; ".join(
             f"{names[d]}={o.lower()}({names[a]})" if o in OPS_CVT
             else f"{names[d]}={names[a]}{sym[o]}{names[b]}"

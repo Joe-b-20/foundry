@@ -44,6 +44,14 @@ OPS = {
     "FADD":  (2, "fadd"),
     "FSUB":  (2, "fadd"),
     "FMUL":  (2, "fmul"),
+    # FDIV semantics (added for rationals, the saturating-family tool):
+    # the float64 quotient rounded once to float32. NOT necessarily the
+    # IEEE-correctly-rounded float32 quotient (that would need a non-stdlib
+    # divide in the core runner) — but a single, deterministic, well-defined
+    # function computed identically in both execution paths (runner: Python
+    # f64 divide -> round f32; npfunc: f64 divide -> cast f32). x/0 = +-inf,
+    # 0/0 = nan, like IEEE. Opt-in per mold (not in the default op set).
+    "FDIV":  (2, "fdiv"),
     # value CONVERSIONS (not reinterpretations) — added for the log2/exp2
     # family (Blinn 1997 integer-aliasing tricks need them). Both are
     # single-rounding: uint32 -> float64 is exact, the float32 round is

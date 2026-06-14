@@ -1,0 +1,39 @@
+{
+  "run_id": "bitmixer-planted-s1-1781455720",
+  "target": "planted",
+  "seed": 1,
+  "evals": 4096,
+  "seconds": 0.47,
+  "best_frac": 1.0,
+  "heldout_best": 0.6841,
+  "chance_plus": 0.5898,
+  "found": true,
+  "found_gen": 63,
+  "false_alarm_recs": 0,
+  "abandon_accepted_gen": null,
+  "verified_exhaustive": true,
+  "found_cand": [
+    [
+      "XOR",
+      2,
+      0,
+      1
+    ],
+    [
+      "OR",
+      3,
+      0,
+      1
+    ],
+    [
+      "MUL",
+      0,
+      3,
+      2
+    ]
+  ],
+  "found_pretty": "t2=x^y; t3=x|y; x=t3*t2",
+  "planted_pretty": "y=t3^y; t2=x|t3; t3=x^y; x=y|t2; x=t3*x",
+  "corpus_exact_rejected_by_exhaustive": 0,
+  "PASS": true
+}

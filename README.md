@@ -128,9 +128,21 @@ verification is this domain's 0/1 principle):
 - The routing rule — *bit tricks win where exponent-scaling structure
   exists; polynomials hold where it doesn't* — is now empirical in both
   directions across four functions.
-- Next: an FDIV + select capability to open the saturating family
-  (rationals, piecewise) for gelu/sigmoid/erf/softplus; a coupled-gene
-  optimizer for the uncaptured joint-constant headroom.
+- **the saturating family** (the routing's other branch — these need
+  rationals/piecewise, not bit tricks; opened with a defined FDIV op):
+  - **sigmoid**: a [2/2] rational (coefficients from outcome via
+    linearized least-squares + Lawson IRLS) achieves **2.9× lower max
+    absolute error** than the proven degree-4 polynomial floor at equal op
+    budget (9 ops) — and beats the 12-op polynomial floor too. Certified
+    exhaustively.
+  - A [3/3] rational looked 15× better *on the sample* but exhaustive
+    verification caught an 8.0 blowup: its coefficients span ~15 orders of
+    magnitude, beyond float32's range. A sampled benchmark would have
+    reported a false win — exhaustive verification did not. (Fix:
+    float32-aware coefficient fitting — logged.)
+- Next: float32-aware rational fitting; tanh/gelu/erf via the same FDIV
+  machinery; a coupled-gene optimizer for the uncaptured joint-constant
+  headroom (rsqrt, log2-L10).
 
 Everything above re-runs with one command — the standing regression
 gauntlet (19/19 module sanities + 9 stages, ~110 s on CPU, ends with the

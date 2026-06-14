@@ -869,6 +869,59 @@ Next: FDIV+SELECT capability for the
 saturating family (tanh/sigmoid/gelu/erf rationals + piecewise);
 coupled-genes optimizer (rsqrt arm-B + log2 L10 uncaptured headroom);
 gelu/sigmoid down Joe's list once FDIV lands.
+
+## 2026-06-13 — FDIV capability + sigmoid: rational [2/2] CERTIFIED 2.9x below the proven deg-4 floor; [3/3] = exhaustive caught a false 15x "win"
+
+Opened the saturating family (the tanh-null routing's other branch) with
+FDIV. FDIV semantics (defined, stdlib-core-safe, bit-identical both
+paths): the float64 quotient rounded once to float32 — NOT IEEE-correctly-
+rounded f32 division (that needs a non-stdlib divide in the core runner),
+but a single deterministic well-defined function (runner: Python f64
+divide -> round f32; npfunc: f64 divide -> cast f32; x/0=+-inf, 0/0=nan).
+Opt-in per mold (OPS_DIV), so rsqrt/log2/exp2 op sets are unchanged.
+SigmoidPack (signed scope |x| in [2^-4, 8), ~150M values, max ABSOLUTE
+error vs float64 1/(1+e^-x), exhaustive). engine/ratfit.py: the coupled-
+coefficient optimizer the saturating family needs — linearized rational
+least-squares + Lawson IRLS, coeffs FROM OUTCOME (deterministic, no RNG ->
+no seed variance), then float32-rounded and EXHAUSTIVELY verified.
+
+Proven polynomial floors (abs Remez over [-8,8], conservative-for-poly:
+real-arith, slightly wider interval): deg-2 2.06e-1, deg-4 8.95e-2,
+deg-6 4.09e-2.
+
+RESULTS (runs/sigmoid-hunt-*/report.json):
+- [1/1] (5 ops): exhaustive 2.07e-1 ~ deg-2 floor 2.06e-1 -> NULL (a
+  [1/1] is essentially affine here; honest no-win).
+- [2/2] (9 ops): exhaustive max abs 3.08e-2 -> 2.9x LOWER max abs error
+  than the proven deg-4 (8-op) floor, AND below the deg-6 (12-op) floor
+  4.09e-2. So a 9-op rational beats the proven floor of the 12-op
+  polynomial class. CERTIFIED (exhaustive, both paths). The tanh-null
+  routing ("saturating family needs rationals") CONFIRMED for sigmoid.
+- [3/3] (13 ops): the real-coefficient fit is pole-free (min|Q|=1.0 over
+  a dense scope, no sign change) and 15x below the deg-6 floor (2.65e-3
+  on the sample) — BUT its coefficients span ~15 orders of magnitude (a
+  denominator root at -6.1e14 => b3 ~ 1.6e-15 vs b1 ~ O(1)), which
+  float32 CANNOT hold; rounding the coefficients produces an exhaustive
+  max abs error of 8.0. EXHAUSTIVE VERIFICATION CAUGHT WHAT A SAMPLED
+  BENCHMARK WOULD HAVE REPORTED AS A CLEAN 15x WIN. This is the project's
+  ruthless-verification thesis in one data point.
+
+Predeclared PASS bar was "[2/2] AND [3/3] beat their floors" -> FALSE (I
+do NOT move the goalpost). But the meaningful result stands: [2/2] is a
+clean certified rational win confirming the routing, and [3/3] is a
+high-value verification catch. The fix for [3/3] is float32-AWARE
+coefficient fitting (fpminimax-style: search coefficients in float32 /
+control dynamic range), logged as next — naive real-fit + round is not
+enough for higher-order rationals.
+
+Status: WORKS ([2/2] certified; [3/3] honestly rejected by exhaustive).
+Next: fpminimax-style f32-aware rational fit (rescue [3/3], unlock higher
+orders); tanh/gelu/erf via the same FDIV machinery; SELECT/piecewise as
+the second saturating tool.
+Files: engine/core_lang.py + engine/runner.py (FDIV), engine/molds_float.py
+(OPS_DIV, npfunc/pretty/cost), engine/ratfit.py, domains/sigmoid.py,
+engine/registry.py, scripts/run_sigmoid_hunt.py,
+scripts/run_proof_phase.py (sanities), runs/sigmoid-hunt-*
 Files: domains/rsqrt.py (signed scope), domains/exp2.py,
 engine/registry.py, scripts/run_exp2_hunt.py,
 scripts/run_proof_phase.py (sanity), runs/exp2-hunt-*

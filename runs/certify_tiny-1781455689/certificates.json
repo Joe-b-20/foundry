@@ -1,0 +1,62 @@
+{
+  "seconds": 0.0,
+  "certificates": [
+    {
+      "n": 2,
+      "claim": "the optimal sorting-network size for n=2 is exactly 1",
+      "lower_bound": {
+        "method": "exhaustive enumeration over candidate space + monotone-extension lemma",
+        "length_checked": 0,
+        "sequences_enumerated": 0,
+        "input_check": "all 2^2 binary vectors (complete by the 0/1 principle)"
+      },
+      "upper_bound": {
+        "witness": "batcher-odd-even (self-verified)",
+        "size": 1
+      },
+      "level": "L1-exhaustive-candidate-space (our own machinery; an external re-checkable artifact would make it L2)",
+      "matches_published": {
+        "value": 1,
+        "source": "Floyd-Knuth (Knuth TAOCP v3 5.3.4)"
+      }
+    },
+    {
+      "n": 3,
+      "claim": "the optimal sorting-network size for n=3 is exactly 3",
+      "lower_bound": {
+        "method": "exhaustive enumeration over candidate space + monotone-extension lemma",
+        "length_checked": 2,
+        "sequences_enumerated": 9,
+        "input_check": "all 2^3 binary vectors (complete by the 0/1 principle)"
+      },
+      "upper_bound": {
+        "witness": "batcher-odd-even (self-verified)",
+        "size": 3
+      },
+      "level": "L1-exhaustive-candidate-space (our own machinery; an external re-checkable artifact would make it L2)",
+      "matches_published": {
+        "value": 3,
+        "source": "Floyd-Knuth (Knuth TAOCP v3 5.3.4)"
+      }
+    },
+    {
+      "n": 4,
+      "claim": "the optimal sorting-network size for n=4 is exactly 5",
+      "lower_bound": {
+        "method": "exhaustive enumeration over candidate space + monotone-extension lemma",
+        "length_checked": 4,
+        "sequences_enumerated": 1296,
+        "input_check": "all 2^4 binary vectors (complete by the 0/1 principle)"
+      },
+      "upper_bound": {
+        "witness": "batcher-odd-even (self-verified)",
+        "size": 5
+      },
+      "level": "L1-exhaustive-candidate-space (our own machinery; an external re-checkable artifact would make it L2)",
+      "matches_published": {
+        "value": 5,
+        "source": "Floyd-Knuth (Knuth TAOCP v3 5.3.4)"
+      }
+    }
+  ]
+}
