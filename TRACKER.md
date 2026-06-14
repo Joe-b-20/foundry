@@ -1031,6 +1031,47 @@ Status: WORKS (erf certified; gelu [3/3] certified, [2/2] honest no-win).
 Next: SELECT/piecewise (the 2nd saturating tool — may help gelu/erf at low
 op count); coupled optimizer (rsqrt arm-B / log2-L10); remaining list
 (exp via exp2, sin/cos, softplus, log via log2).
+
+## 2026-06-13 — sin: first PERIODIC function via ARGUMENT REDUCTION; ~1950x over the unreduced deg-7 poly (proven floor)
+
+A new domain TYPE — periodic/oscillating, not monotonic/saturating. No
+fixed low-degree polynomial tracks sin's ~5 oscillations over [-16,16];
+the technique is argument reduction. KEY: it needs NO new op — the round-
+to-integer step is the magic-add trick (t+1.5*2^23)-1.5*2^23 (exact round
+for |t|<2^22; here |x/2pi|<2.6), just FADD/FSUB. Program (13 ops): reduce
+xr = x - round(x/2pi)*2pi, then odd poly sin(xr) ~ xr*P(xr^2). Reduction
+constants (1/2pi, 1.5*2^23, 2pi) GIVEN (mathematical); P found FROM
+OUTCOME (Remez on g(u)=sin(sqrt u)/sqrt u, deg-3 in u = deg-7 odd in xr).
+
+Scope: signed |x| in [2^-6, 2^4) = [0.0156, 16), ~167M float32, max ABS,
+exhaustive. RESULT (runs/sin-hunt-*): range-reduced sin exhaustive max abs
+5.124e-4. Unreduced polynomial over [-16,16]: deg-7 PROVEN floor 1.0
+(a deg-7 poly cannot even sign-match 5 oscillations), deg-11 proven 0.909,
+deg-15 measured 0.626 (Remez did not equioscillate — too few degrees for
+the oscillations, labeled measured-not-proven). So argument reduction cuts
+max abs error from a PROVEN >=1.0 (unreduced deg-7) to 5.12e-4 (reduced
+deg-7) = ~1950x at EQUAL polynomial degree. PASS (predeclared: reduced
+<1e-3 AND >=100x over unreduced deg-7).
+
+Scope honesty: single-2pi reduction loses ~1e-6 (negligible vs the 5e-4
+poly error) for |x|<16; wider scopes need a Cody-Waite hi+lo 2pi split
+(logged). ABS metric (not comparable across functions). The win is
+reduction-vs-no-reduction at equal degree — the polynomial floor is for
+the UNREDUCED poly; the reduced poly is not claimed minimax over the full
+scope, only that the full 13-op program verifies at 5.12e-4 exhaustively.
+
+Also: engine/remez.py made robust — a low-degree fit to a many-oscillation
+target degenerates (alternation set falls below deg+2); now bound_high
+(the poly's actual max error) is always returned and bound_low=0 with
+alternation_points < deg+2 flagging "not a proven floor" (used to crash
+on None). cos next is sin(x+pi/2) — same machinery.
+
+Status: WORKS (sin certified; first periodic; remez hardened).
+Next: cos (sin+pi/2 shift, reuse); SELECT/piecewise; coupled optimizer;
+softplus/exp/log naturals.
+Files: domains/sin.py, engine/registry.py, engine/remez.py (robust
+degenerate handling), scripts/run_sin_hunt.py,
+scripts/run_proof_phase.py (sanity), runs/sin-hunt-*
 Files: domains/erf.py, domains/gelu.py, engine/molds_float.py (build_gelu
 + rational_skeleton out-slot + _rational_consts/_check_rational_size),
 engine/registry.py, scripts/run_rational_hunt.py (erf config),

@@ -151,6 +151,14 @@ verification is this domain's 0/1 principle):
     sharply-saturating functions).
   - (Each function's metric — absolute or relative — is its own; the
     factors are within-function and are not cross-compared.)
+- **periodic functions** (a different domain type — oscillating, where the
+  technique is *argument reduction*, not a rational):
+  - **sin** over [−16, 16] (~5 periods): a 13-op program — magic-add
+    argument reduction (`(t+1.5·2²³)−1.5·2²³`, no new op) plus a degree-7
+    odd polynomial found from outcome — verifies exhaustively at **5.1e-4**
+    max absolute error. The *same* degree-7 polynomial *without* reduction
+    has a proven floor of **1.0** (a degree-7 polynomial cannot track five
+    oscillations), so argument reduction wins **~1950×** at equal degree.
   - During development, exhaustive verification caught a build bug — a
     [3/3] program (13 ops) silently truncated by a too-small `max_len`
     became an identity function (output = input), a spurious "8.0" error.

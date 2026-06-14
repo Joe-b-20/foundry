@@ -1,0 +1,57 @@
+{
+  "run_id": "sin-hunt-1781461023",
+  "seconds": 9.2,
+  "reduced_sin_ops": 13,
+  "exhaustive_max_abs": 0.0005124012669415927,
+  "P_coeffs": [
+    0.9998369668951987,
+    -0.16612560294052964,
+    0.008051462474521345,
+    -0.00015050268943000717
+  ],
+  "vs_unreduced_deg7": {
+    "best_max_err": 0.9999998807020983,
+    "factor": 1951.5952539908253,
+    "status": "PROVEN floor"
+  },
+  "unreduced_baselines": {
+    "7": {
+      "ops": 14,
+      "best_max_err": 0.9999998807020983,
+      "floor_low": 0.9999998807020983,
+      "equioscillates": true,
+      "status": "PROVEN floor"
+    },
+    "11": {
+      "ops": 22,
+      "best_max_err": 0.9091820901154132,
+      "floor_low": 0.9091820901154132,
+      "equioscillates": true,
+      "status": "PROVEN floor"
+    },
+    "15": {
+      "ops": 30,
+      "best_max_err": 0.6259949645817421,
+      "floor_low": 0.0,
+      "equioscillates": false,
+      "status": "measured best (Remez did not equioscillate -> low degree vs many oscillations)"
+    }
+  },
+  "consts": [
+    "0x3e22f983",
+    "0x4b400000",
+    "0x40c90fdb",
+    "0x3f7ff551",
+    "0xbe2a1cd4",
+    "0x3c03ea48",
+    "0xb91dd042"
+  ],
+  "pretty": "[c0=0x3E22F983 c1=0x4B400000 c2=0x40C90FDB c3=0x3F7FF551 c4=0xBE2A1CD4 c5=0x3C03EA48 c6=0xB91DD042] t0=x*fc0; t0=t0+fc1; t0=t0-fc1; t0=t0*fc2; x=x-ft0; t1=x*fx; t2=c6*ft1; t2=t2+fc5; t2=t2*ft1; t2=t2+fc4; t2=t2*ft1; t2=t2+fc3; x=x*ft2",
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "max abs error 5.124013e-04 vs float64 reference over ALL 167,772,160 +/- float32 with |x| in [2^-6, 2^4)",
+    "evidence": "exhaustive vectorized sweep; 256 random inputs bit-exact against the core runner"
+  },
+  "PASS": true,
+  "note": "argument reduction (math constants given) + odd poly from outcome; exhaustive; ABS metric. The win is reduction vs NO-reduction at equal poly degree, scoped to |x|<16 with single-2pi reduction (~1e-6 reduction error)."
+}

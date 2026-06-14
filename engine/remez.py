@@ -65,6 +65,11 @@ def remez(f, a, b, deg, dps=40, iters=40, grid_n=4096, weight=None,
                         best = i
                     i += 1
                 ext.append(best)
+            # high (best polynomial's actual max error on the grid) is
+            # ALWAYS well-defined; compute it before any early-out so the
+            # return is never None (a low-degree fit to a many-oscillation
+            # target degenerates and len(ext) can fall below n).
+            high = max(abs(e) for e in errs)
             while len(ext) > n:
                 if len(ext) == n + 1:
                     ext.pop(0 if abs(errs[ext[0]]) < abs(errs[ext[-1]])
@@ -79,14 +84,15 @@ def remez(f, a, b, deg, dps=40, iters=40, grid_n=4096, weight=None,
                 else:
                     ext.pop(k)
             if len(ext) < n:
-                break                      # degenerate run; keep last state
+                low = mp.mpf(0)            # no equioscillation -> no floor
+                break                      # degenerate; bound_high still valid
             xs = [grid[e] for e in ext]
             low = min(abs(errs[e]) for e in ext)
-            high = max(abs(e) for e in errs)
             if high - low < mp.mpf("1e-10") * high:
                 break
         return {"coeffs": coeffs, "E_solved": float(E),
-                "bound_low": float(low), "bound_high": float(high),
+                "bound_low": float(low if low is not None else 0),
+                "bound_high": float(high),
                 "alternation_points": len(ext), "iterations": it + 1,
                 "dps": dps}
 
