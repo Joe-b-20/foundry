@@ -113,12 +113,16 @@ verification is this domain's 0/1 principle):
   exploit, so polynomials hold.
 - **the exponent family** (where the tanh null *predicted* bit tricks
   would win, and they do — all exhaustively certified):
-  - **log2**: 3-op integer-aliasing trick (Blinn 1997), constants from
-    outcome (slope found to be exactly 2⁻²³), **129× below** the proven
-    deg-1 polynomial floor.
-  - **exp2**: 3-op Schraudolph trick, slope = exactly 2²³ given, bias
-    correction **rediscovered from outcome** (0.0437·2²³, Schraudolph's
-    published class), **31× below** the proven 6-op polynomial floor.
+  - **log2**: 3-op integer-aliasing trick (Blinn 1997); the slope was
+    *searched from outcome* and found to be exactly 2⁻²³. **129× lower max
+    absolute error** than the proven degree-1 polynomial floor, under the
+    declared scope/metric.
+  - **exp2**: 3-op Schraudolph trick; the slope was *structurally fixed*
+    at 2²³ (given), and the bias correction was **found from outcome**
+    (0.0437·2²³ — Schraudolph's published class). **31× lower max relative
+    error** than the proven degree-3 polynomial floor, under the declared
+    scope/metric (the floor is the real-arithmetic minimax, so this is a
+    conservative lower bound on the gap).
   - **sqrt**: two certified pareto points, including one that composes the
     engine's own rsqrt result.
 - The routing rule — *bit tricks win where exponent-scaling structure

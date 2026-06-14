@@ -803,7 +803,7 @@ extended the pack base with a signed flag (mirrors the positive-magnitude
 octave scope with its sign-flipped twin via XOR 0x80000000; verification
 stays exhaustive over the doubled set; _signs() threaded through
 verify/dense/cross-check). Scope: all float32 with |x| in [2^-8, 8), both
-signs (41,943,040 x 2 = ~84M... actually 11 octaves x 2^23 x 2 = 184.5M),
+signs = EXACTLY 184,549,376 values (11 octaves x 2^23 x 2 signs),
 max RELATIVE error vs float64 numpy.exp2, exhaustive.
 
 Arm E3 (3 ops: FMUL c0, FADD c1, F2U): slope c0 = 2^23 GIVEN (forced by
@@ -812,16 +812,22 @@ coeffs); bias c1 found FROM OUTCOME (coarse-to-fine 1-D sweep + dense
 fine-scan over the F2U sawtooth + exhaustive confirmation).
 
 RESULT (runs/exp2-hunt-*/report.json): exhaustive max rel error
-2.9827e-2. The engine found slope = 0x4B000000 = EXACTLY 2^23 and bias
-0x4E7DE9A3 (= 1064986816.0), an implied correction of +366400 = 0.0437 x
-2^23 vs the zero-correction 127x2^23 — that IS Schraudolph's published
+2.9827e-2. The slope was structurally FIXED at 0x4B000000 = 2^23 (GIVEN,
+per the runspec slope_given field — NOT searched); the engine found the
+BIAS from outcome = 0x4E7DE9A3 (= 1064986816.0), an implied correction of
++366400 = 0.0437 x 2^23 vs the zero-correction 127x2^23 — that IS
+Schraudolph's published
 correction class (~0.043 x 2^23), REDISCOVERED from outcome (his exact
 constant not carried from memory; flagged matching-class). PROVEN
 polynomial floors (weighted Remez, relative) are catastrophic as the
 symmetry predicts — polynomials cannot track exp's relative error across
 5 orders of magnitude: deg-1 9.99e-1, deg-3 9.30e-1, deg-5 4.50e-1. So
-the 3-op trick beats the proven 6-op-poly floor by 31x and the 10-op-poly
-floor by 15x. PASS (predeclared: E < deg3_floor/2).
+the 3-op trick has 31x LOWER MAX RELATIVE ERROR than the degree-3
+polynomial floor (6-op Horner) and 15x lower than the degree-5 floor
+(10-op), under the declared scope/metric. NOT a general "31x better than
+polynomials" claim — it is against specific degrees/op-budgets on this
+exact signed scope and relative metric. PASS (predeclared: E <
+deg3_floor/2).
 
 Cost note: the hunt took 6 min (dense fine-scan window x signed scope is
 heavy); it is an on-demand experiment, NOT in the gauntlet (only its
@@ -834,7 +840,32 @@ own rsqrt artifact); tanh = honest null. The symmetry-based routing rule
 hold where it doesn't") is now empirical in BOTH directions with
 exhaustive certificates on four functions.
 
-Status: WORKS (PASS, predeclared). Next: FDIV+SELECT capability for the
+[CORRECTION 2026-06-13, Joe caught it — claim hygiene]:
+- SLOPE LANGUAGE: the exp2 entry above (and the pushed commit 504d3e0 msg,
+  README, memory) originally said "the engine FOUND slope = 2^23". WRONG —
+  the slope was structurally fixed/given (C0=fb(2^23) in the script, only
+  c1 swept). The script's runspec logged slope_given correctly; the prose
+  leaked a framing (exactly the parent-audit failure mode). Correct
+  statement: "slope structurally fixed at 2^23; the BIAS was found from
+  outcome." (Contrast: log2 DID search its slope and found 2^-23 — that
+  claim stands.) Fixed in tracker/README/memory + the script's recognizer
+  label.
+- "31x BEYOND-POLYNOMIAL": tighten to "31x lower max relative error than
+  the deg-3 polynomial floor under the declared scope/metric." Not "31x
+  better than polynomials."
+- SCOPE COUNT: exactly 184,549,376 (the "84M" was a confused leftover).
+- FLOOR-DOMAIN VALIDITY (verified): the deg-k floors are real-arithmetic
+  minimax over [-8,8] with RELATIVE weight; the trick is float32 over the
+  signed octave scope. Both differences (real vs float32 eval; [-8,8]
+  slightly wider than the octave scope) are CONSERVATIVE-for-the-polynomial
+  (a real-arith floor <= any float32 poly impl; a wider interval only
+  raises the floor), so 31x is a LOWER bound on the gap. Metric matches
+  (both relative). The re-run (faster multi-resolution scan, 48s vs 6min)
+  reproduced the result deterministically: bias 0x4E7DE9A3, E=2.9827e-2,
+  31x — clean artifact in the latest runs/exp2-hunt-*.
+
+Status: WORKS (PASS, predeclared; claim language corrected per above).
+Next: FDIV+SELECT capability for the
 saturating family (tanh/sigmoid/gelu/erf rationals + piecewise);
 coupled-genes optimizer (rsqrt arm-B + log2 L10 uncaptured headroom);
 gelu/sigmoid down Joe's list once FDIV lands.

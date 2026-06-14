@@ -88,15 +88,12 @@ def main():
             w //= 8
         if E_sample(c) < best_e:
             best_c1, best_e = c, E_sample(c)
-    # dense fine-scan (sawtooth from F2U truncation) then exhaustive winner
-    window = range(best_c1 - 4096, best_c1 + 4097)
-    best_c1 = min(window, key=lambda c: pack.dense_max_rel(
-        mold, cand_of(c), per_octave=1 << 16))
-    seeds_check = {}
-    for c1 in range(best_c1 - 24, best_c1 + 25):
-        seeds_check[c1] = pack.dense_max_rel(mold, cand_of(c1),
-                                             per_octave=1 << 17)
-    best_c1 = min(seeds_check, key=seeds_check.get)
+    # multi-resolution narrowing on the dense metric (cheap->fine) over the
+    # F2U sawtooth; no prior-knowledge constants used, exhaustive confirms.
+    for half, po in ((1024, 1 << 14), (128, 1 << 16), (16, 1 << 17)):
+        window = range(best_c1 - half, best_c1 + half + 1)
+        best_c1 = min(window, key=lambda c: pack.dense_max_rel(
+            mold, cand_of(c), per_octave=po))
 
     ok, det = pack.verify_trusted(mold, cand_of(best_c1))
     assert ok, det
@@ -116,13 +113,21 @@ def main():
            "certificate": det["certificate"]}
     rec.event("judge", "exp2_result", payload=row)
     rec.event("recognizer", "verdict", payload={
-        "label": ("BEYOND-POLYNOMIAL: 3-op trick beats the proven 6-op "
-                  "polynomial floor by %.0fx" % factor) if win else
-                 "no-win",
+        "label": ("%.0fx lower max relative error than the degree-3 "
+                  "polynomial floor, under the declared scope/metric "
+                  "(3-op trick vs the proven floor of the 6-op-Horner "
+                  "deg-3 class)" % factor) if win else "no-win",
+        "slope_status": "structurally fixed at 2^23 (given, not searched)",
         "bias_from_outcome": hex(best_c1),
-        "note": "structure = Schraudolph 1999 (cited); bias found from "
-                "outcome; if it matches Schraudolph's published correction "
-                "that is rediscovery (constants not carried from memory)"})
+        "scope_note": "trick measured in float32 over the signed octave "
+                      "scope; poly floor is the real-arithmetic minimax "
+                      "over [-8,8] with relative weight — both differences "
+                      "(real vs float32 eval, slightly wider interval) are "
+                      "conservative-FOR-the-polynomial, so the factor is a "
+                      "lower bound on the gap",
+        "note": "structure = Schraudolph 1999 (cited); the BIAS is from "
+                "outcome; matches his published correction class "
+                "(his exact constant not carried from memory)"})
 
     report = {"run_id": run_id, "seconds": round(time.time() - t0, 1),
               "result": row, "PASS": win}
