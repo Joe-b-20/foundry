@@ -940,6 +940,52 @@ fix; misdiagnosis corrected same-day).
 Next: ADD the max_len/output-unwritten guard to the mold (silent-truncation
 is a verification hole); tanh/gelu/erf via FDIV; SELECT/piecewise as the
 second saturating tool.
+
+## 2026-06-13 — mold hardening (silent-failure guards, placed correctly) + tanh rational certified + rational hunt generalized
+
+Joe flagged silent mold behavior as dangerous (the over-length guard was
+load-bearing). Systematic pass — and a SECOND lesson on WHERE guards go:
+
+FIRST ATTEMPT (wrong): made tidy() RAISE on over-length in all three
+program molds (float/bilinear/bits). Gauntlet caught it immediately —
+karatsuba, doctor-exam, grokking-probe all FAILED. Cause: EvolutionProposer
+CROSSOVER splices two parents and legitimately overshoots max_len; the
+silent cap in tidy() was load-bearing FOR SEARCH. So "silent truncation is
+always bad" was itself too-simple — truncation in the search-hot tidy is
+fine; the danger is only at the TRUST/BUILD boundary.
+
+CORRECT placement (gauntlet green, 29/29 sanities + 10 stages):
+- tidy() RESTORED to silent cap (search/crossover needs it), all 3 molds.
+- FloatProgMold.pour() (trust-only path) RAISES if no instruction writes
+  output slot 0 — catches the degenerate identity (incl. the EMPTY
+  program the sigmoid [3/3] truncation produced). pour is never on the
+  search hot path (search uses npfunc), so this is search-safe.
+- FloatProgMold.build_rational() RAISES if the hand-built skeleton exceeds
+  max_len or needs too many consts — catches the bug AT CONSTRUCTION.
+- Guards are now TESTED in molds_float __main__ (identity rejected, empty
+  rejected, over-length build rejected, tidy still caps).
+
+tanh RATIONAL (forward progress; reuses FDIV + ratfit). The rational hunt
+was generalized (engine: FloatProgMold.rational_skeleton + build_rational;
+script: scripts/run_rational_hunt.py [domain]; run_sigmoid_hunt.py deleted,
+consolidated). sigmoid REPRODUCED exactly ([2/2] 2.9x, [3/3] 15.4x — a
+regression check) and tanh ADDED:
+- tanh [2/2] (9 ops): exhaustive max REL 1.696e-2 = 2.2x lower than the
+  proven deg-4 (8-op) rel floor 3.807e-2.
+- tanh [3/3] (13 ops): exhaustive max REL 1.007e-3 = 7.9x lower than the
+  proven deg-6 (12-op) rel floor 7.963e-3.
+Both certified, PASS=True. So tanh: polynomials HELD vs bit-tricks (the
+earlier honest null) but rationals BEAT polynomials — the saturating-family
+routing now confirmed on a SECOND function (sigmoid + tanh), both branches
+of the tanh-null routing now empirical.
+
+Status: WORKS (mold hardening correct + tested; tanh rational certified;
+rational hunt generalized). Next: gelu/erf via the same machinery;
+SELECT/piecewise; coupled optimizer for rsqrt arm-B / log2-L10.
+Files: engine/molds_float.py (rational_skeleton/build_rational + guards +
+guard tests), engine/molds_bilinear.py + engine/molds_bits.py (tidy
+comments), scripts/run_rational_hunt.py (new, generic), run_sigmoid_hunt.py
+(deleted), runs/sigmoid-rational-*, runs/tanh-rational-*
 Files: engine/core_lang.py + engine/runner.py (FDIV), engine/molds_float.py
 (OPS_DIV, npfunc/pretty/cost), engine/ratfit.py, domains/sigmoid.py,
 engine/registry.py, scripts/run_sigmoid_hunt.py,

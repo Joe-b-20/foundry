@@ -56,6 +56,10 @@ class BitProgMold:
 
     # --- tidy-up: drop ops whose result is never used (cheap liveness) ----
     def tidy(self, cand):
+        # capping at max_len is load-bearing for search (crossover splices
+        # two parents and overshoots); the silent-truncation danger is
+        # guarded at the trust boundary in the pack's verify (cf. the
+        # sigmoid max_len bug, 2026-06-13).
         cand = tuple(cand[: self.max_len])
         live = {0}                  # output slot
         keep = [False] * len(cand)

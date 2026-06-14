@@ -133,9 +133,13 @@ verification is this domain's 0/1 principle):
     coefficients from outcome (linearized least-squares + Lawson IRLS),
     float32-rounded and verified exhaustively:
   - **sigmoid [2/2]** (9 ops): **2.9× lower max absolute error** than the
-    proven degree-4 polynomial floor — and below the 12-op floor too.
-  - **sigmoid [3/3]** (13 ops): **15.4× lower** than the proven degree-6
-    (12-op) floor.
+    proven degree-4 polynomial floor — and below the 12-op floor too;
+    **[3/3]** (13 ops): **15.4× lower** than the proven degree-6 floor.
+  - **tanh [2/2]** (9 ops): **2.2× lower max relative error** than the
+    proven degree-4 floor; **[3/3]** (13 ops): **7.9× lower** than the
+    degree-6 floor. (tanh's *polynomials* held against bit-tricks — an
+    earlier null — but its *rationals* beat polynomials: both branches of
+    the routing rule, confirmed on a second function.)
   - During development, exhaustive verification caught a build bug — a
     [3/3] program (13 ops) silently truncated by a too-small `max_len`
     became an identity function (output = input), a spurious "8.0" error.

@@ -52,6 +52,9 @@ class BilinearMold:
 
     # --- tidy-up: drop dead products, canonical signs, sorted order --------
     def tidy(self, cand):
+        # capping at max_rank is load-bearing for search (crossover splices
+        # two parents and overshoots); silent-truncation danger is guarded
+        # at the trust boundary in verify (cf. sigmoid max_len bug fix).
         out = []
         for (u, v, w) in cand[: self.max_rank]:
             if not any(u) or not any(v) or not any(w):

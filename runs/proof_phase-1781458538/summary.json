@@ -1,0 +1,211 @@
+{
+  "PASS": false,
+  "seconds": 62.36,
+  "stages": [
+    {
+      "stage": "sanities",
+      "ok": true,
+      "detail": "29/29 modules pass",
+      "seconds": 15.56,
+      "runs": []
+    },
+    {
+      "stage": "calibration-A",
+      "ok": true,
+      "seconds": 1.51,
+      "runs": [
+        {
+          "cmd": "scripts.run_calibration_a",
+          "rc": 0,
+          "seconds": 1.51,
+          "tail": [
+            "n=6: size 13 depth 6 verdict=UNRESOLVED run=sorting_networks-n6-hill-climb-s0-1781458554",
+            "n=7: size 16 depth 6 verdict=UNRESOLVED run=sorting_networks-n7-hill-climb-s0-1781458554",
+            "n=8: size 22 depth 9 verdict=UNRESOLVED run=sorting_networks-n8-hill-climb-s0-1781458554"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "certificates",
+      "ok": true,
+      "seconds": 0.03,
+      "runs": [
+        {
+          "cmd": "scripts.certify_tiny_optimality",
+          "rc": 0,
+          "seconds": 0.03,
+          "tail": [
+            "n=3: no size-2 sorter among 9 sequences; witness of size 3 exists -> optimal = 3 (matches Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+            "n=4: no size-4 sorter among 1296 sequences; witness of size 5 exists -> optimal = 5 (matches Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+            "certificates written to runs/certify_tiny-1781458555/certificates.json in 0.0s"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "islands-n6-n8",
+      "ok": true,
+      "seconds": 12.71,
+      "runs": [
+        {
+          "cmd": "scripts.run_islands_a",
+          "rc": 0,
+          "seconds": 12.71,
+          "tail": [
+            "n=6: proven optimal size 12 (Floyd-Knuth (Knuth TAOCP v3 5.3.4)) | outcome-only sizes [12, 12, 12] | seeded sizes [12, 12, 12]",
+            "n=8: proven optimal size 19 (Floyd-Knuth (Knuth TAOCP v3 5.3.4)) | outcome-only sizes [19, 21, 19] | seeded sizes [19, 19, 19]",
+            "summary -> runs/islands_summary-1781458555.json"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "pcf-replication",
+      "ok": true,
+      "seconds": 11.18,
+      "runs": [
+        {
+          "cmd": "scripts.run_pcf_replication 0",
+          "rc": 0,
+          "seconds": 3.64,
+          "tail": [
+            "  \"PASS\": true,",
+            "  \"seconds\": 3.59",
+            "}"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_replication 1",
+          "rc": 0,
+          "seconds": 3.87,
+          "tail": [
+            "  \"PASS\": true,",
+            "  \"seconds\": 3.82",
+            "}"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_replication 2",
+          "rc": 0,
+          "seconds": 3.67,
+          "tail": [
+            "  \"PASS\": true,",
+            "  \"seconds\": 3.62",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "pcf-sweep",
+      "ok": true,
+      "seconds": 6.61,
+      "runs": [
+        {
+          "cmd": "scripts.run_pcf_sweep 0",
+          "rc": 0,
+          "seconds": 2.32,
+          "tail": [
+            "}",
+            "verified: [1, 5, 9, 6] -> zeta3 | named: ['rm-8-7zeta3']",
+            "verified: [5, 27, 51, 34] -> zeta3 | named: ['apery-zeta3']"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_sweep 1",
+          "rc": 0,
+          "seconds": 2.21,
+          "tail": [
+            "}",
+            "verified: [1, 5, 9, 6] -> zeta3 | named: ['rm-8-7zeta3']",
+            "verified: [5, 27, 51, 34] -> zeta3 | named: ['apery-zeta3']"
+          ]
+        },
+        {
+          "cmd": "scripts.run_pcf_sweep 2",
+          "rc": 0,
+          "seconds": 2.08,
+          "tail": [
+            "}",
+            "verified: [1, 5, 9, 6] -> zeta3 | named: ['rm-8-7zeta3']",
+            "verified: [5, 27, 51, 34] -> zeta3 | named: ['apery-zeta3']"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "karatsuba",
+      "ok": false,
+      "seconds": 0.23,
+      "runs": [
+        {
+          "cmd": "scripts.run_karatsuba",
+          "rc": 1,
+          "seconds": 0.23,
+          "tail": []
+        }
+      ]
+    },
+    {
+      "stage": "doctor-exam",
+      "ok": false,
+      "seconds": 0.24,
+      "runs": [
+        {
+          "cmd": "scripts.run_doctor_exam",
+          "rc": 1,
+          "seconds": 0.24,
+          "tail": []
+        }
+      ]
+    },
+    {
+      "stage": "grokking-probe",
+      "ok": false,
+      "seconds": 0.14,
+      "runs": [
+        {
+          "cmd": "scripts.run_grokking_probe",
+          "rc": 1,
+          "seconds": 0.14,
+          "tail": []
+        }
+      ]
+    },
+    {
+      "stage": "tanh-calibration",
+      "ok": true,
+      "seconds": 11.59,
+      "runs": [
+        {
+          "cmd": "scripts.run_tanh_calibration",
+          "rc": 0,
+          "seconds": 11.59,
+          "tail": [
+            "deg5 s2: E=9.9582e-03 shelf=9.9555e-03 floor=9.9495e-03 PASS ",
+            "",
+            "tanh calibration PASS: True (11.5s)"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "audit",
+      "ok": true,
+      "seconds": 2.57,
+      "runs": [
+        {
+          "cmd": "scripts.run_audit_checks",
+          "rc": 0,
+          "seconds": 2.57,
+          "tail": [
+            "[OK] A6 todo-census: 0 TODO/FIXME markers: none",
+            "",
+            "audit: 6 checks, 0 FAIL/ERROR -> runs/audit-1781458597/findings.json"
+          ]
+        }
+      ]
+    }
+  ]
+}

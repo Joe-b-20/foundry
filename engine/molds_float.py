@@ -16,9 +16,15 @@ runner rounds exactly like numpy):
     npfunc() -> vectorized numpy callable for search + exhaustive sweeps
 """
 
+import struct
+
 import numpy as np
 
 from engine.core_lang import Instr, Program
+
+
+def _fb(v):
+    return struct.unpack("<I", struct.pack("<f", float(v)))[0]
 
 OPS_F = ("FADD", "FSUB", "FMUL")
 OPS_I = ("ADD32", "SUB32", "SHR32", "SHL32", "XOR32", "AND32", "OR32")
@@ -115,16 +121,14 @@ class FloatProgMold:
 
     # --- tidy: drop instructions whose result is never used ----------------
     def tidy(self, cand):
-        # Search-generated candidates are always <= max_len (random/mutate
-        # cap there), so a longer program means a HAND-BUILT skeleton that
-        # exceeds max_len. Silently truncating it dropped the final output-
-        # writing instruction once (sigmoid [3/3], max_len=12 < 13 ops ->
-        # identity program -> spurious 8.0). Raise loudly instead.
-        if len(cand[0]) > self.max_len:
-            raise ValueError(
-                f"program has {len(cand[0])} ops > max_len {self.max_len}: "
-                "would silently truncate (build bug) — raise the mold max_len")
-        instrs, consts = cand[0], cand[1]
+        # NOTE: capping at max_len is LOAD-BEARING for search — crossover
+        # splices two parents and legitimately overshoots, then this cap
+        # bounds it. The silent-truncation DANGER (which hid the sigmoid
+        # [3/3] bug) is guarded at the TRUST/BUILD boundaries instead:
+        # pour() rejects identity programs, build_rational() rejects
+        # over-length hand-built skeletons. (2026-06-13: an over-length
+        # RAISE here wrongly killed crossover-based search.)
+        instrs, consts = cand[0][: self.max_len], cand[1]
         live = {0}
         keep = [False] * len(instrs)
         for i in range(len(instrs) - 1, -1, -1):
@@ -144,9 +148,62 @@ class FloatProgMold:
         return {"ops": len(instrs), "fops": fam["f"], "iops": fam["i"],
                 "dl": len(instrs) + self.N_CONST}
 
+    # --- rational builders (P/Q via FDIV) — shared by rational hunts -------
+    def rational_skeleton(self, p, q):
+        """Horner(P) / Horner(Q), Q normalized so b0 = 1 (a const gene),
+        then FDIV. consts order: [a0..ap, b1..bq, one]; total p+q+2 genes.
+        2p+2q+1 ops — the caller's mold max_len must hold it (FloatProgMold
+        now RAISES rather than silently truncating, after the sigmoid [3/3]
+        max_len bug)."""
+        T = 1 + self.N_CONST
+        Pacc, Qacc = T, T + 1
+
+        def a_slot(j):
+            return 1 + j
+
+        def b_slot(k):
+            return 1 + (p + 1) + (k - 1)
+        one_slot = 1 + (p + 1) + q
+        ins = [("FMUL", Pacc, a_slot(p), 0), ("FADD", Pacc, Pacc, a_slot(p - 1))]
+        for j in range(p - 2, -1, -1):
+            ins += [("FMUL", Pacc, Pacc, 0), ("FADD", Pacc, Pacc, a_slot(j))]
+        ins.append(("FMUL", Qacc, b_slot(q), 0))
+        ins.append(("FADD", Qacc, Qacc, b_slot(q - 1) if q >= 2 else one_slot))
+        for k in range(q - 2, -1, -1):
+            ins += [("FMUL", Qacc, Qacc, 0),
+                    ("FADD", Qacc, Qacc, b_slot(k) if k >= 1 else one_slot)]
+        ins.append(("FDIV", 0, Pacc, Qacc))
+        return tuple(ins)
+
+    def build_rational(self, p, q, a, b):
+        skel = self.rational_skeleton(p, q)
+        # construction-boundary guard: a hand-built skeleton longer than
+        # max_len would be silently capped by tidy (this is the class of
+        # bug that broke sigmoid [3/3]). Catch it where it is built.
+        if len(skel) > self.max_len:
+            raise ValueError(
+                f"[{p}/{q}] rational is {len(skel)} ops > mold max_len "
+                f"{self.max_len}: raise the mold max_len")
+        if p + q + 1 > self.N_CONST:
+            raise ValueError(f"[{p}/{q}] needs {p+q+1} consts > N_CONST "
+                             f"{self.N_CONST}")
+        consts = (tuple(_fb(x) for x in a) + tuple(_fb(x) for x in b)
+                  + (_fb(1.0),))
+        consts += tuple(_fb(0.0) for _ in range(self.N_CONST - len(consts)))
+        return self.tidy((skel, consts))
+
     # --- pour: core Program (trust path) ------------------------------------
     def pour(self, cand) -> Program:
         instrs, consts = cand
+        # silent-failure guard (trust boundary): a program that never writes
+        # output slot 0 — including the EMPTY program — is a degenerate
+        # identity (output = input x). pour() is trust-only (search uses
+        # npfunc), so this never touches the search hot path; it catches a
+        # build bug before an identity gets certified. (The sigmoid [3/3]
+        # truncation tidied to exactly this — an empty program.)
+        if not any(dst == 0 for (_op, dst, _a, _b) in instrs):
+            raise ValueError("program never writes output slot 0 "
+                             "(degenerate identity) — build bug")
         ins = [Instr("CONST", dst=1 + i, imm=int(c))
                for i, c in enumerate(consts)]
         ins += [Instr(op, dst=dst, a=a, b=b, tags=("approxop",))
@@ -277,5 +334,27 @@ if __name__ == "__main__":
     for _ in range(400):
         c = m.mutate(c, rng)
         assert len(c[0]) <= 9 and len(c[1]) == 4
-    print("float mold ok: quake program bit-exact across both paths; "
-          f"cost={m.native_cost(m.tidy(QUAKE))}")
+    # silent-failure guards (load-bearing — see the sigmoid [3/3] bug):
+    # (1) pour rejects a degenerate identity (no write to output slot 0)
+    try:
+        m.pour(((("FADD", 5, 1, 1),), (0, 0, 0, 0)))     # writes slot 5 only
+        raise AssertionError("pour must reject identity programs")
+    except ValueError:
+        pass
+    try:
+        m.pour(((), (0, 0, 0, 0)))                        # empty = identity
+        raise AssertionError("pour must reject empty programs")
+    except ValueError:
+        pass
+    # (2) build_rational rejects an over-length hand-built skeleton
+    m9 = FloatProgMold(n_const=8, max_len=12)             # [3/3]=13 > 12
+    try:
+        m9.build_rational(3, 3, [0] * 4, [0] * 3)
+        raise AssertionError("build_rational must reject over-length")
+    except ValueError:
+        pass
+    # but tidy still SILENTLY CAPS (load-bearing for crossover overshoot)
+    long_prog = tuple(("FADD", 0, 0, 0) for _ in range(50))
+    assert len(m.tidy((long_prog, (0, 0, 0, 0)))[0]) <= m.max_len
+    print("float mold ok: quake bit-exact; identity/over-length guards fire; "
+          f"tidy still caps; cost={m.native_cost(m.tidy(QUAKE))}")

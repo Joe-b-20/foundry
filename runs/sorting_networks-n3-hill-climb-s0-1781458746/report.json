@@ -1,0 +1,84 @@
+{
+  "run_id": "sorting_networks-n3-hill-climb-s0-1781458746",
+  "spec": {
+    "domain": "sorting_networks",
+    "domain_params": {
+      "n": 3
+    },
+    "proposer": "hill-climb",
+    "proposer_params": {
+      "patience": 60
+    },
+    "budget_candidates": 6000,
+    "batch": 32,
+    "init_length": 3,
+    "seed": 0,
+    "settle_batches": 150,
+    "cost_rules": "primary: comparators (size); secondary: depth",
+    "log_every_candidate": true,
+    "schema": "runspec-v0"
+  },
+  "candidates_used": 4832,
+  "seconds": 0.1,
+  "stop_reason": "correct candidate held through 150 batches without improvement",
+  "found_correct": true,
+  "best": {
+    "pretty": "(0,2) | (1,2) | (0,1)",
+    "cand": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "score": [
+      1,
+      8,
+      -3,
+      -3
+    ],
+    "cost": {
+      "comparators": 3,
+      "depth": 3
+    }
+  },
+  "verified_canonical": true,
+  "verify_details": {
+    "checked": 33,
+    "core_cost": {
+      "steps": 12,
+      "by_family": {
+        "cmp": 6,
+        "mov": 6
+      },
+      "native": {
+        "comparator": 3
+      }
+    }
+  },
+  "certificate": {
+    "level": "L1-exhaustive-in-bounds",
+    "claim": "sorts every length-3 input",
+    "evidence": "all 8 binary vectors pass via the core runner; 0/1 principle extends this to all inputs (see pack docstring); plus 25 random integer vectors"
+  },
+  "recognition": {
+    "label": "UNRESOLVED",
+    "cost": {
+      "comparators": 3,
+      "depth": 3
+    },
+    "notes": [
+      "same size+depth as ['bubble', 'batcher-odd-even'] but different wiring",
+      "size matches the proven optimal (Floyd-Knuth (Knuth TAOCP v3 5.3.4))",
+      "depth 3 vs optimal 3 (Knuth TAOCP v3 5.3.4)",
+      "not in shelf; NEW would need a full literature check"
+    ]
+  }
+}
